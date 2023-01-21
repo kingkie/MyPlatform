@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "任务-SysProductPartsService",
+      "appliesTo": "Yu3zx.Moonlit/service/SysProductPartsService.cs",
+      "type": "launch"
+    }
+  ]
+}

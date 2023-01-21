@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A055FC80-88EF-4369-BA17-59F02594274C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Yu3zx.PackingMonitor</RootNamespace>
+    <AssemblyName>Yu3zx.PackingMonitor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Product\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>monitor_2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\Product\Debug\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>..\Product\Debug\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\Product\Debug\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\Product\Debug\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>..\Product\Debug\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\Product\Debug\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="CSkin">
+      <HintPath>..\Product\Debug\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing">
+      <HintPath>..\Product\Debug\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation">
+      <HintPath>..\Product\Debug\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cameraFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cameraFrm.Designer.cs">
+      <DependentUpon>cameraFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrls\AviCamera.cs" />
+    <Compile Include="Ctrls\AviCapture.cs" />
+    <Compile Include="Ctrls\CamerasManager.cs" />
+    <Compile Include="Ctrls\frmViedoConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ctrls\frmViedoConfig.Designer.cs">
+      <DependentUpon>frmViedoConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrls\QrHelper.cs" />
+    <Compile Include="Ctrls\VideoCamera.cs" />
+    <Compile Include="ImageHelper.cs" />
+    <Compile Include="mainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainFrm.Designer.cs">
+      <DependentUpon>mainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainManager.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\MonitorRecord.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="cameraFrm.resx">
+      <DependentUpon>cameraFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctrls\frmViedoConfig.resx">
+      <DependentUpon>frmViedoConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainFrm.resx">
+      <DependentUpon>mainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Yu3zx.DapperExtend\Yu3zx.DapperExtend.csproj">
+      <Project>{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}</Project>
+      <Name>Yu3zx.DapperExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Enroll\Yu3zx.Enroll.csproj">
+      <Project>{a269c5f2-0c0b-41be-a1fc-73269673ce71}</Project>
+      <Name>Yu3zx.Enroll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Json\Yu3zx.Json.csproj">
+      <Project>{398FA901-48FE-4F6A-B4DB-E34D3F790079}</Project>
+      <Name>Yu3zx.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Logs\Yu3zx.Logs.csproj">
+      <Project>{fc1849b5-044d-472f-8a5f-3e77309188a2}</Project>
+      <Name>Yu3zx.Logs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="monitor_2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

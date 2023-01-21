@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E1C1F49-F3D3-426C-9E8C-80DA3933EEAD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yu3zx.Moonlit</RootNamespace>
+    <AssemblyName>Moonlit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Product\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Product\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>earth.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BSE.Windows.Forms, Version=4.1.1122.1, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\BSE.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="CSkin, Version=10.23.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.9.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\Microsoft.DirectX.DirectSound.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TeeChart, Version=3.2.2763.26084, Culture=neutral, PublicKeyToken=fb99b8474f0573ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\TeeChart.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addProduct.designer.cs">
+      <DependentUpon>addProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bean\Base64Encode.cs" />
+    <Compile Include="bean\BaseService.cs" />
+    <Compile Include="bean\BeanUtil.cs" />
+    <Compile Include="bean\LoadLicense.cs" />
+    <Compile Include="bean\ModelsUtil.cs" />
+    <Compile Include="bean\PageBean.cs" />
+    <Compile Include="bean\UserUtil.cs" />
+    <Compile Include="Models\DevModel.cs" />
+    <Compile Include="Models\LicenseModel.cs" />
+    <Compile Include="Models\SysBaseInfo.cs" />
+    <Compile Include="Models\SysPersonInfo.cs" />
+    <Compile Include="Models\SysPlcInfo.cs" />
+    <Compile Include="Models\SysProductInfo.cs" />
+    <Compile Include="Models\SysProductParts.cs" />
+    <Compile Include="Models\YyCollectInfo.cs" />
+    <Compile Include="Models\YyCollectInfoBak.cs" />
+    <Compile Include="Models\YyOpSwitch.cs" />
+    <Compile Include="Models\YyQrcodeInfo.cs" />
+    <Compile Include="QrCtrl\PagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QrCtrl\PagerControl.designer.cs">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QrCtrl\QrImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QrCtrl\QrImage.designer.cs">
+      <DependentUpon>QrImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QrCtrl\UCDevStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QrCtrl\UCDevStatus.Designer.cs">
+      <DependentUpon>UCDevStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QrCtrl\UcPages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QrCtrl\UcPages.Designer.cs">
+      <DependentUpon>UcPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QrCtrl\UCPicture.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QrCtrl\UCPicture.Designer.cs">
+      <DependentUpon>UCPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QrCtrl\UC_QrCode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QrCtrl\UC_QrCode.Designer.cs">
+      <DependentUpon>UC_QrCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="service\SysBaseInfoService.cs" />
+    <Compile Include="service\SysPlcInfoService.cs" />
+    <Compile Include="service\SysProductInfoService.cs" />
+    <Compile Include="service\SysProductPartsService.cs" />
+    <Compile Include="service\YyCollectInfoBakService.cs" />
+    <Compile Include="service\YyCollectInfoService.cs" />
+    <Compile Include="service\YyOpSwitchService.cs" />
+    <Compile Include="service\YyQrcodeInfoService.cs" />
+    <Compile Include="UC\frmDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\frmDevice.Designer.cs">
+      <DependentUpon>frmDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\frmQrCodePrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\frmQrCodePrint.Designer.cs">
+      <DependentUpon>frmQrCodePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DevValueBind.cs" />
+    <Compile Include="Models\ValueNode.cs" />
+    <Compile Include="UC\SplasherManager.cs" />
+    <Compile Include="UC\frmDealAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\frmDealAlarm.Designer.cs">
+      <DependentUpon>frmDealAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserLogin.Designer.cs">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dBScope.cs" />
+    <Compile Include="mainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainFrm.Designer.cs">
+      <DependentUpon>mainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainManager.cs" />
+    <Compile Include="Models\Alarm.cs" />
+    <Compile Include="Models\AlarmManager.cs" />
+    <Compile Include="Models\MapMarker.cs" />
+    <Compile Include="Models\SiteInfo.cs" />
+    <Compile Include="Models\SpectrumInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC\frmAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\frmAlarm.Designer.cs">
+      <DependentUpon>frmAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\SysPlcInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\SysPlcInfoForm.Designer.cs">
+      <DependentUpon>SysPlcInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\YyCollectInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\YyCollectInfoForm.Designer.cs">
+      <DependentUpon>YyCollectInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\YyQrcodeInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\YyQrcodeInfoForm.Designer.cs">
+      <DependentUpon>YyQrcodeInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValueNodesManager.cs" />
+    <EmbeddedResource Include="addProduct.resx">
+      <DependentUpon>addProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QrCtrl\PagerControl.resx">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QrCtrl\QrImage.resx">
+      <DependentUpon>QrImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QrCtrl\UCDevStatus.resx">
+      <DependentUpon>UCDevStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QrCtrl\UcPages.resx">
+      <DependentUpon>UcPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QrCtrl\UC_QrCode.resx">
+      <DependentUpon>UC_QrCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\frmDevice.resx">
+      <DependentUpon>frmDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\frmQrCodePrint.resx">
+      <DependentUpon>frmQrCodePrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\frmDealAlarm.resx">
+      <DependentUpon>frmDealAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserLogin.resx">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainFrm.resx">
+      <DependentUpon>mainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UC\frmAlarm.resx">
+      <DependentUpon>frmAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\SysPlcInfoForm.resx">
+      <DependentUpon>SysPlcInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\YyCollectInfoForm.resx">
+      <DependentUpon>YyCollectInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\YyQrcodeInfoForm.resx">
+      <DependentUpon>YyQrcodeInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Yu3zx.Acquisition\Yu3zx.Acquisition.csproj">
+      <Project>{26ac65a5-eab4-4bf7-b245-6230a2fda471}</Project>
+      <Name>Yu3zx.Acquisition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Audio\Yu3zx.Audio.csproj">
+      <Project>{F0718674-228F-402A-BA59-3181066E5623}</Project>
+      <Name>Yu3zx.Audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.DataBases\Yu3zx.DataBases.csproj">
+      <Project>{AA3ABFFD-4839-49D9-80FE-45925C08EDCE}</Project>
+      <Name>Yu3zx.DataBases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Json\Yu3zx.Json.csproj">
+      <Project>{398FA901-48FE-4F6A-B4DB-E34D3F790079}</Project>
+      <Name>Yu3zx.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Logs\Yu3zx.Logs.csproj">
+      <Project>{FC1849B5-044D-472F-8A5F-3E77309188A2}</Project>
+      <Name>Yu3zx.Logs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Util\Yu3zx.Util.csproj">
+      <Project>{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}</Project>
+      <Name>Yu3zx.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="earth.ico" />
+    <Content Include="skins\img\aboutus.png" />
+    <Content Include="skins\img\datasearch.png" />
+    <Content Include="skins\img\deviceconfig.png" />
+    <Content Include="skins\img\frame0.jpg" />
+    <Content Include="skins\img\frame1.jpg" />
+    <Content Include="skins\img\ico_PluginCleaner.png" />
+    <Content Include="skins\img\map.png" />
+    <Content Include="skins\img\product.png" />
+    <Content Include="skins\img\sysconfig.png" />
+    <Content Include="skins\img\sysconnection.png" />
+    <Content Include="skins\img\sysconnection1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

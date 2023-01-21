@@ -1,0 +1,1 @@
+{"Devices":[{"DeviceId":"dev1","DeviceName":"工位一号机","Addr":1,"SiteOrder":1,"IPAddr":"192.168.10.110","IpPort":502,"CoilsAddr":3122,"RegsAddr":912},{"DeviceId":"dev2","DeviceName":"工位二号机","Addr":1,"SiteOrder":2,"IPAddr":"192.168.10.111","IpPort":502,"CoilsAddr":3122,"RegsAddr":912}]}

@@ -1,0 +1,31 @@
+{
+  "$type": "SKII.Devices.DeviceManager, SKII.Devices",
+  "DevicesList": {
+    "$type": "System.Collections.Generic.List`1[[SKII.Devices.Device, SKII.Devices]], mscorlib",
+    "$values": [
+      {
+        "$type": "SKII.Devices.Equips.OderModule, SKII.Devices",
+        "DevId": "dev210602001",
+        "DevName": "气味模块",
+        "DevDesc": "党建专用",
+        "PortID": "CP15511104387837",
+        "GroupID": "",
+        "DevType": 8,
+        "Protocol": {
+          "$type": "SKII.Protocols.RealizeProtocols.SmellKingdomProtocol, SKII.Protocols",
+          "InstructionCode": 0,
+          "DevType": 0,
+          "DevAddr": 0,
+          "TargetDevType": 0,
+          "TargetDevAddr": 0,
+          "ProtocolId": "P22173811",
+          "ProtocolName": "气味王国归一化协议",
+          "HaveLocalAddr": false,
+          "LocalAddr": 0,
+          "HaveRemoteAddr": false,
+          "RemoteAddr": 0
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<TaskActionItems name="定时库">
+		<TaskActionItem actname="前任3" actime="17:00" adtype="1" param="101.png"/>
+	</TaskActionItems>
+	<PortConfig CommName="COM2" CommRate="19200"/>
+	<AutoStartBoot value="true"/>
+	<UsedDevice Id="dev210602001" Name="气味模块"/>
+	<DefaultMedia value="E:\360Downloads\222.mp4"/>
+	<GroupNum value="112"/>
+</Configuration>

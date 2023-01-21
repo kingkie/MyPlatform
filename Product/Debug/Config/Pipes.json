@@ -1,0 +1,1 @@
+{"Pipes":[{"DevicesId":["s7200lplc_251716769"],"BusConnector":{"$type":"Yu3zx.Devices.Buses.WinCommBus, Yu3zx.Devices","BusId":"comm01251716770","BusName":"Windows串口总线","FriendlyName":"Windows串口(RS232)","WinPortName":"COM1","WinBaudRate":9600,"WinDataBits":8,"WinStopBits":1,"WinParity":2},"PipeId":"pipe01251716771","PipeName":"通道"}]}

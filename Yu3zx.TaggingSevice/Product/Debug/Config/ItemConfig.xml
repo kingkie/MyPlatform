@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<TaskActionItems name="定时库">
+		<TaskActionItem actname="前任3" actime="17:00" adtype="1" param="101.png"/>
+	</TaskActionItems>
+	<PortConfig CommName="COM2" CommRate="19200"/>
+	<AutoStartBoot value="1"/>
+	<UsedDevice Id="dev210602001" Name="气味模块"/>
+	<Server ip="127.0.0.1" port="8266" auto="1"/>
+	<LineNum value="1" fullnum="6"/>
+</Configuration>
