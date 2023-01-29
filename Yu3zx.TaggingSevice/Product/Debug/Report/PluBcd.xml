@@ -1,0 +1,1623 @@
+<?xml version="1.0" standalone="yes"?>
+<DataSet2 xmlns="http://www.tempuri.org/DataSet2.xsd">
+  <xs:schema id="DataSet2" targetNamespace="http://www.tempuri.org/DataSet2.xsd" xmlns:mstns="http://www.tempuri.org/DataSet2.xsd" xmlns="http://www.tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+    <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:Locale="zh-CN">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="BASPLUMAIN">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PLUID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+                <xs:element name="DPTNAME" type="xs:string" />
+                <xs:element name="PLUNO" type="xs:string" />
+                <xs:element name="SLPRC" type="xs:decimal" />
+                <xs:element name="BCD" type="xs:string" />
+                <xs:element name="PLUNAME" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <BASPLUMAIN>
+    <PLUID>17431</PLUID>
+    <DPTNAME>面纸                </DPTNAME>
+    <PLUNO>808680</PLUNO>
+    <SLPRC>4.60</SLPRC>
+    <BCD>6922233615070</BCD>
+    <PLUNAME>五月花手帕纸                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17432</PLUID>
+    <DPTNAME>机能性糖果          </DPTNAME>
+    <PLUNO>811994</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6924155170538</BCD>
+    <PLUNAME>凉可润舒润口味                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17635</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002514</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>6911474722258</BCD>
+    <PLUNAME>皇品原汁牛肉面                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17636</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002521</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>6911474722265</BCD>
+    <PLUNAME>105g皇品排骨鸡面                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17637</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002576</PLUNO>
+    <SLPRC>2.90</SLPRC>
+    <BCD>6911474722272</BCD>
+    <PLUNAME>皇品牛肉碗面                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17638</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002798</PLUNO>
+    <SLPRC>0.90</SLPRC>
+    <BCD>6910505301752</BCD>
+    <PLUNAME>72g好劲道麻辣鸡蛋面                     </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17639</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002804</PLUNO>
+    <SLPRC>0.90</SLPRC>
+    <BCD>6910505301738</BCD>
+    <PLUNAME>72g好劲道五香牛肉鸡蛋面                 </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17640</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002811</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6910505012016</BCD>
+    <PLUNAME>统一干脆面(烤肉)                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17641</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002828</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6910505300809</BCD>
+    <PLUNAME>统一干脆面(鸡翅)(清2000.12.15)          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17642</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002835</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6910505012023</BCD>
+    <PLUNAME>统一干脆面(牛肉)                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17643</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002873</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6910505011323</BCD>
+    <PLUNAME>85G统一炸酱袋面                         </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17644</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002903</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6920152430149</BCD>
+    <PLUNAME>康师付小虎队干脆面(鸡汁味)              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17645</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002910</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6920152431146</BCD>
+    <PLUNAME>康师付小虎队干脆面(海鲜味)              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17646</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002958</PLUNO>
+    <SLPRC>1.70</SLPRC>
+    <BCD>6917536011018</BCD>
+    <PLUNAME>100G出前一丁浓派红烧牛肉袋面            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17647</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>002965</PLUNO>
+    <SLPRC>1.70</SLPRC>
+    <BCD>6917536011025</BCD>
+    <PLUNAME>100G出前一丁浓派浓汁排骨鸡面            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17648</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003016</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6907056688814</BCD>
+    <PLUNAME>100G美厨红焖牛肉碗面                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17649</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003023</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6907056688067</BCD>
+    <PLUNAME>100G美厨香葱鸡肉碗面                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17650</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003030</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6907056689026</BCD>
+    <PLUNAME>100G美厨上汤排骨碗面                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17651</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003054</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6910505011873</BCD>
+    <PLUNAME>100G统一香菇珍肉(停9.22)                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17652</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003061</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6910505011859</BCD>
+    <PLUNAME>100G统一咖喱牛肉面                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17653</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003078</PLUNO>
+    <SLPRC>4.50</SLPRC>
+    <BCD>6910505011941</BCD>
+    <PLUNAME>100G统一黑胡椒牛肉桶面                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17654</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003115</PLUNO>
+    <SLPRC>4.50</SLPRC>
+    <BCD>6920152413012</BCD>
+    <PLUNAME>142G料珍多精炖牛肉碗面(清2000.10.5      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17655</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003122</PLUNO>
+    <SLPRC>4.50</SLPRC>
+    <BCD>6920152413029</BCD>
+    <PLUNAME>144G料珍多葱香炖肉碗面(清2000.10.5      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17656</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003139</PLUNO>
+    <SLPRC>4.50</SLPRC>
+    <BCD>6903252710465</BCD>
+    <PLUNAME>112G料珍多蔬菜海鲜碗面(清2000.10.5      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17657</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003221</PLUNO>
+    <SLPRC>3.20</SLPRC>
+    <BCD>6910505017318</BCD>
+    <PLUNAME>126G统一来一桶(当归)                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17658</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003245</PLUNO>
+    <SLPRC>3.60</SLPRC>
+    <BCD>6917536003051</BCD>
+    <PLUNAME>UFO黑胡椒牛肉炒面                       </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17659</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003276</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6907056686834</BCD>
+    <PLUNAME>100g美厨黑胡椒牛肉碗面                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17660</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003382</PLUNO>
+    <SLPRC>1.90</SLPRC>
+    <BCD>6920152407059</BCD>
+    <PLUNAME>面霸120美式牛排面                       </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17661</PLUID>
+    <DPTNAME>卷面                </DPTNAME>
+    <PLUNO>003443</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6911483333032</BCD>
+    <PLUNAME>玉如意寿面                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17662</PLUID>
+    <DPTNAME>米、面粉            </DPTNAME>
+    <PLUNO>003566</PLUNO>
+    <SLPRC>4.80</SLPRC>
+    <BCD>6920036110006</BCD>
+    <PLUNAME>454g玉米方便粥                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17663</PLUID>
+    <DPTNAME>米、面粉            </DPTNAME>
+    <PLUNO>003597</PLUNO>
+    <SLPRC>7.80</SLPRC>
+    <BCD>6920036114202</BCD>
+    <PLUNAME>454g绿豆方便粥                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17664</PLUID>
+    <DPTNAME>米、面粉            </DPTNAME>
+    <PLUNO>003634</PLUNO>
+    <SLPRC>6.20</SLPRC>
+    <BCD>6920036115209</BCD>
+    <PLUNAME>454g什锦方便粥                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17665</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003641</PLUNO>
+    <SLPRC>4.50</SLPRC>
+    <BCD>6910505011842</BCD>
+    <PLUNAME>100g统一葱爆牛肉桶面                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17666</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003658</PLUNO>
+    <SLPRC>4.50</SLPRC>
+    <BCD>6910505011934</BCD>
+    <PLUNAME>90g统一鲜虾鱼板桶面                     </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17667</PLUID>
+    <DPTNAME>方便面              </DPTNAME>
+    <PLUNO>003665</PLUNO>
+    <SLPRC>9.00</SLPRC>
+    <BCD>6910505012252</BCD>
+    <PLUNAME>193g统一满汉大餐                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17668</PLUID>
+    <DPTNAME>卷面                </DPTNAME>
+    <PLUNO>003818</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6911483333049</BCD>
+    <PLUNAME>玉如意细面                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17669</PLUID>
+    <DPTNAME>熟菜                </DPTNAME>
+    <PLUNO>003849</PLUNO>
+    <SLPRC>26.80</SLPRC>
+    <BCD>6903461100019</BCD>
+    <PLUNAME>650g枫泾丁蹄                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17670</PLUID>
+    <DPTNAME>熟菜                </DPTNAME>
+    <PLUNO>003863</PLUNO>
+    <SLPRC>12.00</SLPRC>
+    <BCD>6908986058258</BCD>
+    <PLUNAME>250g符离集五香驴肉                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17671</PLUID>
+    <DPTNAME>罐头                </DPTNAME>
+    <PLUNO>003993</PLUNO>
+    <SLPRC>8.20</SLPRC>
+    <BCD>2000000003993</BCD>
+    <PLUNAME>170g老蔡醉鱼香豉                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17672</PLUID>
+    <DPTNAME>调理品              </DPTNAME>
+    <PLUNO>004020</PLUNO>
+    <SLPRC>9.80</SLPRC>
+    <BCD>6900715040114</BCD>
+    <PLUNAME>素火腿                                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17673</PLUID>
+    <DPTNAME>调理品              </DPTNAME>
+    <PLUNO>004037</PLUNO>
+    <SLPRC>9.80</SLPRC>
+    <BCD>6900715050021</BCD>
+    <PLUNAME>真空八宝鸭                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17674</PLUID>
+    <DPTNAME>罐头                </DPTNAME>
+    <PLUNO>004143</PLUNO>
+    <SLPRC>5.50</SLPRC>
+    <BCD>6902131200189</BCD>
+    <PLUNAME>227g梅林美达真的珍味肉酱                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17675</PLUID>
+    <DPTNAME>罐头                </DPTNAME>
+    <PLUNO>004174</PLUNO>
+    <SLPRC>5.90</SLPRC>
+    <BCD>6902131200288</BCD>
+    <PLUNAME>300g梅林美达金针烤夫                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17677</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839530</PLUNO>
+    <SLPRC>2.50</SLPRC>
+    <BCD>6911318650518</BCD>
+    <PLUNAME>小牛角                                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17678</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839547</PLUNO>
+    <SLPRC>1.80</SLPRC>
+    <BCD>6911318650419</BCD>
+    <PLUNAME>小兔面包                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17679</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839554</PLUNO>
+    <SLPRC>1.80</SLPRC>
+    <BCD>6911318650426</BCD>
+    <PLUNAME>翠芙蓉                                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17680</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839561</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6911318650433</BCD>
+    <PLUNAME>半月豆沙                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17681</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839578</PLUNO>
+    <SLPRC>2.30</SLPRC>
+    <BCD>6911318650457</BCD>
+    <PLUNAME>苹果面包                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17682</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839585</PLUNO>
+    <SLPRC>2.70</SLPRC>
+    <BCD>6911318650464</BCD>
+    <PLUNAME>热狗面包                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17683</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839592</PLUNO>
+    <SLPRC>2.70</SLPRC>
+    <BCD>6911318650471</BCD>
+    <PLUNAME>火腿肉松                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17684</PLUID>
+    <DPTNAME>一般面包            </DPTNAME>
+    <PLUNO>839608</PLUNO>
+    <SLPRC>2.80</SLPRC>
+    <BCD>6911318650495</BCD>
+    <PLUNAME>蓝莓面包                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17685</PLUID>
+    <DPTNAME>袋装零食            </DPTNAME>
+    <PLUNO>839004</PLUNO>
+    <SLPRC>4.60</SLPRC>
+    <BCD>6912973611111</BCD>
+    <PLUNAME>蛋奶铁板烧                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17686</PLUID>
+    <DPTNAME>袋装零食            </DPTNAME>
+    <PLUNO>839011</PLUNO>
+    <SLPRC>4.50</SLPRC>
+    <BCD>6912973131251</BCD>
+    <PLUNAME>日式樱花米果                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17687</PLUID>
+    <DPTNAME>杂志、期刊          </DPTNAME>
+    <PLUNO>839677</PLUNO>
+    <SLPRC>20.00</SLPRC>
+    <BCD>9771003508039</BCD>
+    <PLUNAME>中国企业家                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17688</PLUID>
+    <DPTNAME>国产啤酒            </DPTNAME>
+    <PLUNO>585024</PLUNO>
+    <SLPRC>6.20</SLPRC>
+    <BCD>6921975021354</BCD>
+    <PLUNAME>麒麟640ml一番榨啤酒                     </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17689</PLUID>
+    <DPTNAME>国产啤酒            </DPTNAME>
+    <PLUNO>585548</PLUNO>
+    <SLPRC>4.80</SLPRC>
+    <BCD>6921975021330</BCD>
+    <PLUNAME>麒麟355ml一番榨啤酒                     </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17690</PLUID>
+    <DPTNAME>果汁                </DPTNAME>
+    <PLUNO>839622</PLUNO>
+    <SLPRC>2.70</SLPRC>
+    <BCD>6925303721107</BCD>
+    <PLUNAME>350ml统一鲜橙多                         </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17691</PLUID>
+    <DPTNAME>果汁                </DPTNAME>
+    <PLUNO>839639</PLUNO>
+    <SLPRC>2.70</SLPRC>
+    <BCD>6925303721114</BCD>
+    <PLUNAME>350ml统一葡萄多                         </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17692</PLUID>
+    <DPTNAME>果汁                </DPTNAME>
+    <PLUNO>839646</PLUNO>
+    <SLPRC>3.30</SLPRC>
+    <BCD>6925303721060</BCD>
+    <PLUNAME>500ml统一葡萄多                         </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17693</PLUID>
+    <DPTNAME>茶饮料              </DPTNAME>
+    <PLUNO>839653</PLUNO>
+    <SLPRC>7.50</SLPRC>
+    <BCD>6925303721497</BCD>
+    <PLUNAME>1.5L统一绿茶                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17694</PLUID>
+    <DPTNAME>碳酸饮料            </DPTNAME>
+    <PLUNO>839615</PLUNO>
+    <SLPRC>2.40</SLPRC>
+    <BCD>6920181535464</BCD>
+    <PLUNAME>600ml延中酸梅汁                         </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17695</PLUID>
+    <DPTNAME>咖啡、可可          </DPTNAME>
+    <PLUNO>839493</PLUNO>
+    <SLPRC>3.70</SLPRC>
+    <BCD>6920459944004</BCD>
+    <PLUNAME>康师傅醇香牛奶                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17696</PLUID>
+    <DPTNAME>咖啡、可可          </DPTNAME>
+    <PLUNO>839509</PLUNO>
+    <SLPRC>3.70</SLPRC>
+    <BCD>6920459944103</BCD>
+    <PLUNAME>康师傅咖啡牛奶                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17697</PLUID>
+    <DPTNAME>矿泉、纯水          </DPTNAME>
+    <PLUNO>839660</PLUNO>
+    <SLPRC>1.10</SLPRC>
+    <BCD>6901939642818</BCD>
+    <PLUNAME>550ml水森活                             </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17698</PLUID>
+    <DPTNAME>医疗、药品          </DPTNAME>
+    <PLUNO>839301</PLUNO>
+    <SLPRC>12.00</SLPRC>
+    <BCD>6923146198070</BCD>
+    <PLUNAME>杜蕾斯螺纹套                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17699</PLUID>
+    <DPTNAME>咖啡、可可          </DPTNAME>
+    <PLUNO>839684</PLUNO>
+    <SLPRC>3.00</SLPRC>
+    <BCD>6925303722869</BCD>
+    <PLUNAME>统一雅哈咖啡                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17700</PLUID>
+    <DPTNAME>咖啡、可可          </DPTNAME>
+    <PLUNO>839691</PLUNO>
+    <SLPRC>3.00</SLPRC>
+    <BCD>6925303722678</BCD>
+    <PLUNAME>统一雅哈奶茶                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17701</PLUID>
+    <DPTNAME>茶饮料              </DPTNAME>
+    <PLUNO>839707</PLUNO>
+    <SLPRC>2.80</SLPRC>
+    <BCD>6925303721596</BCD>
+    <PLUNAME>统一绿茶（茶里王）                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17702</PLUID>
+    <DPTNAME>袋装零食            </DPTNAME>
+    <PLUNO>839714</PLUNO>
+    <SLPRC>3.00</SLPRC>
+    <BCD>6921739561676</BCD>
+    <PLUNAME>土豆锅巴                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17703</PLUID>
+    <DPTNAME>口香糖              </DPTNAME>
+    <PLUNO>839721</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6911316100312</BCD>
+    <PLUNAME>比巴卜哈密瓜口味泡泡糖                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17704</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>839738</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6923644251802</BCD>
+    <PLUNAME>纯脆                                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17705</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>839745</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6923644241599</BCD>
+    <PLUNAME>酷美人—鲜奶红豆                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17706</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>839752</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6923644251697</BCD>
+    <PLUNAME>随变香草巧克力                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17707</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>839769</PLUNO>
+    <SLPRC>3.00</SLPRC>
+    <BCD>6923644241612</BCD>
+    <PLUNAME>蒙牛黑巧克力                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17708</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>839776</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6923644241483</BCD>
+    <PLUNAME>蒙牛鲜奶简砖                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17709</PLUID>
+    <DPTNAME>冲饮品              </DPTNAME>
+    <PLUNO>802138</PLUNO>
+    <SLPRC>14.50</SLPRC>
+    <BCD>6919607093121</BCD>
+    <PLUNAME>雀巢柠檬茶维生素C装                     </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17710</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>839783</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6928088936889</BCD>
+    <PLUNAME>中草药高级保健驱蚊檀香                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17711</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837642</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6907992812779</BCD>
+    <PLUNAME>伊利巧乐兹香奶棒                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17712</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837659</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6904231011962</BCD>
+    <PLUNAME>伊利巧帝思                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17713</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837710</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6904231011948</BCD>
+    <PLUNAME>伊利炫多滋                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17714</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837727</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6907992812069</BCD>
+    <PLUNAME>伊利冷酷摩卡                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17715</PLUID>
+    <DPTNAME>酸奶制品            </DPTNAME>
+    <PLUNO>837680</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6901209325823</BCD>
+    <PLUNAME>光明四连杯甜橙酸奶                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17716</PLUID>
+    <DPTNAME>鲜奶制品            </DPTNAME>
+    <PLUNO>837697</PLUNO>
+    <SLPRC>1.90</SLPRC>
+    <BCD>6901209302718</BCD>
+    <PLUNAME>250ml光明特浓利乐枕                     </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17717</PLUID>
+    <DPTNAME>鲜奶制品            </DPTNAME>
+    <PLUNO>837703</PLUNO>
+    <SLPRC>3.20</SLPRC>
+    <BCD>6901209302701</BCD>
+    <PLUNAME>500ml光明利乐枕                         </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17718</PLUID>
+    <DPTNAME>烘烤加工零食        </DPTNAME>
+    <PLUNO>837499</PLUNO>
+    <SLPRC>9.80</SLPRC>
+    <BCD>6918466103071</BCD>
+    <PLUNAME>乐事无限干烧海鲜味薯片                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17719</PLUID>
+    <DPTNAME>烘烤加工零食        </DPTNAME>
+    <PLUNO>837512</PLUNO>
+    <SLPRC>9.80</SLPRC>
+    <BCD>6918466103088</BCD>
+    <PLUNAME>乐事无限香熏烤肉味薯片                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17720</PLUID>
+    <DPTNAME>国产烟              </DPTNAME>
+    <PLUNO>837864</PLUNO>
+    <SLPRC>26.00</SLPRC>
+    <BCD>6901028050975</BCD>
+    <PLUNAME>福牌香烟(精品)                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17721</PLUID>
+    <DPTNAME>巧克力              </DPTNAME>
+    <PLUNO>242804</PLUNO>
+    <SLPRC>5.80</SLPRC>
+    <BCD>034000121205 </BCD>
+    <PLUNAME>好时37g脆心白巧克力                     </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17722</PLUID>
+    <DPTNAME>巧克力              </DPTNAME>
+    <PLUNO>178158</PLUNO>
+    <SLPRC>18.20</SLPRC>
+    <BCD>034000338009 </BCD>
+    <PLUNAME>140G好时趣滋特浓巧克力                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17723</PLUID>
+    <DPTNAME>巧克力              </DPTNAME>
+    <PLUNO>178165</PLUNO>
+    <SLPRC>18.20</SLPRC>
+    <BCD>034000338108 </BCD>
+    <PLUNAME>140G好时趣滋杏仁巧克力                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17724</PLUID>
+    <DPTNAME>巧克力              </DPTNAME>
+    <PLUNO>178172</PLUNO>
+    <SLPRC>17.50</SLPRC>
+    <BCD>034000338207 </BCD>
+    <PLUNAME>140G好时趣滋太妃巧克力                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17725</PLUID>
+    <DPTNAME>巧克力              </DPTNAME>
+    <PLUNO>194721</PLUNO>
+    <SLPRC>10.50</SLPRC>
+    <BCD>034000100842 </BCD>
+    <PLUNAME>74G好时特浓纯奶巧克力                   </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17726</PLUID>
+    <DPTNAME>巧克力              </DPTNAME>
+    <PLUNO>194738</PLUNO>
+    <SLPRC>10.50</SLPRC>
+    <BCD>034000100583 </BCD>
+    <PLUNAME>74G好时特浓纯奶杏仁巧克力               </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17727</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837741</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6909493610236</BCD>
+    <PLUNAME>梦龙精巧装(香草\草莓酱)                 </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17728</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837758</PLUNO>
+    <SLPRC>6.00</SLPRC>
+    <BCD>6909493610304</BCD>
+    <PLUNAME>梦龙杯（香草\杏仁\牛奶巧克力）          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17729</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837765</PLUNO>
+    <SLPRC>4.00</SLPRC>
+    <BCD>6909493620143</BCD>
+    <PLUNAME>可爱多超级蛋筒（提拉米苏\巧克力）       </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17730</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837772</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6909493615200</BCD>
+    <PLUNAME>百乐宝奇彩果冻（香草\橙\桃子）          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17731</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837789</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6909493616207</BCD>
+    <PLUNAME>百乐宝火箭奇冰（柠檬\橘子）             </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17732</PLUID>
+    <DPTNAME>清洁用品            </DPTNAME>
+    <PLUNO>837802</PLUNO>
+    <SLPRC>3.00</SLPRC>
+    <BCD>6922190600133</BCD>
+    <PLUNAME>奥妙全效洗衣粉                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17733</PLUID>
+    <DPTNAME>冲饮品              </DPTNAME>
+    <PLUNO>837796</PLUNO>
+    <SLPRC>17.00</SLPRC>
+    <BCD>6921144304080</BCD>
+    <PLUNAME>荷兰乳牛全脂甜奶粉                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17734</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837932</PLUNO>
+    <SLPRC>1.00</SLPRC>
+    <BCD>6909493617402</BCD>
+    <PLUNAME>绿豆水冰                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17735</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837949</PLUNO>
+    <SLPRC>6.00</SLPRC>
+    <BCD>6909493730637</BCD>
+    <PLUNAME>和路雪香草杯                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17736</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837956</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6909493615354</BCD>
+    <PLUNAME>百乐宝香草杏酱                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17737</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837963</PLUNO>
+    <SLPRC>2.50</SLPRC>
+    <BCD>6918551806290</BCD>
+    <PLUNAME>X闪电脆                                 </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17738</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837970</PLUNO>
+    <SLPRC>4.00</SLPRC>
+    <BCD>6918551805255</BCD>
+    <PLUNAME>雀巢美禄杯                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17739</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837994</PLUNO>
+    <SLPRC>3.00</SLPRC>
+    <BCD>6918551806108</BCD>
+    <PLUNAME>雀巢8次方                               </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17740</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>837987</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6918551806269</BCD>
+    <PLUNAME>雀巢忍者                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17741</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>838007</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6918551805972</BCD>
+    <PLUNAME>雀巢糯米糍                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17742</PLUID>
+    <DPTNAME>米食                </DPTNAME>
+    <PLUNO>837819</PLUNO>
+    <SLPRC>5.50</SLPRC>
+    <BCD>2000000837819</BCD>
+    <PLUNAME>好德便当（走油肉）                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17743</PLUID>
+    <DPTNAME>米食                </DPTNAME>
+    <PLUNO>837826</PLUNO>
+    <SLPRC>5.50</SLPRC>
+    <BCD>2000000837826</BCD>
+    <PLUNAME>好德便当（酱汁小肉圆）                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17744</PLUID>
+    <DPTNAME>米食                </DPTNAME>
+    <PLUNO>837833</PLUNO>
+    <SLPRC>4.00</SLPRC>
+    <BCD>2000000837833</BCD>
+    <PLUNAME>好德便当（蜜汁小黄鱼）                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17745</PLUID>
+    <DPTNAME>米食                </DPTNAME>
+    <PLUNO>837840</PLUNO>
+    <SLPRC>4.00</SLPRC>
+    <BCD>2000000837840</BCD>
+    <PLUNAME>好德便当（肉糜蒸蛋）                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17746</PLUID>
+    <DPTNAME>软硬糖              </DPTNAME>
+    <PLUNO>234687</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6915288385005</BCD>
+    <PLUNAME>60G怡口莲                               </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17747</PLUID>
+    <DPTNAME>酸奶制品            </DPTNAME>
+    <PLUNO>837734</PLUNO>
+    <SLPRC>2.20</SLPRC>
+    <BCD>6902538004083</BCD>
+    <PLUNAME>乐百氏健康快车富维乳酸奶饮品            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17748</PLUID>
+    <DPTNAME>家用卫生纸          </DPTNAME>
+    <PLUNO>837420</PLUNO>
+    <SLPRC>4.00</SLPRC>
+    <BCD>6918717121403</BCD>
+    <PLUNAME>洁云超柔3层卷筒纸                       </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17749</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>804651</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6924850900225</BCD>
+    <PLUNAME>东樱芳香防蛀片                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17750</PLUID>
+    <DPTNAME>冲饮品              </DPTNAME>
+    <PLUNO>026152</PLUNO>
+    <SLPRC>21.00</SLPRC>
+    <BCD>8888215880127</BCD>
+    <PLUNAME>维他麦原味麦片                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17751</PLUID>
+    <DPTNAME>茶叶                </DPTNAME>
+    <PLUNO>837895</PLUNO>
+    <SLPRC>6.80</SLPRC>
+    <BCD>6920635122165</BCD>
+    <PLUNAME>天绿杭白菊                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17752</PLUID>
+    <DPTNAME>茶叶                </DPTNAME>
+    <PLUNO>837901</PLUNO>
+    <SLPRC>6.80</SLPRC>
+    <BCD>6920635122158</BCD>
+    <PLUNAME>天绿黄山贡菊                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17753</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>838014</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6921665705458</BCD>
+    <PLUNAME>思念纯奶味冰淇淋                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17754</PLUID>
+    <DPTNAME>个人号冰品          </DPTNAME>
+    <PLUNO>838021</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6921665705489</BCD>
+    <PLUNAME>思念咖啡味冰淇淋                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17755</PLUID>
+    <DPTNAME>甜点箱食品          </DPTNAME>
+    <PLUNO>838038</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>2000000838038</BCD>
+    <PLUNAME>哈雷蛋糕                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17756</PLUID>
+    <DPTNAME>甜点箱食品          </DPTNAME>
+    <PLUNO>838045</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>2000000838045</BCD>
+    <PLUNAME>哈斗                                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17757</PLUID>
+    <DPTNAME>甜点箱食品          </DPTNAME>
+    <PLUNO>838052</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>2000000838052</BCD>
+    <PLUNAME>拿破仑                                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17758</PLUID>
+    <DPTNAME>甜点箱食品          </DPTNAME>
+    <PLUNO>838069</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>2000000838069</BCD>
+    <PLUNAME>鸡味酥                                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17759</PLUID>
+    <DPTNAME>家用卫生纸          </DPTNAME>
+    <PLUNO>837437</PLUNO>
+    <SLPRC>5.20</SLPRC>
+    <BCD>6918717123100</BCD>
+    <PLUNAME>洁云无芯卷纸（10卷装）                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17760</PLUID>
+    <DPTNAME>茶饮料              </DPTNAME>
+    <PLUNO>837277</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6920458826370</BCD>
+    <PLUNAME>魔力氨基酸(营养素饮料）                 </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17761</PLUID>
+    <DPTNAME>果汁                </DPTNAME>
+    <PLUNO>837284</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6920458821382</BCD>
+    <PLUNAME>麒麟葡萄汁                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17762</PLUID>
+    <DPTNAME>茶饮料              </DPTNAME>
+    <PLUNO>837475</PLUNO>
+    <SLPRC>3.10</SLPRC>
+    <BCD>6921581598103</BCD>
+    <PLUNAME>三得利无糖清茶                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17763</PLUID>
+    <DPTNAME>茶饮料              </DPTNAME>
+    <PLUNO>837482</PLUNO>
+    <SLPRC>3.10</SLPRC>
+    <BCD>6921581598110</BCD>
+    <PLUNAME>三得利低糖清茶                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17764</PLUID>
+    <DPTNAME>茶饮料              </DPTNAME>
+    <PLUNO>337500</PLUNO>
+    <SLPRC>2.20</SLPRC>
+    <BCD>6920459920084</BCD>
+    <PLUNAME>350ml康师傅冰红茶                       </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17765</PLUID>
+    <DPTNAME>甜点箱食品          </DPTNAME>
+    <PLUNO>838113</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>2000000838113</BCD>
+    <PLUNAME>豆沙千层酥                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17766</PLUID>
+    <DPTNAME>罐头                </DPTNAME>
+    <PLUNO>833606</PLUNO>
+    <SLPRC>6.20</SLPRC>
+    <BCD>6902445032216</BCD>
+    <PLUNAME>扬州糟方                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17767</PLUID>
+    <DPTNAME>卫生巾              </DPTNAME>
+    <PLUNO>810256</PLUNO>
+    <SLPRC>4.90</SLPRC>
+    <BCD>6923462650054</BCD>
+    <PLUNAME>护翼干爽网面弹性定位护翼独立包装        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17768</PLUID>
+    <DPTNAME>卫生巾              </DPTNAME>
+    <PLUNO>826257</PLUNO>
+    <SLPRC>2.20</SLPRC>
+    <BCD>6923462670199</BCD>
+    <PLUNAME>超薄29cm5片装干爽卫生巾                 </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17769</PLUID>
+    <DPTNAME>卫生巾              </DPTNAME>
+    <PLUNO>810232</PLUNO>
+    <SLPRC>3.60</SLPRC>
+    <BCD>6923462620057</BCD>
+    <PLUNAME>护翼干爽网超薄型独立包装                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17770</PLUID>
+    <DPTNAME>护垫                </DPTNAME>
+    <PLUNO>810249</PLUNO>
+    <SLPRC>2.70</SLPRC>
+    <BCD>6923462633941</BCD>
+    <PLUNAME>三片式干爽抗菌网面保健卫生护垫独立包装  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17771</PLUID>
+    <DPTNAME>夹心饼干            </DPTNAME>
+    <PLUNO>837628</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6913605001751</BCD>
+    <PLUNAME>统一欧式西点（蔓越莓）                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17772</PLUID>
+    <DPTNAME>夹心饼干            </DPTNAME>
+    <PLUNO>837635</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6913605001782</BCD>
+    <PLUNAME>统一欧式西点（胚芽巧克力豆）            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17773</PLUID>
+    <DPTNAME>国产酒              </DPTNAME>
+    <PLUNO>837390</PLUNO>
+    <SLPRC>10.00</SLPRC>
+    <BCD>6902212011413</BCD>
+    <PLUNAME>西凤老窖                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17774</PLUID>
+    <DPTNAME>冷藏加工肉品        </DPTNAME>
+    <PLUNO>838120</PLUNO>
+    <SLPRC>1.50</SLPRC>
+    <BCD>6902890022541</BCD>
+    <PLUNAME>双汇非清真鸡肉肠                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17775</PLUID>
+    <DPTNAME>冷藏加工肉品        </DPTNAME>
+    <PLUNO>838137</PLUNO>
+    <SLPRC>8.50</SLPRC>
+    <BCD>6902890031635</BCD>
+    <PLUNAME>水晶肴肉                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17776</PLUID>
+    <DPTNAME>冷藏加工肉品        </DPTNAME>
+    <PLUNO>838144</PLUNO>
+    <SLPRC>5.60</SLPRC>
+    <BCD>6902890120018</BCD>
+    <PLUNAME>盐水方腿                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17777</PLUID>
+    <DPTNAME>冷藏加工肉品        </DPTNAME>
+    <PLUNO>838151</PLUNO>
+    <SLPRC>5.40</SLPRC>
+    <BCD>6902890111191</BCD>
+    <PLUNAME>薰烤圆火腿                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17778</PLUID>
+    <DPTNAME>冷藏加工肉品        </DPTNAME>
+    <PLUNO>838168</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>6902890012405</BCD>
+    <PLUNAME>单支鱼肉肠                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17779</PLUID>
+    <DPTNAME>一般饼干            </DPTNAME>
+    <PLUNO>838236</PLUNO>
+    <SLPRC>1.80</SLPRC>
+    <BCD>6922428601635</BCD>
+    <PLUNAME>妃子笑薄饼                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17780</PLUID>
+    <DPTNAME>一般饼干            </DPTNAME>
+    <PLUNO>838243</PLUNO>
+    <SLPRC>1.80</SLPRC>
+    <BCD>6922428601628</BCD>
+    <PLUNAME>东坡才子鸡片薄饼                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17781</PLUID>
+    <DPTNAME>营养品              </DPTNAME>
+    <PLUNO>838366</PLUNO>
+    <SLPRC>85.00</SLPRC>
+    <BCD>6906881101352</BCD>
+    <PLUNAME>白兰氏传统鸡精礼盒                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17782</PLUID>
+    <DPTNAME>丝袜                </DPTNAME>
+    <PLUNO>838427</PLUNO>
+    <SLPRC>4.80</SLPRC>
+    <BCD>6921230216051</BCD>
+    <PLUNAME>卡尼交织袜                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17783</PLUID>
+    <DPTNAME>冲饮品              </DPTNAME>
+    <PLUNO>311432</PLUNO>
+    <SLPRC>59.80</SLPRC>
+    <BCD>6917878002972</BCD>
+    <PLUNAME>200g雀巢咖啡                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17784</PLUID>
+    <DPTNAME>冲饮品              </DPTNAME>
+    <PLUNO>311463</PLUNO>
+    <SLPRC>27.00</SLPRC>
+    <BCD>6917878002996</BCD>
+    <PLUNAME>400g雀巢咖啡伴侣                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17785</PLUID>
+    <DPTNAME>桃类                </DPTNAME>
+    <PLUNO>838083</PLUNO>
+    <SLPRC>7.20</SLPRC>
+    <BCD>6921034686999</BCD>
+    <PLUNAME>盐津桃肉                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17786</PLUID>
+    <DPTNAME>梅类                </DPTNAME>
+    <PLUNO>838090</PLUNO>
+    <SLPRC>9.40</SLPRC>
+    <BCD>6921034687194</BCD>
+    <PLUNAME>珍珠梅                                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17787</PLUID>
+    <DPTNAME>山楂                </DPTNAME>
+    <PLUNO>838106</PLUNO>
+    <SLPRC>6.80</SLPRC>
+    <BCD>6921034687217</BCD>
+    <PLUNAME>冰糖杨梅                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17788</PLUID>
+    <DPTNAME>配菜                </DPTNAME>
+    <PLUNO>838281</PLUNO>
+    <SLPRC>5.10</SLPRC>
+    <BCD>6926675300174</BCD>
+    <PLUNAME>千里香鸡腿                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17789</PLUID>
+    <DPTNAME>配菜                </DPTNAME>
+    <PLUNO>838298</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6926675300167</BCD>
+    <PLUNAME>千里香鸡翅                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17790</PLUID>
+    <DPTNAME>袋装零食            </DPTNAME>
+    <PLUNO>838250</PLUNO>
+    <SLPRC>2.20</SLPRC>
+    <BCD>6920658261537</BCD>
+    <PLUNAME>旺旺蒟蒻果冻(葡萄)                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17791</PLUID>
+    <DPTNAME>袋装零食            </DPTNAME>
+    <PLUNO>838267</PLUNO>
+    <SLPRC>2.20</SLPRC>
+    <BCD>6920658261612</BCD>
+    <PLUNAME>旺旺蒟蒻果冻(苹果)                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17792</PLUID>
+    <DPTNAME>袋装零食            </DPTNAME>
+    <PLUNO>838274</PLUNO>
+    <SLPRC>2.20</SLPRC>
+    <BCD>6920658261629</BCD>
+    <PLUNAME>旺旺蒟蒻果冻(草莓)                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17793</PLUID>
+    <DPTNAME>一般饼干            </DPTNAME>
+    <PLUNO>838199</PLUNO>
+    <SLPRC>4.20</SLPRC>
+    <BCD>6930300500310</BCD>
+    <PLUNAME>金叶千层酥                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17794</PLUID>
+    <DPTNAME>一般饼干            </DPTNAME>
+    <PLUNO>838205</PLUNO>
+    <SLPRC>4.20</SLPRC>
+    <BCD>6930300500334</BCD>
+    <PLUNAME>粒粒罗杰千层酥                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17795</PLUID>
+    <DPTNAME>一般饼干            </DPTNAME>
+    <PLUNO>838212</PLUNO>
+    <SLPRC>4.20</SLPRC>
+    <BCD>6930300500303</BCD>
+    <PLUNAME>雪贝儿千层酥                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17796</PLUID>
+    <DPTNAME>一般饼干            </DPTNAME>
+    <PLUNO>838229</PLUNO>
+    <SLPRC>4.20</SLPRC>
+    <BCD>6930300500327</BCD>
+    <PLUNAME>法国提子千层酥                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17797</PLUID>
+    <DPTNAME>梅类                </DPTNAME>
+    <PLUNO>838175</PLUNO>
+    <SLPRC>5.70</SLPRC>
+    <BCD>6920374996218</BCD>
+    <PLUNAME>畅茂派话梅                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17798</PLUID>
+    <DPTNAME>梅类                </DPTNAME>
+    <PLUNO>838182</PLUNO>
+    <SLPRC>2.50</SLPRC>
+    <BCD>6920374996195</BCD>
+    <PLUNAME>畅茂派梅肉                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17799</PLUID>
+    <DPTNAME>调理品              </DPTNAME>
+    <PLUNO>187945</PLUNO>
+    <SLPRC>34.50</SLPRC>
+    <BCD>6902347314625</BCD>
+    <PLUNAME>5L海狮精制油                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17800</PLUID>
+    <DPTNAME>调理品              </DPTNAME>
+    <PLUNO>480039</PLUNO>
+    <SLPRC>59.00</SLPRC>
+    <BCD>6916168616554</BCD>
+    <PLUNAME>5L鲁花特香纯正花生油                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17801</PLUID>
+    <DPTNAME>口香糖              </DPTNAME>
+    <PLUNO>838342</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>69022739     </BCD>
+    <PLUNAME>乐天果心夹心口香糖(草莓味)              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17802</PLUID>
+    <DPTNAME>口香糖              </DPTNAME>
+    <PLUNO>838359</PLUNO>
+    <SLPRC>1.60</SLPRC>
+    <BCD>69022722     </BCD>
+    <PLUNAME>乐天果心夹心口香糖(青苹果味)            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17803</PLUID>
+    <DPTNAME>软硬糖              </DPTNAME>
+    <PLUNO>838304</PLUNO>
+    <SLPRC>16.00</SLPRC>
+    <BCD>4000607523205</BCD>
+    <PLUNAME>美可馨富力水果糖（柠檬味）              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17804</PLUID>
+    <DPTNAME>软硬糖              </DPTNAME>
+    <PLUNO>838311</PLUNO>
+    <SLPRC>16.00</SLPRC>
+    <BCD>4000607529702</BCD>
+    <PLUNAME>美可馨富力水果糖(草莓味)                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17805</PLUID>
+    <DPTNAME>软硬糖              </DPTNAME>
+    <PLUNO>838328</PLUNO>
+    <SLPRC>16.00</SLPRC>
+    <BCD>4000607533204</BCD>
+    <PLUNAME>美可馨富力水果糖(樱桃味)                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17806</PLUID>
+    <DPTNAME>软硬糖              </DPTNAME>
+    <PLUNO>838335</PLUNO>
+    <SLPRC>16.00</SLPRC>
+    <BCD>4000607523106</BCD>
+    <PLUNAME>美可馨富力水果糖(桔子味)                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17807</PLUID>
+    <DPTNAME>米食                </DPTNAME>
+    <PLUNO>134635</PLUNO>
+    <SLPRC>3.90</SLPRC>
+    <BCD>6902131300063</BCD>
+    <PLUNAME>370g梅林绿豆汤                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17808</PLUID>
+    <DPTNAME>清洁用品            </DPTNAME>
+    <PLUNO>817521</PLUNO>
+    <SLPRC>14.50</SLPRC>
+    <BCD>6907469010097</BCD>
+    <PLUNAME>帮洁油烟清洗剂                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17809</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>827094</PLUNO>
+    <SLPRC>10.80</SLPRC>
+    <BCD>6901586102468</BCD>
+    <PLUNAME>雷达电蚊香片下半夜普通型                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17810</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>827100</PLUNO>
+    <SLPRC>10.80</SLPRC>
+    <BCD>6901586102482</BCD>
+    <PLUNAME>雷达电蚊香片茉莉型                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17811</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>817514</PLUNO>
+    <SLPRC>3.40</SLPRC>
+    <BCD>6907469320189</BCD>
+    <PLUNAME>枪手无烟蚊香                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17812</PLUID>
+    <DPTNAME>身体保健            </DPTNAME>
+    <PLUNO>822860</PLUNO>
+    <SLPRC>41.80</SLPRC>
+    <BCD>6919248201145</BCD>
+    <PLUNAME>诺美思女士沐浴露                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17813</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>258720</PLUNO>
+    <SLPRC>12.80</SLPRC>
+    <BCD>6901586102130</BCD>
+    <PLUNAME>320ml佳丽百花空气清新喷雾(桂花清香      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17814</PLUID>
+    <DPTNAME>清洁用品            </DPTNAME>
+    <PLUNO>837918</PLUNO>
+    <SLPRC>3.50</SLPRC>
+    <BCD>6921522325423</BCD>
+    <PLUNAME>朗力福抑菌止痒型香皂                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17815</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>837925</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>6921522320053</BCD>
+    <PLUNAME>朗力福蛇胆牛黄花露水                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17816</PLUID>
+    <DPTNAME>家庭类用品          </DPTNAME>
+    <PLUNO>837857</PLUNO>
+    <SLPRC>9.80</SLPRC>
+    <BCD>6931870730008</BCD>
+    <PLUNAME>威廉太太一拍即合保鲜袋                  </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17817</PLUID>
+    <DPTNAME>头发保健            </DPTNAME>
+    <PLUNO>838373</PLUNO>
+    <SLPRC>0.50</SLPRC>
+    <BCD>1690314801501</BCD>
+    <PLUNAME>飘柔5ml滋润去屑洗发露                   </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17818</PLUID>
+    <DPTNAME>冲饮品              </DPTNAME>
+    <PLUNO>838403</PLUNO>
+    <SLPRC>6.50</SLPRC>
+    <BCD>6917878005508</BCD>
+    <PLUNAME>雀巢巧克力唛炼奶                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17819</PLUID>
+    <DPTNAME>丝袜                </DPTNAME>
+    <PLUNO>308319</PLUNO>
+    <SLPRC>8.50</SLPRC>
+    <BCD>6903466197236</BCD>
+    <PLUNAME>华高19723高弹加大连裤袜                 </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17820</PLUID>
+    <DPTNAME>丝袜                </DPTNAME>
+    <PLUNO>817743</PLUNO>
+    <SLPRC>15.00</SLPRC>
+    <BCD>6903466097437</BCD>
+    <PLUNAME>09743精制全氨纶包芯丝连裤袜             </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17821</PLUID>
+    <DPTNAME>丝袜                </DPTNAME>
+    <PLUNO>823584</PLUNO>
+    <SLPRC>16.80</SLPRC>
+    <BCD>6903466091596</BCD>
+    <PLUNAME>华高09159亮丽美腿包芯丝连裤袜           </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17822</PLUID>
+    <DPTNAME>丝袜                </DPTNAME>
+    <PLUNO>823607</PLUNO>
+    <SLPRC>16.80</SLPRC>
+    <BCD>6903466091572</BCD>
+    <PLUNAME>华高09157超透T型档包芯丝连裤袜          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17823</PLUID>
+    <DPTNAME>机能性糖果          </DPTNAME>
+    <PLUNO>838076</PLUNO>
+    <SLPRC>2.60</SLPRC>
+    <BCD>6921211100911</BCD>
+    <PLUNAME>曼妥思冰兰青柠薄荷糖                    </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17824</PLUID>
+    <DPTNAME>果汁                </DPTNAME>
+    <PLUNO>838434</PLUNO>
+    <SLPRC>4.40</SLPRC>
+    <BCD>6921168532025</BCD>
+    <PLUNAME>农夫果园菠萝味饮料                      </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17825</PLUID>
+    <DPTNAME>果汁                </DPTNAME>
+    <PLUNO>838441</PLUNO>
+    <SLPRC>4.40</SLPRC>
+    <BCD>6921168532001</BCD>
+    <PLUNAME>农夫果园橙汁饮料                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17826</PLUID>
+    <DPTNAME>碳酸饮料            </DPTNAME>
+    <PLUNO>838458</PLUNO>
+    <SLPRC>2.00</SLPRC>
+    <BCD>6905373410002</BCD>
+    <PLUNAME>碧纯600ml盐汽水                         </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17827</PLUID>
+    <DPTNAME>丝袜                </DPTNAME>
+    <PLUNO>838410</PLUNO>
+    <SLPRC>5.20</SLPRC>
+    <BCD>6921230216068</BCD>
+    <PLUNAME>薄型男袜                                </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17828</PLUID>
+    <DPTNAME>口腔清洁            </DPTNAME>
+    <PLUNO>362502</PLUNO>
+    <SLPRC>5.00</SLPRC>
+    <BCD>4895025036686</BCD>
+    <PLUNAME>高丝668超动感防滑牙刷                   </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17829</PLUID>
+    <DPTNAME>冲饮品              </DPTNAME>
+    <PLUNO>837871</PLUNO>
+    <SLPRC>10.50</SLPRC>
+    <BCD>6924677000351</BCD>
+    <PLUNAME>互润营养全粉                            </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17830</PLUID>
+    <DPTNAME>调理品              </DPTNAME>
+    <PLUNO>816340</PLUNO>
+    <SLPRC>5.30</SLPRC>
+    <BCD>6910160312582</BCD>
+    <PLUNAME>丘比鲜橙酱                              </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17831</PLUID>
+    <DPTNAME>调理品              </DPTNAME>
+    <PLUNO>136646</PLUNO>
+    <SLPRC>5.30</SLPRC>
+    <BCD>6910160312513</BCD>
+    <PLUNAME>170g丘比草莓酱                          </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17832</PLUID>
+    <DPTNAME>罐头                </DPTNAME>
+    <PLUNO>837888</PLUNO>
+    <SLPRC>8.80</SLPRC>
+    <BCD>6924441911258</BCD>
+    <PLUNAME>互润面包伴侣果酱                        </PLUNAME>
+  </BASPLUMAIN>
+  <BASPLUMAIN>
+    <PLUID>17833</PLUID>
+    <DPTNAME>米食                </DPTNAME>
+    <PLUNO>134536</PLUNO>
+    <SLPRC>3.60</SLPRC>
+    <BCD>6904731000015</BCD>
+    <PLUNAME>380g华元八宝粥(大)                      </PLUNAME>
+  </BASPLUMAIN>
+</DataSet2>

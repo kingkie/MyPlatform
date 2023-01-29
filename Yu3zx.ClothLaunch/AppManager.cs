@@ -125,6 +125,10 @@ namespace Yu3zx.ClothLaunch
             else
             {
                 iSnRtn = 1;
+                SetConfig confignew = new SetConfig();
+                confignew.KeyName = "ProductSerialNo";
+                confignew.KeyValue = iSnRtn.ToString();
+                SetConfigSave(confignew);
             }
             using (var db = new DapperContext("MySqlDbConnection"))
             {
@@ -168,6 +172,28 @@ namespace Yu3zx.ClothLaunch
                 catch (Exception ex)
                 {
                     return null;
+                }
+            }
+        }
+
+        public void SetConfigSave(SetConfig config)
+        {
+            using (var db = new DapperContext("MySqlDbConnection"))
+            {
+                try
+                {
+                    var rtnBool = db.Insert(config);
+                    if (rtnBool)
+                    {
+                        Console.WriteLine("添加成功");
+                    }
+                    else
+                    {
+                        Console.WriteLine("添加失败");
+                    }
+                }
+                catch (Exception ex)
+                {
                 }
             }
         }

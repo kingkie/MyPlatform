@@ -1,0 +1,947 @@
+<EastReport>
+  <ShowGrid>True</ShowGrid>
+  <SnapGrid>True</SnapGrid>
+  <GridSize>4</GridSize>
+  <BeginPrintScript>
+  </BeginPrintScript>
+  <EndPrintScript>
+  </EndPrintScript>
+  <Variants>
+    <EastReport.Variant>
+      <Name value="Hhs_Rows" />
+      <Type value="int" />
+    </EastReport.Variant>
+    <EastReport.Variant>
+      <Name value="AQty" />
+      <Type value="Decimal" />
+    </EastReport.Variant>
+    <EastReport.Variant>
+      <Name value="AAmt" />
+      <Type value="Decimal" />
+    </EastReport.Variant>
+  </Variants>
+  <Pages>
+    <EastReport.Page>
+      <Name value="Page1" />
+      <PaperWidth value="827" />
+      <Location value="{X=23,Y=16}" />
+      <DockPadding value="" />
+      <EndPrintScript value="" />
+      <TabIndex value="0" />
+      <MarginsTop value="50" />
+      <PaperName value="A4" />
+      <MarginsBottom value="50" />
+      <PaperHeight value="1169" />
+      <MarginsRight value="50" />
+      <Landscape value="False" />
+      <IsSubPage value="False" />
+      <Size value="{Width=827, Height=1169}" />
+      <BeginPrintScript value="" />
+      <MarginsLeft value="50" />
+      <Controls>
+        <EastReport.Component.Chart>
+          <Name value="chart" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Location value="{X=48,Y=332}" />
+          <EndPrintScript value="" />
+          <TabIndex value="25" />
+          <FontUnderline value="False" />
+          <Displayline value="True" />
+          <DisplayValue value="True" />
+          <XName value="Orders_OrderDetails_ProductName" />
+          <YColumn value="EastReport.DataSource.ERColumn" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <DrawBackColor value="Color [LightYellow]" />
+          <DisplayYcol value="True" />
+          <ForeColor value="Color [Black]" />
+          <XColumn value="EastReport.DataSource.ERColumn" />
+          <FontItalic value="False" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DisplayLegend value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=725, Height=381}" />
+          <YName value="Orders_OrderDetails_Expr1" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <YColumnss value="Expr1-" />
+          <DisplayXcol value="True" />
+          <Text value="chart" />
+          <ChartType value="Bar" />
+          <YColumns>
+            <System.String value="Expr1" />
+          </YColumns>
+        </EastReport.Component.Chart>
+        <EastReport.Component.Image>
+          <Name value="image" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <ImageStream value="183GmgAA8vuL+44DLgPoAwAAAAAgVAEACQAAA7wCAAAFAEoBAAAAAAUAAAALAi4D8vsFAAAADAJd+JwHBwAAAPwCAQAAAAAAAAAEAAAALQEAAAkAAAD6AgAAAAAAAAAAAAAiAAQAAAAtAQEABAAAAAQBDQAJAAAA+gIFAAAAAAD///8AIgAEAAAALQECAAcAAAD8AgAAsgBEAAAABAAAAC0BAwAEAAAABgEBAPIAAAAkA3cA1gGtAF4BrQBeAT0ArQE9ADcBOv/CAD0AEwE9ABMBrQD3/60A9/89ACoAPQB9AI//xP+P/8T/Jv+vACb/0gDc/sT/3P7E/3P+5wBz/ucAIf6kACH+pACy/bsBsv27ASH+dgEh/nYBc/6bAnP+mwLc/osB3P6vASb/mwIm/5sCj//hAY//NAI9AGMCPQBjAq0A1gGtAEcCTQFrAjkBjQIjAa0CCgHMAvAA6QLUAAQDtQAdA5UAMwN0AEgDUABaAywAaQMGAHYD3v+AA7b/iAOM/4wDYv+OAzf/iwP6/oIDvv5zA4T+XwNN/kUDGP4nA+f9BQO5/d4Cjv2zAmf9hQJF/VQCJ/0fAg396AH5/K4B6vxyAeH8NQHe/PgA4fy8AOr8gwD5/EwADf0XACf95v9F/bf/Z/2N/479Zv+5/UT/5/0l/xj+DP9N/vj+hP7p/r7+4P76/t3+N//g/nT/6f6w//j+6f8M/yAAJf9VAET/hgBm/7UAjf/fALf/BgHm/ygBFwBHAUwAYAGDAHQBvACDAfgAjAE1AY8BRwGPAVoBjgFsAY0BfgGLAY8BiAGhAYUBswGCAcQBfgHVAXkB5gF0AfcBbwEHAmkBGAJjASgCXAE3AlUBRwJNAdYBrQAHAAAA/AIAAP///wAAAAQAAAAtAQQABAAAAPABAwAEAAAALQECAAQAAAAtAQIABwAAAPwCAACyAEQAAAAEAAAALQEDAAQAAAAGAQEASgEAACQDowA6/0L9If9c/Qn/d/30/pP93/6w/c3+zf28/ur9rP4J/p/+KP6T/kf+iP5n/n/+iP54/qr+cv7M/m7+7/5s/hP/a/43/2z+W/9u/n//cv6i/3j+xP9//uX/iP4GAJP+JgCf/kYArP5lALz+gwDN/qEA3/6+APT+2gAJ//YAIf8RATr/KwFU/0QBb/9cAYv/cQGn/4YBxP+YAeL/qQEAALkBHwDGAT8A0gFfAN0BgADmAaEA7QHDAPMB5gD3AQoB+QEuAfoBQwH6AVgB+QFtAfgBggH2AZYB8wGqAfABvgHtAdIB6QHlAeQB+AHfAQsC2QEeAtMBMQLMAUMCxQFVAr0BZwK0ASECLgMaAi0DFAIsAw0CKwMHAioDAAIpA/kBKAPzASYD7AElA8MBGwObAREDcwEGA0wB+wImAe8CAAHiAtsA1QK3AMgCkwC6AnAArAJNAJ0CKwCNAgkAfgLo/20Cx/9dAqj/TAKI/zoCaf8oAkv/FgIt/wMCD//wAfL+3AHW/sgBuv60AZ7+nwGD/ooBaf51AU7+XwE1/kkBG/4yAQL+GwHq/QQBxP3eAJ79uAB6/ZAAV/1oADX9QAAT/RYA8/zs/9P8wv+1/Jb/l/xq/3n8Pv9d/BH/Qfzj/ib8tf4M/If+8vtY/sIAi/vMAJz71QCs++AAvPvqAMz79QDc+wAB6/sMAfr7GAEJ/CQBGPwxASb8PQE1/EsBQvxYAVD8ZgFd/HQBavyCAXf8eAF2/G4BdfxjAXT8WQF0/E4Bc/xEAXP8OQFz/C4Bc/wKAXT85gB2/MMAevyhAID8gACH/F8AkPw/AJv8HwCn/AAAtPzi/8T8xP/V/Kf/5/yL//z8b/8R/VT/Kf06/0L9BAAAAC0BBAAEAAAA8AEDAAQAAAAtAQIAAwAAAAAA" />
+          <TabIndex value="24" />
+          <FontUnderline value="False" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <SizeMode value="AutoSize" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=145, Height=65}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="image" />
+          <Location value="{X=40,Y=32}" />
+        </EastReport.Component.Image>
+        <EastReport.Component.Label>
+          <Name value="label" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="Sales Order" />
+          <EndPrintScript value="" />
+          <TabIndex value="3" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopCenter" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial Black, Size=20, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [A=255, R=119, G=153, B=255]" />
+          <BorderColor value="Color [A=255, R=51, G=102, B=255]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=217, Height=36}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="label" />
+          <Location value="{X=272,Y=56}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.ExpressionLabel>
+          <Name value="expressionLabel" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Expression value="&quot;Order # &quot;+Orders.OrderID.ToString();" />
+          <EndPrintScript value="" />
+          <TabIndex value="4" />
+          <FontUnderline value="False" />
+          <TextAlignment value="MiddleRight" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [A=255, R=119, G=153, B=255]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=228, Height=22}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="expressionLabel" />
+          <Location value="{X=544,Y=72}" />
+        </EastReport.Component.ExpressionLabel>
+        <EastReport.Component.Label>
+          <Name value="l1" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="Bill To" />
+          <EndPrintScript value="" />
+          <TabIndex value="6" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Blue]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=121, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="label2" />
+          <Location value="{X=40,Y=108}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Label>
+          <Name value="l11" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="Ship To" />
+          <EndPrintScript value="" />
+          <TabIndex value="6" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Blue]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=121, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=552,Y=108}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Label>
+          <Name value="label3" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="ComPanyName:" />
+          <EndPrintScript value="" />
+          <TabIndex value="7" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=101, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="label3" />
+          <Location value="{X=40,Y=128}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.DBText>
+          <Name value="dBText" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <TabIndex value="5" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [A=255, R=204, G=255, B=255]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=205, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_CompanyName" />
+          <Text value="dBText" />
+          <Location value="{X=140,Y=128}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.Label>
+          <Name value="label6" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="ShipName" />
+          <EndPrintScript value="" />
+          <TabIndex value="7" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=101, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=500,Y=132}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.DBText>
+          <Name value="dBText3" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <TabIndex value="5" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=201, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_ShipName" />
+          <Location value="{X=604,Y=132}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.Label>
+          <Name value="label4" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="Address:" />
+          <EndPrintScript value="" />
+          <TabIndex value="7" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=97, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=40,Y=148}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.DBText>
+          <Name value="dBText2" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <TabIndex value="5" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [A=255, R=204, G=255, B=255]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=205, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_Address" />
+          <Location value="{X=140,Y=148}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.Label>
+          <Name value="label5" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="ShipAddress:" />
+          <EndPrintScript value="" />
+          <TabIndex value="7" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=101, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=500,Y=152}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.DBText>
+          <Name value="dBText4" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <TabIndex value="5" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=197, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_ShipAddress" />
+          <Location value="{X=608,Y=152}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.ExpressionLabel>
+          <Name value="expressionLabel2" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Expression value="&quot;City:&quot; + Orders.City.ToString()+&quot;  Countrt:&quot;+Orders.Country.ToString()" />
+          <EndPrintScript value="" />
+          <TabIndex value="8" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [A=255, R=204, G=255, B=255]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=305, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="expressionLabel2" />
+          <Location value="{X=40,Y=168}" />
+        </EastReport.Component.ExpressionLabel>
+        <EastReport.Component.Label>
+          <Name value="label8" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="Date:" />
+          <EndPrintScript value="" />
+          <TabIndex value="7" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=101, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=500,Y=172}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.DBText>
+          <Name value="dBText5" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <TabIndex value="10" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=141, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_ShippedDate" />
+          <Text value="dBText5" />
+          <Location value="{X=608,Y=172}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.ExpressionLabel>
+          <Name value="expressionLabel3" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Expression value="&quot;Phone:&quot;+Orders.Phone.ToString()+&quot; Fax:&quot;+Orders.Fax.ToString()" />
+          <EndPrintScript value="" />
+          <TabIndex value="9" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [A=255, R=204, G=255, B=255]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=305, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="expressionLabel3" />
+          <Location value="{X=40,Y=188}" />
+        </EastReport.Component.ExpressionLabel>
+        <EastReport.Component.Label>
+          <Name value="label7" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="Sales Person:" />
+          <EndPrintScript value="" />
+          <TabIndex value="15" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=101, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="label7" />
+          <Location value="{X=500,Y=192}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.DBText>
+          <Name value="dBText6" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <TabIndex value="12" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopRight" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=73, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_LastName" />
+          <Text value="dBText6" />
+          <Location value="{X=612,Y=192}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.DBText>
+          <Name value="dBText7" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <EndPrintScript value="" />
+          <TabIndex value="13" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="False" />
+          <Font value="[Font: Name=Arial, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="False" />
+          <DrawTopBorder value="False" />
+          <DrawLeftBorder value="False" />
+          <Size value="{Width=81, Height=17}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_FirstName" />
+          <Text value="dBText7" />
+          <Location value="{X=688,Y=192}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.Label>
+          <Name value="label9" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [A=255, R=224, G=227, B=206]" />
+          <Caption value="ProductID" />
+          <EndPrintScript value="" />
+          <TabIndex value="18" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopCenter" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=85, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=60,Y=232}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Label>
+          <Name value="label10" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [A=255, R=224, G=227, B=206]" />
+          <Caption value="ProductName" />
+          <EndPrintScript value="" />
+          <TabIndex value="18" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=145, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=144,Y=232}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Label>
+          <Name value="label11" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [A=255, R=224, G=227, B=206]" />
+          <Caption value="UnitPrice" />
+          <EndPrintScript value="" />
+          <TabIndex value="18" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopCenter" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=288,Y=232}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Label>
+          <Name value="label12" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [A=255, R=224, G=227, B=206]" />
+          <Caption value="Discount" />
+          <EndPrintScript value="" />
+          <TabIndex value="18" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopCenter" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=400,Y=232}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Label>
+          <Name value="label13" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [A=255, R=224, G=227, B=206]" />
+          <Caption value="Quantity" />
+          <EndPrintScript value="" />
+          <TabIndex value="18" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopCenter" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=512,Y=232}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Label>
+          <Name value="label14" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [A=255, R=224, G=227, B=206]" />
+          <Caption value="Amt" />
+          <EndPrintScript value="" />
+          <TabIndex value="18" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopCenter" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="True" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=624,Y=232}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.DBText>
+          <Name value="dBText9" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [LemonChiffon]" />
+          <EndPrintScript value="" />
+          <TabIndex value="19" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=85, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_OrderDetails_ProductID" />
+          <Location value="{X=60,Y=260}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.DBText>
+          <Name value="dBText10" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [LemonChiffon]" />
+          <EndPrintScript value="" />
+          <TabIndex value="19" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <Column value="EastReport.DataSource.ERColumn" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=145, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <ColumnName value="Orders_OrderDetails_ProductName" />
+          <Location value="{X=144,Y=260}" />
+        </EastReport.Component.DBText>
+        <EastReport.Component.ExpressionLabel>
+          <Name value="expressionLabel5" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [LemonChiffon]" />
+          <Expression value="Orders_OrderDetails.UnitPrice.ToString()" />
+          <EndPrintScript value="" />
+          <TabIndex value="20" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopRight" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=288,Y=260}" />
+        </EastReport.Component.ExpressionLabel>
+        <EastReport.Component.ExpressionLabel>
+          <Name value="expressionLabel7" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [LemonChiffon]" />
+          <Expression value="Orders_OrderDetails.Discount.ToString()&#xA;" />
+          <EndPrintScript value="" />
+          <TabIndex value="20" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopRight" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=400,Y=260}" />
+        </EastReport.Component.ExpressionLabel>
+        <EastReport.Component.ExpressionLabel>
+          <Name value="expressionLabel6" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [LemonChiffon]" />
+          <Expression value="Orders_OrderDetails.Quantity.ToString()" />
+          <EndPrintScript value="" />
+          <TabIndex value="20" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopRight" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=512,Y=260}" />
+        </EastReport.Component.ExpressionLabel>
+        <EastReport.Component.ExpressionLabel>
+          <Name value="expressionLabel8" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [LemonChiffon]" />
+          <Expression value="Orders_OrderDetails.Quantity*Orders_OrderDetails.UnitPrice*System.Convert.ToDecimal((1-OrderDetails.Discount))" />
+          <EndPrintScript value="" />
+          <TabIndex value="20" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopRight" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=Arial, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=113, Height=21}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Location value="{X=624,Y=260}" />
+        </EastReport.Component.ExpressionLabel>
+        <EastReport.Component.Bands.MasterDataBand>
+          <Name value="masterDataBand" />
+          <BeginPrintScript value="" />
+          <Text value="masterDataBand" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <TabIndex value="0" />
+          <Size value="{Width=827, Height=205}" />
+          <Caption value="Master data" />
+          <Location value="{X=0,Y=16}" />
+          <BackColor value="Color [PeachPuff]" />
+          <DataTableName value="Orders" />
+          <EndPrintScript value="" />
+        </EastReport.Component.Bands.MasterDataBand>
+        <EastReport.Component.Bands.DetailHeaderBand>
+          <Name value="detailHeaderBand" />
+          <Location value="{X=0,Y=232}" />
+          <BeginPrintScript value="" />
+          <Text value="detailHeaderBand" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <TabIndex value="21" />
+          <Size value="{Width=827, Height=21}" />
+          <Caption value="Detail header" />
+          <BackColor value="Color [PeachPuff]" />
+          <EndPrintScript value="" />
+        </EastReport.Component.Bands.DetailHeaderBand>
+        <EastReport.Component.Bands.DetailDataBand>
+          <Name value="detailDataBand" />
+          <BeginPrintScript value="" />
+          <Text value="detailDataBand" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <TabIndex value="17" />
+          <Size value="{Width=827, Height=21}" />
+          <Caption value="Detail data" />
+          <Location value="{X=0,Y=260}" />
+          <BackColor value="Color [PeachPuff]" />
+          <DataTableName value="Orders_OrderDetails" />
+          <EndPrintScript value="" />
+        </EastReport.Component.Bands.DetailDataBand>
+        <EastReport.Component.Label>
+          <Name value="hh" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <BackColor value="Color [Transparent]" />
+          <Caption value="" />
+          <EndPrintScript value="" />
+          <TabIndex value="14" />
+          <FontUnderline value="False" />
+          <TextAlignment value="TopLeft" />
+          <DrawBottomBorder value="True" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <FontItalic value="False" />
+          <ForeColor value="Color [Black]" />
+          <BorderColor value="Color [Black]" />
+          <FontBold value="False" />
+          <DrawRightBorder value="True" />
+          <DrawTopBorder value="True" />
+          <DrawLeftBorder value="True" />
+          <Size value="{Width=773, Height=117}" />
+          <BorderWidth value="1" />
+          <BeginPrintScript value="" />
+          <FontStrikeout value="False" />
+          <Text value="label2" />
+          <Location value="{X=36,Y=100}" />
+        </EastReport.Component.Label>
+        <EastReport.Component.Bands.DetailFooterBand>
+          <Name value="detailFooterBand" />
+          <Location value="{X=0,Y=328}" />
+          <BeginPrintScript value="" />
+          <Text value="detailFooterBand" />
+          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.NONE" />
+          <TabIndex value="22" />
+          <Size value="{Width=827, Height=397}" />
+          <Caption value="Detail footer" />
+          <BackColor value="Color [PeachPuff]" />
+          <EndPrintScript value="Page1.NewPrintPage();" />
+        </EastReport.Component.Bands.DetailFooterBand>
+      </Controls>
+    </EastReport.Page>
+  </Pages>
+</EastReport>

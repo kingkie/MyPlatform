@@ -1,0 +1,5433 @@
+<?xml version="1.0" standalone="yes"?>
+<DataSet1 xmlns="http://www.tempuri.org/DataSet1.xsd">
+  <xs:schema id="DataSet1" targetNamespace="http://www.tempuri.org/DataSet1.xsd" xmlns:mstns="http://www.tempuri.org/DataSet1.xsd" xmlns="http://www.tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+    <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:Locale="zh-CN">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="Categories">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ShipCountry" type="xs:string" minOccurs="0" />
+                <xs:element name="ShipCity" type="xs:string" minOccurs="0" />
+                <xs:element name="ShipName" type="xs:string" minOccurs="0" />
+                <xs:element name="CategoryName" type="xs:string" />
+                <xs:element name="Qty" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+                <xs:element name="Amt" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+                <xs:element name="Discount" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Cactus Comidas para llevar</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>70</Qty>
+    <Amt>1091</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Cactus Comidas para llevar</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>6</Qty>
+    <Amt>75</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Cactus Comidas para llevar</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>11</Qty>
+    <Amt>37.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Cactus Comidas para llevar</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>8</Qty>
+    <Amt>364.79998779296875</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Cactus Comidas para llevar</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>20</Qty>
+    <Amt>246.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Océano Atlántico Ltda.</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>10</Qty>
+    <Amt>180</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Océano Atlántico Ltda.</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>35</Qty>
+    <Amt>622</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Océano Atlántico Ltda.</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>27</Qty>
+    <Amt>1311</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Océano Atlántico Ltda.</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>37</Qty>
+    <Amt>914</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Océano Atlántico Ltda.</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>18</Qty>
+    <Amt>403.19999694824219</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Océano Atlántico Ltda.</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>5</Qty>
+    <Amt>30</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Rancho grande</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>2</Qty>
+    <Amt>527</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Rancho grande</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>10</Qty>
+    <Amt>285</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Rancho grande</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>24</Qty>
+    <Amt>749.09999084472656</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Rancho grande</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>6</Qty>
+    <Amt>192</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Rancho grande</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>20</Qty>
+    <Amt>390</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Rancho grande</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>7</Qty>
+    <Amt>371</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Argentina</ShipCountry>
+    <ShipCity>Buenos Aires</ShipCity>
+    <ShipName>Rancho grande</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>23</Qty>
+    <Amt>330</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>822</Qty>
+    <Amt>12709.299919128418</Amt>
+    <Discount>995.25001335144043</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>679</Qty>
+    <Amt>14070.062576293945</Amt>
+    <Discount>1514.6375226974487</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>542</Qty>
+    <Amt>12815.757766723633</Amt>
+    <Discount>1118.9425621032715</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>892</Qty>
+    <Amt>24496.460037231445</Amt>
+    <Discount>2132.840015411377</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>500</Qty>
+    <Amt>12737.699966430664</Amt>
+    <Discount>160.3000020980835</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>292</Qty>
+    <Amt>8325.55599975586</Amt>
+    <Discount>945.924036026001</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>353</Qty>
+    <Amt>12469.667419433594</Amt>
+    <Discount>635.28251266479492</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Graz</ShipCity>
+    <ShipName>Ernst Handel</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>463</Qty>
+    <Amt>7250.4750289916992</Amt>
+    <Discount>858.52503490448</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>160</Qty>
+    <Amt>10608</Amt>
+    <Discount>2139.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>41</Qty>
+    <Amt>1167.1800079345703</Amt>
+    <Discount>50.520000457763672</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>33</Qty>
+    <Amt>718.65000915527344</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>135</Qty>
+    <Amt>3610.2800140380859</Amt>
+    <Discount>103.32000350952148</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>80</Qty>
+    <Amt>1790</Amt>
+    <Discount>166.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>70</Qty>
+    <Amt>2496</Amt>
+    <Discount>234</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>35</Qty>
+    <Amt>651</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Austria</ShipCountry>
+    <ShipCity>Salzburg</ShipCity>
+    <ShipName>Piccolo und mehr</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>70</Qty>
+    <Amt>2087.75</Amt>
+    <Discount>437.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>36</Qty>
+    <Amt>1143</Amt>
+    <Discount>345</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>26</Qty>
+    <Amt>779.19499969482422</Amt>
+    <Discount>137.50500869750977</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>118</Qty>
+    <Amt>2659.3800048828125</Amt>
+    <Discount>102.00000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>65</Qty>
+    <Amt>2972</Amt>
+    <Discount>110</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>16</Qty>
+    <Amt>608</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>14</Qty>
+    <Amt>336</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>20</Qty>
+    <Amt>912</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Bruxelles</ShipCity>
+    <ShipName>Maison Dewey</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>25</Qty>
+    <Amt>326.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>236</Qty>
+    <Amt>4285.6800231933594</Amt>
+    <Discount>90.720001220703125</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>121</Qty>
+    <Amt>1675.6000366210938</Amt>
+    <Discount>122.40000152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>152</Qty>
+    <Amt>4820.1999053955078</Amt>
+    <Discount>129.60000610351563</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>230</Qty>
+    <Amt>5688</Amt>
+    <Discount>55.000003814697266</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>129</Qty>
+    <Amt>2618</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>75</Qty>
+    <Amt>1802.5</Amt>
+    <Discount>120</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>78</Qty>
+    <Amt>2311.2000122070312</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Belgium</ShipCountry>
+    <ShipCity>Charleroi</ShipCity>
+    <ShipName>Suprêmes délices</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>51</Qty>
+    <Amt>887.59999847412109</Amt>
+    <Discount>97.899999618530273</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Campinas</ShipCity>
+    <ShipName>Gourmet Lanchonetes</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>50</Qty>
+    <Amt>643.75</Amt>
+    <Discount>61.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Campinas</ShipCity>
+    <ShipName>Gourmet Lanchonetes</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>70</Qty>
+    <Amt>2350</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Campinas</ShipCity>
+    <ShipName>Gourmet Lanchonetes</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>15</Qty>
+    <Amt>142.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Campinas</ShipCity>
+    <ShipName>Gourmet Lanchonetes</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>48</Qty>
+    <Amt>1481.5999984741211</Amt>
+    <Discount>30.399999618530273</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Campinas</ShipCity>
+    <ShipName>Gourmet Lanchonetes</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>60</Qty>
+    <Amt>1150</Amt>
+    <Discount>170.00000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Campinas</ShipCity>
+    <ShipName>Gourmet Lanchonetes</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>31</Qty>
+    <Amt>1560.5</Amt>
+    <Discount>13.500000953674316</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Campinas</ShipCity>
+    <ShipName>Gourmet Lanchonetes</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>41</Qty>
+    <Amt>1085.7850036621094</Amt>
+    <Discount>12.944999694824219</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Resende</ShipCity>
+    <ShipName>Wellington Importadora</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>72</Qty>
+    <Amt>1760.1499938964844</Amt>
+    <Discount>38.850000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Resende</ShipCity>
+    <ShipName>Wellington Importadora</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>12</Qty>
+    <Amt>124.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Resende</ShipCity>
+    <ShipName>Wellington Importadora</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>54</Qty>
+    <Amt>551.75999450683594</Amt>
+    <Discount>21.539999961853027</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Resende</ShipCity>
+    <ShipName>Wellington Importadora</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>15</Qty>
+    <Amt>783.75</Amt>
+    <Discount>41.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Resende</ShipCity>
+    <ShipName>Wellington Importadora</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>28</Qty>
+    <Amt>194</Amt>
+    <Discount>18</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Resende</ShipCity>
+    <ShipName>Wellington Importadora</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>35</Qty>
+    <Amt>1789.7999267578125</Amt>
+    <Discount>155.19999694824219</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Resende</ShipCity>
+    <ShipName>Wellington Importadora</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>51</Qty>
+    <Amt>863.9399881362915</Amt>
+    <Discount>137.66000080108643</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>211</Qty>
+    <Amt>20084.149963378906</Amt>
+    <Discount>397.15000152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>152</Qty>
+    <Amt>2378.7699584960938</Amt>
+    <Discount>268.08000183105469</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>95</Qty>
+    <Amt>1212</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>119</Qty>
+    <Amt>2252.8999938964844</Amt>
+    <Discount>98.100000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>32</Qty>
+    <Amt>641.40000152587891</Amt>
+    <Discount>202.60000038146973</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>15</Qty>
+    <Amt>585</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>35</Qty>
+    <Amt>1261.4000244140625</Amt>
+    <Discount>222.60000610351563</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Hanari Carnes</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>180</Qty>
+    <Amt>4425.75</Amt>
+    <Discount>71.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Que Delícia</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>81</Qty>
+    <Amt>1386</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Que Delícia</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>130</Qty>
+    <Amt>2491.03995513916</Amt>
+    <Discount>142.56000328063965</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Que Delícia</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>90</Qty>
+    <Amt>1395.2000064849854</Amt>
+    <Discount>4.380000114440918</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Que Delícia</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>23</Qty>
+    <Amt>487</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Que Delícia</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>21</Qty>
+    <Amt>369.81002044677734</Amt>
+    <Discount>67.89000129699707</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Que Delícia</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>17</Qty>
+    <Amt>355.31999969482422</Amt>
+    <Discount>78.230000495910645</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Que Delícia</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>32</Qty>
+    <Amt>180.43999099731445</Amt>
+    <Discount>15.760000228881836</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Ricardo Adocicados</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>92</Qty>
+    <Amt>1174.0250091552734</Amt>
+    <Discount>60.475002288818359</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Ricardo Adocicados</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>35</Qty>
+    <Amt>588</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Ricardo Adocicados</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>177</Qty>
+    <Amt>1963.7250061035156</Amt>
+    <Discount>266.27500152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Ricardo Adocicados</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>119</Qty>
+    <Amt>4506.9000015258789</Amt>
+    <Discount>115.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Ricardo Adocicados</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>95</Qty>
+    <Amt>990.25</Amt>
+    <Discount>9.75</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Ricardo Adocicados</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>12</Qty>
+    <Amt>468</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Rio de Janeiro</ShipCity>
+    <ShipName>Ricardo Adocicados</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>130</Qty>
+    <Amt>2759.9000015258789</Amt>
+    <Discount>21.600000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Comércio Mineiro</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>49</Qty>
+    <Amt>849.75</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Comércio Mineiro</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>15</Qty>
+    <Amt>240</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Comércio Mineiro</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>10</Qty>
+    <Amt>168</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Comércio Mineiro</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>30</Qty>
+    <Amt>912</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Comércio Mineiro</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>15</Qty>
+    <Amt>1485</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Comércio Mineiro</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>14</Qty>
+    <Amt>156</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Familia Arquibaldo</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>141</Qty>
+    <Amt>1157.8700008392334</Amt>
+    <Discount>197.8300085067749</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Familia Arquibaldo</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>34</Qty>
+    <Amt>285.27999496459961</Amt>
+    <Discount>15.119999885559082</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Familia Arquibaldo</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>62</Qty>
+    <Amt>446.80001831054688</Amt>
+    <Discount>61.200000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Familia Arquibaldo</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>4</Qty>
+    <Amt>28</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Familia Arquibaldo</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>61</Qty>
+    <Amt>1146.5</Amt>
+    <Discount>41</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Familia Arquibaldo</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>55</Qty>
+    <Amt>1043.1000175476074</Amt>
+    <Discount>16.200000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>293</Qty>
+    <Amt>10483.500091552734</Amt>
+    <Discount>2451.5000076293945</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>94</Qty>
+    <Amt>1896.3999938964844</Amt>
+    <Discount>459.60000228881836</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>188</Qty>
+    <Amt>3655.2374267578125</Amt>
+    <Discount>322.71249389648438</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>222</Qty>
+    <Amt>3873.699951171875</Amt>
+    <Discount>805.39999389648438</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>66</Qty>
+    <Amt>2205.8999977111816</Amt>
+    <Discount>116.10000014305115</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>36</Qty>
+    <Amt>394.20000457763672</Amt>
+    <Discount>35.400001525878906</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>50</Qty>
+    <Amt>1686.0000305175781</Amt>
+    <Discount>207.60000610351563</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Queen Cozinha</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>82</Qty>
+    <Amt>1522.5600204467773</Amt>
+    <Discount>110.29000568389893</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Tradiçao Hipermercados</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>28</Qty>
+    <Amt>504</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Tradiçao Hipermercados</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>26</Qty>
+    <Amt>502</Amt>
+    <Discount>88</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Tradiçao Hipermercados</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>54</Qty>
+    <Amt>1990.3999938964844</Amt>
+    <Discount>98.5999984741211</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Tradiçao Hipermercados</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>65</Qty>
+    <Amt>1679.7999877929688</Amt>
+    <Discount>62.200000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Tradiçao Hipermercados</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>28</Qty>
+    <Amt>1324.8040161132813</Amt>
+    <Discount>145.5160026550293</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Brazil</ShipCountry>
+    <ShipCity>Sao Paulo</ShipCity>
+    <ShipName>Tradiçao Hipermercados</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>50</Qty>
+    <Amt>849.65997314453125</Amt>
+    <Discount>65.639999389648438</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>154</Qty>
+    <Amt>9415.8103637695312</Amt>
+    <Discount>2249.8900909423828</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>145</Qty>
+    <Amt>2809.5</Amt>
+    <Discount>39</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>180</Qty>
+    <Amt>2915.6049194335938</Amt>
+    <Discount>110.4950008392334</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>177</Qty>
+    <Amt>4766.625</Amt>
+    <Discount>226.875</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>154</Qty>
+    <Amt>4553.849967956543</Amt>
+    <Discount>196.25000190734863</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>70</Qty>
+    <Amt>2074.800048828125</Amt>
+    <Discount>109.20000457763672</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>30</Qty>
+    <Amt>240</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Montréal</ShipCity>
+    <ShipName>Mère Paillarde</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>56</Qty>
+    <Amt>2096</Amt>
+    <Discount>400</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>139</Qty>
+    <Amt>1762.75</Amt>
+    <Discount>303.75</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>106</Qty>
+    <Amt>1898.5750122070313</Amt>
+    <Discount>211.52500152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>233</Qty>
+    <Amt>5856.875</Amt>
+    <Discount>349.42501449584961</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>204</Qty>
+    <Amt>4790.5500183105469</Amt>
+    <Discount>317.95000457763672</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>38</Qty>
+    <Amt>896.80000305175781</Amt>
+    <Discount>11.199999809265137</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>71</Qty>
+    <Amt>1692</Amt>
+    <Discount>390</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>44</Qty>
+    <Amt>1872</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Tsawassen</ShipCity>
+    <ShipName>Bottom-Dollar Markets</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>121</Qty>
+    <Amt>2032.0499877929688</Amt>
+    <Discount>222.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Vancouver</ShipCity>
+    <ShipName>Laughing Bacchus Wine Cellars</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>10</Qty>
+    <Amt>97.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Vancouver</ShipCity>
+    <ShipName>Laughing Bacchus Wine Cellars</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>5</Qty>
+    <Amt>52</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Vancouver</ShipCity>
+    <ShipName>Laughing Bacchus Wine Cellars</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>5</Qty>
+    <Amt>70</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Vancouver</ShipCity>
+    <ShipName>Laughing Bacchus Wine Cellars</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>15</Qty>
+    <Amt>107</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Canada</ShipCountry>
+    <ShipCity>Vancouver</ShipCity>
+    <ShipName>Laughing Bacchus Wine Cellars</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>27</Qty>
+    <Amt>196</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>145</Qty>
+    <Amt>1485.7000122070313</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>155</Qty>
+    <Amt>3505.1500091552734</Amt>
+    <Discount>16.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>100</Qty>
+    <Amt>1664.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>48</Qty>
+    <Amt>1456.5</Amt>
+    <Discount>49.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>15</Qty>
+    <Amt>99.75</Amt>
+    <Discount>5.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>86</Qty>
+    <Amt>2082.4999237060547</Amt>
+    <Discount>178.19999694824219</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>70</Qty>
+    <Amt>2762.39990234375</Amt>
+    <Discount>273.60000610351562</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Århus</ShipCity>
+    <ShipName>Vaffeljernet</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>173</Qty>
+    <Amt>2787.4249725341797</Amt>
+    <Discount>277.07500076293945</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Kobenhavn</ShipCity>
+    <ShipName>Simons bistro</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>50</Qty>
+    <Amt>10540</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Kobenhavn</ShipCity>
+    <ShipName>Simons bistro</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>55</Qty>
+    <Amt>820</Amt>
+    <Discount>114</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Kobenhavn</ShipCity>
+    <ShipName>Simons bistro</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>85</Qty>
+    <Amt>926.96000671386719</Amt>
+    <Discount>223.84000015258789</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Kobenhavn</ShipCity>
+    <ShipName>Simons bistro</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>41</Qty>
+    <Amt>1187.8000183105469</Amt>
+    <Discount>59.400001525878906</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Kobenhavn</ShipCity>
+    <ShipName>Simons bistro</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>60</Qty>
+    <Amt>1080</Amt>
+    <Discount>360</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Kobenhavn</ShipCity>
+    <ShipName>Simons bistro</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>30</Qty>
+    <Amt>1192.5</Amt>
+    <Discount>397.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Denmark</ShipCountry>
+    <ShipCity>Kobenhavn</ShipCity>
+    <ShipName>Simons bistro</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>57</Qty>
+    <Amt>1069.8375005722046</Amt>
+    <Discount>166.61250019073486</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>38</Qty>
+    <Amt>582</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>25</Qty>
+    <Amt>753</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>45</Qty>
+    <Amt>562.75</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>14</Qty>
+    <Amt>702</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>6</Qty>
+    <Amt>84</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>5</Qty>
+    <Amt>120</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>3</Qty>
+    <Amt>136.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Helsinki</ShipCity>
+    <ShipName>Wilman Kala</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>12</Qty>
+    <Amt>220.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>69</Qty>
+    <Amt>1600.4000015258789</Amt>
+    <Discount>39.600000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>50</Qty>
+    <Amt>1120</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>44</Qty>
+    <Amt>462.30000305175781</Amt>
+    <Discount>8</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>216</Qty>
+    <Amt>4856.1100463867188</Amt>
+    <Discount>469.69002342224121</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>94</Qty>
+    <Amt>2393</Amt>
+    <Discount>323</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>88</Qty>
+    <Amt>3220.7800254821777</Amt>
+    <Discount>4.4700002670288086</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>70</Qty>
+    <Amt>969.61248779296875</Amt>
+    <Discount>54.637500762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Finland</ShipCountry>
+    <ShipCity>Oulu</ShipCity>
+    <ShipName>Wartian Herkku</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>106</Qty>
+    <Amt>1026.5</Amt>
+    <Discount>69.000003814697266</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>37</Qty>
+    <Amt>375.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>30</Qty>
+    <Amt>1317</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>123</Qty>
+    <Amt>2232</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>12</Qty>
+    <Amt>528</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>6</Qty>
+    <Amt>126</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>6</Qty>
+    <Amt>35.400001525878906</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>50</Qty>
+    <Amt>1845</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lille</ShipCity>
+    <ShipName>Folies gourmandes</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>90</Qty>
+    <Amt>5208</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>100</Qty>
+    <Amt>1989.5</Amt>
+    <Discount>300.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>52</Qty>
+    <Amt>1104.8499984741211</Amt>
+    <Discount>128.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>78</Qty>
+    <Amt>2396.7000045776367</Amt>
+    <Discount>57.300000190734863</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>44</Qty>
+    <Amt>1120.5</Amt>
+    <Discount>1.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>29</Qty>
+    <Amt>362.86000442504883</Amt>
+    <Discount>16.740000247955322</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>6</Qty>
+    <Amt>28.320001602172852</Amt>
+    <Discount>7.0800004005432129</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>45</Qty>
+    <Amt>936.29998779296875</Amt>
+    <Discount>109.70000076293945</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Lyon</ShipCity>
+    <ShipName>Victuailles en stock</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>80</Qty>
+    <Amt>1243.3999938964844</Amt>
+    <Discount>133.60000610351563</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>101</Qty>
+    <Amt>2275.9000244140625</Amt>
+    <Discount>89.0999984741211</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>140</Qty>
+    <Amt>3037.4749908447266</Amt>
+    <Discount>423.02500438690186</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>161</Qty>
+    <Amt>2382.6724700927734</Amt>
+    <Discount>239.1775074005127</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>74</Qty>
+    <Amt>1912.4249877929688</Amt>
+    <Discount>226.875</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>117</Qty>
+    <Amt>2444.5500030517578</Amt>
+    <Discount>374.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>55</Qty>
+    <Amt>822.89999389648438</Amt>
+    <Discount>31.200000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>118</Qty>
+    <Amt>3718.75</Amt>
+    <Discount>394.25001525878906</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Marseille</ShipCity>
+    <ShipName>Bon app'</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>214</Qty>
+    <Amt>5368.5799560546875</Amt>
+    <Discount>109.82000112533569</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>Du monde entier</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>13</Qty>
+    <Amt>194</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>Du monde entier</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>6</Qty>
+    <Amt>60</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>Du monde entier</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>7</Qty>
+    <Amt>201.60000610351563</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>Du monde entier</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>15</Qty>
+    <Amt>130.19999694824219</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>Du monde entier</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>15</Qty>
+    <Amt>585</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>Du monde entier</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>24</Qty>
+    <Amt>445.10000610351562</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>France restauration</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>20</Qty>
+    <Amt>360</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>France restauration</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>12</Qty>
+    <Amt>252.60000610351563</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>France restauration</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>20</Qty>
+    <Amt>667.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>France restauration</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>14</Qty>
+    <Amt>1733.06005859375</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Nantes</ShipCity>
+    <ShipName>France restauration</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>3</Qty>
+    <Amt>159</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Paris</ShipCity>
+    <ShipName>Spécialités du monde</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>19</Qty>
+    <Amt>1426</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Paris</ShipCity>
+    <ShipName>Spécialités du monde</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>3</Qty>
+    <Amt>52.349998474121094</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Paris</ShipCity>
+    <ShipName>Spécialités du monde</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>20</Qty>
+    <Amt>570</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Paris</ShipCity>
+    <ShipName>Spécialités du monde</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>6</Qty>
+    <Amt>375</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Reims</ShipCity>
+    <ShipName>Vins et alcools Chevalier</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>44</Qty>
+    <Amt>880.60000610351562</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Reims</ShipCity>
+    <ShipName>Vins et alcools Chevalier</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>32</Qty>
+    <Amt>345.59999847412109</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Reims</ShipCity>
+    <ShipName>Vins et alcools Chevalier</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>22</Qty>
+    <Amt>253.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Strasbourg</ShipCity>
+    <ShipName>Blondel père et fils</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>149</Qty>
+    <Amt>3975.9199981689453</Amt>
+    <Discount>14.880000114440918</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Strasbourg</ShipCity>
+    <ShipName>Blondel père et fils</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>70</Qty>
+    <Amt>1939</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Strasbourg</ShipCity>
+    <ShipName>Blondel père et fils</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>152</Qty>
+    <Amt>2872</Amt>
+    <Discount>141.50000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Strasbourg</ShipCity>
+    <ShipName>Blondel père et fils</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>105</Qty>
+    <Amt>2217.0999755859375</Amt>
+    <Discount>201.40000152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Strasbourg</ShipCity>
+    <ShipName>Blondel père et fils</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>111</Qty>
+    <Amt>4976.5999908447266</Amt>
+    <Discount>21.600000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Strasbourg</ShipCity>
+    <ShipName>Blondel père et fils</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>30</Qty>
+    <Amt>1092</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Strasbourg</ShipCity>
+    <ShipName>Blondel père et fils</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>49</Qty>
+    <Amt>1461.4600143432617</Amt>
+    <Discount>174.54000043869019</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>145</Qty>
+    <Amt>1903.150032043457</Amt>
+    <Discount>268.05000483989716</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>53</Qty>
+    <Amt>774.8599853515625</Amt>
+    <Discount>110.34000301361084</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>85</Qty>
+    <Amt>2085.9000091552734</Amt>
+    <Discount>103.10000228881836</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>48</Qty>
+    <Amt>757.75997924804688</Amt>
+    <Discount>88.640005111694336</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>13</Qty>
+    <Amt>211.75</Amt>
+    <Discount>28</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>30</Qty>
+    <Amt>2496.010009765625</Amt>
+    <Discount>171.79000091552734</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>8</Qty>
+    <Amt>346.55999755859375</Amt>
+    <Discount>18.239999771118164</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Toulouse</ShipCity>
+    <ShipName>La maison d'Asie</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>60</Qty>
+    <Amt>752.20999050140381</Amt>
+    <Discount>155.9900004863739</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Versailles</ShipCity>
+    <ShipName>La corne d'abondance</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>34</Qty>
+    <Amt>497.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Versailles</ShipCity>
+    <ShipName>La corne d'abondance</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>20</Qty>
+    <Amt>1000.1499938964844</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Versailles</ShipCity>
+    <ShipName>La corne d'abondance</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>7</Qty>
+    <Amt>17.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Versailles</ShipCity>
+    <ShipName>La corne d'abondance</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>5</Qty>
+    <Amt>35</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Versailles</ShipCity>
+    <ShipName>La corne d'abondance</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>6</Qty>
+    <Amt>234</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Versailles</ShipCity>
+    <ShipName>La corne d'abondance</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>5</Qty>
+    <Amt>150</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>France</ShipCountry>
+    <ShipCity>Versailles</ShipCity>
+    <ShipName>La corne d'abondance</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>6</Qty>
+    <Amt>57.900001525878906</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Aachen</ShipCity>
+    <ShipName>Drachenblut Delikatessen</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>24</Qty>
+    <Amt>247.20000457763672</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Aachen</ShipCity>
+    <ShipName>Drachenblut Delikatessen</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>12</Qty>
+    <Amt>374.760009765625</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Aachen</ShipCity>
+    <ShipName>Drachenblut Delikatessen</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>70</Qty>
+    <Amt>2270</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Aachen</ShipCity>
+    <ShipName>Drachenblut Delikatessen</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>20</Qty>
+    <Amt>656</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Aachen</ShipCity>
+    <ShipName>Drachenblut Delikatessen</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>34</Qty>
+    <Amt>215.25</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfreds Futterkiste</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>21</Qty>
+    <Amt>283.5</Amt>
+    <Discount>94.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfreds Futterkiste</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>15</Qty>
+    <Amt>513</Amt>
+    <Discount>171</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfreds Futterkiste</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>2</Qty>
+    <Amt>18</Amt>
+    <Discount>6</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfred's Futterkiste</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>15</Qty>
+    <Amt>270</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfred's Futterkiste</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>44</Qty>
+    <Amt>1338.8000011444092</Amt>
+    <Discount>25.200000286102295</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfred's Futterkiste</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>35</Qty>
+    <Amt>1255</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfred's Futterkiste</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>2</Qty>
+    <Amt>91.199996948242188</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Berlin</ShipCity>
+    <ShipName>Alfred's Futterkiste</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>40</Qty>
+    <Amt>503.5</Amt>
+    <Discount>26.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Brandenburg</ShipCity>
+    <ShipName>Königlich Essen</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>128</Qty>
+    <Amt>9455.0999984741211</Amt>
+    <Discount>34.500000953674316</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Brandenburg</ShipCity>
+    <ShipName>Königlich Essen</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>90</Qty>
+    <Amt>1872</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Brandenburg</ShipCity>
+    <ShipName>Königlich Essen</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>206</Qty>
+    <Amt>4751.4639701843262</Amt>
+    <Discount>580.1760139465332</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Brandenburg</ShipCity>
+    <ShipName>Königlich Essen</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>180</Qty>
+    <Amt>7098.25</Amt>
+    <Discount>15.75</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Brandenburg</ShipCity>
+    <ShipName>Königlich Essen</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>95</Qty>
+    <Amt>4254.4199676513672</Amt>
+    <Discount>23.340001106262207</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Brandenburg</ShipCity>
+    <ShipName>Königlich Essen</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>9</Qty>
+    <Amt>167.39999389648438</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Brandenburg</ShipCity>
+    <ShipName>Königlich Essen</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>195</Qty>
+    <Amt>3309.7500534057617</Amt>
+    <Discount>183.60000610351563</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>886</Qty>
+    <Amt>36216.429992675781</Amt>
+    <Discount>2056.3700084686279</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>519</Qty>
+    <Amt>9214.9349365234375</Amt>
+    <Discount>476.76501083374023</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>676</Qty>
+    <Amt>18530.08984375</Amt>
+    <Discount>104</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>505</Qty>
+    <Amt>13800.850128173828</Amt>
+    <Discount>1392.7500381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>344</Qty>
+    <Amt>5310.8999786376953</Amt>
+    <Discount>494.89999771118164</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>232</Qty>
+    <Amt>9754.9600219726562</Amt>
+    <Discount>651.84001159667969</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>242</Qty>
+    <Amt>8081.400146484375</Amt>
+    <Discount>964.60000610351562</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Cunewalde</ShipCity>
+    <ShipName>QUICK-Stop</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>557</Qty>
+    <Amt>9367.7399291992188</Amt>
+    <Discount>1064.8600025177002</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Frankfurt a.M.</ShipCity>
+    <ShipName>Lehmanns Marktstand</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>144</Qty>
+    <Amt>1981.6000022888184</Amt>
+    <Discount>337.40001201629639</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Frankfurt a.M.</ShipCity>
+    <ShipName>Lehmanns Marktstand</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>115</Qty>
+    <Amt>2413.625</Amt>
+    <Discount>19.375</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Frankfurt a.M.</ShipCity>
+    <ShipName>Lehmanns Marktstand</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>75</Qty>
+    <Amt>2386.9925537109375</Amt>
+    <Discount>560.15751361846924</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Frankfurt a.M.</ShipCity>
+    <ShipName>Lehmanns Marktstand</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>235</Qty>
+    <Amt>5474</Amt>
+    <Discount>720</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Frankfurt a.M.</ShipCity>
+    <ShipName>Lehmanns Marktstand</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>102</Qty>
+    <Amt>2809.1000061035156</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Frankfurt a.M.</ShipCity>
+    <ShipName>Lehmanns Marktstand</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>43</Qty>
+    <Amt>2638.8199729919434</Amt>
+    <Discount>131.90000057220459</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Frankfurt a.M.</ShipCity>
+    <ShipName>Lehmanns Marktstand</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>80</Qty>
+    <Amt>1557.2724761962891</Amt>
+    <Discount>251.77749824523926</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>71</Qty>
+    <Amt>1129</Amt>
+    <Discount>63</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>61</Qty>
+    <Amt>982.77499389648438</Amt>
+    <Discount>51.725001335144043</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>145</Qty>
+    <Amt>2757.2749938964844</Amt>
+    <Discount>223.22500038146973</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>99</Qty>
+    <Amt>2315.25</Amt>
+    <Discount>11.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>70</Qty>
+    <Amt>951</Amt>
+    <Discount>9</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>9</Qty>
+    <Amt>265.67999267578125</Amt>
+    <Discount>29.520002365112305</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>85</Qty>
+    <Amt>2676.5625</Amt>
+    <Discount>117.1875</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Köln</ShipCity>
+    <ShipName>Ottilies Käseladen</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>99</Qty>
+    <Amt>1418.6575088500977</Amt>
+    <Discount>156.39250612258911</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Leipzig</ShipCity>
+    <ShipName>Morgenstern Gesundkost</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>10</Qty>
+    <Amt>180</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Leipzig</ShipCity>
+    <ShipName>Morgenstern Gesundkost</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>6</Qty>
+    <Amt>263.39999389648438</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Leipzig</ShipCity>
+    <ShipName>Morgenstern Gesundkost</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>64</Qty>
+    <Amt>1921.7999877929688</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Leipzig</ShipCity>
+    <ShipName>Morgenstern Gesundkost</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>52</Qty>
+    <Amt>1829</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Leipzig</ShipCity>
+    <ShipName>Morgenstern Gesundkost</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>20</Qty>
+    <Amt>728</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Leipzig</ShipCity>
+    <ShipName>Morgenstern Gesundkost</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>20</Qty>
+    <Amt>120</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>19</Qty>
+    <Amt>342</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>4</Qty>
+    <Amt>114</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>37</Qty>
+    <Amt>363</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>35</Qty>
+    <Amt>1008</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>4</Qty>
+    <Amt>78</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>20</Qty>
+    <Amt>149</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>11</Qty>
+    <Amt>560.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Mannheim</ShipCity>
+    <ShipName>Blauer See Delikatessen</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>10</Qty>
+    <Amt>625</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>211</Qty>
+    <Amt>2033.4400024414063</Amt>
+    <Discount>204.36000061035156</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>15</Qty>
+    <Amt>195</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>251</Qty>
+    <Amt>3313.5749664306641</Amt>
+    <Discount>315.02500247955322</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>403</Qty>
+    <Amt>10552.099914550781</Amt>
+    <Discount>812.70003128051758</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>142</Qty>
+    <Amt>1612.125</Amt>
+    <Discount>249.375</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>114</Qty>
+    <Amt>2896.1195068359375</Amt>
+    <Discount>305.44051361083984</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>51</Qty>
+    <Amt>1185.75</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>München</ShipCity>
+    <ShipName>Frankenversand</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>338</Qty>
+    <Amt>4868.4499969482422</Amt>
+    <Discount>179.24999904632568</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Münster</ShipCity>
+    <ShipName>Toms Spezialitäten</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>50</Qty>
+    <Amt>348.99999237060547</Amt>
+    <Discount>86.999999523162842</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Münster</ShipCity>
+    <ShipName>Toms Spezialitäten</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>79</Qty>
+    <Amt>1076.8399963378906</Amt>
+    <Discount>30.659999847412109</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Münster</ShipCity>
+    <ShipName>Toms Spezialitäten</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>3</Qty>
+    <Amt>27</Amt>
+    <Discount>3</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Münster</ShipCity>
+    <ShipName>Toms Spezialitäten</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>58</Qty>
+    <Amt>1326.7999954223633</Amt>
+    <Discount>55.199999809265137</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Münster</ShipCity>
+    <ShipName>Toms Spezialitäten</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>49</Qty>
+    <Amt>1863.3999938964844</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Münster</ShipCity>
+    <ShipName>Toms Spezialitäten</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>14</Qty>
+    <Amt>135.10000610351563</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>112</Qty>
+    <Amt>2146.8500061035156</Amt>
+    <Discount>133.35000228881836</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>15</Qty>
+    <Amt>342</Amt>
+    <Discount>85.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>52</Qty>
+    <Amt>402.80000305175781</Amt>
+    <Discount>107.60000038146973</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>183</Qty>
+    <Amt>4011.5</Amt>
+    <Discount>574.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>80</Qty>
+    <Amt>1551.875</Amt>
+    <Discount>154.875</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>36</Qty>
+    <Amt>840.79998779296875</Amt>
+    <Discount>9.6000003814697266</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>4</Qty>
+    <Amt>145.60000610351563</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Germany</ShipCountry>
+    <ShipCity>Stuttgart</ShipCity>
+    <ShipName>Die Wandernde Kuh</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>10</Qty>
+    <Amt>147</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>200</Qty>
+    <Amt>3145.3200035095215</Amt>
+    <Discount>194.08000087738037</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>180</Qty>
+    <Amt>3477.625</Amt>
+    <Discount>420.875</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>91</Qty>
+    <Amt>1676.3800048828125</Amt>
+    <Discount>62.820003509521484</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>387</Qty>
+    <Amt>9010.109992980957</Amt>
+    <Discount>2083.2900009155273</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>52</Qty>
+    <Amt>1442.3999996185303</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>223</Qty>
+    <Amt>20914.230003356934</Amt>
+    <Discount>3126.6699771881104</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>121</Qty>
+    <Amt>3414.6600341796875</Amt>
+    <Discount>407.04000854492188</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Ireland</ShipCountry>
+    <ShipCity>Cork</ShipCity>
+    <ShipName>Hungry Owl All-Night Grocers</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>430</Qty>
+    <Amt>6899.1799621582031</Amt>
+    <Discount>1042.710018157959</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Bergamo</ShipCity>
+    <ShipName>Magazzini Alimentari Riuniti</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>92</Qty>
+    <Amt>809.94000434875488</Amt>
+    <Discount>120.06000208854675</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Bergamo</ShipCity>
+    <ShipName>Magazzini Alimentari Riuniti</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>60</Qty>
+    <Amt>1004.2250061035156</Amt>
+    <Discount>54.025001525878906</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Bergamo</ShipCity>
+    <ShipName>Magazzini Alimentari Riuniti</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>92</Qty>
+    <Amt>1500.0499572753906</Amt>
+    <Discount>61.350002288818359</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Bergamo</ShipCity>
+    <ShipName>Magazzini Alimentari Riuniti</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>56</Qty>
+    <Amt>1778.2000274658203</Amt>
+    <Discount>169.80000591278076</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Bergamo</ShipCity>
+    <ShipName>Magazzini Alimentari Riuniti</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>80</Qty>
+    <Amt>1265.6000061035156</Amt>
+    <Discount>22.399999618530273</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Bergamo</ShipCity>
+    <ShipName>Magazzini Alimentari Riuniti</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>53</Qty>
+    <Amt>818.20000076293945</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>22</Qty>
+    <Amt>189</Amt>
+    <Discount>36</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>20</Qty>
+    <Amt>260</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>41</Qty>
+    <Amt>1030.6999816894531</Amt>
+    <Discount>52.299999237060547</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>92</Qty>
+    <Amt>2080.9399337768555</Amt>
+    <Discount>211.85999870300293</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>28</Qty>
+    <Amt>477.89999961853027</Amt>
+    <Discount>28.100000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>40</Qty>
+    <Amt>1056.4999923706055</Amt>
+    <Discount>110.49999856948853</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>52</Qty>
+    <Amt>1606.7999877929688</Amt>
+    <Discount>30</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Reggio Emilia</ShipCity>
+    <ShipName>Reggiani Caseifici</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>40</Qty>
+    <Amt>346.40000915527344</Amt>
+    <Discount>38.600002288818359</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Torino</ShipCity>
+    <ShipName>Franchi S.p.A.</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>10</Qty>
+    <Amt>130</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Torino</ShipCity>
+    <ShipName>Franchi S.p.A.</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>12</Qty>
+    <Amt>143.29999923706055</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Torino</ShipCity>
+    <ShipName>Franchi S.p.A.</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>4</Qty>
+    <Amt>136</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Torino</ShipCity>
+    <ShipName>Franchi S.p.A.</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>15</Qty>
+    <Amt>580</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Italy</ShipCountry>
+    <ShipCity>Torino</ShipCity>
+    <ShipName>Franchi S.p.A.</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>13</Qty>
+    <Amt>556.39999961853027</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Ana Trujillo Emparedados y helados</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>5</Qty>
+    <Amt>60</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Ana Trujillo Emparedados y helados</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>7</Qty>
+    <Amt>64.4000015258789</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Ana Trujillo Emparedados y helados</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>33</Qty>
+    <Amt>1078.7999992370606</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Ana Trujillo Emparedados y helados</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>5</Qty>
+    <Amt>70</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Ana Trujillo Emparedados y helados</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>3</Qty>
+    <Amt>69.75</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Ana Trujillo Emparedados y helados</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>10</Qty>
+    <Amt>60</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Antonio Moreno Taquería</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>105</Qty>
+    <Amt>1759</Amt>
+    <Discount>103.50000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Antonio Moreno Taquería</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>4</Qty>
+    <Amt>68</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Antonio Moreno Taquería</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>45</Qty>
+    <Amt>958.92755126953125</Amt>
+    <Discount>169.222505569458</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Antonio Moreno Taquería</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>127</Qty>
+    <Amt>2182.7000122070312</Amt>
+    <Discount>190.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Antonio Moreno Taquería</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>25</Qty>
+    <Amt>367.75</Amt>
+    <Discount>9.75</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Antonio Moreno Taquería</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>43</Qty>
+    <Amt>1522</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Antonio Moreno Taquería</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>10</Qty>
+    <Amt>165.59999084472656</Amt>
+    <Discount>18.399999618530273</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Centro comercial Moctezuma</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>10</Qty>
+    <Amt>80</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Centro comercial Moctezuma</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>1</Qty>
+    <Amt>20.799999237060547</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Pericles Comidas clásicas</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>72</Qty>
+    <Amt>744.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Pericles Comidas clásicas</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>14</Qty>
+    <Amt>346</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Pericles Comidas clásicas</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>20</Qty>
+    <Amt>112</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Pericles Comidas clásicas</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>10</Qty>
+    <Amt>592.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Pericles Comidas clásicas</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>50</Qty>
+    <Amt>1938.4000091552734</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Pericles Comidas clásicas</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>42</Qty>
+    <Amt>508.20001220703125</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Tortuga Restaurante</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>113</Qty>
+    <Amt>5430.2000007629395</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Tortuga Restaurante</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>56</Qty>
+    <Amt>1167.4500274658203</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Tortuga Restaurante</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>57</Qty>
+    <Amt>794.40000152587891</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Tortuga Restaurante</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>77</Qty>
+    <Amt>1114.4000015258789</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Tortuga Restaurante</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>28</Qty>
+    <Amt>714.10000610351562</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Tortuga Restaurante</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>14</Qty>
+    <Amt>509.60000610351562</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Mexico</ShipCountry>
+    <ShipCity>México D.F.</ShipCity>
+    <ShipName>Tortuga Restaurante</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>39</Qty>
+    <Amt>1082</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Norway</ShipCountry>
+    <ShipCity>Stavern</ShipCity>
+    <ShipName>Santé Gourmet</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>48</Qty>
+    <Amt>2756</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Norway</ShipCountry>
+    <ShipCity>Stavern</ShipCity>
+    <ShipName>Santé Gourmet</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>18</Qty>
+    <Amt>234</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Norway</ShipCountry>
+    <ShipCity>Stavern</ShipCity>
+    <ShipName>Santé Gourmet</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>17</Qty>
+    <Amt>280.14999961853027</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Norway</ShipCountry>
+    <ShipCity>Stavern</ShipCity>
+    <ShipName>Santé Gourmet</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>27</Qty>
+    <Amt>786</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Norway</ShipCountry>
+    <ShipCity>Stavern</ShipCity>
+    <ShipName>Santé Gourmet</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>5</Qty>
+    <Amt>164</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Norway</ShipCountry>
+    <ShipCity>Stavern</ShipCity>
+    <ShipName>Santé Gourmet</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>18</Qty>
+    <Amt>578.39999389648438</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Norway</ShipCountry>
+    <ShipCity>Stavern</ShipCity>
+    <ShipName>Santé Gourmet</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>28</Qty>
+    <Amt>936.60000610351562</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Poland</ShipCountry>
+    <ShipCity>Warszawa</ShipCity>
+    <ShipName>Wolski Zajazd</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>71</Qty>
+    <Amt>828.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Poland</ShipCountry>
+    <ShipCity>Warszawa</ShipCity>
+    <ShipName>Wolski Zajazd</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>22</Qty>
+    <Amt>627</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Poland</ShipCountry>
+    <ShipCity>Warszawa</ShipCity>
+    <ShipName>Wolski Zajazd</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>27</Qty>
+    <Amt>779.0999755859375</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Poland</ShipCountry>
+    <ShipCity>Warszawa</ShipCity>
+    <ShipName>Wolski Zajazd</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>45</Qty>
+    <Amt>810</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Poland</ShipCountry>
+    <ShipCity>Warszawa</ShipCity>
+    <ShipName>Wolski Zajazd</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>3</Qty>
+    <Amt>22.350000381469727</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Poland</ShipCountry>
+    <ShipCity>Warszawa</ShipCity>
+    <ShipName>Wolski Zajazd</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>22</Qty>
+    <Amt>306</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Poland</ShipCountry>
+    <ShipCity>Warszawa</ShipCity>
+    <ShipName>Wolski Zajazd</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>15</Qty>
+    <Amt>159</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Furia Bacalhau e Frutos do Mar</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>43</Qty>
+    <Amt>614.40000152587891</Amt>
+    <Discount>72.000003814697266</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Furia Bacalhau e Frutos do Mar</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>133</Qty>
+    <Amt>2203.1725311279297</Amt>
+    <Discount>149.47750759124756</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Furia Bacalhau e Frutos do Mar</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>56</Qty>
+    <Amt>762.14998626708984</Amt>
+    <Discount>112.35000467300415</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Furia Bacalhau e Frutos do Mar</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>31</Qty>
+    <Amt>997.80000305175781</Amt>
+    <Discount>10.200000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Furia Bacalhau e Frutos do Mar</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>42</Qty>
+    <Amt>1117.2000427246094</Amt>
+    <Discount>250.80001068115234</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Furia Bacalhau e Frutos do Mar</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>20</Qty>
+    <Amt>100.30000305175781</Amt>
+    <Discount>17.700000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Furia Bacalhau e Frutos do Mar</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>24</Qty>
+    <Amt>632.4000244140625</Amt>
+    <Discount>111.60000610351563</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Princesa Isabel Vinhos</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>35</Qty>
+    <Amt>432</Amt>
+    <Discount>72</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Princesa Isabel Vinhos</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>48</Qty>
+    <Amt>1485.1199951171875</Amt>
+    <Discount>31.679998397827148</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Princesa Isabel Vinhos</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>31</Qty>
+    <Amt>194</Amt>
+    <Discount>54</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Princesa Isabel Vinhos</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>42</Qty>
+    <Amt>1047.2000122070313</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Princesa Isabel Vinhos</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>10</Qty>
+    <Amt>1237.9000244140625</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Portugal</ShipCountry>
+    <ShipCity>Lisboa</ShipCity>
+    <ShipName>Princesa Isabel Vinhos</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>18</Qty>
+    <Amt>648.72003173828125</Amt>
+    <Discount>114.48000335693359</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Barcelona</ShipCity>
+    <ShipName>Galería del gastronómo</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>5</Qty>
+    <Amt>90</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Barcelona</ShipCity>
+    <ShipName>Galería del gastronómo</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>10</Qty>
+    <Amt>136</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Barcelona</ShipCity>
+    <ShipName>Galería del gastronómo</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>10</Qty>
+    <Amt>117.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Barcelona</ShipCity>
+    <ShipName>Galería del gastronómo</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>12</Qty>
+    <Amt>338.19999694824219</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Barcelona</ShipCity>
+    <ShipName>Galería del gastronómo</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>5</Qty>
+    <Amt>155</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Bólido Comidas preparadas</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>50</Qty>
+    <Amt>310</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Bólido Comidas preparadas</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>24</Qty>
+    <Amt>422.39999389648438</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Bólido Comidas preparadas</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>56</Qty>
+    <Amt>473.60000610351562</Amt>
+    <Discount>56</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Bólido Comidas preparadas</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>60</Qty>
+    <Amt>3026.85009765625</Amt>
+    <Discount>1008.9500122070313</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Romero y tomillo</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>10</Qty>
+    <Amt>79.19999885559082</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Romero y tomillo</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>3</Qty>
+    <Amt>32.300000190734863</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Romero y tomillo</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>10</Qty>
+    <Amt>340</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Romero y tomillo</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>16</Qty>
+    <Amt>177.20000076293945</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Romero y tomillo</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>15</Qty>
+    <Amt>291.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Madrid</ShipCity>
+    <ShipName>Romero y tomillo</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>37</Qty>
+    <Amt>547.08999633789062</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>61</Qty>
+    <Amt>884</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>61</Qty>
+    <Amt>1130.0474548339844</Amt>
+    <Discount>101.00250053405762</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>78</Qty>
+    <Amt>1588.9500122070313</Amt>
+    <Discount>70.299999237060547</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>9</Qty>
+    <Amt>306</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>24</Qty>
+    <Amt>773.0625</Amt>
+    <Discount>24.9375</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>54</Qty>
+    <Amt>3548.6000366210938</Amt>
+    <Discount>43.200000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>40</Qty>
+    <Amt>2120</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Spain</ShipCountry>
+    <ShipCity>Sevilla</ShipCity>
+    <ShipName>Godos Cocina Típica</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>68</Qty>
+    <Amt>1095.7000122070313</Amt>
+    <Discount>144.29999923706055</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>294</Qty>
+    <Amt>3865.3200225830078</Amt>
+    <Discount>441.68000507354736</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>160</Qty>
+    <Amt>3651.5</Amt>
+    <Discount>226</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>87</Qty>
+    <Amt>978.92999267578125</Amt>
+    <Discount>96.869998931884766</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>123</Qty>
+    <Amt>3654.9500122070312</Amt>
+    <Discount>174.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>115</Qty>
+    <Amt>3021</Amt>
+    <Discount>54</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>86</Qty>
+    <Amt>5398.125</Amt>
+    <Discount>1655.3750076293945</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>148</Qty>
+    <Amt>6464</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Bräcke</ShipCity>
+    <ShipName>Folk och fä HB</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>221</Qty>
+    <Amt>2533.737548828125</Amt>
+    <Discount>339.81251335144043</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>255</Qty>
+    <Amt>8298.67499923706</Amt>
+    <Discount>801.375</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>66</Qty>
+    <Amt>1066.3999786376953</Amt>
+    <Discount>26.399999618530273</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>191</Qty>
+    <Amt>4190.6975402832031</Amt>
+    <Discount>409.15251350402832</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>92</Qty>
+    <Amt>2724</Amt>
+    <Discount>32</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>25</Qty>
+    <Amt>175</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>88</Qty>
+    <Amt>2258.505054473877</Amt>
+    <Discount>313.94500637054443</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>66</Qty>
+    <Amt>2515.199951171875</Amt>
+    <Discount>136.80000305175781</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Sweden</ShipCountry>
+    <ShipCity>Luleå</ShipCity>
+    <ShipName>Berglunds snabbköp</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>218</Qty>
+    <Amt>3699.0999450683594</Amt>
+    <Discount>320.89999389648438</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>60</Qty>
+    <Amt>685.50000762939453</Amt>
+    <Discount>154.50000190734863</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>42</Qty>
+    <Amt>1843.7999877929688</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>61</Qty>
+    <Amt>1326.5599975585938</Amt>
+    <Discount>108.73999786376953</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>50</Qty>
+    <Amt>1763</Amt>
+    <Discount>17</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>130</Qty>
+    <Amt>3857.6000061035156</Amt>
+    <Discount>68.4000015258789</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>21</Qty>
+    <Amt>342.72003173828125</Amt>
+    <Discount>60.480003356933594</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>71</Qty>
+    <Amt>1814.5</Amt>
+    <Discount>103.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Bern</ShipCity>
+    <ShipName>Chop-suey Chinese</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>30</Qty>
+    <Amt>715.19998168945312</Amt>
+    <Discount>24.80000114440918</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>122</Qty>
+    <Amt>1464.2250003814697</Amt>
+    <Discount>53.275002002716064</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>10</Qty>
+    <Amt>210.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>87</Qty>
+    <Amt>1740.8839721679688</Amt>
+    <Discount>69.976001739501953</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>212</Qty>
+    <Amt>5725.425048828125</Amt>
+    <Discount>241.8750057220459</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>90</Qty>
+    <Amt>1005</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>106</Qty>
+    <Amt>6522.83984375</Amt>
+    <Discount>229.60000610351563</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>6</Qty>
+    <Amt>318</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Switzerland</ShipCountry>
+    <ShipCity>Genève</ShipCity>
+    <ShipName>Richter Supermarkt</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>177</Qty>
+    <Amt>2356.9050254821777</Amt>
+    <Discount>94.695007085800171</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Colchester</ShipCity>
+    <ShipName>Around the Horn</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>112</Qty>
+    <Amt>1227</Amt>
+    <Discount>150.00000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Colchester</ShipCity>
+    <ShipName>Around the Horn</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>129</Qty>
+    <Amt>4807.6999969482422</Amt>
+    <Discount>217.80000019073486</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Colchester</ShipCity>
+    <ShipName>Around the Horn</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>142</Qty>
+    <Amt>2174.25</Amt>
+    <Discount>31.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Colchester</ShipCity>
+    <ShipName>Around the Horn</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>127</Qty>
+    <Amt>2128</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Colchester</ShipCity>
+    <ShipName>Around the Horn</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>39</Qty>
+    <Amt>1094.4000244140625</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Colchester</ShipCity>
+    <ShipName>Around the Horn</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>20</Qty>
+    <Amt>1060</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Colchester</ShipCity>
+    <ShipName>Around the Horn</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>81</Qty>
+    <Amt>899.29998779296875</Amt>
+    <Discount>16.80000114440918</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Cowes</ShipCity>
+    <ShipName>Island Trading</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>100</Qty>
+    <Amt>1417.2000045776367</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Cowes</ShipCity>
+    <ShipName>Island Trading</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>50</Qty>
+    <Amt>1655</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Cowes</ShipCity>
+    <ShipName>Island Trading</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>7</Qty>
+    <Amt>144.59999847412109</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Cowes</ShipCity>
+    <ShipName>Island Trading</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>76</Qty>
+    <Amt>1944.8999938964844</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Cowes</ShipCity>
+    <ShipName>Island Trading</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>30</Qty>
+    <Amt>705</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Cowes</ShipCity>
+    <ShipName>Island Trading</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>2</Qty>
+    <Amt>65.5999984741211</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>Cowes</ShipCity>
+    <ShipName>Island Trading</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>30</Qty>
+    <Amt>214</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>B's Beverages</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>57</Qty>
+    <Amt>1845</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>B's Beverages</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>30</Qty>
+    <Amt>240</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>B's Beverages</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>45</Qty>
+    <Amt>875</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>B's Beverages</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>20</Qty>
+    <Amt>292.29999923706055</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>B's Beverages</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>56</Qty>
+    <Amt>1405.3999938964844</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>B's Beverages</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>37</Qty>
+    <Amt>967.19999694824219</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>B's Beverages</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>48</Qty>
+    <Amt>465</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Consolidated Holdings</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>10</Qty>
+    <Amt>152</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Consolidated Holdings</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>30</Qty>
+    <Amt>640.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Consolidated Holdings</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>10</Qty>
+    <Amt>278</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Consolidated Holdings</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>33</Qty>
+    <Amt>352.80000305175781</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Consolidated Holdings</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>3</Qty>
+    <Amt>291</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Consolidated Holdings</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>1</Qty>
+    <Amt>4.8000001907348633</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Eastern Connection</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>66</Qty>
+    <Amt>1117.5</Amt>
+    <Discount>112.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Eastern Connection</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>100</Qty>
+    <Amt>1880.4249877929688</Amt>
+    <Discount>160.125</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Eastern Connection</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>42</Qty>
+    <Amt>854.760009765625</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Eastern Connection</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>190</Qty>
+    <Amt>4601</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Eastern Connection</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>56</Qty>
+    <Amt>2919</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Eastern Connection</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>100</Qty>
+    <Amt>3000</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Eastern Connection</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>15</Qty>
+    <Amt>388.35000610351562</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>North/South</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>17</Qty>
+    <Amt>279</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>North/South</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>7</Qty>
+    <Amt>328</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>North/South</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>6</Qty>
+    <Amt>42</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Seven Seas Imports</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>140</Qty>
+    <Amt>1238.4000091552734</Amt>
+    <Discount>57.600001335144043</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Seven Seas Imports</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>95</Qty>
+    <Amt>2150.9800415039062</Amt>
+    <Discount>172.42000198364258</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Seven Seas Imports</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>234</Qty>
+    <Amt>4540</Amt>
+    <Discount>364.00000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Seven Seas Imports</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>70</Qty>
+    <Amt>539.59999847412109</Amt>
+    <Discount>22.399999618530273</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Seven Seas Imports</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>72</Qty>
+    <Amt>1972.435001373291</Amt>
+    <Discount>102.71500015258789</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Seven Seas Imports</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>72</Qty>
+    <Amt>2953.4000244140625</Amt>
+    <Discount>162.20000457763672</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>UK</ShipCountry>
+    <ShipCity>London</ShipCity>
+    <ShipName>Seven Seas Imports</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>135</Qty>
+    <Amt>2820.5099868774414</Amt>
+    <Discount>75.390000820159912</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>232</Qty>
+    <Amt>19208.150032043457</Amt>
+    <Discount>126.75000464916229</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>98</Qty>
+    <Amt>1503.1999969482422</Amt>
+    <Discount>186.79999923706055</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>279</Qty>
+    <Amt>10947.212909698486</Amt>
+    <Discount>422.48699700832367</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>340</Qty>
+    <Amt>7854.8699951171875</Amt>
+    <Discount>201.53000140190125</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>158</Qty>
+    <Amt>4831.305004119873</Amt>
+    <Discount>1.9950000047683716</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>128</Qty>
+    <Amt>3657.2799072265625</Amt>
+    <Discount>173.52000045776367</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>77</Qty>
+    <Amt>2211.0524997711182</Amt>
+    <Discount>2.1974999904632568</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Albuquerque</ShipCity>
+    <ShipName>Rattlesnake Canyon Grocery</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>71</Qty>
+    <Amt>884.72998809814453</Amt>
+    <Discount>32.820001095533371</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>104</Qty>
+    <Amt>2257.7999877929688</Amt>
+    <Discount>178.20000076293945</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>33</Qty>
+    <Amt>672.78750610351562</Amt>
+    <Discount>47.362503051757812</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>185</Qty>
+    <Amt>3765.875</Amt>
+    <Discount>233.125</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>42</Qty>
+    <Amt>802.5</Amt>
+    <Discount>62.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>108</Qty>
+    <Amt>2146</Amt>
+    <Discount>254.00000762939453</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>45</Qty>
+    <Amt>2851.5</Amt>
+    <Discount>247.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>16</Qty>
+    <Amt>848</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Anchorage</ShipCity>
+    <ShipName>Old World Delicatessen</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>70</Qty>
+    <Amt>1833</Amt>
+    <Discount>125</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>827</Qty>
+    <Amt>10032.000076293945</Amt>
+    <Discount>1437.000020980835</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>390</Qty>
+    <Amt>7873.0001220703125</Amt>
+    <Discount>806.50003051757812</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>709</Qty>
+    <Amt>11900.070037841797</Amt>
+    <Discount>1611.2800064086914</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>791</Qty>
+    <Amt>21107.100006103516</Amt>
+    <Discount>2667</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>331</Qty>
+    <Amt>8298.1000061035156</Amt>
+    <Discount>525.40000152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>695</Qty>
+    <Amt>27659.179641723633</Amt>
+    <Discount>3134.5600299835205</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>152</Qty>
+    <Amt>3887.9000244140625</Amt>
+    <Discount>546.80000305175781</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Boise</ShipCity>
+    <ShipName>Save-a-lot Markets</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>1063</Qty>
+    <Amt>13604.600006103516</Amt>
+    <Discount>582.90000820159912</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Butte</ShipCity>
+    <ShipName>The Cracker Box</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>7</Qty>
+    <Amt>114</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Butte</ShipCity>
+    <ShipName>The Cracker Box</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>10</Qty>
+    <Amt>194.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Butte</ShipCity>
+    <ShipName>The Cracker Box</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>10</Qty>
+    <Amt>70</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Butte</ShipCity>
+    <ShipName>The Cracker Box</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>6</Qty>
+    <Amt>742.739990234375</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Butte</ShipCity>
+    <ShipName>The Cracker Box</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>10</Qty>
+    <Amt>456</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Butte</ShipCity>
+    <ShipName>The Cracker Box</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>16</Qty>
+    <Amt>370</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Elgin</ShipCity>
+    <ShipName>Hungry Coyote Import Store</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>31</Qty>
+    <Amt>2095</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Elgin</ShipCity>
+    <ShipName>Hungry Coyote Import Store</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>20</Qty>
+    <Amt>40</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Elgin</ShipCity>
+    <ShipName>Hungry Coyote Import Store</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>16</Qty>
+    <Amt>151.20000076293945</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Elgin</ShipCity>
+    <ShipName>Hungry Coyote Import Store</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>15</Qty>
+    <Amt>279</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Elgin</ShipCity>
+    <ShipName>Hungry Coyote Import Store</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>40</Qty>
+    <Amt>498</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>72</Qty>
+    <Amt>11694.375</Amt>
+    <Discount>604.125</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>28</Qty>
+    <Amt>490.13995361328125</Amt>
+    <Discount>54.459999084472656</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>88</Qty>
+    <Amt>1544.4000053405762</Amt>
+    <Discount>94.599999904632568</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>80</Qty>
+    <Amt>2611.0750122070312</Amt>
+    <Discount>267.62501525878906</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>42</Qty>
+    <Amt>1463</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>2</Qty>
+    <Amt>185.68499755859375</Amt>
+    <Discount>61.895000457763672</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>3</Qty>
+    <Amt>62.774997711181641</Amt>
+    <Discount>6.9749999046325684</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Eugene</ShipCity>
+    <ShipName>Great Lakes Food Market</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>30</Qty>
+    <Amt>456</Amt>
+    <Discount>114</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Kirkland</ShipCity>
+    <ShipName>Trail's Head Gourmet Provisioners</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>36</Qty>
+    <Amt>425</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Kirkland</ShipCity>
+    <ShipName>Trail's Head Gourmet Provisioners</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>18</Qty>
+    <Amt>234</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Kirkland</ShipCity>
+    <ShipName>Trail's Head Gourmet Provisioners</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>13</Qty>
+    <Amt>640.89999389648438</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Kirkland</ShipCity>
+    <ShipName>Trail's Head Gourmet Provisioners</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>14</Qty>
+    <Amt>35</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Kirkland</ShipCity>
+    <ShipName>Trail's Head Gourmet Provisioners</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>6</Qty>
+    <Amt>199.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Kirkland</ShipCity>
+    <ShipName>Trail's Head Gourmet Provisioners</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>2</Qty>
+    <Amt>36.799999237060547</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>40</Qty>
+    <Amt>4365.199951171875</Amt>
+    <Discount>210.80000305175781</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>10</Qty>
+    <Amt>439</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>34</Qty>
+    <Amt>442.34999847412109</Amt>
+    <Discount>34.650000095367432</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>64</Qty>
+    <Amt>1059.2000122070313</Amt>
+    <Discount>252.80000305175781</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>30</Qty>
+    <Amt>756.96002197265625</Amt>
+    <Discount>155.04000282287598</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>84</Qty>
+    <Amt>2357.6000061035156</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>16</Qty>
+    <Amt>510</Amt>
+    <Discount>48</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Lander</ShipCity>
+    <ShipName>Split Rail Beer &amp; Ale</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>49</Qty>
+    <Amt>1511.3200073242188</Amt>
+    <Discount>346.78000068664551</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>Lonesome Pine Restaurant</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>45</Qty>
+    <Amt>602</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>Lonesome Pine Restaurant</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>23</Qty>
+    <Amt>549</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>Lonesome Pine Restaurant</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>21</Qty>
+    <Amt>815</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>Lonesome Pine Restaurant</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>5</Qty>
+    <Amt>190</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>Lonesome Pine Restaurant</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>3</Qty>
+    <Amt>98.4000015258789</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>Lonesome Pine Restaurant</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>27</Qty>
+    <Amt>1379.2000122070313</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>Lonesome Pine Restaurant</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>10</Qty>
+    <Amt>625</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>The Big Cheese</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>20</Qty>
+    <Amt>2775</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>The Big Cheese</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>4</Qty>
+    <Amt>85.4000015258789</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>The Big Cheese</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>15</Qty>
+    <Amt>336</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>The Big Cheese</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>2</Qty>
+    <Amt>69.5999984741211</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Portland</ShipCity>
+    <ShipName>The Big Cheese</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>5</Qty>
+    <Amt>95</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>San Francisco</ShipCity>
+    <ShipName>Let's Stop N Shop</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>21</Qty>
+    <Amt>162.75</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>San Francisco</ShipCity>
+    <ShipName>Let's Stop N Shop</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>44</Qty>
+    <Amt>931.3700008392334</Amt>
+    <Discount>72.230000257492065</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>San Francisco</ShipCity>
+    <ShipName>Let's Stop N Shop</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>40</Qty>
+    <Amt>380</Amt>
+    <Discount>20</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>San Francisco</ShipCity>
+    <ShipName>Let's Stop N Shop</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>21</Qty>
+    <Amt>758.0999755859375</Amt>
+    <Discount>39.900001525878906</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>San Francisco</ShipCity>
+    <ShipName>Let's Stop N Shop</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>40</Qty>
+    <Amt>223.5</Amt>
+    <Discount>74.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>San Francisco</ShipCity>
+    <ShipName>Let's Stop N Shop</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>15</Qty>
+    <Amt>620.752498626709</Amt>
+    <Discount>206.91749954223633</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>212</Qty>
+    <Amt>8884.6999816894531</Amt>
+    <Discount>283.30000495910645</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>186</Qty>
+    <Amt>4174.1299991607666</Amt>
+    <Discount>790.97000169754028</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>185</Qty>
+    <Amt>3714.1250228881836</Amt>
+    <Discount>72.975006103515625</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>175</Qty>
+    <Amt>3297.7000122070312</Amt>
+    <Discount>195.80000114440918</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>19</Qty>
+    <Amt>577.60000610351562</Amt>
+    <Discount>144.40000152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>138</Qty>
+    <Amt>3707.9500122070312</Amt>
+    <Discount>67.050003051757812</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>5</Qty>
+    <Amt>182.40000915527344</Amt>
+    <Discount>45.600002288818359</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Seattle</ShipCity>
+    <ShipName>White Clover Markets</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>143</Qty>
+    <Amt>2825</Amt>
+    <Discount>109.75</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Walla Walla</ShipCity>
+    <ShipName>Lazy K Kountry Store</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>10</Qty>
+    <Amt>210</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>USA</ShipCountry>
+    <ShipCity>Walla Walla</ShipCity>
+    <ShipName>Lazy K Kountry Store</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>10</Qty>
+    <Amt>147</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>43</Qty>
+    <Amt>647.40000152587891</Amt>
+    <Discount>21.600000381469727</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>50</Qty>
+    <Amt>618.5</Amt>
+    <Discount>19.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>179</Qty>
+    <Amt>2745.0499877929688</Amt>
+    <Discount>266.75</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>238</Qty>
+    <Amt>7360.8300094604492</Amt>
+    <Discount>580.7700080871582</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>105</Qty>
+    <Amt>933</Amt>
+    <Discount>129.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>80</Qty>
+    <Amt>975.75</Amt>
+    <Discount>325.25</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>49</Qty>
+    <Amt>1451.5</Amt>
+    <Discount>22.5</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Barquisimeto</ShipCity>
+    <ShipName>LILA-Supermercado</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>92</Qty>
+    <Amt>1344.5699920654297</Amt>
+    <Discount>382.58999633789062</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Caracas</ShipCity>
+    <ShipName>GROSELLA-Restaurante</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>10</Qty>
+    <Amt>77.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Caracas</ShipCity>
+    <ShipName>GROSELLA-Restaurante</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>4</Qty>
+    <Amt>111.19999694824219</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Caracas</ShipCity>
+    <ShipName>GROSELLA-Restaurante</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>10</Qty>
+    <Amt>990</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>Caracas</ShipCity>
+    <ShipName>GROSELLA-Restaurante</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>10</Qty>
+    <Amt>310</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>207</Qty>
+    <Amt>2910.6000061035156</Amt>
+    <Discount>309.39999961853027</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>91</Qty>
+    <Amt>986.04998779296875</Amt>
+    <Discount>16</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>234</Qty>
+    <Amt>3573.6100234985352</Amt>
+    <Discount>106.19000244140625</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>109</Qty>
+    <Amt>3047.2250366210938</Amt>
+    <Discount>169.27500152587891</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>46</Qty>
+    <Amt>708</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>30</Qty>
+    <Amt>518.39996337890625</Amt>
+    <Discount>57.600002288818359</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>20</Qty>
+    <Amt>912</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>I. de Margarita</ShipCity>
+    <ShipName>LINO-Delicateses</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>233</Qty>
+    <Amt>3820.6800079345703</Amt>
+    <Discount>754.5200023651123</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Beverages</CategoryName>
+    <Qty>273</Qty>
+    <Amt>3136.3499984741211</Amt>
+    <Discount>65.250003814697266</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Condiments</CategoryName>
+    <Qty>25</Qty>
+    <Amt>350.5</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Confections</CategoryName>
+    <Qty>91</Qty>
+    <Amt>1912.1640014648438</Amt>
+    <Discount>131.16600036621094</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Dairy Products</CategoryName>
+    <Qty>204</Qty>
+    <Amt>7241.6000061035156</Amt>
+    <Discount>172.80000305175781</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Grains/Cereals</CategoryName>
+    <Qty>93</Qty>
+    <Amt>2007</Amt>
+    <Discount>232.75</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Meat/Poultry</CategoryName>
+    <Qty>72</Qty>
+    <Amt>1687.0799751281738</Amt>
+    <Discount>185.32000923156738</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Produce</CategoryName>
+    <Qty>81</Qty>
+    <Amt>3160</Amt>
+    <Discount>0</Discount>
+  </Categories>
+  <Categories>
+    <ShipCountry>Venezuela</ShipCountry>
+    <ShipCity>San Cristóbal</ShipCity>
+    <ShipName>HILARION-Abastos</ShipName>
+    <CategoryName>Seafood</CategoryName>
+    <Qty>257</Qty>
+    <Amt>3274.0700073242188</Amt>
+    <Discount>55.529999732971191</Discount>
+  </Categories>
+</DataSet1>
