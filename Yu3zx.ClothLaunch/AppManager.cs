@@ -74,7 +74,30 @@ namespace Yu3zx.ClothLaunch
             get;
             set;
         }
+        #region 打印相关属性
+        /// <summary>
+        /// 标签名称
+        /// </summary>
+        public string LabelName
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 对应打印机名称
+        /// </summary>
+        public string PrinterName
+        {
+            get;
+            set;
+        }
 
+        public int PrintCopies
+        {
+            get;
+            set;
+        }
+        #endregion End
         /// <summary>
         /// 初始化
         /// </summary>
@@ -102,6 +125,22 @@ namespace Yu3zx.ClothLaunch
 
                     XmlNode configNode = xmlDoc.SelectSingleNode("Configuration/LineNum"); //
                     LineNum = configNode.Attributes["value"].Value.Trim();
+
+                    //PrintConfig
+                    XmlNode printNode = xmlDoc.SelectSingleNode("Configuration/PrintConfig"); //
+                    PrinterName = printNode.Attributes["pname"].Value.Trim();
+                    LabelName = printNode.Attributes["lblname"].Value.Trim();
+                    PrintCopies = int.Parse(printNode.Attributes["copies"].Value.Trim());
+
+                    foreach (XmlNode nodeSub in printNode.ChildNodes)
+                    {
+                        string sKey = nodeSub.Attributes["dataname"].Value.Trim();
+                        string sMatch = nodeSub.Attributes["matchname"].Value.Trim();
+                        if(!PrintHelper.TempleteFieldsList.ContainsKey(sKey))
+                        {
+                            PrintHelper.TempleteFieldsList.Add(sKey, sMatch);
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using Yu3zx.DapperExtend;
 using Yu3zx.Json;
 
@@ -39,6 +40,12 @@ namespace Yu3zx.ClothLaunch
             set;
         }
 
+        private string QualityName
+        {
+            get;
+            set;
+        } = "A";
+
         public mainFrm()
         {
             InitializeComponent();
@@ -46,15 +53,20 @@ namespace Yu3zx.ClothLaunch
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            string strBatchNo = DateTime.Now.ToString("yyyyMMddfff");
-            string strColorNum = "197";
-            float fProduceNum = 49 + rd.Next(1, 20) / 10f;
-            string strQualityName = "A";
-            string strSpecs = "137";//
+            //Debug模式
+            {
+                txtBatchNo.Text ="BN" + DateTime.Now.ToString("yyyyMMddfff");
+                txtProduceNum.Text = (49 + rd.Next(1, 20) / 10f).ToString();
+            }
+
+            string strBatchNo = txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
+            string strColorNum = txtColorNum.Text;
+            float fProduceNum = float.Parse(txtProduceNum.Text);
+            string strQualityName = QualityName;
+            string strSpecs = txtSpecs.Text;//
 
             if (DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
             {
-
             }
             else
             {
@@ -78,11 +90,16 @@ namespace Yu3zx.ClothLaunch
 
             Dictionary<string, string> dictData = GetEntityPropertyToDict(item);
 
-
             if (!SaveFabricCloth(item))
             {
                 MessageBox.Show("保存失败，请检查后重新保存！");
                 return;
+            }
+
+            string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
+            if(File.Exists(lblFile))
+            {
+                PrintHelper.CreateInstance().BarPrintInit(lblFile,AppManager.CreateInstance().PrinterName,dictData,AppManager.CreateInstance().PrintCopies);
             }
 
             try
@@ -106,8 +123,6 @@ namespace Yu3zx.ClothLaunch
             {
                 Console.WriteLine(ex.Message);
             }
-
-
         }
         /// <summary>
         /// 
@@ -236,16 +251,11 @@ namespace Yu3zx.ClothLaunch
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
-            //SetConfig config = new SetConfig();
-            //config.KeyName = "ProductSerialNo";
-            //config.KeyValue = "1";
-
-            //SetConfigSave(config);
-            //UpdateConfigSave(config);
-
-            //SetConfig config = GetSetConfig("ProductSerialNo");
-
             AppManager.CreateInstance().Init();
+
+            txtServerIp.Text = AppManager.CreateInstance().ServerIp;
+            txtServerPort.Text = AppManager.CreateInstance().Port.ToString();
+
             DeviceManager.CreateInstance().ClothClient = new TcpClient();
             DeviceManager.CreateInstance().ClothClient.Connect(IPAddress.Parse(AppManager.CreateInstance().ServerIp), AppManager.CreateInstance().Port);
 
@@ -302,6 +312,10 @@ namespace Yu3zx.ClothLaunch
                 else
                 {
                     CurrentPlan = planItem;
+
+                    //设置当前批次
+                    txtColorNum.Text = planItem.ColorNum;
+                    txtSpecs.Text = planItem.Specs;
                 }
             }
         }
@@ -317,8 +331,8 @@ namespace Yu3zx.ClothLaunch
             }
             catch
             {
-
             }
+            PrintHelper.CreateInstance().UnInit();
         }
 
         public static Dictionary<string, string> GetEntityPropertyToDict<T>(T tEntity)
@@ -328,11 +342,124 @@ namespace Yu3zx.ClothLaunch
             PropertyInfo[] infos = ty.GetProperties();
             foreach (PropertyInfo item in infos)
             {
-                string pName = item.Name;//获取属性名称
-                string pValue = item.GetValue(tEntity, null).ToString();
-                dictClass.Add(pName, pValue);
+                try
+                {
+                    string pName = item.Name;//获取属性名称
+                    string pValue = string.Empty;
+                    var itVal = item.GetValue(tEntity, null);
+                    if (itVal != null)
+                    {
+                        pValue = itVal.ToString();
+                    }
+                    dictClass.Add(pName, pValue);
+                }
+                catch
+                { }
             }
             return dictClass;
+        }
+
+        private void btnServerConfig_Click(object sender, EventArgs e)
+        {
+            IPAddress iPAddress;
+            int sPort = 0;
+            if(!IPAddress.TryParse(txtServerIp.Text.Trim(),out iPAddress))
+            {
+                MessageBox.Show("请设置正确的IP地址！");
+                return;
+            }
+            if(!int.TryParse(txtServerPort.Text.Trim(),out sPort))
+            {
+                MessageBox.Show("请设置正确的服务端口号！");
+                return;
+            }
+            else
+            {
+                if(sPort < 1 || sPort > 65535)
+                {
+                    MessageBox.Show("请设置正确的服务端口号！");
+                    return;
+                }
+            }
+
+            AppManager.CreateInstance().ServerIp = txtServerIp.Text.Trim();
+            AppManager.CreateInstance().Port = sPort;
+
+            if (File.Exists("Config/ItemConfig.xml"))
+            {
+                try
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load("Config/ItemConfig.xml");
+
+                    XmlNode vNode = xmlDoc.SelectSingleNode("Configuration/Server"); //
+                    if(vNode != null)
+                    {
+                        vNode.Attributes["ip"].Value = txtServerPort.Text.Trim();
+                        vNode.Attributes["port"].Value = sPort.ToString();
+                    }
+                    xmlDoc.Save("Config/ItemConfig.xml");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine("文件不存在!");
+            }
+        }
+
+        private void rdo_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rdoBtn = (sender as RadioButton);
+            if(rdoBtn != null && rdoBtn.Checked)
+            {
+                QualityName = rdoBtn.Tag.ToString();
+                Console.WriteLine("Current QualityName:" + QualityName);
+            }
+        }
+
+        private void btnCurrent_Click(object sender, EventArgs e)
+        {
+            if(CurrentFabric != null)
+            {
+                txtBN.Text = CurrentFabric.BatchNo;
+                txtCN.Text = CurrentFabric.ColorNum;
+                txtPN.Text = CurrentFabric.ProduceNum.ToString();
+                txtSp.Text = CurrentFabric.Specs;
+                txtSerial.Text = CurrentFabric.ReelNum.ToString();
+            }
+            else
+            {
+                var cfg = GetSetConfig("ProductSerialNo");
+                if(cfg != null)
+                {
+                    txtSerial.Text = cfg.KeyValue;
+                }
+            }
+        }
+
+        private void btnAddPrint_Click(object sender, EventArgs e)
+        {
+            FabricClothItem item = new FabricClothItem();
+            item.BatchNo = txtBN.Text;
+            item.ColorNum = txtCN.Text;
+            item.LineNum = AppManager.CreateInstance().LineNum.ToString();
+            item.ProduceNum = float.Parse(txtPN.Text);
+            //item.QualityName = strQualityName;
+            item.Specs = txtSpecs.Text;
+
+            item.ReelNum = int.Parse(txtSerial.Text);
+
+            Dictionary<string, string> dictData = GetEntityPropertyToDict(item);
+
+            string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
+            if (File.Exists(lblFile))
+            {
+                PrintHelper.CreateInstance().BarPrintInit(lblFile, AppManager.CreateInstance().PrinterName, dictData, AppManager.CreateInstance().PrintCopies);
+            }
         }
     }
 }

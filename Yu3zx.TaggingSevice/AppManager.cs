@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Management;
 using System.Net;
 using System.Xml;
@@ -66,7 +67,7 @@ namespace Yu3zx.TaggingSevice
             set;
         }
 
-
+        public List<PrintCfg> LPrinter = new List<PrintCfg>();
 
         /// <summary>
         /// 初始化
@@ -95,6 +96,30 @@ namespace Yu3zx.TaggingSevice
 
                     XmlNode configNode = xmlDoc.SelectSingleNode("Configuration/LineNum"); //
                     PackingNum = int.Parse(configNode.Attributes["fullnum"].Value.Trim()); //达到装箱数量
+
+                    //PrintConfig
+                    XmlNode printNode = xmlDoc.SelectSingleNode("Configuration/PrintConfig"); //
+                    foreach (XmlNode nodeSub in printNode.ChildNodes)
+                    {
+                        string sKey = nodeSub.Attributes["dataname"].Value.Trim();
+                        string sMatch = nodeSub.Attributes["matchname"].Value.Trim();
+                        if (!PrintHelper.TempleteFieldsList.ContainsKey(sKey))
+                        {
+                            PrintHelper.TempleteFieldsList.Add(sKey, sMatch);
+                        }
+                    }
+
+                    //PrinterConfig
+                    XmlNode pNode = xmlDoc.SelectSingleNode("Configuration/PrintConfig"); //
+                    foreach (XmlNode nSub in pNode.ChildNodes)
+                    {
+                        PrintCfg cfg = new PrintCfg();
+                        cfg.LineNum = nSub.Attributes["linenum"].Value.Trim();
+                        cfg.PrinterName = nSub.Attributes["pname"].Value.Trim();
+                        cfg.LabelName = nSub.Attributes["lblname"].Value.Trim();
+                        cfg.PrintCopies = int.Parse(nSub.Attributes["copies"].Value.Trim());
+                        LPrinter.Add(cfg);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -107,5 +132,14 @@ namespace Yu3zx.TaggingSevice
             }
         }
 
+        public PrintCfg GetPrintCfg(string lnum)
+        {
+            var item = LPrinter.Find(x => x.LineNum == lnum);
+            if(item == null)
+            {
+
+            }
+            return item;
+        }
     }
 }

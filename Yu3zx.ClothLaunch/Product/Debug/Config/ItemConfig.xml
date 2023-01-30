@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-	<TaskActionItems name="定时库">
-		<TaskActionItem actname="前任3" actime="17:00" adtype="1" param="101.png"/>
-	</TaskActionItems>
+	<PrintConfig name="打印模板" pname="Microsoft Print to PDF" lblname="labCloth.btw" copies="1">
+		<LabelItem dataname="BatchNo" matchname="SN"/>
+		<LabelItem dataname="ProduceNum" matchname="LEN"/>
+		<LabelItem dataname="ReelNum" matchname="NUM"/>
+	</PrintConfig>
 	<PortConfig CommName="COM2" CommRate="19200"/>
 	<AutoStartBoot value="1"/>
 	<UsedDevice Id="dev210602001" Name="气味模块"/>
