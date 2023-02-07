@@ -117,6 +117,9 @@ namespace Yu3zx.TaggingSevice
                         cfg.LineNum = nSub.Attributes["linenum"].Value.Trim();
                         cfg.PrinterName = nSub.Attributes["pname"].Value.Trim();
                         cfg.LabelName = nSub.Attributes["lblname"].Value.Trim();
+
+                        cfg.LabelBName = nSub.Attributes["lblowname"].Value.Trim();
+
                         cfg.PrintCopies = int.Parse(nSub.Attributes["copies"].Value.Trim());
                         LPrinter.Add(cfg);
                     }

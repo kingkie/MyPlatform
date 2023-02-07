@@ -9,10 +9,10 @@
 		<LabelItem dataname="ReelNum" matchname="NUM"/>
 	</PrintConfig>
 	<PrinterConfig>
-		<PrinterItem linenum="1" pname="Microsoft Print to PDF" lblname="labCloth.btw" copies="1"/>
-		<PrinterItem linenum="2" pname="Microsoft Print to PDF" lblname="labCloth.btw" copies="1"/>
-		<PrinterItem linenum="3" pname="Microsoft Print to PDF" lblname="labCloth.btw" copies="1"/>
-		<PrinterItem linenum="4" pname="Microsoft Print to PDF" lblname="labCloth.btw" copies="1"/>
+		<PrinterItem linenum="1" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" copies="1"/>
+		<PrinterItem linenum="2" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" copies="1"/>
+		<PrinterItem linenum="3" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" copies="1"/>
+		<PrinterItem linenum="4" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" copies="1"/>
 	</PrinterConfig>
 	<PortConfig CommName="COM2" CommRate="19200"/>
 	<AutoStartBoot value="1"/>

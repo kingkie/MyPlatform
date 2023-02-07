@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,6 +47,31 @@ namespace Yu3zx.TaggingSevice
                 btApp = new BarTender.Application();
             }
         }
+
+        public static Dictionary<string, string> GetEntityPropertyToDict<T>(T tEntity)
+        {
+            Dictionary<string, string> dictClass = new Dictionary<string, string>();
+            Type ty = tEntity.GetType();//获取对象类型
+            PropertyInfo[] infos = ty.GetProperties();
+            foreach (PropertyInfo item in infos)
+            {
+                try
+                {
+                    string pName = item.Name;//获取属性名称
+                    string pValue = string.Empty;
+                    var itVal = item.GetValue(tEntity, null);
+                    if (itVal != null)
+                    {
+                        pValue = itVal.ToString();
+                    }
+                    dictClass.Add(pName, pValue);
+                }
+                catch
+                { }
+            }
+            return dictClass;
+        }
+
         /// <summary>
         /// 标签打印
         /// </summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -128,14 +129,16 @@ namespace Yu3zx.TaggingSevice
 
                 if (item.QualityName == "A") //需要包装的
                 {
-                    //打印
+                    //打印管内标签
                     PrintTubeLabel(item);
+
                     //打印A类标签
                     PrintFabricLabel(item);
 
                     //保存
-                    SaveFabricCloth(item);
+                    // SaveFabricCloth(item);
 
+                    //加入到对应线上
                     ProductManager.CreateInstance().DictOnLineCloths[lNum].ClothItems.Add(item);
 
                     //判断是否可以装箱了
@@ -174,23 +177,28 @@ namespace Yu3zx.TaggingSevice
                     switch (strQC)
                     {
                         case "KC":
-                            //
+                            //打印小标签
                             PrintTubeLabel(item);
+
                             PrintFabricLabel(item);
-                            SaveFabricCloth(item);
+
+                            //SaveFabricCloth(item);
                             ProductManager.CreateInstance().DictOnLineCloths[lNum].OtherQualityItem.Add(item);
                             break;
                         case "SC":
-                            //
+                            //打印小标签
                             PrintTubeLabel(item);
+
                             PrintFabricLabel(item);
-                            SaveFabricCloth(item);
+
+                            //SaveFabricCloth(item);
                             ProductManager.CreateInstance().DictOnLineCloths[lNum].OtherQualityItem.Add(item);
                             break;
                         case "HC":
                             //只打标签;需要统计
                             PrintTubeLabel(item);
-                            SaveFabricCloth(item);//需要统计就要保存
+
+                            //SaveFabricCloth(item);//需要统计就要保存
                             break;
                         default:
                             //其它不上线
@@ -237,11 +245,32 @@ namespace Yu3zx.TaggingSevice
             {
                 case "SC":
                 case "KC":
+                    //模板不同纸张不同，打印换纸麻烦
+                    var pbCfg = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
+                    if (pbCfg != null)
+                    {
+                        Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
+                        string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.LabelBName;
+                        if (File.Exists(lblFile))
+                        {
+                            PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.PrinterName, dictData, pbCfg.PrintCopies);
+                        }
+                    }
                     //调用C类模板打印
                     Console.WriteLine(strQC + "已经打印");
                     break;
                 case "A":
                     //调用A类模板打印
+                    var pCfg = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
+                    if(pCfg != null)
+                    {
+                        Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
+                        string lblFile = Application.StartupPath + "\\Templates\\" + pCfg.LabelName;
+                        if (File.Exists(lblFile))
+                        {
+                            PrintHelper.CreateInstance().BarPrintInit(lblFile, pCfg.PrinterName, dictData, pCfg.PrintCopies);
+                        }
+                    }
                     Console.WriteLine(strQC + " A类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
                     break;
             }

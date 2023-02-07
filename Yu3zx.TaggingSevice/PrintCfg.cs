@@ -32,6 +32,16 @@ namespace Yu3zx.TaggingSevice
             get;
             set;
         }
+
+        /// <summary>
+        /// 次品打印标签模板文件名
+        /// </summary>
+        public string LabelBName
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 打印份数
         /// </summary>
