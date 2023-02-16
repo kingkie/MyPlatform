@@ -110,7 +110,7 @@ namespace Yu3zx.TaggingSevice
                     }
 
                     //PrinterConfig
-                    XmlNode pNode = xmlDoc.SelectSingleNode("Configuration/PrintConfig"); //
+                    XmlNode pNode = xmlDoc.SelectSingleNode("Configuration/PrinterConfig"); //
                     foreach (XmlNode nSub in pNode.ChildNodes)
                     {
                         PrintCfg cfg = new PrintCfg();

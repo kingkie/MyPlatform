@@ -110,7 +110,7 @@ namespace Yu3zx.TaggingSevice
                 try
                 {
                     byte[] buffer = new byte[1024];
-                    if(Client.Client.Connected)
+                    if(Client.Client != null && Client.Client.Connected)
                     {
                         int length = Client.Client.Receive(buffer);
                         if (length > 0)
