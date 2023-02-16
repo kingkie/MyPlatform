@@ -130,8 +130,12 @@ namespace Yu3zx.ClothLaunch
 
         public void UnInit()
         {
-            //btApp.Quit(BarTender.BtSaveOptions.btSaveChanges);
-            btApp.Quit(BarTender.BtSaveOptions.btDoNotSaveChanges);
+            try
+            {
+                btApp.Quit(BarTender.BtSaveOptions.btDoNotSaveChanges);
+            }
+            catch
+            { }
         }
     }
 }

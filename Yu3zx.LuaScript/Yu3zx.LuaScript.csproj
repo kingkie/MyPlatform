@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3352B9C-3C48-4D2C-907D-A2EA5C91AB67}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yu3zx.LuaScript</RootNamespace>
+    <AssemblyName>Yu3zx.LuaScript</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LuaInterface, Version=1.5.3.0, Culture=neutral, PublicKeyToken=1e1fb15b02227b8a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\LuaInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassTest.cs" />
+    <Compile Include="LuaScriptHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SysApis.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DefaultScripts\CoreScript\head.lua" />
+    <EmbeddedResource Include="DefaultScripts\CoreScript\JSON.lua" />
+    <EmbeddedResource Include="DefaultScripts\CoreScript\log.lua" />
+    <EmbeddedResource Include="DefaultScripts\CoreScript\once.lua" />
+    <EmbeddedResource Include="DefaultScripts\CoreScript\strings.lua" />
+    <EmbeddedResource Include="DefaultScripts\CoreScript\sys.lua" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="DefaultScripts\CoreScript\example.lua" />
+    <None Include="DefaultScripts\LICENSE" />
+    <None Include="DefaultScripts\UsersScripts\AT控制TCP连接-快发模式.lua" />
+    <None Include="DefaultScripts\UsersScripts\AT控制TCP连接-慢发模式.lua" />
+    <None Include="DefaultScripts\UsersScripts\example.lua" />
+    <None Include="DefaultScripts\UsersScripts\循环发送快捷发送区数据.lua" />
+    <None Include="DefaultScripts\user_script_send_convert\16进制数据.lua" />
+    <None Include="DefaultScripts\user_script_send_convert\GPS NMEA.lua" />
+    <None Include="DefaultScripts\user_script_send_convert\加上换行回车.lua" />
+    <None Include="DefaultScripts\user_script_send_convert\解析换行回车的转义字符.lua" />
+    <None Include="DefaultScripts\user_script_send_convert\默认.lua" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
