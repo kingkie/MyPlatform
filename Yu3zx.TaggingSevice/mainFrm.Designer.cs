@@ -65,23 +65,24 @@ namespace Yu3zx.TaggingSevice
             // 
             // cmsMenu
             // 
+            this.cmsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmBackto,
             this.tsmQuit});
             this.cmsMenu.Name = "cmsMenu";
-            this.cmsMenu.Size = new System.Drawing.Size(137, 48);
+            this.cmsMenu.Size = new System.Drawing.Size(154, 52);
             // 
             // tsmBackto
             // 
             this.tsmBackto.Name = "tsmBackto";
-            this.tsmBackto.Size = new System.Drawing.Size(136, 22);
+            this.tsmBackto.Size = new System.Drawing.Size(153, 24);
             this.tsmBackto.Text = "返回主界面";
             this.tsmBackto.Click += new System.EventHandler(this.tsmBackto_Click);
             // 
             // tsmQuit
             // 
             this.tsmQuit.Name = "tsmQuit";
-            this.tsmQuit.Size = new System.Drawing.Size(136, 22);
+            this.tsmQuit.Size = new System.Drawing.Size(153, 24);
             this.tsmQuit.Text = "退出";
             this.tsmQuit.Click += new System.EventHandler(this.tsmQuit_Click);
             // 
@@ -92,9 +93,10 @@ namespace Yu3zx.TaggingSevice
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.ItemSize = new System.Drawing.Size(60, 24);
             this.tabMain.Location = new System.Drawing.Point(0, 0);
+            this.tabMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(571, 378);
+            this.tabMain.Size = new System.Drawing.Size(821, 498);
             this.tabMain.TabIndex = 1;
             // 
             // tpgHome
@@ -103,10 +105,11 @@ namespace Yu3zx.TaggingSevice
             this.tpgHome.Controls.Add(this.groupBox1);
             this.tpgHome.Controls.Add(this.panel2);
             this.tpgHome.Location = new System.Drawing.Point(4, 28);
+            this.tpgHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpgHome.Name = "tpgHome";
-            this.tpgHome.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgHome.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpgHome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tpgHome.Size = new System.Drawing.Size(563, 346);
+            this.tpgHome.Size = new System.Drawing.Size(813, 466);
             this.tpgHome.TabIndex = 0;
             this.tpgHome.Text = "首页";
             this.tpgHome.UseVisualStyleBackColor = true;
@@ -115,10 +118,12 @@ namespace Yu3zx.TaggingSevice
             // 
             this.groupBox1.Controls.Add(this.txtInfo);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(555, 245);
+            this.groupBox1.Size = new System.Drawing.Size(803, 340);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "消息";
@@ -126,11 +131,11 @@ namespace Yu3zx.TaggingSevice
             // txtInfo
             // 
             this.txtInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInfo.Location = new System.Drawing.Point(3, 17);
-            this.txtInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtInfo.Location = new System.Drawing.Point(4, 22);
+            this.txtInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(549, 225);
+            this.txtInfo.Size = new System.Drawing.Size(795, 314);
             this.txtInfo.TabIndex = 0;
             // 
             // panel2
@@ -141,10 +146,11 @@ namespace Yu3zx.TaggingSevice
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 248);
+            this.panel2.Location = new System.Drawing.Point(4, 344);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel2.Size = new System.Drawing.Size(555, 93);
+            this.panel2.Size = new System.Drawing.Size(803, 116);
             this.panel2.TabIndex = 0;
             // 
             // cboServerIP
@@ -154,18 +160,20 @@ namespace Yu3zx.TaggingSevice
             this.cboServerIP.FormattingEnabled = true;
             this.cboServerIP.Items.AddRange(new object[] {
             "127.0.0.1"});
-            this.cboServerIP.Location = new System.Drawing.Point(67, 17);
+            this.cboServerIP.Location = new System.Drawing.Point(89, 21);
+            this.cboServerIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboServerIP.Name = "cboServerIP";
-            this.cboServerIP.Size = new System.Drawing.Size(151, 24);
+            this.cboServerIP.Size = new System.Drawing.Size(200, 28);
             this.cboServerIP.TabIndex = 2;
             // 
             // btnService
             // 
             this.btnService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnService.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnService.Location = new System.Drawing.Point(398, 20);
+            this.btnService.Location = new System.Drawing.Point(594, 25);
+            this.btnService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnService.Name = "btnService";
-            this.btnService.Size = new System.Drawing.Size(137, 53);
+            this.btnService.Size = new System.Drawing.Size(183, 66);
             this.btnService.TabIndex = 4;
             this.btnService.Text = "启动服务";
             this.btnService.UseVisualStyleBackColor = true;
@@ -175,10 +183,11 @@ namespace Yu3zx.TaggingSevice
             // 
             this.txtPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtPort.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtPort.Location = new System.Drawing.Point(296, 15);
+            this.txtPort.Location = new System.Drawing.Point(395, 20);
+            this.txtPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPort.Name = "txtPort";
             this.txtPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtPort.Size = new System.Drawing.Size(56, 26);
+            this.txtPort.Size = new System.Drawing.Size(73, 30);
             this.txtPort.TabIndex = 3;
             this.txtPort.Text = "65535";
             // 
@@ -187,10 +196,11 @@ namespace Yu3zx.TaggingSevice
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(218, 20);
+            this.label2.Location = new System.Drawing.Point(291, 25);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "服务端口:";
             // 
@@ -199,10 +209,11 @@ namespace Yu3zx.TaggingSevice
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Location = new System.Drawing.Point(8, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "服务IP:";
             // 
@@ -211,9 +222,10 @@ namespace Yu3zx.TaggingSevice
             this.tpgConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tpgConfig.Controls.Add(this.tblConfig);
             this.tpgConfig.Location = new System.Drawing.Point(4, 28);
+            this.tpgConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpgConfig.Name = "tpgConfig";
-            this.tpgConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgConfig.Size = new System.Drawing.Size(563, 346);
+            this.tpgConfig.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpgConfig.Size = new System.Drawing.Size(753, 440);
             this.tpgConfig.TabIndex = 1;
             this.tpgConfig.Text = "配置";
             this.tpgConfig.UseVisualStyleBackColor = true;
@@ -224,19 +236,21 @@ namespace Yu3zx.TaggingSevice
             this.tblConfig.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblConfig.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblConfig.Location = new System.Drawing.Point(3, 3);
+            this.tblConfig.Location = new System.Drawing.Point(4, 4);
+            this.tblConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tblConfig.Name = "tblConfig";
             this.tblConfig.RowCount = 1;
             this.tblConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblConfig.Size = new System.Drawing.Size(555, 338);
+            this.tblConfig.Size = new System.Drawing.Size(743, 430);
             this.tblConfig.TabIndex = 0;
             // 
             // mainFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 378);
+            this.ClientSize = new System.Drawing.Size(821, 498);
             this.Controls.Add(this.tabMain);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "mainFrm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

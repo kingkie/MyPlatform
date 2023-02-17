@@ -461,5 +461,15 @@ namespace Yu3zx.ClothLaunch
                 PrintHelper.CreateInstance().BarPrintInit(lblFile, AppManager.CreateInstance().PrinterName, dictData, AppManager.CreateInstance().PrintCopies);
             }
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSerial_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
