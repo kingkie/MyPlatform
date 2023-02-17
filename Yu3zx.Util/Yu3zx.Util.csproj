@@ -67,6 +67,7 @@
     <Compile Include="Result.cs" />
     <Compile Include="ScreenHelper.cs" />
     <Compile Include="SerializeHelper.cs" />
+    <Compile Include="SpellHelper.cs" />
     <Compile Include="StringUtil.cs" />
     <Compile Include="TypeHelper.cs" />
     <Compile Include="VerificationImg.cs" />
