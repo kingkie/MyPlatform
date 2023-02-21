@@ -47,12 +47,16 @@ namespace Yu3zx.TaggingSevice
             this.label1 = new System.Windows.Forms.Label();
             this.tpgConfig = new System.Windows.Forms.TabPage();
             this.tblConfig = new System.Windows.Forms.TableLayoutPanel();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmsMenu.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tpgHome.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tpgConfig.SuspendLayout();
+            this.tblConfig.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIco
@@ -93,7 +97,7 @@ namespace Yu3zx.TaggingSevice
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.ItemSize = new System.Drawing.Size(60, 24);
             this.tabMain.Location = new System.Drawing.Point(0, 0);
-            this.tabMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabMain.Margin = new System.Windows.Forms.Padding(4);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(821, 498);
@@ -105,9 +109,9 @@ namespace Yu3zx.TaggingSevice
             this.tpgHome.Controls.Add(this.groupBox1);
             this.tpgHome.Controls.Add(this.panel2);
             this.tpgHome.Location = new System.Drawing.Point(4, 28);
-            this.tpgHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpgHome.Margin = new System.Windows.Forms.Padding(4);
             this.tpgHome.Name = "tpgHome";
-            this.tpgHome.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpgHome.Padding = new System.Windows.Forms.Padding(4);
             this.tpgHome.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tpgHome.Size = new System.Drawing.Size(813, 466);
             this.tpgHome.TabIndex = 0;
@@ -119,9 +123,9 @@ namespace Yu3zx.TaggingSevice
             this.groupBox1.Controls.Add(this.txtInfo);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(803, 340);
             this.groupBox1.TabIndex = 1;
@@ -147,7 +151,7 @@ namespace Yu3zx.TaggingSevice
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(4, 344);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel2.Size = new System.Drawing.Size(803, 116);
@@ -161,7 +165,7 @@ namespace Yu3zx.TaggingSevice
             this.cboServerIP.Items.AddRange(new object[] {
             "127.0.0.1"});
             this.cboServerIP.Location = new System.Drawing.Point(89, 21);
-            this.cboServerIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboServerIP.Margin = new System.Windows.Forms.Padding(4);
             this.cboServerIP.Name = "cboServerIP";
             this.cboServerIP.Size = new System.Drawing.Size(200, 28);
             this.cboServerIP.TabIndex = 2;
@@ -171,7 +175,7 @@ namespace Yu3zx.TaggingSevice
             this.btnService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnService.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnService.Location = new System.Drawing.Point(594, 25);
-            this.btnService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnService.Margin = new System.Windows.Forms.Padding(4);
             this.btnService.Name = "btnService";
             this.btnService.Size = new System.Drawing.Size(183, 66);
             this.btnService.TabIndex = 4;
@@ -184,7 +188,7 @@ namespace Yu3zx.TaggingSevice
             this.txtPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtPort.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtPort.Location = new System.Drawing.Point(395, 20);
-            this.txtPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPort.Margin = new System.Windows.Forms.Padding(4);
             this.txtPort.Name = "txtPort";
             this.txtPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPort.Size = new System.Drawing.Size(73, 30);
@@ -222,10 +226,10 @@ namespace Yu3zx.TaggingSevice
             this.tpgConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tpgConfig.Controls.Add(this.tblConfig);
             this.tpgConfig.Location = new System.Drawing.Point(4, 28);
-            this.tpgConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpgConfig.Margin = new System.Windows.Forms.Padding(4);
             this.tpgConfig.Name = "tpgConfig";
-            this.tpgConfig.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tpgConfig.Size = new System.Drawing.Size(753, 440);
+            this.tpgConfig.Padding = new System.Windows.Forms.Padding(4);
+            this.tpgConfig.Size = new System.Drawing.Size(813, 466);
             this.tpgConfig.TabIndex = 1;
             this.tpgConfig.Text = "配置";
             this.tpgConfig.UseVisualStyleBackColor = true;
@@ -235,14 +239,35 @@ namespace Yu3zx.TaggingSevice
             this.tblConfig.ColumnCount = 2;
             this.tblConfig.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblConfig.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblConfig.Controls.Add(this.groupBox2, 1, 0);
             this.tblConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblConfig.Location = new System.Drawing.Point(4, 4);
-            this.tblConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tblConfig.Margin = new System.Windows.Forms.Padding(4);
             this.tblConfig.Name = "tblConfig";
             this.tblConfig.RowCount = 1;
             this.tblConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblConfig.Size = new System.Drawing.Size(743, 430);
+            this.tblConfig.Size = new System.Drawing.Size(803, 456);
             this.tblConfig.TabIndex = 0;
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(241, 366);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(118, 51);
+            this.btnTest.TabIndex = 0;
+            this.btnTest.Text = "测试";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnTest);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(404, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(396, 450);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
             // 
             // mainFrm
             // 
@@ -250,7 +275,7 @@ namespace Yu3zx.TaggingSevice
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 498);
             this.Controls.Add(this.tabMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "mainFrm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -265,6 +290,8 @@ namespace Yu3zx.TaggingSevice
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tpgConfig.ResumeLayout(false);
+            this.tblConfig.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -286,6 +313,8 @@ namespace Yu3zx.TaggingSevice
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tpgConfig;
         private System.Windows.Forms.TableLayoutPanel tblConfig;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 

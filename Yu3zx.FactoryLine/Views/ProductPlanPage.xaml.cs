@@ -43,6 +43,7 @@ namespace Yu3zx.FactoryLine.Views
                     Specs = txtSpecs.Text,
                     LineNum = cboProduceLine.SelectedIndex + 1,
                     ProduceNum = float.Parse(txtProduceNum.Text),
+                    QualityString = txtQualityString.Text,
                     ProduceTime = DateTime.Parse(dptProduce.DateTimeStr),
                     AddTime = DateTime.Now
                 };
@@ -52,6 +53,7 @@ namespace Yu3zx.FactoryLine.Views
                     var result = db.Insert(model);
                     if (result)
                     {
+                        txtShow.Text = "计划批次：" + model.BatchNo + "添加成功!";
                         Console.WriteLine("添加成功");
                     }
                     else

@@ -45,8 +45,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PackingPrint", "Yu3zx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PackingMonitor", "Yu3zx.PackingMonitor\Yu3zx.PackingMonitor.csproj", "{A055FC80-88EF-4369-BA17-59F02594274C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.ClothBatchNumber", "Yu3zx.ClothBatchNumber\Yu3zx.ClothBatchNumber.csproj", "{F10C7F8A-0833-49B0-B6D9-5949A95A4490}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.FactoryLine", "Yu3zx.FactoryLine\Yu3zx.FactoryLine.csproj", "{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.TaggingSevice", "Yu3zx.TaggingSevice\Yu3zx.TaggingSevice.csproj", "{BB139991-9548-4341-B242-C815F0F630F7}"
@@ -285,18 +283,6 @@ Global
 		{A055FC80-88EF-4369-BA17-59F02594274C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A055FC80-88EF-4369-BA17-59F02594274C}.Release|x86.ActiveCfg = Release|Any CPU
 		{A055FC80-88EF-4369-BA17-59F02594274C}.Release|x86.Build.0 = Release|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Debug|x86.Build.0 = Debug|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Release|x86.ActiveCfg = Release|Any CPU
-		{F10C7F8A-0833-49B0-B6D9-5949A95A4490}.Release|x86.Build.0 = Release|Any CPU
 		{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

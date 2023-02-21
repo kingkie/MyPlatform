@@ -72,6 +72,7 @@
     <Compile Include="Models\FabricClothItem.cs" />
     <Compile Include="Models\ProductPlan.cs" />
     <Compile Include="Models\SetConfig.cs" />
+    <Compile Include="OnLaunchItem.cs" />
     <Compile Include="PrintHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

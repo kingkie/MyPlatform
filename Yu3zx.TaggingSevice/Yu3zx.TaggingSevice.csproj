@@ -44,6 +44,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Product\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="S7.Net, Version=0.14.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Product\Debug\S7.Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +68,8 @@
     <Compile Include="mainPrint.Designer.cs">
       <DependentUpon>mainPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="PackHelper.cs" />
+    <Compile Include="PlcConnector.cs" />
     <Compile Include="PrintCfg.cs" />
     <Compile Include="PrintHelper.cs" />
     <Compile Include="TempModels\FabricLabel.cs" />
@@ -80,9 +86,10 @@
     <Compile Include="ProductStateManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TCPClient.cs" />
-    <Compile Include="TcpServer.cs" />
+    <Compile Include="Devices\TCPClient.cs" />
+    <Compile Include="Devices\TcpServer.cs" />
     <Compile Include="TempModels\PaperTubeLabel.cs" />
+    <Compile Include="WorkFlowManager.cs" />
     <EmbeddedResource Include="mainFrm.resx">
       <DependentUpon>mainFrm.cs</DependentUpon>
     </EmbeddedResource>

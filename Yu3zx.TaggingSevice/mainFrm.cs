@@ -21,7 +21,11 @@ namespace Yu3zx.TaggingSevice
     {
         private Thread thTcp = null;
         TcpServer tcpServer = null;
+        private Thread thWorkFlow = null; //流程引擎
         private List<FabricClothItem> lUnSave = new List<FabricClothItem>();
+
+        PlcConnector Plc = new PlcConnector();
+
         Random rd = new Random();
         public mainFrm()
         {
@@ -35,6 +39,18 @@ namespace Yu3zx.TaggingSevice
             List<string> loaclIps = GetLoacalIp();
             cboServerIP.Items.AddRange(loaclIps.ToArray());
             cboServerIP.SelectedItem = AppManager.CreateInstance().ServerIp;
+            
+            // 192.168.0.201 502
+            IPAddress iPAddress = IPAddress.Parse("192.168.0.201");
+
+            TcpClient tcpClient = new TcpClient();
+            tcpClient.Connect(iPAddress, 502);
+            if(tcpClient.Connected)
+            {
+                Plc.Client = tcpClient;
+                Plc.ClientKey = "192.168.0.201";
+                Plc.BeginReceive();
+            }
         }
         private List<string> GetLoacalIp()
         {
@@ -291,7 +307,7 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 
         /// </summary>
-        public void PrintFabricList()
+        private void PrintFabricList()
         {
             //从PLC 获取完成的 线号
             string iComplete = "1";
@@ -303,7 +319,7 @@ namespace Yu3zx.TaggingSevice
         /// 打印装箱单
         /// </summary>
         /// <param name="lPack">装箱个数</param>
-        public void PrintPackingList(List<FabricClothItem> lPack)
+        private void PrintPackingList(List<FabricClothItem> lPack)
         {
             Console.WriteLine(lPack.Count + " " + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印装箱单！");
             foreach (var item in lPack)
@@ -312,6 +328,41 @@ namespace Yu3zx.TaggingSevice
             }
 
             //Console.WriteLine(lPack.Count + "" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印装箱单！");
+        }
+        private WorkState CurrentState = WorkState.None;
+        private void WorkFlowGoing()
+        {
+            switch (CurrentState)
+            {
+                case WorkState.None:
+                    //无状态，待机状态，查询和接收PLC状态
+
+                    break;
+                case WorkState.ClothPrepare:
+                    //布料准备上线阶段
+
+                    break;
+                case WorkState.ClothOnLine:
+                    //
+
+                    break;
+                case WorkState.PasteLabel:
+                    //
+
+                    break;
+                case WorkState.PackSmallBag:
+                    //
+
+                    break;
+                default:
+                    //
+                    break;
+            }
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

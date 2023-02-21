@@ -23,6 +23,8 @@ namespace Yu3zx.ClothLaunch
         Thread thData = null;
         Random rd = new Random();
         private int SNum = 13;//
+
+        private List<OnLaunchItem> ProduceList = new List<OnLaunchItem>();
         /// <summary>
         /// 当前计划
         /// </summary>
@@ -55,8 +57,8 @@ namespace Yu3zx.ClothLaunch
         {
             //Debug模式
             {
-                txtBatchNo.Text ="BN" + DateTime.Now.ToString("yyyyMMddfff");
-                txtProduceNum.Text = (49 + rd.Next(1, 20) / 10f).ToString();
+                //txtBatchNo.Text ="BN" + DateTime.Now.ToString("yyyyMMddfff");
+                //txtProduceNum.Text = (49 + rd.Next(1, 20) / 10f).ToString();
             }
 
             string strBatchNo = txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
@@ -64,6 +66,9 @@ namespace Yu3zx.ClothLaunch
             float fProduceNum = float.Parse(txtProduceNum.Text);
             string strQualityName = QualityName;
             string strSpecs = txtSpecs.Text;//
+            string strQString = txtQuatilyString.Text.Trim();
+            int iWidth = int.Parse(txtCWidth.Text);
+            int iRoll = int.Parse(txtRollDiam.Text);
 
             if (DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
             {
@@ -80,9 +85,12 @@ namespace Yu3zx.ClothLaunch
             item.LineNum = AppManager.CreateInstance().LineNum.ToString();
             item.ProduceNum = fProduceNum;
             item.QualityName = strQualityName;
+            item.QualityString = strQString;
             item.Specs = strSpecs;
-
-            item.ReelNum = AppManager.CreateInstance().GetSerialNoAndUpdate();
+            item.FabricWidth = iWidth;
+            item.RollDiam = iRoll;
+            
+            item.ReelNum = AppManager.CreateInstance().GetSerialNoAndUpdate(strBatchNo);
             SNum++;
             item.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
 
@@ -95,6 +103,20 @@ namespace Yu3zx.ClothLaunch
                 MessageBox.Show("保存失败，请检查后重新保存！");
                 return;
             }
+            else
+            {
+            }
+            OnLaunchItem item1 = new OnLaunchItem();
+            item1.Id = item.ReelNum;
+            item1.BatchNo = strBatchNo;
+            item1.ColorNum = strColorNum;
+            item1.ProduceNum = fProduceNum;
+            item1.QualityName = strQualityName;
+            item1.QualityString = strQString;
+            item1.Specs = strSpecs;
+            ProduceList.Insert(0, item1);
+            dgvShow.DataSource = new BindingList<OnLaunchItem>(ProduceList);
+            dgvShow.Refresh();
 
             string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
             if(File.Exists(lblFile))
@@ -236,11 +258,11 @@ namespace Yu3zx.ClothLaunch
                     var result1 = db.Update("update setconfigs set KeyValue=@KeyValue where KeyName=@KeyName", config);
                     if (result1)
                     {
-                        Console.WriteLine("添加成功");
+                        Console.WriteLine("更新成功");
                     }
                     else
                     {
-                        Console.WriteLine("添加失败");
+                        Console.WriteLine("更新失败");
                     }
                 }
                 catch (Exception ex)
@@ -312,10 +334,12 @@ namespace Yu3zx.ClothLaunch
                 else
                 {
                     CurrentPlan = planItem;
-
                     //设置当前批次
                     txtColorNum.Text = planItem.ColorNum;
                     txtSpecs.Text = planItem.Specs;
+                    txtRollDiam.Text = planItem.RollDiam.ToString();
+                    txtQuatilyString.Text = planItem.QualityString;
+                    txtCWidth.Text = planItem.FabricWidth.ToString();
                 }
             }
         }
@@ -430,10 +454,17 @@ namespace Yu3zx.ClothLaunch
                 txtPN.Text = CurrentFabric.ProduceNum.ToString();
                 txtSp.Text = CurrentFabric.Specs;
                 txtSerial.Text = CurrentFabric.ReelNum.ToString();
+
             }
             else
             {
-                var cfg = GetSetConfig("ProductSerialNo");
+                string strBN = txtBN.Text.Trim();
+                if (string.IsNullOrEmpty(strBN))
+                {
+                    MessageBox.Show("请输入批次号查询！");
+                    return;
+                }
+                var cfg =AppManager.CreateInstance().GetPoductSerial(strBN);
                 if(cfg != null)
                 {
                     txtSerial.Text = cfg.KeyValue;
@@ -462,14 +493,13 @@ namespace Yu3zx.ClothLaunch
             }
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void dgvShow_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
-
-        }
-
-        private void txtSerial_TextChanged(object sender, EventArgs e)
-        {
-
+            if(dgvShow.Rows.Count > 0)
+            {
+                DataGridViewRow row1 = dgvShow.Rows[0];
+                row1.DefaultCellStyle.BackColor = Color.Lime;
+            }
         }
     }
 }

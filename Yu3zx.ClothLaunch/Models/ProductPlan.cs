@@ -47,6 +47,15 @@ namespace Yu3zx.ClothLaunch
             set;
         }
         /// <summary>
+        /// 品名
+        /// </summary>
+        [Column("QualityString")]
+        public string QualityString
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// t生产总量
         /// </summary>
         [Column("ProduceNum")]
@@ -60,6 +69,24 @@ namespace Yu3zx.ClothLaunch
         /// </summary>
         [Column("LineNum")]
         public string LineNum
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 布料宽度
+        /// </summary>
+        [Column("FabricWidth")]
+        public int FabricWidth
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 一卷直径
+        /// </summary>
+        [Column("RollDiam")]
+        public int RollDiam
         {
             get;
             set;

@@ -55,10 +55,38 @@ namespace Yu3zx.FactoryLine.Models
             set;
         }
         /// <summary>
+        /// 品名
+        /// </summary>
+        [Column("QualityString")]
+        public string QualityString
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 生产线号
         /// </summary>
         [Column("LineNum")]
         public int LineNum
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 布料宽度
+        /// </summary>
+        [Column("FabricWidth")]
+        public int FabricWidth
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 一卷直径
+        /// </summary>
+        [Column("RollDiam")]
+        public int RollDiam
         {
             get;
             set;

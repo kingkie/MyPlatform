@@ -45,6 +45,15 @@ namespace Yu3zx.TaggingSevice
             set;
         }
         /// <summary>
+        /// 品名
+        /// </summary>
+        [Column("QualityString")]
+        public string QualityString
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 色号
         /// </summary>
         [Column("ColorNum")]
@@ -67,6 +76,25 @@ namespace Yu3zx.TaggingSevice
         /// </summary>
         [Column("ProduceNum")]
         public float ProduceNum
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 布料宽度
+        /// </summary>
+        [Column("FabricWidth")]
+        public int FabricWidth
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 一卷直径
+        /// </summary>
+        [Column("RollDiam")]
+        public int RollDiam
         {
             get;
             set;

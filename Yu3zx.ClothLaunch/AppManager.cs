@@ -153,27 +153,31 @@ namespace Yu3zx.ClothLaunch
             }
         }
 
-        public int GetSerialNoAndUpdate()
+        public int GetSerialNoAndUpdate(string batchno)
         {
+            if(string.IsNullOrEmpty(batchno))
+            {
+                return 0;
+            }
             int iSnRtn = 0;
-            SetConfig config = GetSetConfig("ProductSerialNo");
-            if(config != null)
+            PoductSerial config = GetPoductSerial(batchno);
+            if (config != null)
             {
                 iSnRtn = int.Parse(config.KeyValue);
             }
             else
             {
                 iSnRtn = 1;
-                SetConfig confignew = new SetConfig();
-                confignew.KeyName = "ProductSerialNo";
+                PoductSerial confignew = new PoductSerial();
+                confignew.KeyName = "BN" + batchno;
                 confignew.KeyValue = iSnRtn.ToString();
-                SetConfigSave(confignew);
+                SetPoductSerialSave(confignew);
             }
             using (var db = new DapperContext("MySqlDbConnection"))
             {
                 try
                 {
-                    var rtnB = db.Update("update setconfigs set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = iSnRtn + 1, KeyName = "ProductSerialNo" });
+                    var rtnB = db.Update("update productserial set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = iSnRtn + 1, KeyName = batchno });
                     if (rtnB)
                     {
                         Console.WriteLine("更新成功！");
@@ -199,12 +203,37 @@ namespace Yu3zx.ClothLaunch
                     var lConfigs = db.Select<SetConfig>(u => u.KeyName == strKey);
                     if (lConfigs != null && lConfigs.Count > 0)
                     {
-                        Console.WriteLine("添加成功");
+                        Console.WriteLine("获取SetConfig成功");
                         return lConfigs[0];
                     }
                     else
                     {
-                        Console.WriteLine("添加失败");
+                        Console.WriteLine("获取SetConfig失败");
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public PoductSerial GetPoductSerial(string strKey)
+        {
+            using (var db = new DapperContext("MySqlDbConnection"))
+            {
+                try
+                {
+                    var lConfigs = db.Select<PoductSerial>(u => u.KeyName == strKey);
+                    if (lConfigs != null && lConfigs.Count > 0)
+                    {
+                        Console.WriteLine("查询PoductSerial成功");
+                        return lConfigs[0];
+                    }
+                    else
+                    {
+                        Console.WriteLine("查询PoductSerial失败");
                         return null;
                     }
                 }
@@ -216,6 +245,28 @@ namespace Yu3zx.ClothLaunch
         }
 
         public void SetConfigSave(SetConfig config)
+        {
+            using (var db = new DapperContext("MySqlDbConnection"))
+            {
+                try
+                {
+                    var rtnBool = db.Insert(config);
+                    if (rtnBool)
+                    {
+                        Console.WriteLine("添加成功");
+                    }
+                    else
+                    {
+                        Console.WriteLine("添加失败");
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
+        public void SetPoductSerialSave(PoductSerial config)
         {
             using (var db = new DapperContext("MySqlDbConnection"))
             {

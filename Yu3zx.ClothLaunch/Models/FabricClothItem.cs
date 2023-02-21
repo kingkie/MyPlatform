@@ -36,10 +36,19 @@ namespace Yu3zx.ClothLaunch
             set;
         }
         /// <summary>
-        /// 品名,质量标志
+        /// 质量标志
         /// </summary>
         [Column("QualityName")]
         public string QualityName
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 品名
+        /// </summary>
+        [Column("QualityString")]
+        public string QualityString
         {
             get;
             set;
@@ -72,6 +81,26 @@ namespace Yu3zx.ClothLaunch
             get;
             set;
         }
+
+        /// <summary>
+        /// 布料宽度
+        /// </summary>
+        [Column("FabricWidth")]
+        public int FabricWidth
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 一卷直径
+        /// </summary>
+        [Column("RollDiam")]
+        public int RollDiam
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 卷号--自动编号
         /// </summary>
