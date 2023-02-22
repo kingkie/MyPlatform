@@ -20,6 +20,22 @@ namespace Yu3zx.TaggingSevice
             set;
         }
         /// <summary>
+        /// 批次号
+        /// </summary>
+        public string BatchNo
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// A品数量
+        /// </summary>
+        public int AClassSum
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 上线的面料-A品
         /// </summary>
         public List<FabricClothItem> ClothItems = new List<FabricClothItem>();

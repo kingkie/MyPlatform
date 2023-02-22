@@ -34,16 +34,16 @@ namespace Yu3zx.TaggingSevice
             cboServerIP.SelectedItem = AppManager.CreateInstance().ServerIp;
             
             // 192.168.0.201 502
-            IPAddress iPAddress = IPAddress.Parse("192.168.0.201");
+            //IPAddress iPAddress = IPAddress.Parse("192.168.0.201");
 
-            TcpClient tcpClient = new TcpClient();
-            tcpClient.Connect(iPAddress, 502);
-            if(tcpClient.Connected)
-            {
-                PlcConn.Client = tcpClient;
-                PlcConn.ClientKey = "192.168.0.201";
-                PlcConn.BeginReceive();
-            }
+            //TcpClient tcpClient = new TcpClient();
+            //tcpClient.Connect(iPAddress, 502);
+            //if(tcpClient.Connected)
+            //{
+            //    PlcConn.Client = tcpClient;
+            //    PlcConn.ClientKey = "192.168.0.201";
+            //    PlcConn.BeginReceive();
+            //}
 
             //-=-=-=-=-=-=获取配置文件-=-=-=-=-=-=-=-
             PlcConn.Rack = 0;
@@ -200,9 +200,9 @@ namespace Yu3zx.TaggingSevice
                             //触发
                             foreach (var citem in ProductManager.CreateInstance().DictOnLineCloths[lNum].ClothItems)
                             {
-                                ProductStateManager.GetInstance().ProductSerialNo++;
+                                //ProductStateManager.GetInstance().ProductSerialNo++;
 
-                                citem.ReelNum = ProductStateManager.GetInstance().ProductSerialNo;
+                                //citem.ReelNum = ProductStateManager.GetInstance().ProductSerialNo;
                             }
                             List<FabricClothItem> lPack = new List<FabricClothItem>();
                             int iNeed = AppManager.CreateInstance().PackingNum;
@@ -423,7 +423,29 @@ namespace Yu3zx.TaggingSevice
 
                         byte[] cmdInput = PlcConn.ReadDataBlock(1, 2, 6);//读取并解析
 
+                        if(cmdInput != null && cmdInput.Length > 1)
+                        {
+                            int lineNum = cmdInput[1];//反馈的线序
+                            switch(cmdInput[0])
+                            {
+                                case 0x02:
+                                    //请求打印标签,根据当前线号打印
 
+
+                                    break;
+                                case 0x03:
+                                    //请求打印进仓单
+                                    if(cmdInput.Length > 3)
+                                    {
+                                        int sumBoxs = cmdInput[3];
+                                        
+                                    }
+                                    break;
+                                default:
+
+                                    break;
+                            }
+                        }
                     }
                     else
                     {

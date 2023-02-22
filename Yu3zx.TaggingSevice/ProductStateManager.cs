@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using Yu3zx.Json;
@@ -124,5 +125,9 @@ namespace Yu3zx.TaggingSevice
         }
 
 
+        /// <summary>
+        /// 上线批次的数量
+        /// </summary>
+        public Dictionary<string, OnLineCloth> DictOnLine = new Dictionary<string, OnLineCloth>();
     }
 }
