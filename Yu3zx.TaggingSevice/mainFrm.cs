@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Yu3zx.DapperExtend;
 using Yu3zx.Logs;
@@ -19,12 +12,12 @@ namespace Yu3zx.TaggingSevice
 {
     public partial class mainFrm : Form
     {
-        private Thread thTcp = null;
-        TcpServer tcpServer = null;
+        private Thread thPlc = null;//设备通信轮询
+        TcpServer tcpServer = null;//接收客户端
         private Thread thWorkFlow = null; //流程引擎
         private List<FabricClothItem> lUnSave = new List<FabricClothItem>();
 
-        PlcConnector Plc = new PlcConnector();
+        PlcConnector PlcConn = new PlcConnector();
 
         Random rd = new Random();
         public mainFrm()
@@ -47,10 +40,17 @@ namespace Yu3zx.TaggingSevice
             tcpClient.Connect(iPAddress, 502);
             if(tcpClient.Connected)
             {
-                Plc.Client = tcpClient;
-                Plc.ClientKey = "192.168.0.201";
-                Plc.BeginReceive();
+                PlcConn.Client = tcpClient;
+                PlcConn.ClientKey = "192.168.0.201";
+                PlcConn.BeginReceive();
             }
+
+            //-=-=-=-=-=-=获取配置文件-=-=-=-=-=-=-=-
+            PlcConn.Rack = 0;
+            PlcConn.Slot = 1;
+            PlcConn.ServerIp = "192.168.0.201";
+            PlcConn.Port = 502;
+
         }
         private List<string> GetLoacalIp()
         {
@@ -91,10 +91,33 @@ namespace Yu3zx.TaggingSevice
                     tcpServer = null;
                 }
 
+                if(thWorkFlow != null)
+                {
+                    thWorkFlow.Abort();
+                    thWorkFlow = null;
+                }
+
+                if(thPlc != null)
+                {
+                    thPlc.Abort();
+                    thPlc = null;
+                }
+
                 tcpServer = new TcpServer(IPAddress.Parse(cboServerIP.Text), int.Parse(txtPort.Text));
                 tcpServer.OnClothDataHandle += TcpServer_OnClothDataHandle;
                 tcpServer.StartServer();
-                if(tcpServer.IsServer)
+
+                thWorkFlow = new Thread(WorkFlowGoing);
+                thWorkFlow.IsBackground = true;
+                thWorkFlow.Name = "thWork";
+                thWorkFlow.Start();
+
+                thPlc = new Thread(SearchPlcState);
+                thPlc.IsBackground = true;
+                thPlc.Name = "thPlc";
+                thPlc.Start();
+
+                if (tcpServer.IsServer)
                 {
                     btnService.Text = "停止服务";
                 }
@@ -103,11 +126,18 @@ namespace Yu3zx.TaggingSevice
             {
                 try
                 {
-                    if (thTcp != null)
+                    if (thWorkFlow != null)
                     {
-                        thTcp.Abort();
-                        thTcp = null;
+                        thWorkFlow.Abort();
+                        thWorkFlow = null;
                     }
+
+                    if (thPlc != null)
+                    {
+                        thPlc.Abort();
+                        thPlc = null;
+                    }
+
                     if (tcpServer != null)
                     {
                         tcpServer.StopServer();
@@ -332,31 +362,76 @@ namespace Yu3zx.TaggingSevice
         private WorkState CurrentState = WorkState.None;
         private void WorkFlowGoing()
         {
-            switch (CurrentState)
+            while(true)
             {
-                case WorkState.None:
-                    //无状态，待机状态，查询和接收PLC状态
+                try
+                {
 
-                    break;
-                case WorkState.ClothPrepare:
-                    //布料准备上线阶段
 
-                    break;
-                case WorkState.ClothOnLine:
-                    //
+                    switch (CurrentState)
+                    {
+                        case WorkState.None:
+                            //无状态，待机状态，查询和接收PLC状态
 
-                    break;
-                case WorkState.PasteLabel:
-                    //
+                            break;
+                        case WorkState.ClothPrepare:
+                            //布料准备上线阶段
 
-                    break;
-                case WorkState.PackSmallBag:
-                    //
+                            break;
+                        case WorkState.ClothOnLine:
+                            //
 
-                    break;
-                default:
-                    //
-                    break;
+                            break;
+                        case WorkState.PasteLabel:
+                            //
+
+                            break;
+                        case WorkState.PackSmallBag:
+                            //
+
+                            break;
+                        default:
+                            //
+                            break;
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+        }
+        /// <summary>
+        /// 监控PLC状态
+        /// </summary>
+        private void SearchPlcState()
+        {
+            while(true)
+            {
+                try
+                {
+                    if(!PlcConn.S7Connected)
+                    {
+                        PlcConn.S7Connet();
+                        Thread.Sleep(500);
+                    }
+
+                    bool needRead = PlcConn.ReadFlag(1, 1);//读取是否已经有标志
+                    if(needRead)
+                    {
+                        PlcConn.WriteFlag(1, 1, false);//设置读取完成标志
+
+                        byte[] cmdInput = PlcConn.ReadDataBlock(1, 2, 6);//读取并解析
+
+
+                    }
+                    else
+                    {
+                        Thread.Sleep(100);
+                    }
+                }
+                catch
+                { }
             }
         }
 

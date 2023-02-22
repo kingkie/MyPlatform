@@ -81,24 +81,30 @@ namespace Yu3zx.TaggingSevice
             get;
             set;
         }
-
+        /// <summary>
+        /// 服务IP地址
+        /// </summary>
         public string ServerIp
         {
             get;
             set;
         }
-
+        /// <summary>
+        ///机架号 Rack 默认为 0
+        /// </summary>
         public int Rack
         {
             get;
             set;
-        }
-
+        } = 0;
+        /// <summary>
+        /// 槽号
+        /// </summary>
         public int Slot
         {
             get;
             set;
-        }
+        } = 1;
 
         public bool S7Connected
         {
@@ -195,14 +201,26 @@ namespace Yu3zx.TaggingSevice
         {
             //CpuType cputype = (CpuType)(Enum.Parse(typeof(CpuType), cboType.Text, true));
             CpuType cputype = CpuType.S71200;
-            S7Plc = new Plc(cputype, ServerIp, 0, 1);
+            if(S7Plc == null)
+            {
+                S7Plc = new Plc(cputype, ServerIp, Convert.ToInt16(Rack), Convert.ToInt16(Slot));
+            }
+            else
+            {
+                if(S7Plc.Rack != Rack || S7Plc.Slot != Slot)
+                {
+                    S7Plc = new Plc(cputype, ServerIp, Convert.ToInt16(Rack), Convert.ToInt16(Slot));
+                }
+            }
+
             try
             {
                 S7Plc.Open();
-                if (S7Plc.IsConnected)
-                {
-                    S7Connected = true;
-                }
+                //if (S7Plc.IsConnected)
+                //{
+                //    S7Connected = true;
+                //}
+                S7Connected = S7Plc.IsConnected;
             }
             catch(Exception ex)
             {
