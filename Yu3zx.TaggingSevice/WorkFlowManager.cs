@@ -31,7 +31,13 @@ namespace Yu3zx.TaggingSevice
 
         #endregion End
 
-        public int CurrentLine
+        public string CurrentLine
+        {
+            get;
+            set;
+        }
+
+        public string CurrentBatchNo
         {
             get;
             set;

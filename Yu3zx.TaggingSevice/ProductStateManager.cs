@@ -3,6 +3,7 @@ using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Yu3zx.Json;
 
@@ -13,7 +14,7 @@ namespace Yu3zx.TaggingSevice
     /// </summary>
     public class ProductStateManager : IDisposable
     {
-        #region  单例
+        #region  单例模式
         private static object syncObj = new object();
         private static ProductStateManager instance = null;
         public static ProductStateManager GetInstance()
@@ -26,11 +27,6 @@ namespace Yu3zx.TaggingSevice
                 }
             }
             return instance;
-        }
-
-        ProductStateManager()
-        {
-
         }
 
         private string _DefaultFilePathString = AppDomain.CurrentDomain.BaseDirectory;
@@ -116,9 +112,25 @@ namespace Yu3zx.TaggingSevice
         #endregion End
 
         /// <summary>
-        /// 生产序号
+        /// 当前是否在工作
         /// </summary>
-        public int ProductSerialNo
+        public bool CurrentDoing
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 当前生产线
+        /// </summary>
+        public string CurrentLine
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 当前批次号
+        /// </summary>
+        public string CurrentBatchNo
         {
             get;
             set;
@@ -129,5 +141,24 @@ namespace Yu3zx.TaggingSevice
         /// 上线批次的数量
         /// </summary>
         public Dictionary<string, OnLineCloth> DictOnLine = new Dictionary<string, OnLineCloth>();
+
+        public string GetOnLineList()
+        {
+            try
+            {
+                var item = DictOnLine.OrderByDescending(x => x.Value.ClothItems.Count).ToList();//.Find(p=>p.Value.AClassSum >= 6);//.Select(p => p.Value.AClassSum > 6).ToList();
+                foreach(var subItem in item)
+                {
+                    if(subItem.Value.AClassSum >= AppManager.CreateInstance().PackingNum)
+                    {
+                        return subItem.Key;
+                    }
+                }
+                return string.Empty;
+            }
+            catch
+            { }
+            return string.Empty;
+        }
     }
 }

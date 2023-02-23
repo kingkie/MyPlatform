@@ -34,7 +34,7 @@ namespace Yu3zx.TaggingSevice
         {
             get;
             set;
-        }
+        } = 0;
         /// <summary>
         /// 上线的面料-A品
         /// </summary>

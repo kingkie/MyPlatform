@@ -20,6 +20,7 @@ namespace Yu3zx.TaggingSevice
         PlcConnector PlcConn = new PlcConnector();
 
         Random rd = new Random();
+
         public mainFrm()
         {
             InitializeComponent();
@@ -45,13 +46,13 @@ namespace Yu3zx.TaggingSevice
             //    PlcConn.BeginReceive();
             //}
 
-            //-=-=-=-=-=-=获取配置文件-=-=-=-=-=-=-=-
+            //-=-=-=-=-=-=-=-获取配置文件-=-=-=-=-=-=-=-
             PlcConn.Rack = 0;
             PlcConn.Slot = 1;
             PlcConn.ServerIp = "192.168.0.201";
             PlcConn.Port = 502;
-
         }
+
         private List<string> GetLoacalIp()
         {
             List<string> Ips = new List<string>();
@@ -66,6 +67,7 @@ namespace Yu3zx.TaggingSevice
             }
             return Ips;
         }
+
         private void tsmBackto_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
@@ -168,94 +170,82 @@ namespace Yu3zx.TaggingSevice
                         this.txtInfo.Text = infoStr;
                     });
                     string lNum = item.LineNum;
-                    if (string.IsNullOrEmpty(lNum))
+                    string strBatchNo = item.BatchNo;
+                    //生产线没有或者批次没有就是错误的
+                    if (string.IsNullOrEmpty(lNum) || string.IsNullOrEmpty(strBatchNo))
                     {
                         return;
                     }
-                    //没有当前生产线时创建生产线
-                    if (!ProductManager.CreateInstance().DictOnLineCloths.ContainsKey(lNum))
+                    //批次号
+                    if(!ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNo))
                     {
                         OnLineCloth onLine = new OnLineCloth();
-                        onLine.LineNum = lNum;
-                        ProductManager.CreateInstance().DictOnLineCloths.Add(lNum, onLine);
+                        onLine.BatchNo = strBatchNo;
+                        ProductStateManager.GetInstance().DictOnLine.Add(strBatchNo, onLine);
                     }
-
-                    if (item.QualityName == "A") //需要包装的
+                    //增加已经上线的
+                    lock (ProductStateManager.GetInstance().DictOnLine)
                     {
-                        //打印管内标签
-                        PrintTubeLabel(item);
-
-                        //打印A类标签
-                        PrintFabricLabel(item);
-
-                        //保存
-                        // SaveFabricCloth(item);
-
-                        //加入到对应线上
-                        ProductManager.CreateInstance().DictOnLineCloths[lNum].ClothItems.Add(item);
-
-                        //判断是否可以装箱了
-                        if (ProductManager.CreateInstance().DictOnLineCloths[lNum].ClothItems.Count >= AppManager.CreateInstance().PackingNum)
+                        ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Add(item);
+                        if (item.QualityName == "A") //需要包装的
                         {
-                            //触发
-                            foreach (var citem in ProductManager.CreateInstance().DictOnLineCloths[lNum].ClothItems)
-                            {
-                                //ProductStateManager.GetInstance().ProductSerialNo++;
-
-                                //citem.ReelNum = ProductStateManager.GetInstance().ProductSerialNo;
-                            }
-                            List<FabricClothItem> lPack = new List<FabricClothItem>();
-                            int iNeed = AppManager.CreateInstance().PackingNum;
-                            lock (ProductManager.CreateInstance().DictOnLineCloths)
-                            {
-                                while (iNeed > 0)
-                                {
-                                    var iRemove = ProductManager.CreateInstance().DictOnLineCloths[lNum].ClothItems[0];
-                                    lPack.Add(iRemove);
-                                    ProductManager.CreateInstance().DictOnLineCloths[lNum].ClothItems.RemoveAt(0);
-                                    iNeed--;
-                                }
-                            }
-
-                            PrintPackingList(lPack);
-                            //更新
-                            ProductStateManager.GetInstance().Save();//保存当前序号
-
-                            //通知PLC当前产线要上线
+                            ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
                         }
                     }
-                    else
+                    //当前空闲状态时
+                    if(!ProductStateManager.GetInstance().CurrentDoing)
                     {
-                        string strQC = item.QualityName.ToUpper();//
-                        switch (strQC)
+                        string strBatchNum = ProductStateManager.GetInstance().GetOnLineList();
+                        if(string.IsNullOrEmpty(strBatchNum))
                         {
-                            case "KC":
-                                //打印小标签
-                                PrintTubeLabel(item);
+                            //未能达到上线的条件
+                        }
+                        else
+                        {
+                            //开始上线
+                            WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
+                            WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
+                            int iSumNeed = 0;//累计需要
 
-                                PrintFabricLabel(item);
+                            int iAClass = 0;
+                            //计算出需要移出多少个
+                            foreach(var iCloth in ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems)
+                            {
+                                if(iAClass >= AppManager.CreateInstance().PackingNum)
+                                {
+                                    break;
+                                }
+                                if(iCloth.QualityName == "A")
+                                {
+                                    iAClass++;
+                                }
+                                iSumNeed++;
+                            }
+                            WorkFlowManager.CreateInstance().OnLaunchItems.Clear();//移除全部正在做的
+                            lock (ProductStateManager.GetInstance().DictOnLine)
+                            {
+                                while (iSumNeed > 0)
+                                {
+                                    var iRemove = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0];
+                                    WorkFlowManager.CreateInstance().OnLaunchItems.Add(iRemove);
+                                    ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems.RemoveAt(0);
+                                    iSumNeed--;
+                                }
+                                ProductStateManager.GetInstance().CurrentDoing = true;
+                                ProductStateManager.GetInstance().CurrentBatchNo = strBatchNum;
+                                if(WorkFlowManager.CreateInstance().OnLaunchItems.Count > 0)
+                                {
+                                    ProductStateManager.GetInstance().CurrentLine = WorkFlowManager.CreateInstance().OnLaunchItems[0].LineNum;
+                                }
+                                ProductStateManager.GetInstance().Save();
+                            }
 
-                                //SaveFabricCloth(item);
-                                ProductManager.CreateInstance().DictOnLineCloths[lNum].OtherQualityItem.Add(item);
-                                break;
-                            case "SC":
-                                //打印小标签
-                                PrintTubeLabel(item);
-
-                                PrintFabricLabel(item);
-
-                                //SaveFabricCloth(item);
-                                ProductManager.CreateInstance().DictOnLineCloths[lNum].OtherQualityItem.Add(item);
-                                break;
-                            case "HC":
-                                //只打标签;需要统计
-                                PrintTubeLabel(item);
-
-                                //SaveFabricCloth(item);//需要统计就要保存
-                                break;
-                            default:
-                                //其它不上线
-                                break;
+                            //通知PLC上线
+                            if(ProductStateManager.GetInstance().CurrentDoing)
+                            {
+                                byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
+                                
+                            }
                         }
                     }
                 }
@@ -264,6 +254,14 @@ namespace Yu3zx.TaggingSevice
             {
                 Log.Instance.LogWrite(ex);
             }
+        }
+
+        private void NoticePLC(byte iLNum,Int16 fabricWidth, Int16 iRollDiam)
+        {
+            List<byte> lCmd = new List<byte>();
+            lCmd.Add(0x01);
+            lCmd.Add(iLNum);
+
         }
 
         private void SaveFabricCloth(FabricClothItem item)
@@ -341,8 +339,6 @@ namespace Yu3zx.TaggingSevice
         {
             //从PLC 获取完成的 线号
             string iComplete = "1";
-            var lComplete = ProductManager.CreateInstance().DictOnLineCloths[iComplete].ClothItems;
-
         }
 
         /// <summary>
