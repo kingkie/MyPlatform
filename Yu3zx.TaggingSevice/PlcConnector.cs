@@ -105,11 +105,22 @@ namespace Yu3zx.TaggingSevice
             get;
             set;
         } = 1;
-
+        /// <summary>
+        /// PLC是否连接
+        /// </summary>
         public bool S7Connected
         {
-            get;
-            set;
+            get
+            {
+                if(S7Plc != null)
+                {
+                    return S7Plc.IsConnected;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
         /// <summary>
         /// 开始接收数据
@@ -220,7 +231,7 @@ namespace Yu3zx.TaggingSevice
                 //{
                 //    S7Connected = true;
                 //}
-                S7Connected = S7Plc.IsConnected;
+                //S7Connected = S7Plc.IsConnected;
             }
             catch(Exception ex)
             {
