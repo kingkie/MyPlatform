@@ -277,9 +277,17 @@ namespace Yu3zx.ClothLaunch
 
             txtServerIp.Text = AppManager.CreateInstance().ServerIp;
             txtServerPort.Text = AppManager.CreateInstance().Port.ToString();
-
-            DeviceManager.CreateInstance().ClothClient = new TcpClient();
-            DeviceManager.CreateInstance().ClothClient.Connect(IPAddress.Parse(AppManager.CreateInstance().ServerIp), AppManager.CreateInstance().Port);
+            try
+            {
+                DeviceManager.CreateInstance().ClothClient = new TcpClient();
+                DeviceManager.CreateInstance().ClothClient.Connect(IPAddress.Parse(AppManager.CreateInstance().ServerIp), AppManager.CreateInstance().Port);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("连接服务端失败，请联系管理员！");
+                Application.Exit();
+                return;
+            }
 
             thData = new Thread(GetServerData);
             thData.IsBackground = true;
@@ -352,11 +360,11 @@ namespace Yu3zx.ClothLaunch
                 {
                     DeviceManager.CreateInstance().ClothClient.Close();
                 }
+                PrintHelper.CreateInstance().UnInit();
             }
             catch
             {
             }
-            PrintHelper.CreateInstance().UnInit();
         }
 
         public static Dictionary<string, string> GetEntityPropertyToDict<T>(T tEntity)
@@ -454,7 +462,6 @@ namespace Yu3zx.ClothLaunch
                 txtPN.Text = CurrentFabric.ProduceNum.ToString();
                 txtSp.Text = CurrentFabric.Specs;
                 txtSerial.Text = CurrentFabric.ReelNum.ToString();
-
             }
             else
             {
@@ -464,11 +471,16 @@ namespace Yu3zx.ClothLaunch
                     MessageBox.Show("请输入批次号查询！");
                     return;
                 }
-                var cfg =AppManager.CreateInstance().GetPoductSerial(strBN);
-                if(cfg != null)
+                try
                 {
-                    txtSerial.Text = cfg.KeyValue;
+                    var cfg = AppManager.CreateInstance().GetPoductSerial(strBN);
+                    if (cfg != null)
+                    {
+                        txtSerial.Text = cfg.KeyValue;
+                    }
                 }
+                catch
+                { }
             }
         }
 

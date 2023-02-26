@@ -21,5 +21,10 @@ namespace Yu3zx.ClothLaunch
         {
 
         }
+
+        private void frmLaunch_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

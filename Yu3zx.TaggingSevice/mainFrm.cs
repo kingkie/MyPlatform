@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -20,6 +22,10 @@ namespace Yu3zx.TaggingSevice
         PlcConnector PlcConn = new PlcConnector();
 
         Random rd = new Random();
+        /// <summary>
+        /// 
+        /// </summary>
+        private ConcurrentQueue<PlcCmd> PlcReceive = new ConcurrentQueue<PlcCmd>();
 
         public mainFrm()
         {
@@ -47,7 +53,7 @@ namespace Yu3zx.TaggingSevice
             //}
 
             //-=-=-=-=-=-=-=-获取配置文件-=-=-=-=-=-=-=-
-            InitPlc();
+            //InitPlc();
 
         }
 
@@ -57,10 +63,13 @@ namespace Yu3zx.TaggingSevice
             PlcConn.Slot = 1;
             PlcConn.ServerIp = "192.168.0.201";
             PlcConn.Port = 502;
-
-            PlcConn.S7Connet();
-
-            chkPlc.Checked = PlcConn.S7Connected;
+            try
+            {
+                PlcConn.S7Connet();
+            }
+            catch
+            { }
+            swtPlc.Checked = PlcConn.S7Connected;
         }
 
         private List<string> GetLoacalIp()
@@ -340,7 +349,11 @@ namespace Yu3zx.TaggingSevice
                             {
                                 case 0x02:
                                     //请求打印标签,根据当前线号打印
-
+                                    PlcCmd cmd = new PlcCmd();
+                                    cmd.CmdCode = 0x02;
+                                    cmd.MachineId = cmdInput[1];
+                                    
+                                    PlcReceive.Enqueue(cmd);
                                     break;
                                 case 0x03:
                                     //请求打印进仓单
