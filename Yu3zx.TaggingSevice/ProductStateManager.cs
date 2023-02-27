@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -136,11 +137,26 @@ namespace Yu3zx.TaggingSevice
             set;
         }
 
+        public CartonBox CurrentBox
+        {
+            get;
+            set;
+        }
 
         /// <summary>
-        /// 上线批次的数量
+        /// 上线各个批次的数量
         /// </summary>
-        public Dictionary<string, OnLineCloth> DictOnLine = new Dictionary<string, OnLineCloth>();
+        public Dictionary<string, OnLineCloth> DictOnLine = new Dictionary<string, OnLineCloth>();//由客户端传过来
+
+        /// <summary>
+        /// 在生产线上的布料:未打印标签
+        /// </summary>
+        public List<CartonBox> CartonBoxItems = new List<CartonBox>();//打印一箱的箱外标识
+
+        /// <summary>
+        /// 需要打印统计的垛
+        /// </summary>
+        public List<CartonBox> CartonBoxList = new List<CartonBox>();//
 
         public string GetOnLineList()
         {

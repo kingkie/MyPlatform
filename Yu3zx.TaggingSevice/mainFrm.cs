@@ -226,92 +226,119 @@ namespace Yu3zx.TaggingSevice
             {
                 try
                 {
-
-
-                    switch (CurrentState)
+                    PlcCmd plcCmd;
+                    if(PlcReceive.Count > 0)
                     {
-                        case WorkState.None:
-                            //无状态，待机状态，查询和接收PLC状态
-                            //当前空闲状态时
-                            if (!ProductStateManager.GetInstance().CurrentDoing)
+                        for(int i = 0;i < PlcReceive.Count;i++)
+                        {
+                            if(PlcReceive.TryDequeue(out plcCmd))
                             {
-                                string strBatchNum = ProductStateManager.GetInstance().GetOnLineList();
-                                if (string.IsNullOrEmpty(strBatchNum))
+                                switch (plcCmd.CmdCode)
                                 {
-                                    //未能达到上线的条件
-                                }
-                                else
-                                {
-                                    //开始上线
-                                    WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
-                                    WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
-                                    int iSumNeed = 0;//累计需要
-
-                                    int iAClass = 0;
-                                    //计算出需要移出多少个
-                                    foreach (var iCloth in ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems)
-                                    {
-                                        if (iAClass >= AppManager.CreateInstance().PackingNum)
+                                    case 0x02:
+                                        //获取当前需要打印的
+                                        FabricClothItem item = null;
+                                        PrintFabricLabel(item);
+                                        break;
+                                    case 0x03:
+                                        //获取打印列表
+                                        int iPfl = 0;
+                                        if(plcCmd.DataSegment.Count >=2)
                                         {
-                                            break;
+                                            iPfl = plcCmd.DataSegment[0] * 256 + plcCmd.DataSegment[1];
                                         }
-                                        if (iCloth.QualityName == "A")
+                                        else if (plcCmd.DataSegment.Count == 1)
                                         {
-                                            iAClass++;
+                                            iPfl = plcCmd.DataSegment[0];
                                         }
-                                        iSumNeed++;
-                                    }
-                                    WorkFlowManager.CreateInstance().OnLaunchItems.Clear();//移除全部正在做的
-                                    lock (ProductStateManager.GetInstance().DictOnLine)
-                                    {
-                                        while (iSumNeed > 0)
+                                        if(iPfl > 0)
                                         {
-                                            var iRemove = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0];
-                                            WorkFlowManager.CreateInstance().OnLaunchItems.Add(iRemove);
-                                            ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems.RemoveAt(0);
-                                            iSumNeed--;
+                                            PrintFabricList(iPfl); //打印
                                         }
-                                        ProductStateManager.GetInstance().CurrentDoing = true;
-                                        ProductStateManager.GetInstance().CurrentBatchNo = strBatchNum;
-                                        if (WorkFlowManager.CreateInstance().OnLaunchItems.Count > 0)
-                                        {
-                                            ProductStateManager.GetInstance().CurrentLine = WorkFlowManager.CreateInstance().OnLaunchItems[0].LineNum;
-                                        }
-                                        ProductStateManager.GetInstance().Save();
-                                    }
-
-                                    //通知PLC上线
-                                    if (ProductStateManager.GetInstance().CurrentDoing)
-                                    {
-                                        byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
-                                        //int fWidth = item.FabricWidth;
-                                        //int iRoll = item.RollDiam;
-
-                                    }
+                                        break;
                                 }
                             }
+                        }
+                    }
+
+                    if (!ProductStateManager.GetInstance().CurrentDoing)//是否是当前上线
+                    {
+                        string strBatchNum = ProductStateManager.GetInstance().GetOnLineList();
+                        if (string.IsNullOrEmpty(strBatchNum))
+                        {
+                            //未能达到上线的条件
+                            Thread.Sleep(1000);
+                        }
+                        else
+                        {
+                            //开始上线
+                            WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
+                            WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
+                            int iSumNeed = 0;//累计需要
+
+                            int iAClass = 0;
+                            //计算出需要移出多少个
+                            foreach (var iCloth in ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems)
+                            {
+                                if (iAClass >= AppManager.CreateInstance().PackingNum)
+                                {
+                                    break;
+                                }
+                                if (iCloth.QualityName == "A")
+                                {
+                                    iAClass++;
+                                }
+                                iSumNeed++;
+                            }
+
+                            CartonBox newBox = new CartonBox();
+                            newBox.BatchNo = strBatchNum;
+
+                            lock (ProductStateManager.GetInstance().DictOnLine)
+                            {
+                                while (iSumNeed > 0)
+                                {
+                                    var iRemove = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0];
+
+                                    newBox.OnLaunchItems.Add(iRemove);
+                                    ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems.RemoveAt(0);
+                                    iSumNeed--;
+                                }
+                                ProductStateManager.GetInstance().CurrentDoing = true;
+                                ProductStateManager.GetInstance().CurrentBatchNo = strBatchNum;
+                                ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
+                                ProductStateManager.GetInstance().CartonBoxItems.Add(newBox);
 
 
-                            break;
-                        case WorkState.ClothPrepare:
-                            //布料准备上线阶段
+                                if (ProductStateManager.GetInstance().CurrentBox != null && ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count > 0)
+                                {
+                                    ProductStateManager.GetInstance().CurrentLine = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0].LineNum;//当前线
+                                }
 
-                            break;
-                        case WorkState.ClothOnLine:
-                            //
+                                ProductStateManager.GetInstance().Save();
+                            }
 
-                            break;
-                        case WorkState.PasteLabel:
-                            //
+                            //通知PLC上线
+                            if (ProductStateManager.GetInstance().CurrentDoing)
+                            {
+                                try
+                                {
+                                    byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
+                                    int fWidth = newBox.OnLaunchItems[0].FabricWidth;
+                                    int iRoll = newBox.OnLaunchItems[0].RollDiam;
 
-                            break;
-                        case WorkState.PackSmallBag:
-                            //
+                                }
+                                catch
+                                {
 
-                            break;
-                        default:
-                            //
-                            break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //空闲就休息2秒
+                        Thread.Sleep(2000);
                     }
                 }
                 catch
@@ -360,7 +387,11 @@ namespace Yu3zx.TaggingSevice
                                     if(cmdInput.Length > 3)
                                     {
                                         int sumBoxs = cmdInput[3];
-                                        
+                                        PlcCmd cmd1 = new PlcCmd();
+                                        cmd1.CmdCode = 0x03;
+                                        cmd1.MachineId = cmdInput[1];
+                                        cmd1.DataSegment.Add(cmdInput[3]);
+                                        PlcReceive.Enqueue(cmd1);//
                                     }
                                     break;
                                 default:
@@ -425,7 +456,8 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 
         /// </summary>
-        private void PrintFabricList()
+        /// <param name="packNum">总包数装成垛</param>
+        private void PrintFabricList(int packNum)
         {
             //从PLC 获取完成的 线号
             string iComplete = "1";

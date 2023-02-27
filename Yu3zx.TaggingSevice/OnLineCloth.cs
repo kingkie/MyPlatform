@@ -39,10 +39,5 @@ namespace Yu3zx.TaggingSevice
         /// 上线的面料-A品
         /// </summary>
         public List<FabricClothItem> ClothItems = new List<FabricClothItem>();
-
-        /// <summary>
-        /// 其它品质的
-        /// </summary>
-        public List<FabricClothItem> OtherQualityItem = new List<FabricClothItem>();
     }
 }

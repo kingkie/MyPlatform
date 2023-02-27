@@ -47,6 +47,8 @@ namespace Yu3zx.TaggingSevice
         /// 当前上线面料
         /// </summary>
         public List<FabricClothItem> OnLaunchItems = new List<FabricClothItem>();
+
+
     }
 
     public enum WorkState: int
