@@ -72,11 +72,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppManager.cs" />
+    <Compile Include="CartonBox.cs" />
+    <Compile Include="MathHelper.cs" />
     <Compile Include="PackHelper.cs" />
     <Compile Include="PlcCmd.cs" />
     <Compile Include="PlcConnector.cs" />
     <Compile Include="PrintCfg.cs" />
     <Compile Include="PrintHelper.cs" />
+    <Compile Include="TempModels\CartonBoxLabel.cs" />
     <Compile Include="TempModels\FabricLabel.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\FabricClothItem.cs" />

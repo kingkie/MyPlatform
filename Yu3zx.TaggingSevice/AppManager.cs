@@ -120,6 +120,10 @@ namespace Yu3zx.TaggingSevice
 
                         cfg.LabelBName = nSub.Attributes["lblowname"].Value.Trim();
 
+                        //---------------
+                        cfg.CartonLabel = nSub.Attributes["boxlbl"].Value.Trim();
+                        cfg.CartonPrinter = nSub.Attributes["boxprt"].Value.Trim();
+                        //---------------
                         cfg.PrintCopies = int.Parse(nSub.Attributes["copies"].Value.Trim());
                         LPrinter.Add(cfg);
                     }

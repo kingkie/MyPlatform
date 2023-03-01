@@ -13,7 +13,7 @@ namespace Yu3zx.TaggingSevice
         /// </summary>
         /// <param name="lBQuality"></param>
         /// <returns></returns>
-        public byte[] BuildBTypeValue(List<int> lBQuality)
+        public static byte[] BuildBTypeValue(List<int> lBQuality)
         {
             int iMin = Math.Min(16, lBQuality.Count);
             byte[] fByte = new byte[2] { 0x00, 0x00 };
@@ -35,7 +35,7 @@ namespace Yu3zx.TaggingSevice
             return fByte;
         }
 
-        private byte SetBitValue(byte data, int index)
+        private static byte SetBitValue(byte data, int index)
         {
             if (index > 7 || index < 0)
             {

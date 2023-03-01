@@ -41,7 +41,22 @@ namespace Yu3zx.TaggingSevice
             get;
             set;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CartonLabel
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CartonPrinter
+        {
+            get;
+            set;
+        }
         /// <summary>
         /// 打印份数
         /// </summary>

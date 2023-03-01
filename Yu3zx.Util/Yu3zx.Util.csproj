@@ -69,6 +69,7 @@
     <Compile Include="SerializeHelper.cs" />
     <Compile Include="SpellHelper.cs" />
     <Compile Include="StringUtil.cs" />
+    <Compile Include="TaskManager.cs" />
     <Compile Include="TypeHelper.cs" />
     <Compile Include="VerificationImg.cs" />
     <Compile Include="WindowsHelper.cs" />

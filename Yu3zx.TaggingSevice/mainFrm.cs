@@ -17,19 +17,19 @@ namespace Yu3zx.TaggingSevice
         private Thread thPlc = null;//设备通信轮询
         TcpServer tcpServer = null;//接收客户端
         private Thread thWorkFlow = null; //流程引擎
-        private List<FabricClothItem> lUnSave = new List<FabricClothItem>();
 
         PlcConnector PlcConn = new PlcConnector();
 
         Random rd = new Random();
         /// <summary>
-        /// 
+        /// PLC收到的命令
         /// </summary>
         private ConcurrentQueue<PlcCmd> PlcReceive = new ConcurrentQueue<PlcCmd>();
 
         public mainFrm()
         {
             InitializeComponent();
+            // this.ControlBox = false;//设置不出现关闭按钮
         }
 
         private void mainFrm_Load(object sender, EventArgs e)
@@ -239,6 +239,9 @@ namespace Yu3zx.TaggingSevice
                                         //获取当前需要打印的
                                         FabricClothItem item = null;
                                         PrintFabricLabel(item);
+                                        //判断当前包有没有弄完成，弄完成了就置标志位为空闲
+
+                                        ProductStateManager.GetInstance().CurrentDoing = false;
                                         break;
                                     case 0x03:
                                         //获取打印列表
@@ -254,6 +257,7 @@ namespace Yu3zx.TaggingSevice
                                         if(iPfl > 0)
                                         {
                                             PrintFabricList(iPfl); //打印
+                                            //
                                         }
                                         break;
                                 }
@@ -309,7 +313,6 @@ namespace Yu3zx.TaggingSevice
                                 ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
                                 ProductStateManager.GetInstance().CartonBoxItems.Add(newBox);
 
-
                                 if (ProductStateManager.GetInstance().CurrentBox != null && ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count > 0)
                                 {
                                     ProductStateManager.GetInstance().CurrentLine = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0].LineNum;//当前线
@@ -318,19 +321,23 @@ namespace Yu3zx.TaggingSevice
                                 ProductStateManager.GetInstance().Save();
                             }
 
-                            //通知PLC上线
+                            //以及打印包装箱标签
                             if (ProductStateManager.GetInstance().CurrentDoing)
                             {
+                                //------打印整箱的-------
+                                PrintCartonBoxLabel();
+
                                 try
                                 {
+                                    //通知PLC上线
                                     byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
-                                    int fWidth = newBox.OnLaunchItems[0].FabricWidth;
-                                    int iRoll = newBox.OnLaunchItems[0].RollDiam;
-
+                                    short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
+                                    short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
+                                    NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
                                 }
-                                catch
+                                catch(Exception ex)
                                 {
-
+                                    Log.Instance.LogWrite(ex);
                                 }
                             }
                         }
@@ -341,9 +348,9 @@ namespace Yu3zx.TaggingSevice
                         Thread.Sleep(2000);
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-
+                    Log.Instance.LogWrite(ex);
                 }
             }
         }
@@ -452,29 +459,81 @@ namespace Yu3zx.TaggingSevice
                     break;
             }
         }
-
         /// <summary>
-        /// 
+        /// 打印总垛数据，并移除打印的
         /// </summary>
         /// <param name="packNum">总包数装成垛</param>
         private void PrintFabricList(int packNum)
         {
-            //从PLC 获取完成的 线号
-            string iComplete = "1";
-        }
+            //一垛总包数
 
+        }
         /// <summary>
-        /// 打印装箱单
+        /// 打印整箱的标签
         /// </summary>
-        /// <param name="lPack">装箱个数</param>
-        private void PrintPackingList(List<FabricClothItem> lPack)
+        private void PrintCartonBoxLabel()
         {
-            Console.WriteLine(lPack.Count + " " + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印装箱单！");
-            foreach (var item in lPack)
+            try
             {
-                Console.Write(" " + item.ReelNum.ToString());
+                //打印整箱标签
+                CartonBoxLabel cartonBox = new CartonBoxLabel();
+                string lStrNum = "";
+                if (ProductStateManager.GetInstance().CurrentBox != null)
+                {
+                    var fItem = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0];
+                    cartonBox.BatchNo = fItem.BatchNo;
+                    cartonBox.ColorNum = fItem.ColorNum;
+                    cartonBox.QualityString = fItem.QualityString;
+                    cartonBox.Specs = fItem.Specs;
+                    cartonBox.BoxNum = "";
+                    lStrNum = fItem.LineNum;
+                    int idx = 0;
+                    foreach (var item in ProductStateManager.GetInstance().CurrentBox.OnLaunchItems)
+                    {
+                        if (item.QualityName == "A")
+                        {
+                            switch (idx)
+                            {
+                                case 0:
+                                    cartonBox.RollNum1 = (decimal)item.ProduceNum;
+                                    break;
+                                case 1:
+                                    cartonBox.RollNum2 = (decimal)item.ProduceNum;
+                                    break;
+                                case 2:
+                                    cartonBox.RollNum3 = (decimal)item.ProduceNum;
+                                    break;
+                                case 3:
+                                    cartonBox.RollNum4 = (decimal)item.ProduceNum;
+                                    break;
+                                case 4:
+                                    cartonBox.RollNum5 = (decimal)item.ProduceNum;
+                                    break;
+                                case 5:
+                                    cartonBox.RollNum6 = (decimal)item.ProduceNum;
+                                    break;
+                            }
+                            idx++;
+                        }
+                    }
+                }
+
+                //模板不同纸张不同，打印换纸麻烦
+                var pbCfg = AppManager.CreateInstance().GetPrintCfg(lStrNum);
+                if (pbCfg != null)
+                {
+                    Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(cartonBox);
+                    string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.CartonLabel;
+                    if (File.Exists(lblFile))
+                    {
+                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.CartonPrinter, dictData, pbCfg.PrintCopies);
+                    }
+                }
             }
-            //Console.WriteLine(lPack.Count + "" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印装箱单！");
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
         }
 
         private void SaveFabricCloth(FabricClothItem item)
@@ -506,12 +565,37 @@ namespace Yu3zx.TaggingSevice
         #endregion End
 
         #region PLC通信相关
-
-        private void NoticePlc(byte iLNum, Int16 fabricWidth, Int16 iRollDiam)
+        /// <summary>
+        /// 通知PLC上线
+        /// </summary>
+        /// <param name="iLNum"></param>
+        /// <param name="fabricWidth"></param>
+        /// <param name="iRollDiam"></param>
+        /// <param name="carton"></param>
+        private void NoticePlc(byte iLNum, Int16 fabricWidth, Int16 iRollDiam, CartonBox carton)
         {
-            List<byte> lCmd = new List<byte>();
-            lCmd.Add(0x01);
-            lCmd.Add(iLNum);
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x01); //命令码
+                lCmd.Add(iLNum);//产线号
+                lCmd.AddRange(MathHelper.Short2Bytes(fabricWidth));//宽度
+                lCmd.AddRange(MathHelper.Short2Bytes(iRollDiam));//直径
+                List<int> lNaclassls = new List<int>();
+                for (int i = 0; i < carton.OnLaunchItems.Count; i++)
+                {
+                    if (carton.OnLaunchItems[i].QualityName != "A")
+                    {
+                        lNaclassls.Add(i + 1);//次品序号
+                    }
+                }
+                lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclassls));
+                PlcConn.WriteDataBlock(1, 1, lCmd.ToArray());//
+            }
+            catch(Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
 
         }
 
@@ -520,6 +604,31 @@ namespace Yu3zx.TaggingSevice
         private void btnTest_Click(object sender, EventArgs e)
         {
 
+        }
+        /// <summary>
+        /// 取消掉右上角关闭按钮
+        /// </summary>
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
+
+        private void mainFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                //最重要的是保存状态
+                ProductStateManager.GetInstance().Save();
+            }
+            catch
+            {
+            }
         }
     }
 }
