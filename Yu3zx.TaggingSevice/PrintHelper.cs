@@ -39,6 +39,14 @@ namespace Yu3zx.TaggingSevice
         /// 报表打印模板字段集
         /// </summary>
         public static Dictionary<string,string> TempleteFieldsList = new Dictionary<string, string>();
+        /// <summary>
+        /// 套装也是
+        /// </summary>
+        public static Dictionary<string, string> CTempleteFieldsList = new Dictionary<string, string>();
+        /// <summary>
+        /// 箱外标识打印模板字段
+        /// </summary>
+        public static Dictionary<string, string> CartonTempleteFieldsList = new Dictionary<string, string>();
 
         public void Init()
         {

@@ -229,38 +229,53 @@ namespace Yu3zx.TaggingSevice
                     PlcCmd plcCmd;
                     if(PlcReceive.Count > 0)
                     {
-                        for(int i = 0;i < PlcReceive.Count;i++)
-                        {
-                            if(PlcReceive.TryDequeue(out plcCmd))
-                            {
-                                switch (plcCmd.CmdCode)
-                                {
-                                    case 0x02:
-                                        //获取当前需要打印的
-                                        FabricClothItem item = null;
-                                        PrintFabricLabel(item);
-                                        //判断当前包有没有弄完成，弄完成了就置标志位为空闲
+                        //取消循环，通知比较少
+                        //for(int i = 0;i < PlcReceive.Count;i++)
+                        //{
+                        //}
 
+                        if (PlcReceive.TryDequeue(out plcCmd))
+                        {
+                            switch (plcCmd.CmdCode)
+                            {
+                                case 0x02://套袋请求打印标签
+                                          //获取当前需要打印的
+                                    if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex >= ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count)
+                                    {
                                         ProductStateManager.GetInstance().CurrentDoing = false;
-                                        break;
-                                    case 0x03:
-                                        //获取打印列表
-                                        int iPfl = 0;
-                                        if(plcCmd.DataSegment.Count >=2)
+                                    }
+                                    else
+                                    {
+                                        FabricClothItem item = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[ProductStateManager.GetInstance().CurrentBox.LaunchIndex];
+                                        PrintFabricLabel(item);
+                                        if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex == ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count - 1)
                                         {
-                                            iPfl = plcCmd.DataSegment[0] * 256 + plcCmd.DataSegment[1];
+                                            ProductStateManager.GetInstance().CurrentDoing = false;//说明现在已经做完成了
+                                            ProductStateManager.GetInstance().CurrentBox.LaunchIndex = 0;
                                         }
-                                        else if (plcCmd.DataSegment.Count == 1)
+                                        else
                                         {
-                                            iPfl = plcCmd.DataSegment[0];
+                                            ProductStateManager.GetInstance().CurrentBox.LaunchIndex = ProductStateManager.GetInstance().CurrentBox.LaunchIndex + 1;//累加
                                         }
-                                        if(iPfl > 0)
-                                        {
-                                            PrintFabricList(iPfl); //打印
-                                            //
-                                        }
-                                        break;
-                                }
+                                    }
+                                    break;
+                                case 0x03://进仓单打印
+                                    int iPfl = 0;
+                                    if (plcCmd.DataSegment.Count >= 2)
+                                    {
+                                        iPfl = (plcCmd.DataSegment[0] * 256) + plcCmd.DataSegment[1];
+                                    }
+                                    else if (plcCmd.DataSegment.Count == 1)
+                                    {
+                                        iPfl = plcCmd.DataSegment[0];
+                                    }
+                                    if (iPfl > 0)
+                                    {
+                                        PrintFabricList(iPfl); //打印总箱数
+                                                               //剔除已经成垛的
+
+                                    }
+                                    break;
                             }
                         }
                     }
@@ -374,7 +389,7 @@ namespace Yu3zx.TaggingSevice
                     {
                         PlcConn.WriteFlag(1, 1, false);//设置读取完成标志
 
-                        byte[] cmdInput = PlcConn.ReadDataBlock(1, 2, 6);//读取并解析
+                        byte[] cmdInput = PlcConn.ReadDataBlock(1, 2, 6);//读取并解析,目前6位
 
                         if(cmdInput != null && cmdInput.Length > 1)
                         {
@@ -574,6 +589,7 @@ namespace Yu3zx.TaggingSevice
         /// <param name="carton"></param>
         private void NoticePlc(byte iLNum, Int16 fabricWidth, Int16 iRollDiam, CartonBox carton)
         {
+            //通知上线
             try
             {
                 List<byte> lCmd = new List<byte>();
@@ -596,7 +612,13 @@ namespace Yu3zx.TaggingSevice
             {
                 Log.Instance.LogWrite(ex);
             }
-
+            //通知为新指令
+            try
+            {
+                PlcConn.WriteFlag(1, 0, true);
+            }
+            catch
+            { }
         }
 
         #endregion End
@@ -605,6 +627,7 @@ namespace Yu3zx.TaggingSevice
         {
 
         }
+
         /// <summary>
         /// 取消掉右上角关闭按钮
         /// </summary>

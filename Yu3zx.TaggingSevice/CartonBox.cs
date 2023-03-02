@@ -8,13 +8,25 @@ namespace Yu3zx.TaggingSevice
 {
     public class CartonBox
     {
+        private int indexLauch = 0;
         public string BatchNo
         {
             get;
             set;
         }
 
-        
+        public int LaunchIndex
+        {
+            get
+            {
+                return indexLauch;
+            }
+            set
+            {
+                indexLauch = value;
+            }
+        }
+
         /// <summary>
         /// 上线一箱列表
         /// </summary>

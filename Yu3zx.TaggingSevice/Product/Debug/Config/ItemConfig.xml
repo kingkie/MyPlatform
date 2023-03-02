@@ -8,7 +8,25 @@
 		<LabelItem dataname="ProduceNum" matchname="LEN"/>
 		<LabelItem dataname="ReelNum" matchname="NUM"/>
 	</PrintConfig>
-	
+	<PrintConfig name="打印模板">
+		<LabelItem dataname="BatchNo" matchname="SN"/>
+		<LabelItem dataname="ProduceNum" matchname="LEN"/>
+		<LabelItem dataname="ReelNum" matchname="NUM"/>
+	</PrintConfig>
+	<CartonConfig name="整包模板">
+		<LabelItem dataname="BatchNo" matchname="BatchNo"/>
+		<LabelItem dataname="BoxNum" matchname="BoxNum"/>
+		<LabelItem dataname="QualityString" matchname="QSName"/>
+		<LabelItem dataname="ColorNum" matchname="ColorNum"/>
+		<LabelItem dataname="Specs" matchname="Specs"/>
+		<LabelItem dataname="RollSum" matchname="RNSum"/>
+		<LabelItem dataname="RollNum1" matchname="RN1"/>
+		<LabelItem dataname="RollNum2" matchname="RN2"/>
+		<LabelItem dataname="RollNum3" matchname="RN3"/>
+		<LabelItem dataname="RollNum4" matchname="RN4"/>
+		<LabelItem dataname="RollNum5" matchname="RN5"/>
+		<LabelItem dataname="RollNum6" matchname="RN6"/>
+	</CartonConfig>
 	<PrinterConfig>
 		<PrinterItem linenum="1" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="box1" copies="1"/>
 		<PrinterItem linenum="2" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="box2" copies="1"/>
