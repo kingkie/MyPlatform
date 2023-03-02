@@ -8,11 +8,13 @@
 		<LabelItem dataname="ProduceNum" matchname="LEN"/>
 		<LabelItem dataname="ReelNum" matchname="NUM"/>
 	</PrintConfig>
-	<PrintConfig name="打印模板">
-		<LabelItem dataname="BatchNo" matchname="SN"/>
-		<LabelItem dataname="ProduceNum" matchname="LEN"/>
-		<LabelItem dataname="ReelNum" matchname="NUM"/>
-	</PrintConfig>
+	<FabricConfig name="打印模板">
+		<LabelItem dataname="BatchNo" matchname="BatchNo"/>
+		<LabelItem dataname="ProduceNum" matchname="RNSum"/>
+		<LabelItem dataname="QualityString" matchname="QSName"/>
+		<LabelItem dataname="ColorNum" matchname="ColorNum"/>
+		<LabelItem dataname="Specs" matchname="Specs"/>
+	</FabricConfig>
 	<CartonConfig name="整包模板">
 		<LabelItem dataname="BatchNo" matchname="BatchNo"/>
 		<LabelItem dataname="BoxNum" matchname="BoxNum"/>
