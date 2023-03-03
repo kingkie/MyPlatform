@@ -45,7 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FabricClothItem.cs" />
+    <Compile Include="Models\CartonBoxLabel.cs" />
+    <Compile Include="Models\FabricClothItem.cs" />
     <Compile Include="frmPrinter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,8 +80,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
