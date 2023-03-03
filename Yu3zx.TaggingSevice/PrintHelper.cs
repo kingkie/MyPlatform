@@ -42,7 +42,7 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 套装也是
         /// </summary>
-        public static Dictionary<string, string> CTempleteFieldsList = new Dictionary<string, string>();
+        public static Dictionary<string, string> FabricTempleteFieldsList = new Dictionary<string, string>();
         /// <summary>
         /// 箱外标识打印模板字段
         /// </summary>
@@ -147,6 +147,58 @@ namespace Yu3zx.TaggingSevice
 
                 //选择打印机
                 btFormat.Printer = printerName;
+                //设置打印份数
+                btFormat.IdenticalCopiesOfLabel = CopiesOfLabel;
+                //设置打印时是否跳出打印属性
+                btFormat.PrintOut(false, false);
+                //退出时是否保存标签
+                //btFormat.Close(BarTender.BtSaveOptions.btSaveChanges);
+                btFormat.Close(BarTender.BtSaveOptions.btDoNotSaveChanges);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("打印错误：" + ex.Message);
+                return;
+            }
+        }
+
+        public void BarPrintInit(string filePath, string printerName, Dictionary<string, string> dictData, Dictionary<string, string> dictTemplate, int CopiesOfLabel = 1)
+        {
+            try
+            {
+                if (btApp == null)
+                {
+                    btApp = new BarTender.Application();
+                }
+
+                btFormat = btApp.Formats.Open(filePath, false, "");
+                foreach (string skey in TempleteFieldsList.Keys)
+                {
+                    try
+                    {
+                        //向bartender模板传递变量,SN为条形码数据的一个共享名称
+                        if (dictData.ContainsKey(skey))
+                        {
+                            string sMatch = TempleteFieldsList[skey];
+                            string strVal = dictData[skey];
+                            if (string.IsNullOrEmpty(strVal))
+                            {
+                                strVal = "";
+                            }
+                            btFormat.SetNamedSubStringValue(sMatch, strVal);
+                        }
+                    }
+                    catch
+                    {
+                        //处理可能没有对应打印字段的问题
+                    }
+                }
+
+                if(!string.IsNullOrEmpty(printerName))
+                {
+                    //选择打印机
+                    btFormat.Printer = printerName;
+                }
                 //设置打印份数
                 btFormat.IdenticalCopiesOfLabel = CopiesOfLabel;
                 //设置打印时是否跳出打印属性

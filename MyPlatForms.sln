@@ -57,6 +57,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{77F8F3E8-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.LuaScript", "Yu3zx.LuaScript\Yu3zx.LuaScript.csproj", "{A3352B9C-3C48-4D2C-907D-A2EA5C91AB67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PrintCenter", "Yu3zx.PrintCenter\Yu3zx.PrintCenter.csproj", "{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -343,6 +345,18 @@ Global
 		{A3352B9C-3C48-4D2C-907D-A2EA5C91AB67}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A3352B9C-3C48-4D2C-907D-A2EA5C91AB67}.Release|x86.ActiveCfg = Release|Any CPU
 		{A3352B9C-3C48-4D2C-907D-A2EA5C91AB67}.Release|x86.Build.0 = Release|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Debug|x86.Build.0 = Debug|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

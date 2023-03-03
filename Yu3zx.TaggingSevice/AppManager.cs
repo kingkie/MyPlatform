@@ -97,7 +97,7 @@ namespace Yu3zx.TaggingSevice
                     XmlNode configNode = xmlDoc.SelectSingleNode("Configuration/LineNum"); //
                     PackingNum = int.Parse(configNode.Attributes["fullnum"].Value.Trim()); //达到装箱数量
 
-                    //PrintConfig
+                    //PrintConfig 30*25
                     XmlNode printNode = xmlDoc.SelectSingleNode("Configuration/PrintConfig"); //
                     foreach (XmlNode nodeSub in printNode.ChildNodes)
                     {
@@ -106,6 +106,28 @@ namespace Yu3zx.TaggingSevice
                         if (!PrintHelper.TempleteFieldsList.ContainsKey(sKey))
                         {
                             PrintHelper.TempleteFieldsList.Add(sKey, sMatch);
+                        }
+                    }
+                    //FabricConfig 布卷标签
+                    XmlNode fabricNode = xmlDoc.SelectSingleNode("Configuration/FabricConfig"); //
+                    foreach (XmlNode nodeSub in fabricNode.ChildNodes)
+                    {
+                        string sKey = nodeSub.Attributes["dataname"].Value.Trim();
+                        string sMatch = nodeSub.Attributes["matchname"].Value.Trim();
+                        if (!PrintHelper.FabricTempleteFieldsList.ContainsKey(sKey))
+                        {
+                            PrintHelper.FabricTempleteFieldsList.Add(sKey, sMatch);
+                        }
+                    }
+                    //CartonConfig 箱外标签
+                    XmlNode cartonNode = xmlDoc.SelectSingleNode("Configuration/FabricConfig"); //
+                    foreach (XmlNode nodeSub in cartonNode.ChildNodes)
+                    {
+                        string sKey = nodeSub.Attributes["dataname"].Value.Trim();
+                        string sMatch = nodeSub.Attributes["matchname"].Value.Trim();
+                        if (!PrintHelper.FabricTempleteFieldsList.ContainsKey(sKey))
+                        {
+                            PrintHelper.FabricTempleteFieldsList.Add(sKey, sMatch);
                         }
                     }
 

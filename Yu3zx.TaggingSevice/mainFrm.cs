@@ -219,7 +219,6 @@ namespace Yu3zx.TaggingSevice
             }
         }
 
-        private WorkState CurrentState = WorkState.None;
         private void WorkFlowGoing()
         {
             while(true)
@@ -341,7 +340,6 @@ namespace Yu3zx.TaggingSevice
                             {
                                 //------打印整箱的-------
                                 PrintCartonBoxLabel();
-
                                 try
                                 {
                                     //通知PLC上线
@@ -452,7 +450,7 @@ namespace Yu3zx.TaggingSevice
                         string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.LabelBName;
                         if (File.Exists(lblFile))
                         {
-                            PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.PrinterName, dictData, pbCfg.PrintCopies);
+                            PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.PrinterName, dictData,PrintHelper.FabricTempleteFieldsList, pbCfg.PrintCopies);
                         }
                     }
                     //调用C类模板打印
@@ -467,7 +465,7 @@ namespace Yu3zx.TaggingSevice
                         string lblFile = Application.StartupPath + "\\Templates\\" + pCfg.LabelName;
                         if (File.Exists(lblFile))
                         {
-                            PrintHelper.CreateInstance().BarPrintInit(lblFile, pCfg.PrinterName, dictData, pCfg.PrintCopies);
+                            PrintHelper.CreateInstance().BarPrintInit(lblFile, pCfg.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pCfg.PrintCopies);
                         }
                     }
                     Console.WriteLine(strQC + " A类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
@@ -483,6 +481,7 @@ namespace Yu3zx.TaggingSevice
             //一垛总包数
 
         }
+
         /// <summary>
         /// 打印整箱的标签
         /// </summary>
@@ -541,7 +540,7 @@ namespace Yu3zx.TaggingSevice
                     string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.CartonLabel;
                     if (File.Exists(lblFile))
                     {
-                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.CartonPrinter, dictData, pbCfg.PrintCopies);
+                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.CartonPrinter, dictData,PrintHelper.CartonTempleteFieldsList, pbCfg.PrintCopies);
                     }
                 }
             }
@@ -567,14 +566,6 @@ namespace Yu3zx.TaggingSevice
                     Console.WriteLine("添加失败");
                 }
             }
-        }
-
-        /// <summary>
-        /// 打印纸管内小标签
-        /// </summary>
-        private void PrintTubeLabel(FabricClothItem item)
-        {
-            Console.WriteLine("打印纸管内小标签成功！");
         }
 
         #endregion End
