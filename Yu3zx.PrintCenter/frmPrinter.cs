@@ -22,18 +22,18 @@ namespace Yu3zx.PrintCenter
 
         private void btnItem_Click(object sender, EventArgs e)
         {
-
+            FabricClothItem clothItem = new FabricClothItem();
         }
 
         private void btnFabric_Click(object sender, EventArgs e)
         {
-
+            FabricClothItem clothItem = new FabricClothItem();
         }
 
         private void btnCarton_Click(object sender, EventArgs e)
         {
+            CartonBoxLabel carton = new CartonBoxLabel();
 
         }
-
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="AppManager.cs" />
     <Compile Include="CartonBox.cs" />
     <Compile Include="MathHelper.cs" />
+    <Compile Include="Models\SetConfig.cs" />
     <Compile Include="PackHelper.cs" />
     <Compile Include="PlcCmd.cs" />
     <Compile Include="PlcConnector.cs" />

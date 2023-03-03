@@ -7,6 +7,8 @@ using System.Management;
 using System.Net;
 using System.Xml;
 
+using Yu3zx.DapperExtend;
+
 namespace Yu3zx.TaggingSevice
 {
     public class AppManager
@@ -169,6 +171,94 @@ namespace Yu3zx.TaggingSevice
 
             }
             return item;
+        }
+
+        public int GetBoxNoAndUpdate(string batchno)
+        {
+            if (string.IsNullOrEmpty(batchno))
+            {
+                return 0;
+            }
+            int iSnRtn = 0;
+            PoductSerial config = GetPoductSerial("Box" + batchno);
+            if (config != null)
+            {
+                iSnRtn = int.Parse(config.KeyValue);
+            }
+            else
+            {
+                iSnRtn = 1;
+                PoductSerial confignew = new PoductSerial();
+                confignew.KeyName = "Box" + batchno;
+                confignew.KeyValue = iSnRtn.ToString();
+                SetPoductSerialSave(confignew);
+            }
+            using (var db = new DapperContext("MySqlDbConnection"))
+            {
+                try
+                {
+                    var rtnB = db.Update("update productserial set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = iSnRtn + 1, KeyName = batchno });
+                    if (rtnB)
+                    {
+                        Console.WriteLine("更新成功！");
+                    }
+                    else
+                    {
+                        Console.WriteLine("更新失败！");
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+            return iSnRtn;
+        }
+
+        public PoductSerial GetPoductSerial(string strKey)
+        {
+            using (var db = new DapperContext("MySqlDbConnection"))
+            {
+                try
+                {
+                    var lConfigs = db.Select<PoductSerial>(u => u.KeyName == strKey);
+                    if (lConfigs != null && lConfigs.Count > 0)
+                    {
+                        Console.WriteLine("查询PoductSerial成功");
+                        return lConfigs[0];
+                    }
+                    else
+                    {
+                        Console.WriteLine("查询PoductSerial失败");
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public void SetPoductSerialSave(PoductSerial config)
+        {
+            using (var db = new DapperContext("MySqlDbConnection"))
+            {
+                try
+                {
+                    var rtnBool = db.Insert(config);
+                    if (rtnBool)
+                    {
+                        Console.WriteLine("添加成功");
+                    }
+                    else
+                    {
+                        Console.WriteLine("添加失败");
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
         }
     }
 }
