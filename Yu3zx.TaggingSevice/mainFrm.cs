@@ -223,6 +223,7 @@ namespace Yu3zx.TaggingSevice
         /// </summary>
         private void WorkFlowGoing()
         {
+            Log.Instance.LogWrite("工作线程启动:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             while(true)
             {
                 try
@@ -385,7 +386,8 @@ namespace Yu3zx.TaggingSevice
         /// </summary>
         private void SearchPlcState()
         {
-            while(true)
+            Log.Instance.LogWrite("PLC状态线程启动:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            while (true)
             {
                 try
                 {

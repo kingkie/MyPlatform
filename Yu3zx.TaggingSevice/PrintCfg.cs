@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Yu3zx.TaggingSevice
+﻿namespace Yu3zx.TaggingSevice
 {
     public class PrintCfg
     {
@@ -42,7 +36,7 @@ namespace Yu3zx.TaggingSevice
             set;
         }
         /// <summary>
-        /// 
+        /// 箱外标签模板
         /// </summary>
         public string CartonLabel
         {
@@ -50,7 +44,7 @@ namespace Yu3zx.TaggingSevice
             set;
         }
         /// <summary>
-        /// 
+        /// 箱外标签打印机名
         /// </summary>
         public string CartonPrinter
         {

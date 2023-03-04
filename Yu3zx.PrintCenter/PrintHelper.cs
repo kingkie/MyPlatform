@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yu3zx.TaggingSevice
+namespace Yu3zx.PrintCenter
 {
     public class PrintHelper
     {
@@ -191,7 +191,7 @@ namespace Yu3zx.TaggingSevice
                     catch(Exception ex)
                     {
                         //处理可能没有对应打印字段的问题
-                        Console.WriteLine(ex);
+                        Console.WriteLine(ex.Message);
                     }
                 }
 

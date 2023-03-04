@@ -122,14 +122,14 @@ namespace Yu3zx.TaggingSevice
                         }
                     }
                     //CartonConfig 箱外标签
-                    XmlNode cartonNode = xmlDoc.SelectSingleNode("Configuration/FabricConfig"); //
+                    XmlNode cartonNode = xmlDoc.SelectSingleNode("Configuration/CartonConfig"); //
                     foreach (XmlNode nodeSub in cartonNode.ChildNodes)
                     {
                         string sKey = nodeSub.Attributes["dataname"].Value.Trim();
                         string sMatch = nodeSub.Attributes["matchname"].Value.Trim();
-                        if (!PrintHelper.FabricTempleteFieldsList.ContainsKey(sKey))
+                        if (!PrintHelper.CartonTempleteFieldsList.ContainsKey(sKey))
                         {
-                            PrintHelper.FabricTempleteFieldsList.Add(sKey, sMatch);
+                            PrintHelper.CartonTempleteFieldsList.Add(sKey, sMatch);
                         }
                     }
 

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-	<TaskActionItems name="定时库">
-		<TaskActionItem actname="前任3" actime="17:00" adtype="1" param="101.png"/>
-	</TaskActionItems>
 	<PrintConfig name="打印模板">
 		<LabelItem dataname="BatchNo" matchname="SN"/>
 		<LabelItem dataname="ProduceNum" matchname="LEN"/>
@@ -30,10 +27,10 @@
 		<LabelItem dataname="RollNum6" matchname="RN6"/>
 	</CartonConfig>
 	<PrinterConfig>
-		<PrinterItem linenum="1" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="box1" copies="1"/>
-		<PrinterItem linenum="2" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="box2" copies="1"/>
-		<PrinterItem linenum="3" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="box3" copies="1"/>
-		<PrinterItem linenum="4" pname="Microsoft Print to PDF" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="box4" copies="1"/>
+		<PrinterItem linenum="1" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
+		<PrinterItem linenum="2" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
+		<PrinterItem linenum="3" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
+		<PrinterItem linenum="4" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
 	</PrinterConfig>
 	<PortConfig CommName="COM2" CommRate="19200"/>
 	<AutoStartBoot value="1"/>
