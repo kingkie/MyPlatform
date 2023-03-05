@@ -36,6 +36,14 @@
     <ApplicationIcon>NOTEPA~2.ICO</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EastReport, Version=1.1.0.27016, Culture=neutral, PublicKeyToken=f133ad5174c70ebc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Product\Debug\EastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="EastReportDesigner, Version=1.1.0.27016, Culture=neutral, PublicKeyToken=f133ad5174c70ebc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Product\Debug\EastReportDesigner.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.BarTender, Version=11.0.7.1, Culture=neutral, PublicKeyToken=109ff779a1b4cbc7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -78,8 +86,16 @@
     <Compile Include="PackHelper.cs" />
     <Compile Include="PlcCmd.cs" />
     <Compile Include="PlcConnector.cs" />
+    <Compile Include="PlcManager.cs" />
     <Compile Include="PrintCfg.cs" />
     <Compile Include="PrintHelper.cs" />
+    <Compile Include="PrintReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintReport.Designer.cs">
+      <DependentUpon>PrintReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TempModels\BoxDetail.cs" />
     <Compile Include="TempModels\CartonBoxLabel.cs" />
     <Compile Include="TempModels\FabricLabel.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -100,6 +116,9 @@
     <Compile Include="WorkFlowManager.cs" />
     <EmbeddedResource Include="mainFrm.resx">
       <DependentUpon>mainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintReport.resx">
+      <DependentUpon>PrintReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,7 +146,9 @@
   <ItemGroup>
     <Resource Include="NOTEPA~2.ICO" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PrintTemplates\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yu3zx.DapperExtend\Yu3zx.DapperExtend.csproj">
       <Project>{8ab4c274-da11-4cd5-a6d1-8a24742b49cc}</Project>

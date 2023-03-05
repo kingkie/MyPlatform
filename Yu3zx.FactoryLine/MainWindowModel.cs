@@ -20,7 +20,7 @@ namespace Yu3zx.FactoryLine
             main.IsChecked = true;
             main.SubMenus = new List<MyMenu>();
 
-            MyMenu sub1 = BuildMenu("排产计划",false, "ProductPlanPage.xaml");
+            MyMenu sub1 = BuildMenu("排产计划",true, "ProductPlanPage.xaml");
             main.SubMenus.Add(sub1);
 
             MyMenu sub2 = BuildMenu("检验布料", false, "BeOnlinePage.xaml");

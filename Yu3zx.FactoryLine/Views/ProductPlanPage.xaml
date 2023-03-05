@@ -33,10 +33,10 @@
                     TextAlignment="Right" />
                 <TextBox
                     x:Name="txtBatchNo"
-                    Width="420"
+                    Width="420" ToolTip="按回车获取其它参数"
                     Margin="10,0,0,0"
                     FontSize="28px"
-                    Text="2206019" />
+                    Text="" />
                 <Button
                     x:Name="btnAdd"
                     Width="100"
@@ -60,7 +60,7 @@
                     Width="420"
                     Margin="10,0,0,0"
                     FontSize="28px"
-                    Text="50.5" />
+                    Text="300" />
             </StackPanel>
             <StackPanel
                 Height="36px"
@@ -129,12 +129,12 @@
                 <TextBlock
                     Width="130px"
                     Margin="0,0,0,0"
-                    FontSize="24"
+                    FontSize="24" Visibility="Hidden"
                     Text="布料卷径："
                     TextAlignment="Right" />
                 <TextBox
                     x:Name="txtRollDiam"
-                    Width="120"
+                    Width="120" Visibility="Hidden"
                     Margin="10,0,0,0"
                     FontSize="28px"
                     Text="90" />

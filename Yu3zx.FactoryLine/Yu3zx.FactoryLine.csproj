@@ -201,5 +201,11 @@
     <Resource Include="Images\DateTimePicker\ooopic_1501745970.ico" />
     <Resource Include="Images\DateTimePicker\timer.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\more1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
+using System.Xml;
 using Yu3zx.DapperExtend;
 using Yu3zx.Logs;
 
@@ -53,7 +55,7 @@ namespace Yu3zx.TaggingSevice
             //}
 
             //-=-=-=-=-=-=-=-获取配置文件-=-=-=-=-=-=-=-
-            //InitPlc();
+            InitPlc();
 
         }
 
@@ -152,22 +154,20 @@ namespace Yu3zx.TaggingSevice
                         thWorkFlow.Abort();
                         thWorkFlow = null;
                     }
-
                     if (thPlc != null)
                     {
                         thPlc.Abort();
                         thPlc = null;
                     }
-
                     if (tcpServer != null)
                     {
                         tcpServer.StopServer();
                         tcpServer = null;
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-
+                    Console.WriteLine(ex);
                 }
                 btnService.Text = "启动服务";
             }
@@ -249,8 +249,9 @@ namespace Yu3zx.TaggingSevice
                                     {
                                         FabricClothItem item = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[ProductStateManager.GetInstance().CurrentBox.LaunchIndex];
                                         this.Invoke((EventHandler)delegate {
-                                            PrintFabricLabel(item);
+                                            PrintFabricLabel(item);//打印当前
                                         });
+                                        NoticeRollDiam(item);//告知当前布卷卷径
                                         if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex == ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count - 1)
                                         {
                                             //移除
@@ -308,7 +309,7 @@ namespace Yu3zx.TaggingSevice
                         }
                         else
                         {
-                            //开始上线
+                            //开始上线  ----要注意超出
                             WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
                             WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
                             int iSumNeed = 0;//累计需要
@@ -337,6 +338,7 @@ namespace Yu3zx.TaggingSevice
                                     ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems.RemoveAt(0);
                                     iSumNeed--;
                                 }
+                                ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum - AppManager.CreateInstance().PackingNum;//减掉上线的数量
                                 ProductStateManager.GetInstance().CurrentDoing = true;
                                 ProductStateManager.GetInstance().CurrentBatchNo = strBatchNum;
                                 ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
@@ -378,6 +380,7 @@ namespace Yu3zx.TaggingSevice
                 catch(Exception ex)
                 {
                     Log.Instance.LogWrite(ex);
+                    Console.WriteLine(ex);
                 }
             }
         }
@@ -397,12 +400,12 @@ namespace Yu3zx.TaggingSevice
                         Thread.Sleep(500);
                     }
 
-                    bool needRead = PlcConn.ReadFlag(1, 1);//读取是否已经有标志
+                    bool needRead = PlcConn.ReadFlag(20, 0);//读取是否已经有标志
                     if(needRead)
                     {
-                        PlcConn.WriteFlag(1, 1, false);//设置读取完成标志
+                        PlcConn.WriteFlag(20, 0, false);//设置读取完成标志
 
-                        byte[] cmdInput = PlcConn.ReadDataBlock(1, 2, 6);//读取并解析,目前6位
+                        byte[] cmdInput = PlcConn.ReadDataBlock(20, 1, 6);//读取并解析,目前6位
 
                         if(cmdInput != null && cmdInput.Length > 1)
                         {
@@ -434,6 +437,7 @@ namespace Yu3zx.TaggingSevice
                                     break;
                             }
                         }
+                        Thread.Sleep(500);
                     }
                     else
                     {
@@ -524,8 +528,91 @@ namespace Yu3zx.TaggingSevice
         /// <param name="packNum">总包数装成垛</param>
         private void PrintFabricList(int packNum)
         {
-            //一垛总包数
+            try
+            {
+                //一垛总包数
+                List<BoxDetail> Boxes = new List<BoxDetail>();
+                for (int i = 0; i < 10; i++)
+                {
+                    decimal d1 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
+                    decimal d2 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
+                    decimal d3 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
+                    decimal d4 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
+                    decimal d5 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
+                    decimal d6 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
+                    Boxes.Add(new BoxDetail { BoxNum = (i + 1).ToString(), RollNum1 = d1, RollNum2 = d2, RollNum3 = d3, RollNum4 = d4, RollNum5 = d5, RollNum6 = d6 });
+                }
 
+                EastReport.Report report = new EastReport.Report();
+                DataSet pDatset = new DataSet();
+                string filePath = Application.StartupPath + "\\Report\\cartonreport.rpt";
+                try
+                {
+                    pDatset = ConvertToDataSet(Boxes);
+                    report.AddDataSet(pDatset);
+
+                    report.Variants.Add(new EastReport.Variant("BatchNo", EastReport.VariantType.String, "230A321"));
+                    report.Variants.Add(new EastReport.Variant("QualityString", EastReport.VariantType.String, "yke813017029"));
+                    report.Variants.Add(new EastReport.Variant("ColorNum", EastReport.VariantType.String, "199"));
+                    report.Variants.Add(new EastReport.Variant("Specs", EastReport.VariantType.String, "137"));
+                }
+                catch (Exception)
+                { }
+
+                System.Xml.XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(filePath);//载入报表
+                report.Load(xmlDoc);
+                report.Print(true);
+                //报表打印
+                report.Dispose();
+
+                Console.WriteLine("总包数打印！");
+            }
+            catch
+            { }
+        }
+
+        public DataSet ConvertToDataSet<T>(IList<T> list)
+        {
+            if (list == null || list.Count <= 0)
+            {
+                return null;
+            }
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable(typeof(T).Name);
+            DataColumn column;
+            DataRow row;
+            System.Reflection.PropertyInfo[] myPropertyInfo = typeof(T).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+            foreach (T t in list)
+            {
+                if (t == null)
+                {
+                    continue;
+                }
+                row = dt.NewRow();
+                for (int i = 0, j = myPropertyInfo.Length; i < j; i++)
+                {
+                    System.Reflection.PropertyInfo pi = myPropertyInfo[i];
+                    string name = pi.Name;
+
+
+
+                    if (dt.Columns[name] == null)
+                    {
+                        var type = pi.PropertyType;
+                        if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                        {
+                            type = type.GetGenericArguments()[0];
+                        }
+                        column = new DataColumn(name, type);
+                        dt.Columns.Add(column);
+                    }
+                    row[name] = pi.GetValue(t, null);
+                }
+                dt.Rows.Add(row);
+            }
+            ds.Tables.Add(dt);
+            return ds;
         }
 
         /// <summary>
@@ -617,12 +704,42 @@ namespace Yu3zx.TaggingSevice
         #endregion End
 
         #region PLC通信相关
+        private void NoticeRollDiam(FabricClothItem item)
+        {
+            //通知卷径
+            try
+            {
+                byte iLNum = byte.Parse(item.LineNum);
+                short shtRoll = (short)(item.ProduceNum * 10);//转换
+
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x04); //命令码
+                lCmd.Add(iLNum);//产线号
+                lCmd.AddRange(MathHelper.ShortToBytes(shtRoll));//卷么
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
         /// <summary>
         /// 通知PLC上线
         /// </summary>
         /// <param name="iLNum"></param>
         /// <param name="fabricWidth"></param>
-        /// <param name="iRollDiam"></param>
+        /// <param name="iRollDiam">长度</param>
         /// <param name="carton"></param>
         private void NoticePlc(byte iLNum, Int16 fabricWidth, Int16 iRollDiam, CartonBox carton)
         {
@@ -632,18 +749,21 @@ namespace Yu3zx.TaggingSevice
                 List<byte> lCmd = new List<byte>();
                 lCmd.Add(0x01); //命令码
                 lCmd.Add(iLNum);//产线号
-                lCmd.AddRange(MathHelper.Short2Bytes(fabricWidth));//宽度
-                lCmd.AddRange(MathHelper.Short2Bytes(iRollDiam));//直径
+                lCmd.AddRange(MathHelper.ShortToBytes(fabricWidth));//宽度
+                lCmd.AddRange(MathHelper.ShortToBytes(iRollDiam));//直径
                 List<int> lNaclassls = new List<int>();
                 for (int i = 0; i < carton.OnLaunchItems.Count; i++)
                 {
                     if (carton.OnLaunchItems[i].QualityName != "A")
                     {
-                        lNaclassls.Add(i + 1);//次品序号
+                        lNaclassls.Add(i);//次品序号
                     }
                 }
                 lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclassls));
-                PlcConn.WriteDataBlock(1, 1, lCmd.ToArray());//
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(carton.OnLaunchItems.Count)));// 增加一箱总个数
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
             catch(Exception ex)
             {
@@ -652,7 +772,8 @@ namespace Yu3zx.TaggingSevice
             //通知为新指令
             try
             {
-                PlcConn.WriteFlag(1, 0, true);
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
             }
             catch
             { }

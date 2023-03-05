@@ -112,15 +112,24 @@
                 </Border>
                 <Button
                     Width="36px"
-                    Height="36px"
-                    Margin="10" />
+                    Height="36px" Visibility="Collapsed"
+                    Margin="10" >
+                    <Button.Content>
+                        <Image />
+                    </Button.Content>
+                </Button>
+
 
             </StackPanel>
             <StackPanel MinHeight="56px" VerticalAlignment="Bottom">
                 <Button
                     Width="36px"
-                    Height="36px"
-                    Margin="10" />
+                    Height="36px" Background="Transparent"
+                    Margin="10" >
+                    <Button.Content>
+                        <Image Source="Images/more1.png"/>
+                    </Button.Content>
+                </Button>
             </StackPanel>
         </Grid>
 

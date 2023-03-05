@@ -1,1 +1,1 @@
-{"QrCamera":0,"QrCameraRate":0,"MonitorCamera":0,"MonitorCameraRate":0,"PortName":"COM1","BaudRate":9600,"DataBit":8,"Parity":"None","StopBit":1,"DTR":false,"RTS":false,"ImgsFolder":"D:\\Camera"}
+{"QrCamera":0,"QrCameraRate":0,"MonitorCamera":1,"MonitorCameraRate":0,"PortName":"COM1","BaudRate":9600,"DataBit":8,"Parity":"None","StopBit":1,"DTR":false,"RTS":false,"ImgsFolder":"D:\\Camera"}

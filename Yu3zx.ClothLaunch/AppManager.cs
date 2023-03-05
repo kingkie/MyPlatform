@@ -169,7 +169,7 @@ namespace Yu3zx.ClothLaunch
             {
                 iSnRtn = 1;
                 PoductSerial confignew = new PoductSerial();
-                confignew.KeyName = "BN" + batchno;
+                confignew.KeyName = batchno;
                 confignew.KeyValue = iSnRtn.ToString();
                 SetPoductSerialSave(confignew);
             }

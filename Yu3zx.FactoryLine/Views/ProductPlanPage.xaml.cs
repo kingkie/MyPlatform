@@ -34,6 +34,16 @@ namespace Yu3zx.FactoryLine.Views
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if(string.IsNullOrEmpty(txtBatchNo.Text) || string.IsNullOrEmpty(txtFabricWidth.Text) || string.IsNullOrEmpty(txtProduceNum.Text))
+            {
+                MessageBox.Show("请填写完整数据！");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtQualityString.Text) || string.IsNullOrEmpty(txtSpecs.Text) || string.IsNullOrEmpty(txtColor.Text))
+            {
+                MessageBox.Show("请填写完整数据！");
+                return;
+            }
             try
             {
                 var model = new ProductPlan()
@@ -45,7 +55,8 @@ namespace Yu3zx.FactoryLine.Views
                     ProduceNum = float.Parse(txtProduceNum.Text),
                     QualityString = txtQualityString.Text,
                     ProduceTime = DateTime.Parse(dptProduce.DateTimeStr),
-                    AddTime = DateTime.Now
+                    AddTime = DateTime.Now,
+                    FabricWidth = int.Parse(txtFabricWidth.Text)
                 };
 
                 using (var db = new DapperContext("MySqlDbConnection"))

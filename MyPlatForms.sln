@@ -41,8 +41,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.Communication", "Yu3z
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.Acquisition", "Yu3zx.Acquisition\Yu3zx.Acquisition.csproj", "{26AC65A5-EAB4-4BF7-B245-6230A2FDA471}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PackingPrint", "Yu3zx.PackingPrint\Yu3zx.PackingPrint.csproj", "{2E872AF9-2137-464F-90A1-09BB2E549A7B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PackingMonitor", "Yu3zx.PackingMonitor\Yu3zx.PackingMonitor.csproj", "{A055FC80-88EF-4369-BA17-59F02594274C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.FactoryLine", "Yu3zx.FactoryLine\Yu3zx.FactoryLine.csproj", "{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}"
@@ -58,6 +56,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.LuaScript", "Yu3zx.LuaScript\Yu3zx.LuaScript.csproj", "{A3352B9C-3C48-4D2C-907D-A2EA5C91AB67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PrintCenter", "Yu3zx.PrintCenter\Yu3zx.PrintCenter.csproj", "{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PrinterCenter", "Yu3zx.PrinterCenter\Yu3zx.PrinterCenter.csproj", "{204B4F77-4205-4793-90E5-B3C7ACA46EEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -261,18 +261,6 @@ Global
 		{26AC65A5-EAB4-4BF7-B245-6230A2FDA471}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{26AC65A5-EAB4-4BF7-B245-6230A2FDA471}.Release|x86.ActiveCfg = Release|Any CPU
 		{26AC65A5-EAB4-4BF7-B245-6230A2FDA471}.Release|x86.Build.0 = Release|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Debug|x86.Build.0 = Debug|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Release|x86.ActiveCfg = Release|Any CPU
-		{2E872AF9-2137-464F-90A1-09BB2E549A7B}.Release|x86.Build.0 = Release|Any CPU
 		{A055FC80-88EF-4369-BA17-59F02594274C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A055FC80-88EF-4369-BA17-59F02594274C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A055FC80-88EF-4369-BA17-59F02594274C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -357,6 +345,18 @@ Global
 		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|x86.ActiveCfg = Release|Any CPU
 		{0333A57B-AE96-4C9F-A91B-9DEBA431B3EE}.Release|x86.Build.0 = Release|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Debug|x86.Build.0 = Debug|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|x86.ActiveCfg = Release|Any CPU
+		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

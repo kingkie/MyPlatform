@@ -65,6 +65,7 @@ namespace Yu3zx.FactoryLine
 
                     if (main.SubMenus?.Count > 0)
                     {
+                        int iFirst = 0;
                         foreach(var subMenu in main.SubMenus)
                         {
                             RadioButton radioButton = new RadioButton();
@@ -73,6 +74,11 @@ namespace Yu3zx.FactoryLine
                             radioButton.Checked += RadioButton_Checked;
                             radioButton.Tag = subMenu;
                             stack.Children.Add(radioButton);
+                            if(iFirst == 0)
+                            {
+                                //radioButton.IsChecked  = true;
+                            }
+                            iFirst++;
                         }
                     }
                     expander.Content = stack;
@@ -89,6 +95,7 @@ namespace Yu3zx.FactoryLine
             {
                 Console.WriteLine("名称：" + menu.HeaderName);
                 Console.WriteLine("地址：" + menu.MenuUrl);
+                mainFrame.Navigate(new Uri("Views/" + menu.MenuUrl, UriKind.RelativeOrAbsolute));
             }
         }
 
