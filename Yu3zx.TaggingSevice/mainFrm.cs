@@ -149,6 +149,11 @@ namespace Yu3zx.TaggingSevice
             {
                 try
                 {
+                    if (tcpServer != null)
+                    {
+                        tcpServer.StopServer();
+                        tcpServer = null;
+                    }
                     if (thWorkFlow != null)
                     {
                         thWorkFlow.Abort();
@@ -158,11 +163,6 @@ namespace Yu3zx.TaggingSevice
                     {
                         thPlc.Abort();
                         thPlc = null;
-                    }
-                    if (tcpServer != null)
-                    {
-                        tcpServer.StopServer();
-                        tcpServer = null;
                     }
                 }
                 catch(Exception ex)

@@ -94,13 +94,12 @@ namespace Yu3zx.TaggingSevice
                     catch
                     { }
                 }
-
+                listener.Stop();
                 if (thMonitor != null)
                 {
                     thMonitor.Abort();
                     thMonitor = null;
                 }
-                listener.Stop();
             }
             catch (Exception exStop)
             {
