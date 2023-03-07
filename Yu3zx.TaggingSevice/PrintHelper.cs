@@ -219,6 +219,13 @@ namespace Yu3zx.TaggingSevice
         {
             //btApp.Quit(BarTender.BtSaveOptions.btSaveChanges);
             btApp.Quit(BarTender.BtSaveOptions.btDoNotSaveChanges);
+            try
+            {
+                btFormat?.Close();
+                btApp = null;
+            }
+            catch
+            { }
         }
     }
 }

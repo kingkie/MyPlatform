@@ -69,6 +69,12 @@ namespace Yu3zx.TaggingSevice
             set;
         }
 
+        public string PlcIp
+        {
+            get;
+            set;
+        }
+
         public List<PrintCfg> LPrinter = new List<PrintCfg>();
 
         /// <summary>
@@ -86,6 +92,7 @@ namespace Yu3zx.TaggingSevice
                     XmlNode vNode = xmlDoc.SelectSingleNode("Configuration/Server"); //
                     ServerIp = vNode.Attributes["ip"].Value.Trim();
                     Port = int.Parse(vNode.Attributes["port"].Value.Trim());
+                    PlcIp = vNode.Attributes["plcip"].Value.Trim();
                     string strAuto = vNode.Attributes["auto"].Value.Trim();
                     if(strAuto == "1")
                     {

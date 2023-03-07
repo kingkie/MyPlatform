@@ -6,38 +6,40 @@ using System.Threading.Tasks;
 
 namespace Yu3zx.TaggingSevice
 {
-    public class CartonBox
+    public class BoxInfo
     {
-        private int indexLauch = 0;
+        /// <summary>
+        /// 批号
+        /// </summary>
         public string BatchNo
         {
             get;
             set;
         }
 
-        public int LaunchIndex
-        {
-            get
-            {
-                return indexLauch;
-            }
-            set
-            {
-                indexLauch = value;
-            }
-        }
         /// <summary>
-        /// 箱号
+        /// 品名
         /// </summary>
-        public string BoxNum
+        public string QualityString
         {
             get;
             set;
         }
-
         /// <summary>
-        /// 上线一箱列表
+        /// 色号
         /// </summary>
-        public List<FabricClothItem> OnLaunchItems = new List<FabricClothItem>();
+        public string ColorNum
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 规格
+        /// </summary>
+        public string Specs
+        {
+            get;
+            set;
+        }
     }
 }

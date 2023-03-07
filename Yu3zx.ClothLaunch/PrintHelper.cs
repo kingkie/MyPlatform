@@ -132,7 +132,16 @@ namespace Yu3zx.ClothLaunch
         {
             try
             {
-                btApp.Quit(BarTender.BtSaveOptions.btDoNotSaveChanges);
+                btFormat?.Close();
+                btFormat = null;
+            }
+            catch
+            { }
+            try
+            {
+                btApp?.Quit(BarTender.BtSaveOptions.btDoNotSaveChanges);
+                btApp = null;
+                GC.Collect();
             }
             catch
             { }

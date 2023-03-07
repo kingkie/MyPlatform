@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using Yu3zx.DapperExtend;
@@ -42,36 +43,31 @@ namespace Yu3zx.TaggingSevice
             cboServerIP.Items.AddRange(loaclIps.ToArray());
             cboServerIP.SelectedItem = AppManager.CreateInstance().ServerIp;
 
-            // 192.168.0.201 502
-            //IPAddress iPAddress = IPAddress.Parse("192.168.0.201");
-
-            //TcpClient tcpClient = new TcpClient();
-            //tcpClient.Connect(iPAddress, 502);
-            //if(tcpClient.Connected)
-            //{
-            //    PlcConn.Client = tcpClient;
-            //    PlcConn.ClientKey = "192.168.0.201";
-            //    PlcConn.BeginReceive();
-            //}
-
             //-=-=-=-=-=-=-=-获取配置文件-=-=-=-=-=-=-=-
             InitPlc();
 
+            btnService_Click(sender, e);
         }
 
         private void InitPlc()
         {
             PlcConn.Rack = 0;
             PlcConn.Slot = 1;
-            PlcConn.ServerIp = "192.168.0.201";
+            PlcConn.ServerIp = AppManager.CreateInstance().PlcIp;
             PlcConn.Port = 502;
-            try
-            {
-                PlcConn.S7Connet();
-            }
-            catch
-            { }
-            swtPlc.Checked = PlcConn.S7Connected;
+            Task.Run(async() => {
+                try
+                {
+                    PlcConn.S7Connet();
+                }
+                catch
+                { }
+                await Task.Delay(2000);
+                this.Invoke((EventHandler)delegate {
+                    swtPlc.Checked = PlcConn.S7Connected;
+                });
+            });
+
         }
 
         private List<string> GetLoacalIp()
@@ -329,6 +325,7 @@ namespace Yu3zx.TaggingSevice
                             }
                             CartonBox newBox = new CartonBox();
                             newBox.BatchNo = strBatchNum;
+                            newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strBatchNum).ToString(); ;
                             lock (ProductStateManager.GetInstance().DictOnLine)
                             {
                                 while (iSumNeed > 0)
@@ -530,31 +527,81 @@ namespace Yu3zx.TaggingSevice
         {
             try
             {
-                //一垛总包数
-                List<BoxDetail> Boxes = new List<BoxDetail>();
-                for (int i = 0; i < 10; i++)
+                //没有就不打印
+                if(packNum < 0)
                 {
-                    decimal d1 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
-                    decimal d2 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
-                    decimal d3 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
-                    decimal d4 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
-                    decimal d5 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
-                    decimal d6 = (decimal)(49.5 + rd.Next(1, 20) / 10f);
-                    Boxes.Add(new BoxDetail { BoxNum = (i + 1).ToString(), RollNum1 = d1, RollNum2 = d2, RollNum3 = d3, RollNum4 = d4, RollNum5 = d5, RollNum6 = d6 });
+                    return;
+                }
+                if (ProductStateManager.GetInstance().CartonBoxItems.Count >= packNum)
+                {
+                }
+                else
+                {
+                    return;
+                }
+
+                int minPack = Math.Min(ProductStateManager.GetInstance().CartonBoxItems.Count, packNum);
+                //一垛总包数
+                List <BoxDetail> Boxes = new List<BoxDetail>();
+                //增加装箱信息
+                BoxInfo info = new BoxInfo();
+                List<BoxInfo> BoxInfos = new List<BoxInfo>();
+                for (int i = 0; i < minPack; i++)
+                {
+                    CartonBox item = ProductStateManager.GetInstance().CartonBoxItems[i];
+                    BoxDetail detail = new BoxDetail();
+                    for(int j=0; j < item.OnLaunchItems.Count;j++)
+                    {
+                        if(j == 0 && i == 0)
+                        {
+                            info.BatchNo = item.OnLaunchItems[j].BatchNo;
+                            info.ColorNum = item.OnLaunchItems[j].ColorNum;
+                            info.QualityString = item.OnLaunchItems[j].QualityString;
+                            info.Specs = item.OnLaunchItems[j].Specs;
+                            BoxInfos.Add(info);
+                        }
+                        switch(j)
+                        {
+                            case 0:
+                                detail.RollNum1 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum,2);
+                                break;
+                            case 1:
+                                detail.RollNum2 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                break;
+                            case 2:
+                                detail.RollNum3 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                break;
+                            case 3:
+                                detail.RollNum4 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                break;
+                            case 4:
+                                detail.RollNum5 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                break;
+                            case 5:
+                                detail.RollNum6 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                break;
+                        }
+                    }
+                    detail.BoxNum = item.BoxNum;
+                    Boxes.Add(detail);
                 }
 
                 EastReport.Report report = new EastReport.Report();
-                DataSet pDatset = new DataSet();
                 string filePath = Application.StartupPath + "\\Report\\cartonreport.rpt";
                 try
                 {
-                    pDatset = ConvertToDataSet(Boxes);
+                    DataSet dsInfo = ConvertToDataSet(BoxInfos);
+                    report.AddDataSet(dsInfo);
+
+                    DataSet pDatset = ConvertToDataSet(Boxes);
                     report.AddDataSet(pDatset);
 
-                    report.Variants.Add(new EastReport.Variant("BatchNo", EastReport.VariantType.String, "230A321"));
-                    report.Variants.Add(new EastReport.Variant("QualityString", EastReport.VariantType.String, "yke813017029"));
-                    report.Variants.Add(new EastReport.Variant("ColorNum", EastReport.VariantType.String, "199"));
-                    report.Variants.Add(new EastReport.Variant("Specs", EastReport.VariantType.String, "137"));
+                    report.Variants.Add(new EastReport.Variant("RollDiamSum", EastReport.VariantType.Decimal, ""));
+
+                    //report.Variants.Add(new EastReport.Variant("BatchNo", EastReport.VariantType.String, "230A321"));
+                    //report.Variants.Add(new EastReport.Variant("QualityString", EastReport.VariantType.String, "yke813017029"));
+                    //report.Variants.Add(new EastReport.Variant("ColorNum", EastReport.VariantType.String, "199"));
+                    //report.Variants.Add(new EastReport.Variant("Specs", EastReport.VariantType.String, "137"));
                 }
                 catch (Exception)
                 { }
@@ -568,8 +615,10 @@ namespace Yu3zx.TaggingSevice
 
                 Console.WriteLine("总包数打印！");
             }
-            catch
-            { }
+            catch(Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
         }
 
         public DataSet ConvertToDataSet<T>(IList<T> list)
@@ -632,7 +681,7 @@ namespace Yu3zx.TaggingSevice
                     cartonBox.ColorNum = fItem.ColorNum;
                     cartonBox.QualityString = fItem.QualityString;
                     cartonBox.Specs = fItem.Specs;
-                    cartonBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(fItem.BatchNo).ToString();
+                    cartonBox.BoxNum = ProductStateManager.GetInstance().CurrentBox.BoxNum;// 
                     lStrNum = fItem.LineNum;
                     int idx = 0;
                     foreach (var item in ProductStateManager.GetInstance().CurrentBox.OnLaunchItems)
@@ -831,6 +880,13 @@ namespace Yu3zx.TaggingSevice
             catch
             {
             }
+
+            try
+            {
+                PrintHelper.CreateInstance().UnInit();
+            }
+            catch
+            { }
         }
 
         private void btnStateSave_Click(object sender, EventArgs e)

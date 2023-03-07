@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppManager.cs" />
+    <Compile Include="BoxInfo.cs" />
     <Compile Include="CartonBox.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="Models\SetConfig.cs" />

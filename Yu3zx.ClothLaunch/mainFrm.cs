@@ -360,11 +360,16 @@ namespace Yu3zx.ClothLaunch
                 {
                     DeviceManager.CreateInstance().ClothClient.Close();
                 }
-                PrintHelper.CreateInstance().UnInit();
             }
             catch
             {
             }
+            try
+            {
+                PrintHelper.CreateInstance().UnInit();
+            }
+            catch
+            { }
         }
 
         public static Dictionary<string, string> GetEntityPropertyToDict<T>(T tEntity)
