@@ -86,7 +86,43 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <Style x:Key="M_RadiusButton" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="{StaticResource M_FontFamily}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            Background="{TemplateBinding Control.Background}"
+                            BorderBrush="{TemplateBinding Control.BorderBrush}"
+                            BorderThickness="{TemplateBinding Control.BorderThickness}"
+                            CornerRadius="14">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding ContentControl.Content}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="ButtonBase.IsPressed" Value="True">
+                                <Setter Property="UIElement.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect
+                                            BlurRadius="10"
+                                            Direction="0"
+                                            Opacity="0.6"
+                                            RenderingBias="Performance"
+                                            ShadowDepth="0"
+                                            Color="#FF0033" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#A9A9A9" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -112,8 +148,9 @@
                 </Border>
                 <Button
                     Width="36px"
-                    Height="36px" Visibility="Collapsed"
-                    Margin="10" >
+                    Height="36px"
+                    Margin="10"
+                    Visibility="Collapsed">
                     <Button.Content>
                         <Image />
                     </Button.Content>
@@ -124,10 +161,11 @@
             <StackPanel MinHeight="56px" VerticalAlignment="Bottom">
                 <Button
                     Width="36px"
-                    Height="36px" Background="Transparent"
-                    Margin="10" >
+                    Height="36px"
+                    Margin="10"
+                    Background="Transparent">
                     <Button.Content>
-                        <Image Source="Images/more1.png"/>
+                        <Image Source="Images/more1.png" />
                     </Button.Content>
                 </Button>
             </StackPanel>
@@ -248,6 +286,44 @@
                                 x:Name="menuContainer"
                                 Margin="0,0,0,0"
                                 HorizontalAlignment="Left">
+                                <StackPanel.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Cursor" Value="Hand" />
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Setter Property="BorderBrush" Value="#C6CCD0" />
+                                        <Setter Property="Background" Value="#C6CCD0" />
+                                        <Setter Property="Foreground" Value="#252E32" />
+                                        <Setter Property="Height" Value="36" />
+                                        <Setter Property="Margin" Value="5,8,5,5" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border
+                                                        Height="{TemplateBinding Height}"
+                                                        Padding="7,0,9,0"
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        CornerRadius="10">
+
+                                                        <TextBlock
+                                                            VerticalAlignment="Center"
+                                                            Foreground="{TemplateBinding Foreground}"
+                                                            Text="{TemplateBinding ContentControl.Content}" />
+
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="ButtonBase.IsEnabled" Value="False">
+                                                            <Setter Property="Background" Value="#A0C6CCD0" />
+                                                            <Setter Property="Foreground" Value="#A0252E32" />
+                                                            <Setter Property="BorderBrush" Value="#A0C6CCD0" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </StackPanel.Resources>
                                 <Expander
                                     Width="210px"
                                     Header="订单管理"
@@ -307,26 +383,8 @@
                                     Header="订单管理"
                                     IsExpanded="True">
                                     <StackPanel>
-                                        <RadioButton
-                                            Margin="5,8,5,5"
-                                            Content="排产计划1"
-                                            IsChecked="True"
-                                            Style="{StaticResource GroupSelected}" />
-                                        <RadioButton
-                                            Margin="5,8,5,5"
-                                            Content="排产计划2"
-                                            IsChecked="False"
-                                            Style="{StaticResource GroupSelected}" />
-                                        <RadioButton
-                                            Margin="5,8,5,5"
-                                            Content="排产计划3"
-                                            IsChecked="True"
-                                            Style="{StaticResource GroupSelected}" />
-                                        <RadioButton
-                                            Margin="5,8,5,5"
-                                            Content="排产计划4"
-                                            IsChecked="True"
-                                            Style="{StaticResource GroupSelected}" />
+                                        <Button Background="LightSeaGreen" />
+                                        <Button Height="56" />
                                     </StackPanel>
                                 </Expander>
                             </StackPanel>

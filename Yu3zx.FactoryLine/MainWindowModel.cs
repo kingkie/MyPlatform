@@ -15,8 +15,9 @@ namespace Yu3zx.FactoryLine
 
         public MainWindowModel()
         {
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-
             MyMenu main = new MyMenu();
-            main.HeaderName = "操作菜单";
+            main.HeaderName = "生产计划";
             main.IsChecked = true;
             main.SubMenus = new List<MyMenu>();
 
@@ -33,6 +34,25 @@ namespace Yu3zx.FactoryLine
             main.SubMenus.Add(sub4);
 
             MenuLists.Add(main);
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-
+            MyMenu main1 = new MyMenu();
+            main1.HeaderName = "数据查询";
+            main1.IsChecked = false;
+            main1.SubMenus = new List<MyMenu>();
+
+            MyMenu sub11 = BuildMenu("计划查询", true, "ProductPlanSearchPage.xaml");
+            main1.SubMenus.Add(sub11);
+
+            MyMenu sub21 = BuildMenu("布卷查询", false, "FabricClothPage.xaml");
+            main1.SubMenus.Add(sub21);
+
+            MyMenu sub31 = BuildMenu("装箱查询", false, "CartonInfoSearchPage.xaml");
+            main1.SubMenus.Add(sub31);
+
+            //MyMenu sub41 = BuildMenu("产品出库", false, "ProductDeliveryPage.xaml");
+            //main.SubMenus.Add(sub41);
+
+            MenuLists.Add(main1);
         }
         /// <summary>
         /// 生成菜单

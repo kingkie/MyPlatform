@@ -58,6 +58,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Product\Tagging\Debug\HandyControl.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf">
+      <HintPath>..\Yu3zx.UICore\bin\Debug\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -92,6 +95,12 @@
     <Compile Include="Views\BeOnlinePage.xaml.cs">
       <DependentUpon>BeOnlinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CartonInfoSearchPage.xaml.cs">
+      <DependentUpon>CartonInfoSearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FabricClothPage.xaml.cs">
+      <DependentUpon>FabricClothPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductDeliveryPage.xaml.cs">
       <DependentUpon>ProductDeliveryPage.xaml</DependentUpon>
     </Compile>
@@ -100,6 +109,9 @@
     </Compile>
     <Compile Include="Views\ProductPlanPage.xaml.cs">
       <DependentUpon>ProductPlanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductPlanSearchPage.xaml.cs">
+      <DependentUpon>ProductPlanSearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelComePage.xaml.cs">
       <DependentUpon>WelComePage.xaml</DependentUpon>
@@ -127,6 +139,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CartonInfoSearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FabricClothPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProductDeliveryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProductPlanPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductPlanSearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +202,7 @@
     <Resource Include="NOTEPA~2.ICO" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controls\" />
     <Folder Include="Utils\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
@@ -188,6 +213,10 @@
     <ProjectReference Include="..\Yu3zx.DapperExtend\Yu3zx.DapperExtend.csproj">
       <Project>{8ab4c274-da11-4cd5-a6d1-8a24742b49cc}</Project>
       <Name>Yu3zx.DapperExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.UICore\Yu3zx.UICore.csproj">
+      <Project>{860a973e-ef25-43fc-9038-a77d733d84c1}</Project>
+      <Name>Yu3zx.UICore</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

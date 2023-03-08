@@ -45,8 +45,10 @@ namespace Yu3zx.TaggingSevice
 
             //-=-=-=-=-=-=-=-获取配置文件-=-=-=-=-=-=-=-
             InitPlc();
-
-            btnService_Click(sender, e);
+            if(AppManager.CreateInstance().AutoServer)
+            {
+                btnService_Click(sender, e);
+            }
         }
 
         private void InitPlc()
@@ -231,7 +233,7 @@ namespace Yu3zx.TaggingSevice
                         //for(int i = 0;i < PlcReceive.Count;i++)
                         //{
                         //}
-                        if (PlcReceive.TryDequeue(out plcCmd))
+                        if(PlcReceive.TryDequeue(out plcCmd))
                         {
                             switch (plcCmd.CmdCode)
                             {
@@ -674,6 +676,8 @@ namespace Yu3zx.TaggingSevice
                 //打印整箱标签
                 CartonBoxLabel cartonBox = new CartonBoxLabel();
                 string lStrNum = "";
+                string strRndString = "";
+                string strRollNums = "";
                 if (ProductStateManager.GetInstance().CurrentBox != null)
                 {
                     var fItem = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0];
@@ -688,6 +692,8 @@ namespace Yu3zx.TaggingSevice
                     {
                         if (item.QualityName == "A")
                         {
+                            strRndString += item.RndString + ",";
+                            strRollNums += item.ReelNum.ToString() + ",";
                             switch (idx)
                             {
                                 case 0:
@@ -725,6 +731,18 @@ namespace Yu3zx.TaggingSevice
                         PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.CartonPrinter, dictData,PrintHelper.CartonTempleteFieldsList, pbCfg.PrintCopies);
                     }
                 }
+
+                //保存
+                CartonBoxInfo boxInfo = new CartonBoxInfo();
+                boxInfo.BatchNo = cartonBox.BatchNo;
+                boxInfo.BoxNum = cartonBox.BoxNum;
+                boxInfo.ColorNum = cartonBox.ColorNum;
+                boxInfo.QualityString = cartonBox.QualityString;
+                boxInfo.Specs = cartonBox.Specs;
+                boxInfo.SumNum = cartonBox.RollSum.ToString();
+                boxInfo.RndStrings = strRndString.Trim(',');
+                boxInfo.ReelNums = strRollNums.Trim(',');
+                SaveFabricCloth(boxInfo);
             }
             catch (Exception ex)
             {
@@ -732,7 +750,7 @@ namespace Yu3zx.TaggingSevice
             }
         }
 
-        private void SaveFabricCloth(FabricClothItem item)
+        private void SaveFabricCloth(CartonBoxInfo item)
         {
             //保存
             using (var db = new DapperContext("MySqlDbConnection"))

@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PrintCenter", "Yu3zx.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.PrinterCenter", "Yu3zx.PrinterCenter\Yu3zx.PrinterCenter.csproj", "{204B4F77-4205-4793-90E5-B3C7ACA46EEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.UICore", "Yu3zx.UICore\Yu3zx.UICore.csproj", "{860A973E-EF25-43FC-9038-A77D733D84C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -357,6 +359,18 @@ Global
 		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|x86.ActiveCfg = Release|Any CPU
 		{204B4F77-4205-4793-90E5-B3C7ACA46EEA}.Release|x86.Build.0 = Release|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Debug|x86.Build.0 = Debug|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Release|x86.ActiveCfg = Release|Any CPU
+		{860A973E-EF25-43FC-9038-A77D733D84C1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
