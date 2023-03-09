@@ -11,11 +11,13 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="16"
-            Foreground="Black"
-            Text="装箱查询" />
+        <DockPanel LastChildFill="True">
+            <Grid Height="96" DockPanel.Dock="Top">
+                <Button Style="{StaticResource M_Command}" />
+            </Grid>
+            <GroupBox Header="查询结果">
+                <DataGrid />
+            </GroupBox>
+        </DockPanel>
     </Grid>
 </Page>

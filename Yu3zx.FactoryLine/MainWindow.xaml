@@ -8,7 +8,7 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:weui="https://github.com/IUpdatable/WeUiSharp"
     Title="布料标签系统V1.0"
-    Width="1024"
+    Width="1240"
     Height="768"
     MinWidth="722"
     MinHeight="522"
@@ -292,21 +292,23 @@
                                         <Setter Property="BorderThickness" Value="1" />
                                         <Setter Property="BorderBrush" Value="#C6CCD0" />
                                         <Setter Property="Background" Value="#C6CCD0" />
-                                        <Setter Property="Foreground" Value="#252E32" />
+                                        <Setter Property="Foreground" Value="#000000" />
                                         <Setter Property="Height" Value="36" />
+                                        <Setter Property="FontSize" Value="20" />
                                         <Setter Property="Margin" Value="5,8,5,5" />
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="Button">
                                                     <Border
                                                         Height="{TemplateBinding Height}"
-                                                        Padding="7,0,9,0"
+                                                        Padding="8,0,9,0"
                                                         Background="{TemplateBinding Background}"
                                                         BorderBrush="{TemplateBinding BorderBrush}"
                                                         BorderThickness="{TemplateBinding BorderThickness}"
                                                         CornerRadius="10">
 
                                                         <TextBlock
+                                                            HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
                                                             Foreground="{TemplateBinding Foreground}"
                                                             Text="{TemplateBinding ContentControl.Content}" />

@@ -79,9 +79,16 @@ namespace Yu3zx.FactoryLine
                         Width = 210,
                         IsExpanded = main.IsChecked
                     };
+                    Border border = new Border();
+                    border.BorderBrush = new SolidColorBrush(Color.FromRgb(0x95, 0xAB, 0xCF));
+                    border.CornerRadius = new CornerRadius(3);
+                    border.BorderThickness = new Thickness(1, 1, 1, 1);
+
 
                     StackPanel stack = new StackPanel();
                     stack.Orientation = Orientation.Vertical;
+                    border.Child = stack;
+
 
                     if (main.SubMenus?.Count > 0)
                     {
@@ -108,7 +115,7 @@ namespace Yu3zx.FactoryLine
                             stack.Children.Add(button);
                         }
                     }
-                    expander.Content = stack;
+                    expander.Content = border;
 
                     menuContainer.Children.Add(expander);
                 }

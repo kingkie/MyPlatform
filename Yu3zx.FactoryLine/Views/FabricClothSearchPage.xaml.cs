@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Yu3zx.DapperExtend;
-using Yu3zx.FactoryLine.Models;
+using Yu3zx.FactoryLine.DataModels;
 
 namespace Yu3zx.FactoryLine.Views
 {
     /// <summary>
-    /// ProductPlanSearchPage.xaml 的交互逻辑
+    /// FabricClothPage.xaml 的交互逻辑
     /// </summary>
-    public partial class ProductPlanSearchPage : Page
+    public partial class FabricClothSearchPage : Page
     {
-        public ProductPlanSearchPage()
+        public FabricClothSearchPage()
         {
             InitializeComponent();
             dgView.LoadingRow += DgView_LoadingRow;
@@ -37,34 +37,33 @@ namespace Yu3zx.FactoryLine.Views
         {
             try
             {
-                int lNum = (cboProduceLine.SelectedIndex + 1);
                 using (var db = new DapperContext("MySqlDbConnection"))
                 {
-                    if (chkTime.IsChecked == true)
+                    if(chkTime.IsChecked == true)
                     {
                         string strBatch = txtBatchNo.Text.Trim();
-                        if (string.IsNullOrEmpty(strBatch))
+                        if(string.IsNullOrEmpty(strBatch))
                         {
-                            var resultt = db.Select<ProductPlan>(u => u.ProduceTime >= DateTime.Parse(dptBegin.DateTimeStr) && u.ProduceTime <= DateTime.Parse(dptEnd.DateTimeStr) && (lNum > 0? u.LineNum == lNum.ToString(): true));
+                            var resultt = db.Select<FabricClothItem>(u => u.AddTime >= DateTime.Parse( dptBegin.DateTimeStr) && u.AddTime <= DateTime.Parse(dptEnd.DateTimeStr));
                             dgView.ItemsSource = resultt;
                         }
                         else
                         {
-                            var resultt1 = db.Select<ProductPlan>(u => u.ProduceTime >= DateTime.Parse(dptBegin.DateTimeStr) && u.ProduceTime <= DateTime.Parse(dptEnd.DateTimeStr) && u.BatchNo == strBatch && (lNum > 0 ? u.LineNum == lNum.ToString() : true));
+                            var resultt1 = db.Select<FabricClothItem>(u => u.AddTime >= DateTime.Parse(dptBegin.DateTimeStr) && u.AddTime <= DateTime.Parse(dptEnd.DateTimeStr) && u.BatchNo  == strBatch);
                             dgView.ItemsSource = resultt1;
                         }
                     }
                     else
                     {
                         string strBatchNo = txtBatchNo.Text.Trim();
-                        if (string.IsNullOrEmpty(strBatchNo))
+                        if(string.IsNullOrEmpty(strBatchNo))
                         {
-                            var result = db.Select<ProductPlan>(u=>u.LineNum == (cboProduceLine.SelectedIndex + 1).ToString());
+                            var result = db.Select<FabricClothItem>();
                             dgView.ItemsSource = result;
                         }
                         else
                         {
-                            var result = db.Select<ProductPlan>(u => u.BatchNo == strBatchNo && u.LineNum == lNum.ToString());//(lNum > 0 ? u.LineNum == lNum.ToString() : true)
+                            var result = db.Select<FabricClothItem>(u => u.BatchNo == strBatchNo);
                             dgView.ItemsSource = result;
                         }
                     }

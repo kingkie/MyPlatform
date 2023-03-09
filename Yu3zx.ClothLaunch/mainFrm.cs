@@ -285,7 +285,7 @@ namespace Yu3zx.ClothLaunch
             catch(Exception ex)
             {
                 MessageBox.Show("连接服务端失败，请联系管理员！");
-                Application.Exit();
+                //Application.Exit();
                 return;
             }
 

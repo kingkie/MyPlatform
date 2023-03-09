@@ -51,7 +51,7 @@ namespace Yu3zx.FactoryLine.Views
                     BatchNo = txtBatchNo.Text,
                     ColorNum = txtColor.Text,
                     Specs = txtSpecs.Text,
-                    LineNum = cboProduceLine.SelectedIndex + 1,
+                    LineNum = (cboProduceLine.SelectedIndex + 1).ToString(),
                     ProduceNum = float.Parse(txtProduceNum.Text),
                     QualityString = txtQualityString.Text,
                     ProduceTime = DateTime.Parse(dptProduce.DateTimeStr),

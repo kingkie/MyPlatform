@@ -4,25 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Yu3zx.DapperExtend;
-using Yu3zx.FactoryLine.DataModels;
 
-namespace Yu3zx.FactoryLine.Models
+namespace Yu3zx.FactoryLine.DataModels
 {
     /// <summary>
-    /// 
+    /// 布料，线上产品
     /// </summary>
-    [Table("productplan")]
-    public class ProductPlan : BaseEntity
+    [Table("fabric_cloths")]
+    public class FabricClothItem : BaseEntity
     {
         [Key]
         [Column("id")]
         public override long Id { get; set; }
 
         /// <summary>
+        /// 生产线号
+        /// </summary>
+        [Column("LineNum")]
+        public string LineNum
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 批号
         /// </summary>
         [Column("BatchNo")]
         public string BatchNo
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 品名,质量标志
+        /// </summary>
+        [Column("QualityName")]
+        public string QualityName
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 品名
+        /// </summary>
+        [Column("QualityString")]
+        public string QualityString
         {
             get;
             set;
@@ -46,28 +72,10 @@ namespace Yu3zx.FactoryLine.Models
             set;
         }
         /// <summary>
-        /// t生产总量
+        /// 长度
         /// </summary>
         [Column("ProduceNum")]
         public float ProduceNum
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 品名
-        /// </summary>
-        [Column("QualityString")]
-        public string QualityString
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 生产线号
-        /// </summary>
-        [Column("LineNum")]
-        public string LineNum
         {
             get;
             set;
@@ -91,30 +99,24 @@ namespace Yu3zx.FactoryLine.Models
             get;
             set;
         }
-
         /// <summary>
-        /// 是否完成
+        /// 卷号--自动编号
         /// </summary>
-        [Column("IsFinish")]
-        public int IsFinish
+        [Column("ReelNum")]
+        public int ReelNum
         {
             get;
             set;
-        } = 0;
-
-        private DateTime? pTime;
+        }
 
         /// <summary>
-        /// 生产时间
+        /// 随机数
         /// </summary>
-        [Column("ProduceTime")]
-        public DateTime? ProduceTime
+        [Column("RndString")]
+        public string RndString
         {
-            get
-            {
-                return pTime.HasValue ? pTime.Value : DateTime.Now;
-            }
-            set { pTime = value; }
+            get;
+            set;
         }
     }
 }

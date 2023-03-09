@@ -87,6 +87,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\IndentConverter.cs" />
     <Compile Include="DataModels\BaseEntity.cs" />
+    <Compile Include="DataModels\FabricClothItem.cs" />
     <Compile Include="MainWindowModel.cs" />
     <Compile Include="Models\FabricLabel.cs" />
     <Compile Include="Models\ProductPlan.cs" />
@@ -98,8 +99,8 @@
     <Compile Include="Views\CartonInfoSearchPage.xaml.cs">
       <DependentUpon>CartonInfoSearchPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FabricClothPage.xaml.cs">
-      <DependentUpon>FabricClothPage.xaml</DependentUpon>
+    <Compile Include="Views\FabricClothSearchPage.xaml.cs">
+      <DependentUpon>FabricClothSearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductDeliveryPage.xaml.cs">
       <DependentUpon>ProductDeliveryPage.xaml</DependentUpon>
@@ -143,7 +144,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FabricClothPage.xaml">
+    <Page Include="Views\FabricClothSearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

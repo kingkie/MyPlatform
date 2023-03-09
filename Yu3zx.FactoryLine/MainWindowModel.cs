@@ -24,14 +24,14 @@ namespace Yu3zx.FactoryLine
             MyMenu sub1 = BuildMenu("排产计划",true, "ProductPlanPage.xaml");
             main.SubMenus.Add(sub1);
 
-            MyMenu sub2 = BuildMenu("检验布料", false, "BeOnlinePage.xaml");
-            main.SubMenus.Add(sub2);
+            //MyMenu sub2 = BuildMenu("检验布料", false, "BeOnlinePage.xaml");
+            //main.SubMenus.Add(sub2);
 
-            MyMenu sub3 = BuildMenu("产品入库", false, "ProductIncomingPage.xaml");
-            main.SubMenus.Add(sub3);
+            //MyMenu sub3 = BuildMenu("产品入库", false, "ProductIncomingPage.xaml");
+            //main.SubMenus.Add(sub3);
 
-            MyMenu sub4 = BuildMenu("产品出库", false, "ProductDeliveryPage.xaml");
-            main.SubMenus.Add(sub4);
+            //MyMenu sub4 = BuildMenu("产品出库", false, "ProductDeliveryPage.xaml");
+            //main.SubMenus.Add(sub4);
 
             MenuLists.Add(main);
             //-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -43,11 +43,11 @@ namespace Yu3zx.FactoryLine
             MyMenu sub11 = BuildMenu("计划查询", true, "ProductPlanSearchPage.xaml");
             main1.SubMenus.Add(sub11);
 
-            MyMenu sub21 = BuildMenu("布卷查询", false, "FabricClothPage.xaml");
+            MyMenu sub21 = BuildMenu("布卷查询", false, "FabricClothSearchPage.xaml");
             main1.SubMenus.Add(sub21);
 
-            MyMenu sub31 = BuildMenu("装箱查询", false, "CartonInfoSearchPage.xaml");
-            main1.SubMenus.Add(sub31);
+            //MyMenu sub31 = BuildMenu("装箱查询", false, "CartonInfoSearchPage.xaml");
+            //main1.SubMenus.Add(sub31);
 
             //MyMenu sub41 = BuildMenu("产品出库", false, "ProductDeliveryPage.xaml");
             //main.SubMenus.Add(sub41);
