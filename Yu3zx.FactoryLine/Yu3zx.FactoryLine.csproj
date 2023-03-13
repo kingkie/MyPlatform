@@ -89,6 +89,7 @@
     <Compile Include="DataModels\BaseEntity.cs" />
     <Compile Include="DataModels\FabricClothItem.cs" />
     <Compile Include="MainWindowModel.cs" />
+    <Compile Include="DataModels\CartonBoxInfo.cs" />
     <Compile Include="Models\FabricLabel.cs" />
     <Compile Include="Models\ProductPlan.cs" />
     <Compile Include="Models\TubeLabel.cs" />

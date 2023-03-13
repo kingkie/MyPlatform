@@ -81,7 +81,7 @@
                 <Button
                     x:Name="btnSearch"
                     Width="96"
-                    Height="36"
+                    Height="32"
                     Margin="0,0,20,10"
                     HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Click="btnSearch_Click"
@@ -91,9 +91,14 @@
             <GroupBox Header="查询结果">
                 <DataGrid
                     x:Name="dgView"
-                    AutoGenerateColumns="False" IsReadOnly="True"
+                    AutoGenerateColumns="False" IsReadOnly="False"
                     CanUserAddRows="False" HeadersVisibility="Column"
                     ItemsSource="{Binding}">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="更新" Click="mnuUpdate_Click" />
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="60"

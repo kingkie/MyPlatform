@@ -84,7 +84,6 @@ namespace Yu3zx.FactoryLine
                     border.CornerRadius = new CornerRadius(3);
                     border.BorderThickness = new Thickness(1, 1, 1, 1);
 
-
                     StackPanel stack = new StackPanel();
                     stack.Orientation = Orientation.Vertical;
                     border.Child = stack;

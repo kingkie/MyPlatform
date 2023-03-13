@@ -89,5 +89,34 @@ namespace Yu3zx.FactoryLine.Views
 
             }
         }
+
+        private void mnuUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var item = dgView.SelectedItem as ProductPlan;
+            if (item != null)
+            {
+                Console.WriteLine("Data:" + item.BatchNo);
+                using (var db = new DapperContext("MySqlDbConnection"))
+                {
+                    try
+                    {
+                        var rtnB = db.Update("update productplan set BatchNo=@BatchNo,ColorNum=@ColorNum,Specs=@Specs,LineNum=@LineNum,QualityString=@QualityString,ProduceNum=@ProduceNum where Id=@Id", item);// new { BatchNo = item., Id = item.Id }
+                        if (rtnB)
+                        {
+                            Console.WriteLine("更新成功！");
+                            dgView.UpdateLayout();
+                        }
+                        else
+                        {
+                            Console.WriteLine("更新失败！");
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+            }
+        }
     }
 }

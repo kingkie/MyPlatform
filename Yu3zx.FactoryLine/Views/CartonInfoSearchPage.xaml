@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Yu3zx.FactoryLine.Views"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:view="clr-namespace:WPF_DateTimePicker.UserControls.DateTimePicker.View;assembly=WPF_DateTimePicker.UserControls"
     Title="CartonInfoSearchPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -13,10 +13,112 @@
     <Grid>
         <DockPanel LastChildFill="True">
             <Grid Height="96" DockPanel.Dock="Top">
-                <Button Style="{StaticResource M_Command}" />
+                <StackPanel
+                    Margin="20,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="chkTime"
+                        VerticalAlignment="Center"
+                        Content="根据时间"
+                        FontSize="16"
+                        Foreground="Red" />
+                    <TextBlock
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="生产时间："
+                        TextAlignment="Right" />
+                    <view:DateTimePicker
+                        x:Name="dptBegin"
+                        Width="180px"
+                        Height="35px"
+                        Margin="0,0,0,0"
+                        BorderBrush="Gray"
+                        FontSize="14px" />
+                    <TextBlock
+                        Margin="0,0,0,0"
+                        FontSize="24"
+                        Text="--"
+                        TextAlignment="Center" />
+                    <view:DateTimePicker
+                        x:Name="dptEnd"
+                        Width="180px"
+                        Height="35px"
+                        Margin="0,0,0,0"
+                        BorderBrush="Gray"
+                        FontSize="14px" />
+
+                    <TextBlock
+                        Margin="0,0,0,0"
+                        FontSize="16" VerticalAlignment="Center"
+                        Text="批次："
+                        TextAlignment="Left" />
+                    <TextBox x:Name="txtBatchNo" Width="120" FontSize="20" VerticalAlignment="Center"/>
+                </StackPanel>
+
+
+                <Button
+                    x:Name="btnSearch"
+                    Width="96"
+                    Height="36"
+                    Margin="0,0,20,10"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Click="btnSearch_Click"
+                    Content="查 询"
+                    Style="{StaticResource M_RadiusButton}" />
             </Grid>
             <GroupBox Header="查询结果">
-                <DataGrid />
+                <DataGrid
+                    x:Name="dgView"
+                    AutoGenerateColumns="False" IsReadOnly="True"
+                    CanUserAddRows="False" HeadersVisibility="Column"
+                    ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="60"
+                            Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}"
+                            Header="序号" />
+                        <DataGridTextColumn
+                            Width="120"
+                            Binding="{Binding BatchNo}"
+                            Header="批次" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding QualityString}"
+                            Header="品名" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Specs}"
+                            Header="规格" />
+                        <DataGridTextColumn
+                            Width="70"
+                            Binding="{Binding ColorNum}"
+                            Header="色号" />
+                        <DataGridTextColumn
+                            Width="60"
+                            Binding="{Binding BoxNum}"
+                            Header="箱号" />
+                        <DataGridTextColumn
+                            Width="60"
+                            Binding="{Binding SumNum}"
+                            Header="总长度" />
+                        <DataGridTextColumn
+                            Width="120"
+                            Binding="{Binding ReelNums}"
+                            Header="箱内卷号" />
+
+                        <DataGridTextColumn
+                            Width="180"
+                            Binding="{Binding RndStrings}"
+                            Header="随机码" />
+                        <DataGridTextColumn
+                            Width="180"
+                            Binding="{Binding AddTime}"
+                            Header="生产时间" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </GroupBox>
         </DockPanel>
     </Grid>

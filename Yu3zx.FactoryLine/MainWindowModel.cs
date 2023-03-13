@@ -40,14 +40,14 @@ namespace Yu3zx.FactoryLine
             main1.IsChecked = false;
             main1.SubMenus = new List<MyMenu>();
 
-            MyMenu sub11 = BuildMenu("计划查询", true, "ProductPlanSearchPage.xaml");
+            MyMenu sub11 = BuildMenu("计划查询", false, "ProductPlanSearchPage.xaml");
             main1.SubMenus.Add(sub11);
 
             MyMenu sub21 = BuildMenu("布卷查询", false, "FabricClothSearchPage.xaml");
             main1.SubMenus.Add(sub21);
 
-            //MyMenu sub31 = BuildMenu("装箱查询", false, "CartonInfoSearchPage.xaml");
-            //main1.SubMenus.Add(sub31);
+            MyMenu sub31 = BuildMenu("装箱查询", false, "CartonInfoSearchPage.xaml");
+            main1.SubMenus.Add(sub31);
 
             //MyMenu sub41 = BuildMenu("产品出库", false, "ProductDeliveryPage.xaml");
             //main.SubMenus.Add(sub41);
