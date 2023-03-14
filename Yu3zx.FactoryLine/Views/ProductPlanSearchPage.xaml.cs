@@ -109,7 +109,6 @@ namespace Yu3zx.FactoryLine.Views
                         else
                         {
                             Console.WriteLine("更新失败！");
-
                         }
                     }
                     catch (Exception ex)
