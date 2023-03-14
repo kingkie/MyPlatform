@@ -62,8 +62,10 @@ namespace Yu3zx.TaggingSevice
                 {
                     PlcConn.S7Connet();
                 }
-                catch
-                { }
+                catch(Exception ex)
+                {
+                    Log.Instance.LogWrite(ex);
+                }
                 await Task.Delay(2000);
                 this.Invoke((EventHandler)delegate {
                     swtPlc.Checked = PlcConn.S7Connected;
@@ -395,8 +397,9 @@ namespace Yu3zx.TaggingSevice
                 {
                     if(!PlcConn.S7Connected)
                     {
-                        PlcConn.S7Connet();
                         Thread.Sleep(500);
+                        PlcConn.S7Connet();
+                        Thread.Sleep(1500);
                     }
 
                     bool needRead = PlcConn.ReadFlag(20, 0);//读取是否已经有标志
@@ -443,8 +446,10 @@ namespace Yu3zx.TaggingSevice
                         Thread.Sleep(100);
                     }
                 }
-                catch
-                { }
+                catch(Exception ex)
+                {
+                    Log.Instance.LogWrite(ex);
+                }
             }
         }
 
@@ -913,7 +918,31 @@ namespace Yu3zx.TaggingSevice
             {
                 //最重要的是保存状态
                 ProductStateManager.GetInstance().Save();
-                MessageBox.Show("保存状态！");
+                MessageBox.Show("保存状态成功！");
+            }
+            catch
+            {
+            }
+        }
+
+        private void btnReConn_Click(object sender, EventArgs e)
+        {
+            InitPlc();
+        }
+
+        private void btnStateClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //最重要的是保存状态
+                ProductStateManager.GetInstance().CartonBoxItems.Clear();
+                ProductStateManager.GetInstance().CartonBoxList.Clear();
+                ProductStateManager.GetInstance().DictOnLine.Clear();
+
+                ProductStateManager.GetInstance().CurrentDoing = false;
+
+                ProductStateManager.GetInstance().Save();
+                MessageBox.Show("清除状态成功！");
             }
             catch
             {
