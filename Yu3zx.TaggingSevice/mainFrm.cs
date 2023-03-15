@@ -239,6 +239,10 @@ namespace Yu3zx.TaggingSevice
                         {
                             switch (plcCmd.CmdCode)
                             {
+                                case 0x01:
+                                    //上线完成通知
+
+                                    break;
                                 case 0x02://套袋请求打印标签
                                           //获取当前需要打印的
                                     if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex >= ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count)
@@ -251,7 +255,16 @@ namespace Yu3zx.TaggingSevice
                                         this.Invoke((EventHandler)delegate {
                                             PrintFabricLabel(item);//打印当前
                                         });
-                                        NoticeRollDiam(item);//告知当前布卷卷径
+                                        
+                                        try
+                                        {
+                                            //NoticeRollDiam(item);//告知当前布卷卷径
+                                            byte lNum = byte.Parse(item.LineNum);
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10));
+                                        }
+                                        catch
+                                        { }
+
                                         if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex == ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count - 1)
                                         {
                                             //移除
@@ -294,6 +307,12 @@ namespace Yu3zx.TaggingSevice
                                             }
                                         }
                                     }
+                                    break;
+                                case 0x04:
+                                    //------打印整箱的-------
+                                    this.Invoke((EventHandler)delegate {
+                                        PrintCartonBoxLabel();//
+                                    });
                                     break;
                             }
                         }
@@ -414,6 +433,13 @@ namespace Yu3zx.TaggingSevice
                             int lineNum = cmdInput[1];//反馈的线序
                             switch(cmdInput[0])
                             {
+                                case 0x01:
+                                    //下线完成通知
+                                    PlcCmd cmd0 = new PlcCmd();
+                                    cmd0.CmdCode = 0x01;
+                                    cmd0.MachineId = cmdInput[1];
+                                    PlcReceive.Enqueue(cmd0);
+                                    break;
                                 case 0x02:
                                     //请求打印标签,根据当前线号打印
                                     PlcCmd cmd = new PlcCmd();
@@ -434,6 +460,15 @@ namespace Yu3zx.TaggingSevice
                                         PlcReceive.Enqueue(cmd1);//
                                     }
                                     break;
+                                case 0x04:
+                                    //下线完成通知
+                                    PlcCmd cmd4 = new PlcCmd();
+                                    cmd4.CmdCode = 0x04;
+                                    cmd4.MachineId = cmdInput[1];
+                                    cmd4.DataSegment.Add(cmdInput[3]);//一垛完成总箱数
+
+                                    PlcReceive.Enqueue(cmd4);
+                                    break;
                                 default:
 
                                     break;
@@ -453,7 +488,7 @@ namespace Yu3zx.TaggingSevice
             }
         }
 
-        #region 打印小票
+        #region 打印标签
         /// <summary>
         /// 面料标签
         /// </summary>
@@ -546,7 +581,7 @@ namespace Yu3zx.TaggingSevice
                 {
                     return;
                 }
-
+                byte lineNum = 0;
                 int minPack = Math.Min(ProductStateManager.GetInstance().CartonBoxItems.Count, packNum);
                 //一垛总包数
                 List <BoxDetail> Boxes = new List<BoxDetail>();
@@ -566,6 +601,12 @@ namespace Yu3zx.TaggingSevice
                             info.QualityString = item.OnLaunchItems[j].QualityString;
                             info.Specs = item.OnLaunchItems[j].Specs;
                             BoxInfos.Add(info);
+                            try
+                            {
+                                lineNum = byte.Parse(item.OnLaunchItems[j].LineNum);
+                            }
+                            catch
+                            { }
                         }
                         switch(j)
                         {
@@ -621,6 +662,8 @@ namespace Yu3zx.TaggingSevice
                 report.Dispose();
 
                 Console.WriteLine("总包数打印！");
+                //通知已经打印
+                NoticePrintedReport(lineNum, packNum);
             }
             catch(Exception ex)
             {
@@ -681,6 +724,7 @@ namespace Yu3zx.TaggingSevice
                 //打印整箱标签
                 CartonBoxLabel cartonBox = new CartonBoxLabel();
                 string lStrNum = "";
+                int iNum = 0;
                 string strRndString = "";
                 string strRollNums = "";
                 if (ProductStateManager.GetInstance().CurrentBox != null)
@@ -692,6 +736,7 @@ namespace Yu3zx.TaggingSevice
                     cartonBox.Specs = fItem.Specs;
                     cartonBox.BoxNum = ProductStateManager.GetInstance().CurrentBox.BoxNum;// 
                     lStrNum = fItem.LineNum;
+                    iNum = int.Parse(lStrNum);
                     int idx = 0;
                     foreach (var item in ProductStateManager.GetInstance().CurrentBox.OnLaunchItems)
                     {
@@ -748,6 +793,9 @@ namespace Yu3zx.TaggingSevice
                 boxInfo.RndStrings = strRndString.Trim(',');
                 boxInfo.ReelNums = strRollNums.Trim(',');
                 SaveFabricCloth(boxInfo);
+
+                //通知LC已经打印
+                NoticePrintedCarton((byte)iNum, ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count);
             }
             catch (Exception ex)
             {
@@ -776,6 +824,10 @@ namespace Yu3zx.TaggingSevice
         #endregion End
 
         #region PLC通信相关
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
         private void NoticeRollDiam(FabricClothItem item)
         {
             //通知卷径
@@ -795,6 +847,7 @@ namespace Yu3zx.TaggingSevice
             {
                 Log.Instance.LogWrite(ex);
             }
+
             //通知为新指令
             try
             {
@@ -807,7 +860,7 @@ namespace Yu3zx.TaggingSevice
             }
         }
         /// <summary>
-        /// 通知PLC上线
+        /// 通知PLC上线 1号指令
         /// </summary>
         /// <param name="iLNum"></param>
         /// <param name="fabricWidth"></param>
@@ -838,6 +891,148 @@ namespace Yu3zx.TaggingSevice
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
             catch(Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+        /// <summary>
+        /// 通知薄膜已打印
+        /// </summary>
+        private void NoticePrintedFabric(byte iLNum,int rolldiam)
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x02); //命令码
+                lCmd.Add(iLNum);//产线号
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rolldiam)));
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+
+        private void NoticePrintedCarton(byte iLNum, int print)
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x03); //
+                lCmd.Add(iLNum);//产线号
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(print)));
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+
+        private void NoticePrintedReport(byte iLNum, int cartonNum)
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x03); //
+                lCmd.Add(iLNum);//产线号
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(cartonNum)));
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+        /// <summary>
+        /// 流水线暂停
+        /// </summary>
+        private void NoticePause()
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x09); //
+                lCmd.Add(0x00);//产线号
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(0)));
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+
+        /// <summary>
+        /// 重新启动流水线
+        /// </summary>
+        /// <param name="iLNum"></param>
+        /// <param name="cartonNum"></param>
+        private void NoticeStart()
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x0A); //
+                lCmd.Add(0x00);//产线号
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
             {
                 Log.Instance.LogWrite(ex);
             }
