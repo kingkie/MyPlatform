@@ -40,6 +40,10 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>Product\Debug\Interop.BarTender.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +59,7 @@
   <ItemGroup>
     <Compile Include="AppManager.cs" />
     <Compile Include="ClothItem.cs" />
+    <Compile Include="DataManager.cs" />
     <Compile Include="DeviceManager.cs" />
     <Compile Include="frmLaunch.cs">
       <SubType>Form</SubType>

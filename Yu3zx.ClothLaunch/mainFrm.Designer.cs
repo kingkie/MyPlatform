@@ -86,6 +86,9 @@ namespace Yu3zx.ClothLaunch
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnOnLine = new System.Windows.Forms.Button();
             this.tabContent.SuspendLayout();
             this.tpgHome.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -99,6 +102,7 @@ namespace Yu3zx.ClothLaunch
             this.tpgData.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabContent
@@ -540,6 +544,7 @@ namespace Yu3zx.ClothLaunch
             // 
             // tpgConfig
             // 
+            this.tpgConfig.Controls.Add(this.groupBox7);
             this.tpgConfig.Controls.Add(this.groupBox3);
             this.tpgConfig.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tpgConfig.Location = new System.Drawing.Point(4, 40);
@@ -553,6 +558,7 @@ namespace Yu3zx.ClothLaunch
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnConnect);
             this.groupBox3.Controls.Add(this.btnServerConfig);
             this.groupBox3.Controls.Add(this.txtServerPort);
             this.groupBox3.Controls.Add(this.txtServerIp);
@@ -563,7 +569,7 @@ namespace Yu3zx.ClothLaunch
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(1176, 82);
+            this.groupBox3.Size = new System.Drawing.Size(1176, 96);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "服务端设置";
@@ -571,10 +577,10 @@ namespace Yu3zx.ClothLaunch
             // btnServerConfig
             // 
             this.btnServerConfig.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnServerConfig.Location = new System.Drawing.Point(1056, 26);
+            this.btnServerConfig.Location = new System.Drawing.Point(1036, 33);
             this.btnServerConfig.Margin = new System.Windows.Forms.Padding(4);
             this.btnServerConfig.Name = "btnServerConfig";
-            this.btnServerConfig.Size = new System.Drawing.Size(100, 43);
+            this.btnServerConfig.Size = new System.Drawing.Size(120, 43);
             this.btnServerConfig.TabIndex = 4;
             this.btnServerConfig.Text = "确  定";
             this.btnServerConfig.UseVisualStyleBackColor = true;
@@ -583,7 +589,7 @@ namespace Yu3zx.ClothLaunch
             // txtServerPort
             // 
             this.txtServerPort.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtServerPort.Location = new System.Drawing.Point(387, 36);
+            this.txtServerPort.Location = new System.Drawing.Point(387, 42);
             this.txtServerPort.Margin = new System.Windows.Forms.Padding(4);
             this.txtServerPort.Name = "txtServerPort";
             this.txtServerPort.Size = new System.Drawing.Size(83, 27);
@@ -593,7 +599,7 @@ namespace Yu3zx.ClothLaunch
             // txtServerIp
             // 
             this.txtServerIp.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtServerIp.Location = new System.Drawing.Point(113, 36);
+            this.txtServerIp.Location = new System.Drawing.Point(113, 42);
             this.txtServerIp.Margin = new System.Windows.Forms.Padding(4);
             this.txtServerIp.Name = "txtServerIp";
             this.txtServerIp.Size = new System.Drawing.Size(169, 27);
@@ -603,7 +609,7 @@ namespace Yu3zx.ClothLaunch
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(290, 39);
+            this.label4.Location = new System.Drawing.Point(290, 45);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 20);
@@ -613,7 +619,7 @@ namespace Yu3zx.ClothLaunch
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 39);
+            this.label3.Location = new System.Drawing.Point(21, 45);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 20);
@@ -807,6 +813,40 @@ namespace Yu3zx.ClothLaunch
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1222, 913);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
+            // btnConnect
+            // 
+            this.btnConnect.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnConnect.Location = new System.Drawing.Point(893, 33);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(120, 43);
+            this.btnConnect.TabIndex = 5;
+            this.btnConnect.Text = "重  连";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.btnOnLine);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox7.Location = new System.Drawing.Point(4, 100);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(1176, 100);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            // 
+            // btnOnLine
+            // 
+            this.btnOnLine.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnOnLine.Location = new System.Drawing.Point(1036, 30);
+            this.btnOnLine.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOnLine.Name = "btnOnLine";
+            this.btnOnLine.Size = new System.Drawing.Size(120, 43);
+            this.btnOnLine.TabIndex = 6;
+            this.btnOnLine.Text = "重试上线";
+            this.btnOnLine.UseVisualStyleBackColor = true;
+            this.btnOnLine.Click += new System.EventHandler(this.btnOnLine_Click);
+            // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -838,6 +878,7 @@ namespace Yu3zx.ClothLaunch
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -901,6 +942,9 @@ namespace Yu3zx.ClothLaunch
         private System.Windows.Forms.DataGridViewTextBoxColumn speck;
         private System.Windows.Forms.DataGridViewTextBoxColumn colornum;
         private System.Windows.Forms.DataGridViewTextBoxColumn specs;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button btnOnLine;
     }
 }
 
