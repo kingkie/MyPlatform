@@ -127,6 +127,10 @@ namespace Yu3zx.ClothLaunch
             try
             {
                 NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
+                if(ntwStream == null || !ntwStream.CanWrite)
+                {
+                    DataManager.CreateInstance().NeedSend.Enqueue(item);
+                }
                 if (ntwStream.CanWrite)
                 {
                     string strData = JSONUtil.SerializeJSON(item);
@@ -136,13 +140,11 @@ namespace Yu3zx.ClothLaunch
                         ntwStream.Write(buff, 0, buff.Length);
                     }
                 }
-                else
-                {
-
-                }
             }
             catch(Exception ex)
             {
+                DataManager.CreateInstance().NeedSend.Enqueue(item);
+
                 Console.WriteLine(ex.Message);
             }
         }
