@@ -129,8 +129,10 @@ namespace Yu3zx.ClothLaunch
                 NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
                 if(ntwStream == null || !ntwStream.CanWrite)
                 {
-                    DataManager.CreateInstance().NeedSend.Enqueue(item);
+                    DataManager.CreateInstance().NeedSend.Add(item);
+                    return;
                 }
+
                 if (ntwStream.CanWrite)
                 {
                     string strData = JSONUtil.SerializeJSON(item);
@@ -143,8 +145,7 @@ namespace Yu3zx.ClothLaunch
             }
             catch(Exception ex)
             {
-                DataManager.CreateInstance().NeedSend.Enqueue(item);
-
+                DataManager.CreateInstance().NeedSend.Add(item);
                 Console.WriteLine(ex.Message);
             }
         }
@@ -287,7 +288,7 @@ namespace Yu3zx.ClothLaunch
             catch(Exception ex)
             {
                 MessageBox.Show("连接服务端失败，请联系管理员！");
-                //Application.Exit();
+                Application.Exit();
                 return;
             }
 
@@ -366,6 +367,12 @@ namespace Yu3zx.ClothLaunch
             catch
             {
             }
+            try
+            {
+                DataManager.CreateInstance().Save();
+            }
+            catch
+            { }
             try
             {
                 PrintHelper.CreateInstance().UnInit();
@@ -519,6 +526,94 @@ namespace Yu3zx.ClothLaunch
                 DataGridViewRow row1 = dgvShow.Rows[0];
                 row1.DefaultCellStyle.BackColor = Color.Lime;
             }
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
+                if (ntwStream.CanWrite)
+                {
+                    byte[] buff = new byte[] { };
+                    ntwStream.Write(buff, 0, buff.Length);
+                }
+
+                using (var s = DeviceManager.CreateInstance().ClothClient?.GetStream())
+                {
+                    var buff1 = new byte[512];
+                    if (s.DataAvailable)
+                    { 
+                        //判断有数据再读，否则Read会阻塞线程。后面的业务逻辑无法处理
+                        var len = s.Read(buff1, 0, buff1.Length);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            try
+            {
+                if(!DeviceManager.CreateInstance().ClothClient.Connected)
+                {
+                    try
+                    {
+                        DeviceManager.CreateInstance().ClothClient = new TcpClient();
+                        DeviceManager.CreateInstance().ClothClient.Connect(IPAddress.Parse(AppManager.CreateInstance().ServerIp), AppManager.CreateInstance().Port);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("连接服务端失败，重连或者请联系管理员！");
+                        return;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("连接服务端失败，重连或者请联系管理员！");
+            }
+        }
+
+        private void btnOnLine_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
+                if (ntwStream == null || !ntwStream.CanWrite)
+                {
+                    MessageBox.Show("连接服务端失败，重连或者请联系管理员！");
+                    return;
+                }
+                while (DataManager.CreateInstance().NeedSend.Count > 0)
+                {
+                    lock(DataManager.CreateInstance())
+                    {
+                        try
+                        {
+                            var nItem = DataManager.CreateInstance().NeedSend[0];
+                            if (ntwStream.CanWrite)
+                            {
+                                string strData = JSONUtil.SerializeJSON(nItem);
+                                byte[] buff = Encoding.UTF8.GetBytes(strData);
+                                if (buff != null)
+                                {
+                                    ntwStream.Write(buff, 0, buff.Length);
+                                }
+                                DataManager.CreateInstance().NeedSend.RemoveAt(0);
+                            }
+                            Thread.Sleep(50);
+                        }
+                        catch
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            catch
+            { }
         }
     }
 }

@@ -24,6 +24,10 @@ namespace Yu3zx.TaggingSevice
             {
                 if (instance == null)
                 {
+                    instance = Read();
+                }
+                if(instance == null)
+                {
                     instance = new ProductStateManager();
                 }
             }
