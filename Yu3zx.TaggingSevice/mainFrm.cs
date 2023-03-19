@@ -69,6 +69,7 @@ namespace Yu3zx.TaggingSevice
                 await Task.Delay(2000);
                 this.Invoke((EventHandler)delegate {
                     swtPlc.Checked = PlcConn.S7Connected;
+                    Log.Instance.LogWrite("PLC连接状态:" + PlcConn.S7Connected.ToString());
                 });
             });
 
@@ -224,6 +225,7 @@ namespace Yu3zx.TaggingSevice
         private void WorkFlowGoing()
         {
             Log.Instance.LogWrite("工作线程启动:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            bool bForce = false;//强制
             while(true)
             {
                 try
@@ -314,6 +316,13 @@ namespace Yu3zx.TaggingSevice
                                         PrintCartonBoxLabel();//
                                     });
                                     break;
+                                case 0x05:
+                                    //强制上线,还是需要判断现在是否忙碌中
+                                    if(!ProductStateManager.GetInstance().CurrentDoing)
+                                    {
+                                        bForce = true;
+                                    }
+                                    break;
                             }
                         }
                     }
@@ -323,6 +332,73 @@ namespace Yu3zx.TaggingSevice
                         string strBatchNum = ProductStateManager.GetInstance().GetOnLineList();
                         if (string.IsNullOrEmpty(strBatchNum))
                         {
+                            //有强制上线的
+                            if (bForce)
+                            {
+                                bForce = false;//这时有强制指令时做
+                                string strForceBatchNum = ProductStateManager.GetInstance().GetOnLineLastList();
+                                if(!string.IsNullOrEmpty(strForceBatchNum))
+                                {
+                                    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                                    //开始强制上线
+                                    WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems[0].LineNum;
+                                    WorkFlowManager.CreateInstance().CurrentBatchNo = strForceBatchNum;
+                                    int iSumNeed1 = 0;//累计需要
+                                    int iAClass1 = 0;
+                                    //计算出需要移出多少个，剩余的部分全部移出
+                                    foreach (var iCloth in ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems)
+                                    {
+                                        if (iCloth.QualityName == "A")
+                                        {
+                                            iAClass1++;
+                                        }
+                                        iSumNeed1++;
+                                    }
+                                    CartonBox newBox = new CartonBox();
+                                    newBox.BatchNo = strForceBatchNum;
+                                    newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strForceBatchNum).ToString(); ;
+                                    lock (ProductStateManager.GetInstance().DictOnLine)
+                                    {
+                                        while (iSumNeed1 > 0)
+                                        {
+                                            var iRemove = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems[0];
+                                            newBox.OnLaunchItems.Add(iRemove);
+                                            ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems.RemoveAt(0);
+                                            iSumNeed1--;
+                                        }
+                                        ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum;//减掉上线的数量
+                                        ProductStateManager.GetInstance().CurrentDoing = true;
+                                        ProductStateManager.GetInstance().CurrentBatchNo = strForceBatchNum;
+                                        ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
+                                        ProductStateManager.GetInstance().CartonBoxItems.Add(newBox);
+                                        if (ProductStateManager.GetInstance().CurrentBox != null && ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count > 0)
+                                        {
+                                            ProductStateManager.GetInstance().CurrentLine = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0].LineNum;//当前线
+                                        }
+                                        ProductStateManager.GetInstance().Save();
+                                    }
+                                    //以及打印包装箱标签
+                                    if (ProductStateManager.GetInstance().CurrentDoing)
+                                    {
+                                        //------打印整箱的-------
+                                        this.Invoke((EventHandler)delegate {
+                                            PrintCartonBoxLabel();//
+                                        });
+                                        try
+                                        {
+                                            //通知PLC上线
+                                            byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
+                                            short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
+                                            short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
+                                            NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Log.Instance.LogWrite(ex);
+                                        }
+                                    }
+                                }
+                            }
                             //未能达到上线的条件
                             Thread.Sleep(1000);
                         }
@@ -393,6 +469,7 @@ namespace Yu3zx.TaggingSevice
                     }
                     else
                     {
+                        bForce = false;
                         //空闲就休息2秒
                         Thread.Sleep(2000);
                     }
@@ -468,6 +545,14 @@ namespace Yu3zx.TaggingSevice
                                     cmd4.DataSegment.Add(cmdInput[3]);//一垛完成总箱数
 
                                     PlcReceive.Enqueue(cmd4);
+                                    break;
+                                case 0x05:
+                                    //下线完成通知
+                                    PlcCmd cmd5 = new PlcCmd();
+                                    cmd5.CmdCode = 0x04;
+                                    cmd5.MachineId = cmdInput[1];
+                                    //
+                                    PlcReceive.Enqueue(cmd5);
                                     break;
                                 default:
 
@@ -874,20 +959,41 @@ namespace Yu3zx.TaggingSevice
                 List<byte> lCmd = new List<byte>();
                 lCmd.Add(0x01); //命令码
                 lCmd.Add(iLNum);//产线号
-                lCmd.AddRange(MathHelper.ShortToBytes(fabricWidth));//宽度
-                lCmd.AddRange(MathHelper.ShortToBytes(iRollDiam));//直径
-                List<int> lNaclassls = new List<int>();
-                for (int i = 0; i < carton.OnLaunchItems.Count; i++)
+                                //=======================方法一--------------------
+                #region 方法一，原来方法
+                //{
+                //    lCmd.AddRange(MathHelper.ShortToBytes(fabricWidth));//宽度
+                //    lCmd.AddRange(MathHelper.ShortToBytes(iRollDiam));//直径
+                //    List<int> lNaclassls = new List<int>();
+                //    for (int i = 0; i < carton.OnLaunchItems.Count; i++)
+                //    {
+                //        if (carton.OnLaunchItems[i].QualityName != "A")
+                //        {
+                //            lNaclassls.Add(i);//次品序号
+                //        }
+                //    }
+                //    lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclassls));
+                //    lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(carton.OnLaunchItems.Count)));// 增加一箱总个数
+                //}
+                #endregion End
+
+                //=======================方法二--------------------
+                #region 方法二
                 {
-                    if (carton.OnLaunchItems[i].QualityName != "A")
+                    lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(carton.OnLaunchItems.Count)));// 增加一箱总个数
+                    lCmd.AddRange(MathHelper.ShortToBytes(fabricWidth));//宽度
+
+                    List<int> lNaclasslsnew = new List<int>();
+                    for (int i = 0; i < carton.OnLaunchItems.Count; i++)
                     {
-                        lNaclassls.Add(i);//次品序号
+                        if (carton.OnLaunchItems[i].QualityName != "A")
+                        {
+                            lNaclasslsnew.Add(i);//次品序号
+                        }
                     }
+                    lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclasslsnew));
                 }
-                lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclassls));
-
-                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(carton.OnLaunchItems.Count)));// 增加一箱总个数
-
+                #endregion End
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
             catch(Exception ex)

@@ -180,5 +180,24 @@ namespace Yu3zx.TaggingSevice
             { }
             return string.Empty;
         }
+        //最后部分的清除
+        public string GetOnLineLastList()
+        {
+            try
+            {
+                var item = DictOnLine.OrderByDescending(x => x.Value.ClothItems.Count).ToList();//.Find(p=>p.Value.AClassSum >= 6);//.Select(p => p.Value.AClassSum > 6).ToList();
+                foreach (var subItem in item)
+                {
+                    if (subItem.Value.AClassSum >= 0)
+                    {
+                        return subItem.Key;
+                    }
+                }
+                return string.Empty;
+            }
+            catch
+            { }
+            return string.Empty;
+        }
     }
 }
