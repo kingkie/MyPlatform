@@ -54,6 +54,7 @@
     <Compile Include="Attributes\KeyAttribute.cs" />
     <Compile Include="Attributes\IgnoreAttribute.cs" />
     <Compile Include="Attributes\TableAttribute.cs" />
+    <Compile Include="CoreEntity.cs" />
     <Compile Include="DapperEx\DapperContext.cs" />
     <Compile Include="DapperEx\DapperContextExtension.cs" />
     <Compile Include="DapperUseHelp.cs" />
