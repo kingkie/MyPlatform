@@ -719,5 +719,21 @@ namespace Yu3zx.Util
             bmp2.Save(path, format);
         }
         #endregion End
+
+        public static Bitmap GetPartImage(Bitmap img, Rectangle rect)
+        {
+            Bitmap imgP = new Bitmap(rect.Width, rect.Height);
+            Graphics g = Graphics.FromImage(imgP);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            // 指定高质量的双三次插值法。执行预筛选以确保高质量的收缩。此模式可产生质量最高的转换图像。  
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+            g.DrawImage(img, -rect.Left, -rect.Top, img.Width, img.Height);
+            g.Dispose();
+
+            return imgP;
+        }
     }
 }
