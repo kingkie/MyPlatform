@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AttachedPropertyBuffer.cs" />
     <Compile Include="DataTableHelper.cs" />
+    <Compile Include="DateTimeHelper.cs" />
     <Compile Include="GetSerailNumberHelper.cs" />
     <Compile Include="GetUSBSerailNumber.cs" />
     <Compile Include="LunarCalendar.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="IniFiles.cs" />
     <Compile Include="MachineHelper.cs" />
     <Compile Include="NetUtil.cs" />
+    <Compile Include="PrintHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomOperate.cs" />
     <Compile Include="ReflectionHelper.cs" />
