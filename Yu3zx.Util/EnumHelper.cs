@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
+using System.ComponentModel;
+using System.Collections.Concurrent;
 
 namespace Yu3zx.Util
 {
@@ -647,5 +649,68 @@ namespace Yu3zx.Util
             return (List<T>)CollectionConverter.CopyAllToList<T>(result.Keys);
         }
         #endregion
+    }
+
+    /// <summary>
+    /// 枚举扩展类.
+    /// </summary>
+    public static class EnumExtention
+    {
+        // <summary>
+        /// 获取枚举的描述信息(Descripion)。
+        /// 支持位域，如果是位域组合值，多个按分隔符组合。
+        /// </summary>
+        public static string GetDescription(this Enum @this)
+        {
+            return _ConcurrentDictionary.GetOrAdd(@this, (@enum) =>
+            {
+                var type = @enum.GetType();
+                var field = type.GetField(@enum.ToString());
+                //如果field为null则应该是组合位域值，
+                return field == null ? @enum.GetDescriptions() : GetDescription(field);
+            });
+        }
+
+        /// <summary>
+        /// 获取位域枚举的描述，多个按分隔符组合
+        /// </summary>
+        public static string GetDescriptions(this Enum @this, string separator = ",")
+        {
+            var names = @this.ToString().Split(',');
+            string[] res = new string[names.Length];
+            var type = @this.GetType();
+            for (int i = 0; i < names.Length; i++)
+            {
+                var field = type.GetField(names[i].Trim());
+                if (field == null) continue;
+                res[i] = GetDescription(field);
+            }
+
+            return string.Join(separator, res);
+        }
+
+        private static string GetDescription(FieldInfo field)
+        {
+            if (field == null)
+            {
+                throw new ArgumentNullException(nameof(field));
+            }
+
+            Attribute att = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute), false);
+
+            return att == null ? field.Name : ((DescriptionAttribute)att).Description;
+        }
+
+        private static ConcurrentDictionary<Enum, string> _ConcurrentDictionary = new ConcurrentDictionary<Enum, string>();
+        public static string GetDescriptionByConcurrentDictionary(this Enum @this)
+        {
+            return _ConcurrentDictionary.GetOrAdd(@this, (@enum) =>
+            {
+                var type = @enum.GetType();
+                var field = type.GetField(@enum.ToString());
+
+                return field == null ? @enum.ToString() : GetDescription(field);
+            });
+        }
     }
 }

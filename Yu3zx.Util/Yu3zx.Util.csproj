@@ -42,6 +42,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttachedPropertyBuffer.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="StringUtil.cs" />
     <Compile Include="TaskManager.cs" />
     <Compile Include="TypeHelper.cs" />
+    <Compile Include="UtilityExtention.cs" />
     <Compile Include="ValidatorHelper.cs" />
     <Compile Include="VerificationImg.cs" />
     <Compile Include="WindowsHelper.cs" />

@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -108,10 +109,23 @@ namespace Yu3zx.Json
         public static string GetValue(string resultStr,string tagname)
         {
             Newtonsoft.Json.Linq.JObject resultObject = Newtonsoft.Json.Linq.JObject.Parse(resultStr);
-            if (resultObject.ContainsKey(tagname))
-                return resultObject.GetValue(tagname).ToString();
-            else
+            if(resultObject == null)
+            {
                 return "";
+            }
+            if (((IDictionary<string, JToken>)resultObject).ContainsKey(tagname))
+            {
+                return resultObject.GetValue(tagname).ToString();
+            }
+            else
+            {
+                return "";
+            }
+
+            //if (resultObject.ContainsKey(tagname)) //可能存在未有ContainsKey属性现象
+            //    return resultObject.GetValue(tagname).ToString();
+            //else
+            //    return "";
         }
 
         public static JObject Readjson(string jsonfile)

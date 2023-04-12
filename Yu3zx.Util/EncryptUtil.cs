@@ -130,5 +130,99 @@ namespace Yu3zx.Util
             return Encoding.UTF8.GetString(mStream.ToArray());
         }
         #endregion
+
+        /// <summary>
+        /// LRC计算
+        /// </summary>
+        /// <param name="buffer">要计算的数据</param>
+        /// <param name="start">开始</param>
+        /// <param name="len">结束</param>
+        /// <returns>计算结果</returns>
+        public static byte[] Lrc(byte[] buffer, int start = 0, int len = 0)
+        {
+            if (buffer == null || buffer.Length == 0)
+            {
+                return null;
+            }
+            if (start < 0)
+            {
+                return null;
+            }
+            if (len == 0)
+            {
+                len = buffer.Length - start;
+            }
+            int length = start + len;
+            if (length > buffer.Length)
+            {
+                return null;
+            }
+            byte lrc = 0; // Initial value
+            for (int i = start; i < len; i++)
+            {
+                lrc += buffer[i];
+            }
+            lrc = (byte)((lrc ^ 0xFF) + 1);
+            return new byte[] { lrc };
+        }
+
+        /// <summary>
+        /// LRC计算
+        /// </summary>
+        /// <param name="buffer">要计算的数据</param>
+        /// <returns>计算结果</returns>
+        public static byte[] Lrc(byte[] buffer)
+        {
+            if (buffer == null || buffer.Length == 0)
+            {
+                return null;
+            }
+            byte lrc = 0; // Initial value
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                lrc += buffer[i];
+            }
+            lrc = (byte)((lrc ^ 0xFF) + 1);
+            return new byte[] { lrc };
+        }
+        /// <summary>
+        /// LRC新方法
+        /// </summary>
+        /// <param name="buffer">计算的字节数组</param>
+        /// <returns>结果值</returns>
+        public static byte NewLrc(byte[] buffer)
+        {
+            if (buffer == null || buffer.Length == 0)
+            {
+                return new byte() { };
+            }
+            byte checkSum = 0;
+            foreach (byte b in buffer)
+            {
+                checkSum ^= b;
+            }
+
+            return checkSum;
+        }
+
+        /// <summary>
+        /// LRC新方法
+        /// </summary>
+        /// <param name="data">计算的ASCII字符串</param>
+        /// <returns>结果值</returns>
+        public static byte NewLrc(string data)
+        {
+            if (string.IsNullOrEmpty(data))
+            {
+                return new byte() { };
+            }
+            byte checkSum = 0;
+            foreach (char b in data)
+            {
+                checkSum ^= Convert.ToByte(b);
+            }
+
+            return checkSum;
+        }
     }
 }
