@@ -1296,7 +1296,7 @@ namespace Yu3zx.Moonlit
                             YyQrcodeInfo yyQrInfo = new YyQrcodeInfo();
                             yyQrInfo.totalCode = strQrcode;
                             string partsCodeJoin= PackQrcode(ycParts);
-                            yyQrInfo.totalQrCode = strQrcode+";"+partsCodeJoin;
+                            yyQrInfo.totalQrCode = strQrcode+";"+ partsCodeJoin;
                             yyQrInfo.createTime = DateTime.Now;
                             yyQrInfo.printTime = DateTime.Now;
                             yyQrInfo.printStatus = "1";
@@ -1328,16 +1328,20 @@ namespace Yu3zx.Moonlit
                 return "";
             }
             StringBuilder sbPack = new StringBuilder();
-            //for(int j= 0; j < 4;j++)
-            //{
-            for (int i = 0; i < lParts.Count; i++)
+            try
             {
-                if( lParts[i].Status != "0")
+                for (int i = 0; i < lParts.Count; i++)
                 {
-                    sbPack.Append(lParts[i].partsCode).Append(";");
+                    if (lParts[i].Status != "0")
+                    {
+                        sbPack.Append(lParts[i].partsCode).Append(";");
+                    }
                 }
             }
-            //}
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
             return sbPack.ToString().Trim(';');
         }
 
