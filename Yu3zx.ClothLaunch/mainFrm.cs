@@ -61,7 +61,7 @@ namespace Yu3zx.ClothLaunch
                 //txtProduceNum.Text = (49 + rd.Next(1, 20) / 10f).ToString();
             }
 
-            if(MessageBox.Show("请确定输入正确，检查正确了就按确认进行上线！","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if(MessageBox.Show("请确认输入正确，检查正确了就按确认进行上线！","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
 
             }

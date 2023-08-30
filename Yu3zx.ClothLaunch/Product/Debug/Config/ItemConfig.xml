@@ -4,6 +4,7 @@
 		<LabelItem dataname="BatchNo" matchname="SN"/>
 		<LabelItem dataname="ProduceNum" matchname="LEN"/>
 		<LabelItem dataname="ReelNum" matchname="NUM"/>
+		<LabelItem dataname="ColorNum" matchname="COLOR"/>
 	</PrintConfig>
 	<PortConfig CommName="COM2" CommRate="19200"/>
 	<AutoStartBoot value="1"/>
