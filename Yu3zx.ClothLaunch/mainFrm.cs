@@ -61,6 +61,15 @@ namespace Yu3zx.ClothLaunch
                 //txtProduceNum.Text = (49 + rd.Next(1, 20) / 10f).ToString();
             }
 
+            if(MessageBox.Show("请确定输入正确，检查正确了就按确认进行上线！","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+
+            }
+            else
+            {
+                return;
+            }
+
             string strBatchNo = txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
             string strColorNum = txtColorNum.Text;
             float fProduceNum = float.Parse(txtProduceNum.Text);
