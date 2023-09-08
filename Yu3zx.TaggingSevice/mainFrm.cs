@@ -249,6 +249,10 @@ namespace Yu3zx.TaggingSevice
                                     break;
                                 case 0x02://套袋请求打印标签
                                           //获取当前需要打印的
+                                    if(ProductStateManager.GetInstance().CurrentBox == null)
+                                    {
+                                        break;
+                                    }
                                     if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex >= ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count)
                                     {
                                         ProductStateManager.GetInstance().CurrentDoing = false;
@@ -256,6 +260,8 @@ namespace Yu3zx.TaggingSevice
                                     }
                                     else
                                     {
+                                        Log.Instance.LogWrite(string.Format("L263,当前序号：{0},当前箱内数{1}", ProductStateManager.GetInstance().CurrentBox.LaunchIndex, ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count));
+
                                         FabricClothItem item = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[ProductStateManager.GetInstance().CurrentBox.LaunchIndex];
                                         this.Invoke((EventHandler)delegate {
                                             PrintFabricLabel(item);//打印当前
@@ -270,18 +276,25 @@ namespace Yu3zx.TaggingSevice
                                         }
                                         catch
                                         { }
-
-                                        if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex == ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count - 1)
+                                        try
                                         {
-                                            //移除
-                                            //ProductStateManager.GetInstance().CartonBoxItems
+                                            if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex == ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count - 1)
+                                            {
+                                                //移除
+                                                //ProductStateManager.GetInstance().CartonBoxItems
                                             
-                                            ProductStateManager.GetInstance().CurrentDoing = false;//说明现在已经做完成了
-                                            ProductStateManager.GetInstance().CurrentBox.LaunchIndex = 0;
+                                                ProductStateManager.GetInstance().CurrentDoing = false;//说明现在已经做完成了
+                                                ProductStateManager.GetInstance().CurrentBox.LaunchIndex = 0;
+                                            }
+                                            else
+                                            {
+                                                ProductStateManager.GetInstance().CurrentBox.LaunchIndex = ProductStateManager.GetInstance().CurrentBox.LaunchIndex + 1;//累加
+                                            }
                                         }
-                                        else
+                                        catch(Exception ex)
                                         {
-                                            ProductStateManager.GetInstance().CurrentBox.LaunchIndex = ProductStateManager.GetInstance().CurrentBox.LaunchIndex + 1;//累加
+                                            Log.Instance.LogWrite("L291:" + ex.Message);
+                                            Log.Instance.LogWrite("L291:" + ex.StackTrace);
                                         }
                                     }
                                     break;
