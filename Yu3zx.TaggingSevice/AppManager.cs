@@ -204,7 +204,7 @@ namespace Yu3zx.TaggingSevice
             {
                 try
                 {
-                    var rtnB = db.Update("update productserial set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = iSnRtn + 1, KeyName = batchno });
+                    var rtnB = db.Update("update productserial set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = iSnRtn + 1, KeyName = "Box" + batchno });
                     if (rtnB)
                     {
                         Console.WriteLine("更新成功！");

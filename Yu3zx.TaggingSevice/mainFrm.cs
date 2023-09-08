@@ -216,7 +216,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch(Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite(ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
         }
         /// <summary>
@@ -237,8 +238,9 @@ namespace Yu3zx.TaggingSevice
                         //for(int i = 0;i < PlcReceive.Count;i++)
                         //{
                         //}
-                        if(PlcReceive.TryDequeue(out plcCmd))
+                        if (PlcReceive.TryDequeue(out plcCmd))
                         {
+                            Log.Instance.LogWrite(string.Format("处理Plc指令：{0}", plcCmd.CmdCode));
                             switch (plcCmd.CmdCode)
                             {
                                 case 0x01:
@@ -250,12 +252,14 @@ namespace Yu3zx.TaggingSevice
                                     if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex >= ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count)
                                     {
                                         ProductStateManager.GetInstance().CurrentDoing = false;
+                                        Log.Instance.LogWrite(string.Format("L254,当前序号：{0},当前箱内数{1}", ProductStateManager.GetInstance().CurrentBox.LaunchIndex, ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count));
                                     }
                                     else
                                     {
                                         FabricClothItem item = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[ProductStateManager.GetInstance().CurrentBox.LaunchIndex];
                                         this.Invoke((EventHandler)delegate {
                                             PrintFabricLabel(item);//打印当前
+                                            Log.Instance.LogWrite(string.Format("打印面料标签：{0}", item.ReelNum));
                                         });
                                         
                                         try
@@ -315,6 +319,7 @@ namespace Yu3zx.TaggingSevice
                                     this.Invoke((EventHandler)delegate {
                                         PrintCartonBoxLabel();//
                                     });
+                                    Log.Instance.LogWrite(string.Format("打印整箱"));
                                     break;
                                 case 0x05:
                                     //强制上线,还是需要判断现在是否忙碌中
@@ -326,7 +331,7 @@ namespace Yu3zx.TaggingSevice
                             }
                         }
                     }
-
+                    //第一箱上完了上线第二箱
                     if (!ProductStateManager.GetInstance().CurrentDoing)//是否是当前上线
                     {
                         string strBatchNum = ProductStateManager.GetInstance().GetOnLineList();
@@ -404,6 +409,7 @@ namespace Yu3zx.TaggingSevice
                         }
                         else
                         {
+                            Log.Instance.LogWrite("L412：开始上线另外的");
                             //开始上线  ----要注意超出
                             WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
                             WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
@@ -424,7 +430,8 @@ namespace Yu3zx.TaggingSevice
                             }
                             CartonBox newBox = new CartonBox();
                             newBox.BatchNo = strBatchNum;
-                            newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strBatchNum).ToString(); ;
+                            newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strBatchNum).ToString();
+
                             lock (ProductStateManager.GetInstance().DictOnLine)
                             {
                                 while (iSumNeed > 0)
@@ -445,6 +452,7 @@ namespace Yu3zx.TaggingSevice
                                 }
                                 ProductStateManager.GetInstance().Save();
                             }
+                            Log.Instance.LogWrite("L455：新上线！");
                             //以及打印包装箱标签
                             if (ProductStateManager.GetInstance().CurrentDoing)
                             {
@@ -462,7 +470,8 @@ namespace Yu3zx.TaggingSevice
                                 }
                                 catch(Exception ex)
                                 {
-                                    Log.Instance.LogWrite(ex);
+                                    Log.Instance.LogWrite("L471:" + ex.Message);
+                                    Log.Instance.LogWrite(ex.StackTrace);
                                 }
                             }
                         }
@@ -476,7 +485,7 @@ namespace Yu3zx.TaggingSevice
                 }
                 catch(Exception ex)
                 {
-                    Log.Instance.LogWrite(ex);
+                    Log.Instance.LogWrite("L486:" + ex);
                     Console.WriteLine(ex);
                 }
             }
@@ -568,7 +577,8 @@ namespace Yu3zx.TaggingSevice
                 }
                 catch(Exception ex)
                 {
-                    Log.Instance.LogWrite(ex);
+                    Log.Instance.LogWrite("L578:" + ex.Message);
+                    Log.Instance.LogWrite(ex.StackTrace);
                 }
             }
         }
@@ -752,7 +762,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch(Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L763:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
         }
 
@@ -884,7 +895,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L895:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
         }
 
@@ -930,7 +942,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L941:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
 
             //通知为新指令
@@ -998,7 +1011,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch(Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L1010:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
             //通知为新指令
             try
@@ -1027,7 +1041,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L1040:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
             //通知为新指令
             try
@@ -1054,7 +1069,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L1068:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
             //通知为新指令
             try
@@ -1081,7 +1097,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L1096:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
             //通知为新指令
             try
@@ -1110,7 +1127,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L1126:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
             //通知为新指令
             try
@@ -1140,7 +1158,8 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite(ex);
+                Log.Instance.LogWrite("L1157:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
             }
             //通知为新指令
             try
