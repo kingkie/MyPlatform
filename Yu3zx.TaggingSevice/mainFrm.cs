@@ -206,10 +206,38 @@ namespace Yu3zx.TaggingSevice
                     //增加已经上线的
                     lock (ProductStateManager.GetInstance().DictOnLine)
                     {
-                        ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Add(item);
-                        if (item.QualityName == "A") //需要包装的
+                        //判断是否已经存在，如果存在，则修改
+                        var findItem = ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Find(x => x.RndString == item.RndString);
+                        if(findItem != null)
                         {
-                            ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
+                            if(findItem.QualityName != item.QualityName)
+                            {
+                                //品质发生变化则需要修改
+                                if (item.QualityName == "A") //需要包装的
+                                {
+                                    ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
+                                }
+                                else
+                                {
+                                    ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum - 1;
+                                    if(ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum < 0)
+                                    {
+                                        ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                findItem = item;
+                            }
+                        }
+                        else
+                        {
+                            ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Add(item);
+                            if (item.QualityName == "A") //需要包装的
+                            {
+                                ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
+                            }
                         }
                     }
                 }
@@ -273,9 +301,12 @@ namespace Yu3zx.TaggingSevice
                                             //NoticeRollDiam(item);//告知当前布卷卷径
                                             byte lNum = byte.Parse(item.LineNum);
                                             NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10));
+                                            Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0}", item.LineNum));
                                         }
-                                        catch
-                                        { }
+                                        catch(Exception ex)
+                                        {
+                                            Log.Instance.LogWrite(string.Format("通知打印完成异常:{0}", ex.StackTrace));
+                                        }
                                         try
                                         {
                                             if (ProductStateManager.GetInstance().CurrentBox.LaunchIndex == ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count - 1)
@@ -321,7 +352,13 @@ namespace Yu3zx.TaggingSevice
                                             {
                                                 while (moveIndex > 0)
                                                 {
-                                                    ProductStateManager.GetInstance().CartonBoxItems.RemoveAt(0);
+                                                    try
+                                                    {
+                                                        ProductStateManager.GetInstance().CartonBoxItems.RemoveAt(0);
+                                                    }
+                                                    catch
+                                                    {
+                                                    }
                                                 }
                                             }
                                         }
@@ -408,6 +445,7 @@ namespace Yu3zx.TaggingSevice
                                             byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
                                             short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
                                             short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
+                                            Thread.Sleep(1000);
                                             NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
                                         }
                                         catch (Exception ex)
@@ -475,6 +513,7 @@ namespace Yu3zx.TaggingSevice
                                 });
                                 try
                                 {
+                                    Thread.Sleep(1000);//延迟1秒
                                     //通知PLC上线
                                     byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
                                     short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
@@ -720,21 +759,27 @@ namespace Yu3zx.TaggingSevice
                         {
                             case 0:
                                 detail.RollNum1 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum,2);
+                                //detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 1:
                                 detail.RollNum2 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                //detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 2:
                                 detail.RollNum3 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                //detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 3:
                                 detail.RollNum4 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                //detail.ReelNum4 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 4:
                                 detail.RollNum5 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                //detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 5:
                                 detail.RollNum6 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                //detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
                                 break;
                         }
                     }
@@ -857,21 +902,27 @@ namespace Yu3zx.TaggingSevice
                             {
                                 case 0:
                                     cartonBox.RollNum1 = (decimal)item.ProduceNum;
+                                    cartonBox.ReelNum1 = item.ReelNum;
                                     break;
                                 case 1:
                                     cartonBox.RollNum2 = (decimal)item.ProduceNum;
+                                    cartonBox.ReelNum2 = item.ReelNum;
                                     break;
                                 case 2:
                                     cartonBox.RollNum3 = (decimal)item.ProduceNum;
+                                    cartonBox.ReelNum3 = item.ReelNum;
                                     break;
                                 case 3:
                                     cartonBox.RollNum4 = (decimal)item.ProduceNum;
+                                    cartonBox.ReelNum4 = item.ReelNum;
                                     break;
                                 case 4:
                                     cartonBox.RollNum5 = (decimal)item.ProduceNum;
+                                    cartonBox.ReelNum5 = item.ReelNum;
                                     break;
                                 case 5:
                                     cartonBox.RollNum6 = (decimal)item.ProduceNum;
+                                    cartonBox.ReelNum6 = item.ReelNum;
                                     break;
                             }
                             idx++;
@@ -1281,5 +1332,102 @@ namespace Yu3zx.TaggingSevice
             {
             }
         }
+        #region 修改数据
+
+        private void btnOnlineData_Click(object sender, EventArgs e)
+        {
+            string lNum = txtLine.Text;
+            string strBatchNo = txtEBatchNo.Text;
+            int reelnum = int.Parse(txtEReelNum.Text);
+            if (string.IsNullOrEmpty(lNum) || string.IsNullOrEmpty(strBatchNo))
+            {
+                return;
+            }
+            //批次号
+            if (!ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNo))
+            {
+                return;
+                //OnLineCloth onLine = new OnLineCloth();
+                //onLine.BatchNo = strBatchNo;
+                //ProductStateManager.GetInstance().DictOnLine.Add(strBatchNo, onLine);
+            }
+
+            //判断是否已经存在，如果存在，则修改
+            var findItem = ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Find(x => x.ReelNum == reelnum);
+            if (findItem != null)
+            {
+                txtELen.Text = findItem.ProduceNum.ToString();
+                txtEQString.Text = findItem.QualityString.ToString();
+                txtEColorNum.Text = findItem.ColorNum.ToString();
+                txtESpecs.Text = findItem.Specs.ToString();
+                txtECWidth.Text = findItem.FabricWidth.ToString();
+                txtERollDiam.Text = findItem.RollDiam.ToString();
+                cboQualityName.SelectedItem = findItem.QualityName.ToString();
+                updateFindItem = findItem;
+            }
+            else
+            {
+                txtELen.Text = "";
+                txtEQString.Text = "";
+                txtEColorNum.Text = "";
+                txtESpecs.Text = "";
+                txtECWidth.Text = "";
+                txtERollDiam.Text = "";
+                updateFindItem = null;
+            }
+        }
+
+        private FabricClothItem updateFindItem;
+
+        private void btnUpdateData_Click(object sender, EventArgs e)
+        {
+            if(updateFindItem == null)
+            {
+                MessageBox.Show("未找到对应的产品，是否已经包装装箱！");
+                return;
+            }
+            try
+            {
+                bool isEditQa = false;
+                string strBatchNum = txtEBatchNo.Text.Trim();
+                updateFindItem.FabricWidth = int.Parse(txtECWidth.Text);
+                updateFindItem.RollDiam = int.Parse(txtERollDiam.Text);
+                updateFindItem.ProduceNum = float.Parse(txtELen.Text);
+                updateFindItem.QualityString = txtEQString.Text;
+                updateFindItem.ColorNum = txtEColorNum.Text;
+                updateFindItem.Specs = txtESpecs.Text;
+                string strQa = cboQualityName.SelectedItem.ToString();
+                if (strQa != updateFindItem.QualityName)
+                {
+                    isEditQa = true;
+                    updateFindItem.QualityName = cboQualityName.SelectedItem.ToString();
+                }
+                //增加已经上线的
+                lock (ProductStateManager.GetInstance().DictOnLine)
+                {
+                    if(isEditQa)
+                    {
+                        //品质发生变化则需要修改
+                        if (updateFindItem.QualityName == "A") //需要包装的
+                        {
+                            ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum + 1;
+                        }
+                        else
+                        {
+                            ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum - 1;
+                            if (ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum < 0)
+                            {
+                                ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum = 0;
+                            }
+                        }
+                    }
+                }
+                MessageBox.Show("已经修改，请检查是否已经包装或者装箱，已装箱的无法更改，需要重新上线！");
+            }
+            catch
+            { }
+        }
+        #endregion End
+
     }
 }

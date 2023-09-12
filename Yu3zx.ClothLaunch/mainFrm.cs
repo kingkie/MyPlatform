@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace Yu3zx.ClothLaunch
         private int SNum = 13;//
 
         private List<OnLaunchItem> ProduceList = new List<OnLaunchItem>();
+        private List<FabricClothItem> OnlineClothItems = new List<FabricClothItem>();
         /// <summary>
         /// 当前计划
         /// </summary>
@@ -61,14 +63,14 @@ namespace Yu3zx.ClothLaunch
                 //txtProduceNum.Text = (49 + rd.Next(1, 20) / 10f).ToString();
             }
 
-            if(MessageBox.Show("请确认输入正确，检查正确了就按确认进行上线！","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
+            //if(MessageBox.Show("请确认输入正确，检查正确了就按确认进行上线！","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            //{
 
-            }
-            else
-            {
-                return;
-            }
+            //}
+            //else
+            //{
+            //    return;
+            //}
 
             string strBatchNo = txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
             string strColorNum = txtColorNum.Text;
@@ -102,6 +104,8 @@ namespace Yu3zx.ClothLaunch
             item.ReelNum = AppManager.CreateInstance().GetSerialNoAndUpdate(strBatchNo);
             SNum++;
             item.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
+
+            OnlineClothItems.Add(item);//临时
 
             CurrentFabric = item;
 
@@ -183,6 +187,39 @@ namespace Yu3zx.ClothLaunch
                     }
                 }
                 catch(Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        private bool UpdateFabricCloth(FabricClothItem item)
+        {
+            //updateFabricCloth.ProduceNum = float.Parse(txtELen.Text);
+            //updateFabricCloth.QualityString = txtEQString.Text;
+            //updateFabricCloth.ColorNum = txtEColorNum.Text;
+            //updateFabricCloth.Specs = txtESpecs.Text;
+            //updateFabricCloth.FabricWidth = int.Parse(txtECWidth.Text);
+            //updateFabricCloth.RollDiam = int.Parse(txtERollDiam.Text);
+            //updateFabricCloth.QualityName = cboQualityName.SelectedItem.ToString();
+            //保存
+            using (var db = new DapperContext("MySqlDbConnection"))
+            {
+                try
+                {
+                    var result = db.Update("update fabric_cloths set QualityName=@QualityName,QualityString=@QualityString,ColorNum=@ColorNum,Specs=@Specs,ProduceNum=@ProduceNum,FabricWidth=@FabricWidth,RollDiam=@RollDiam,AddTime=@AddTime where RndString=@RndString", new { QualityName = item.QualityName, QualityString = item.QualityString, ColorNum = item.ColorNum, Specs = item.Specs, ProduceNum = item.ProduceNum, FabricWidth = item.FabricWidth, RollDiam = item.RollDiam, AddTime = DateTime.Now, RndString = item.RndString });
+                    if (result)
+                    {
+                        Console.WriteLine("添加成功");
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("添加失败");
+                        return false;
+                    }
+                }
+                catch (Exception ex)
                 {
                     return false;
                 }
@@ -339,6 +376,26 @@ namespace Yu3zx.ClothLaunch
         private void btnGetLenth_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBatchInfo_Click(object sender, EventArgs e)
+        {
+            string strBN = txtBatchNo.Text.Trim();
+            var planItem = GetPlan(strBN);
+            if (planItem == null)
+            {
+                MessageBox.Show("未查询到当前生产批次计划！");
+            }
+            else
+            {
+                CurrentPlan = planItem;
+                //设置当前批次
+                txtColorNum.Text = planItem.ColorNum;
+                txtSpecs.Text = planItem.Specs;
+                txtRollDiam.Text = planItem.RollDiam.ToString();
+                txtQuatilyString.Text = planItem.QualityString;
+                txtCWidth.Text = planItem.FabricWidth.ToString();
+            }
         }
 
         private void txtBatchNo_KeyDown(object sender, KeyEventArgs e)
@@ -623,6 +680,144 @@ namespace Yu3zx.ClothLaunch
             }
             catch
             { }
+        }
+
+        private void btnGetOnlineData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strBatchNo = txtEBatchNo.Text.Trim();
+                int iReelNum = int.Parse(txtEReelNum.Text.Trim());
+                var item = OnlineClothItems.Find(x => x.BatchNo == strBatchNo && iReelNum == x.ReelNum);
+                if (item != null)
+                {
+                    txtELen.Text = item.ProduceNum.ToString();
+                    txtEQString.Text = item.QualityString.ToString();//品名
+                    txtEColorNum.Text = item.ColorNum.ToString();
+                    txtESpecs.Text = item.Specs.ToString();
+                    txtECWidth.Text = item.FabricWidth.ToString();//
+                    txtERollDiam.Text = item.RollDiam.ToString();
+                    cboQualityName.SelectedItem = item.QualityName;
+                    updateFabricCloth = item;
+                }
+                else
+                {
+                    txtELen.Text = "";// item.ProduceNum.ToString();
+                    txtEQString.Text = "";// item.QualityString.ToString();
+                    txtEColorNum.Text = "";// item.ColorNum.ToString();
+                    txtESpecs.Text = "";//item.Specs.ToString();
+                    txtECWidth.Text = "";//item.FabricWidth.ToString();//
+                    txtERollDiam.Text = "";//item.RollDiam.ToString();
+                    updateFabricCloth = null;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private FabricClothItem updateFabricCloth = null;
+
+        private void btnEditData_Click(object sender, EventArgs e)
+        {
+            if(updateFabricCloth == null)
+            {
+                //未查到本地上线服务，请到服务器平台更新
+                MessageBox.Show("本地未查到此卷布料，请在服务器上查找！");
+                return;            
+            }
+            else
+            {
+                try
+                {
+                    updateFabricCloth.ProduceNum = float.Parse(txtELen.Text);
+                    updateFabricCloth.QualityString = txtEQString.Text;
+                    updateFabricCloth.ColorNum = txtEColorNum.Text;
+                    updateFabricCloth.Specs = txtESpecs.Text;
+                    updateFabricCloth.FabricWidth = int.Parse(txtECWidth.Text);
+                    updateFabricCloth.RollDiam = int.Parse(txtERollDiam.Text);
+                    updateFabricCloth.QualityName = cboQualityName.SelectedItem.ToString();
+
+                    Dictionary<string, string> dictData = GetEntityPropertyToDict(updateFabricCloth);
+
+                    if (UpdateFabricCloth(updateFabricCloth))
+                    {
+                        Logs.Log.Instance.LogWrite("L736:修改更新数据成功！");
+                    }
+                    else
+                    {
+                        Logs.Log.Instance.LogWrite("L740:修改更新数据失败！");
+                    }
+
+                    try
+                    {
+                        NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
+                        if (ntwStream == null || !ntwStream.CanWrite)
+                        {
+                            DataManager.CreateInstance().NeedSend.Add(updateFabricCloth);
+                            return;
+                        }
+
+                        if (ntwStream.CanWrite)
+                        {
+                            string strData = JSONUtil.SerializeJSON(updateFabricCloth);
+                            byte[] buff = Encoding.UTF8.GetBytes(strData);
+                            if (buff != null)
+                            {
+                                ntwStream.Write(buff, 0, buff.Length);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        DataManager.CreateInstance().NeedSend.Add(updateFabricCloth);
+                        Console.WriteLine(ex.Message);
+                        Logs.Log.Instance.LogWrite("L766:" + ex.Message);
+                    }
+
+                    string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
+                    if (File.Exists(lblFile))
+                    {
+                        PrintHelper.CreateInstance().BarPrintInit(lblFile, AppManager.CreateInstance().PrinterName, dictData, AppManager.CreateInstance().PrintCopies);
+                    }
+                    //更新显示
+                    var pItem = ProduceList.Find(x => x.BatchNo == updateFabricCloth.BatchNo && x.Id == updateFabricCloth.ReelNum);
+                    if (pItem != null)
+                    {
+                        pItem.Specs = updateFabricCloth.Specs;
+                        pItem.ProduceNum = updateFabricCloth.ProduceNum;
+                        pItem.ColorNum = updateFabricCloth.ColorNum;
+                        pItem.QualityName = updateFabricCloth.QualityName;
+                        pItem.QualityString = updateFabricCloth.QualityString;
+                    }
+
+                    updateFabricCloth = null;
+
+                    MessageBox.Show("已经修改，请检查是否已经包装，已经包装的需要拆开重新包装！");
+                }
+                catch
+                {
+                    MessageBox.Show("修改失败，请重试！");
+                }
+            }
+        }
+
+        private void btnSetBegin_Click(object sender, EventArgs e)
+        {
+            string strBatchNum = txtEditBatchNo.Text.Trim();
+            int iReel = int.Parse(txtBeginReelNum.Text.Trim());
+            if (string.IsNullOrEmpty(strBatchNum) || iReel < 0)
+            {
+                MessageBox.Show("请输入正确的批次和卷号！");
+            }
+            else
+            {
+                if(AppManager.CreateInstance().SetBeginSerialNo(strBatchNum, iReel))
+                {
+                    MessageBox.Show(string.Format("批号: {0}设置开始卷号{1}成功！",strBatchNum,iReel));
+                }
+            }
         }
     }
 }

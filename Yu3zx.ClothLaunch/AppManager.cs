@@ -194,6 +194,47 @@ namespace Yu3zx.ClothLaunch
             return iSnRtn;
         }
 
+        public bool SetBeginSerialNo(string batchno, int val)
+        {
+            if (string.IsNullOrEmpty(batchno))
+            {
+                return false;
+            }
+            PoductSerial config = GetPoductSerial(batchno);
+            if (config != null)
+            {
+                using (var db = new DapperContext("MySqlDbConnection"))
+                {
+                    try
+                    {
+                        var rtnB = db.Update("update productserial set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = val, KeyName = batchno });
+                        if (rtnB)
+                        {
+                            Console.WriteLine("更新成功！");
+                            return true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("更新失败！");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                PoductSerial confignew = new PoductSerial();
+                confignew.KeyName = batchno;
+                confignew.KeyValue = val.ToString();
+                SetPoductSerialSave(confignew);
+                return true;
+            }
+            return false;
+        }
+
         public SetConfig GetSetConfig(string strKey)
         {
             using (var db = new DapperContext("MySqlDbConnection"))

@@ -122,6 +122,10 @@
       <Project>{398fa901-48fe-4f6a-b4db-e34d3f790079}</Project>
       <Name>Yu3zx.Json</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Logs\Yu3zx.Logs.csproj">
+      <Project>{fc1849b5-044d-472f-8a5f-3e77309188a2}</Project>
+      <Name>Yu3zx.Logs</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
