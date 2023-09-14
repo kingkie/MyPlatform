@@ -300,10 +300,15 @@ namespace Yu3zx.TaggingSevice
                                         {
                                             //NoticeRollDiam(item);//告知当前布卷卷径
                                             byte lNum = byte.Parse(item.LineNum);
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10));
-                                            Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0}", item.LineNum));
+                                            bool isA = true;
+                                            if (item.QualityName != "A")
+                                            {
+                                                isA = false;
+                                            }
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), isA);
+                                            Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0},品质：A{1}", item.LineNum, isA));
                                         }
-                                        catch(Exception ex)
+                                        catch (Exception ex)
                                         {
                                             Log.Instance.LogWrite(string.Format("通知打印完成异常:{0}", ex.StackTrace));
                                         }
@@ -1090,7 +1095,7 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 通知薄膜已打印
         /// </summary>
-        private void NoticePrintedFabric(byte iLNum,int rolldiam)
+        private void NoticePrintedFabric(byte iLNum,int rolldiam,bool isA = true)
         {
             //通知上线
             try
@@ -1100,6 +1105,14 @@ namespace Yu3zx.TaggingSevice
                 lCmd.Add(iLNum);//产线号
 
                 lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rolldiam)));
+                if(isA)
+                {
+                    lCmd.Add(0x00);
+                }
+                else
+                {
+                    lCmd.Add(0x01);
+                }
 
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
