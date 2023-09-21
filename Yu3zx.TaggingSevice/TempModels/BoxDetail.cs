@@ -73,5 +73,41 @@ namespace Yu3zx.TaggingSevice
         }
 
         #endregion
+
+        public int ReelNum1
+        {
+            get;
+            set;
+        }
+
+        public int ReelNum2
+        {
+            get;
+            set;
+        }
+
+        public int ReelNum3
+        {
+            get;
+            set;
+        }
+
+        public int ReelNum4
+        {
+            get;
+            set;
+        }
+
+        public int ReelNum5
+        {
+            get;
+            set;
+        }
+
+        public int ReelNum6
+        {
+            get;
+            set;
+        }
     }
 }

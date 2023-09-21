@@ -764,15 +764,15 @@ namespace Yu3zx.TaggingSevice
                         {
                             case 0:
                                 detail.RollNum1 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum,2);
-                                //detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 1:
                                 detail.RollNum2 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 2:
                                 detail.RollNum3 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 3:
                                 detail.RollNum4 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
@@ -780,11 +780,11 @@ namespace Yu3zx.TaggingSevice
                                 break;
                             case 4:
                                 detail.RollNum5 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 5:
                                 detail.RollNum6 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
                                 break;
                         }
                     }
