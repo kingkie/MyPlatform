@@ -24,6 +24,7 @@ namespace Yu3zx.TaggingSevice
         PlcConnector PlcConn = new PlcConnector();
 
         Random rd = new Random();
+        Thread thConn = null;
         /// <summary>
         /// PLC收到的命令
         /// </summary>
@@ -49,6 +50,11 @@ namespace Yu3zx.TaggingSevice
             {
                 btnService_Click(sender, e);
             }
+
+            thConn = new Thread(CheckConn);
+            thConn.IsBackground = true;
+            thConn.Name = "thConn";
+            thConn.Start();
         }
 
         private void InitPlc()
@@ -73,6 +79,23 @@ namespace Yu3zx.TaggingSevice
                 });
             });
 
+        }
+        /// <summary>
+        /// 连接检测
+        /// </summary>
+        private void CheckConn()
+        {
+            Thread.Sleep(5000);
+            while (true)
+            {
+                try
+                {
+                    Thread.Sleep(3000);
+
+                    PlcConn.CheckConnected();
+                }
+                catch { }
+            }
         }
 
         private List<string> GetLoacalIp()
@@ -242,7 +265,7 @@ namespace Yu3zx.TaggingSevice
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.Instance.LogWrite(ex.Message);
                 Log.Instance.LogWrite(ex.StackTrace);
@@ -467,10 +490,14 @@ namespace Yu3zx.TaggingSevice
                         {
                             Log.Instance.LogWrite("L412：开始上线另外的");
                             //开始上线  ----要注意超出
+
+
+
                             WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
                             WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
                             int iSumNeed = 0;//累计需要
                             int iAClass = 0;
+
                             //计算出需要移出多少个
                             foreach (var iCloth in ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems)
                             {
@@ -1275,6 +1302,12 @@ namespace Yu3zx.TaggingSevice
             {
                 //最重要的是保存状态
                 ProductStateManager.GetInstance().Save();
+
+                if(thConn != null)
+                {
+                    thConn.Abort();
+                    thConn = null;
+                }
             }
             catch
             {

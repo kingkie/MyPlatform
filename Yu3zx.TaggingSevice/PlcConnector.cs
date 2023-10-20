@@ -207,6 +207,30 @@ namespace Yu3zx.TaggingSevice
             get;
             set;
         }
+        /// <summary>
+        /// 检测连接
+        /// </summary>
+        public void CheckConnected()
+        {
+            if (S7Plc != null)
+            {
+                if (S7Plc.IsConnected)
+                {
+
+                }
+                else
+                {
+                    try
+                    {
+                        S7Plc.Close();
+                        Thread.Sleep(50);
+                        S7Plc.Open();
+                    }
+                    catch
+                    { }
+                }
+            }
+        }
 
         public void S7Connet()
         {
@@ -218,7 +242,7 @@ namespace Yu3zx.TaggingSevice
             }
             else
             {
-                if(S7Plc.Rack != Rack || S7Plc.Slot != Slot)
+                if (S7Plc.Rack != Rack || S7Plc.Slot != Slot)
                 {
                     S7Plc = new Plc(cputype, ServerIp, Convert.ToInt16(Rack), Convert.ToInt16(Slot));
                 }

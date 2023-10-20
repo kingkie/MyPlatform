@@ -24,6 +24,7 @@ namespace Yu3zx.ClothLaunch
         Thread thData = null;
         Random rd = new Random();
         private int SNum = 13;//
+        Thread thHeart = null;//心跳包
 
         private List<OnLaunchItem> ProduceList = new List<OnLaunchItem>();
         private List<FabricClothItem> OnlineClothItems = new List<FabricClothItem>();
@@ -342,15 +343,20 @@ namespace Yu3zx.ClothLaunch
             thData.IsBackground = true;
             thData.Name = "thData";
             thData.Start();
+
+            thHeart = new Thread(HeartSend);
+            thHeart.IsBackground = true;
+            thHeart.Name = "thHeart";
+            thHeart.Start();
         }
 
         private void GetServerData()
         {
-            while(true)
+            while (true)
             {
                 try
                 {
-                    if(DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
+                    if (DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
                     {
                         NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
                         if(ntwStream.CanRead)
@@ -363,7 +369,30 @@ namespace Yu3zx.ClothLaunch
                     }
                     else
                     {
-                        DeviceManager.CreateInstance().ClothClient.Connect(IPAddress.Parse(AppManager.CreateInstance().ServerIp), AppManager.CreateInstance().Port);
+                        //有心跳包去连接
+                        //DeviceManager.CreateInstance().ClothClient.Connect(IPAddress.Parse(AppManager.CreateInstance().ServerIp), AppManager.CreateInstance().Port);
+                        Thread.Sleep(2000);
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        private void HeartSend()
+        {
+            Thread.Sleep(5000);
+            while (true)
+            {
+                Thread.Sleep(5000);
+                try
+                {
+                    DeviceManager.CreateInstance().CheckConnected();
+
+                    if (DeviceManager.CreateInstance().ClothClient != null && !DeviceManager.CreateInstance().ClothClient.Connected)
+                    {
+                        DeviceManager.CreateInstance().ClothClient.Connect(IPAddress.Parse(AppManager.CreateInstance().ServerIp), AppManager.CreateInstance().Port);//重新连接
                         Thread.Sleep(2000);
                     }
                 }
@@ -445,6 +474,18 @@ namespace Yu3zx.ClothLaunch
             }
             catch
             { }
+
+            if (thData != null)
+            {
+                thData.Abort();
+                thData = null;
+            }
+
+            if (thHeart != null)
+            {
+                thHeart.Abort();
+                thHeart = null;
+            }
         }
 
         public static Dictionary<string, string> GetEntityPropertyToDict<T>(T tEntity)
