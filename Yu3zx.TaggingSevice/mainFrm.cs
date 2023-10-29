@@ -248,6 +248,24 @@ namespace Yu3zx.TaggingSevice
                 Log.Instance.LogWrite(ex.StackTrace);
             }
         }
+
+        /// <summary>
+        /// 还未做完的
+        /// </summary>
+        private CartonBox ReMainCartonBox
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 是否有遗留
+        /// </summary>
+        private bool HaveRemain
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 工作监督
         /// </summary>
@@ -445,7 +463,7 @@ namespace Yu3zx.TaggingSevice
                                             byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
                                             short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
                                             short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
-                                            Thread.Sleep(1000);
+                                            Thread.Sleep(2400);
                                             NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
                                         }
                                         catch (Exception ex)
@@ -513,7 +531,7 @@ namespace Yu3zx.TaggingSevice
                                 });
                                 try
                                 {
-                                    Thread.Sleep(1000);//延迟1秒
+                                    Thread.Sleep(2400);//延迟1秒
                                     //通知PLC上线
                                     byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
                                     short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
@@ -1332,6 +1350,7 @@ namespace Yu3zx.TaggingSevice
             {
             }
         }
+
         #region 修改数据
 
         private void btnOnlineData_Click(object sender, EventArgs e)
