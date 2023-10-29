@@ -317,6 +317,7 @@ namespace Yu3zx.TaggingSevice
                                         try
                                         {
                                             //NoticeRollDiam(item);//告知当前布卷卷径
+
                                             byte lNum = byte.Parse(item.LineNum);
                                             NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10));
                                             Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0}", item.LineNum));
