@@ -38,6 +38,26 @@ namespace Yu3zx.ClothLaunch
             set;
         }
 
+        public void CheckConnected()
+        {
+            try
+            {
+                NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
+                if (ntwStream == null || !ntwStream.CanWrite)
+                {
+                    return;
+                }
 
+                byte[] buff = new byte[] { };//
+                if (buff != null)
+                {
+                    ntwStream.Write(buff, 0, buff.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

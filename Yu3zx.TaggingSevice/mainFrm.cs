@@ -24,6 +24,7 @@ namespace Yu3zx.TaggingSevice
         PlcConnector PlcConn = new PlcConnector();
 
         Random rd = new Random();
+        Thread thConn = null;
         /// <summary>
         /// PLC收到的命令
         /// </summary>
@@ -49,6 +50,11 @@ namespace Yu3zx.TaggingSevice
             {
                 btnService_Click(sender, e);
             }
+
+            thConn = new Thread(CheckConn);
+            thConn.IsBackground = true;
+            thConn.Name = "thConn";
+            thConn.Start();
         }
 
         private void InitPlc()
@@ -73,6 +79,23 @@ namespace Yu3zx.TaggingSevice
                 });
             });
 
+        }
+        /// <summary>
+        /// 连接检测
+        /// </summary>
+        private void CheckConn()
+        {
+            Thread.Sleep(5000);
+            while (true)
+            {
+                try
+                {
+                    Thread.Sleep(3000);
+
+                    PlcConn.CheckConnected();
+                }
+                catch { }
+            }
         }
 
         private List<string> GetLoacalIp()
@@ -242,7 +265,7 @@ namespace Yu3zx.TaggingSevice
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.Instance.LogWrite(ex.Message);
                 Log.Instance.LogWrite(ex.StackTrace);
@@ -319,10 +342,15 @@ namespace Yu3zx.TaggingSevice
                                             //NoticeRollDiam(item);//告知当前布卷卷径
 
                                             byte lNum = byte.Parse(item.LineNum);
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10));
-                                            Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0}", item.LineNum));
+                                            bool isA = true;
+                                            if (item.QualityName != "A")
+                                            {
+                                                isA = false;
+                                            }
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), isA);
+                                            Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0},品质：A{1}", item.LineNum, isA));
                                         }
-                                        catch(Exception ex)
+                                        catch (Exception ex)
                                         {
                                             Log.Instance.LogWrite(string.Format("通知打印完成异常:{0}", ex.StackTrace));
                                         }
@@ -481,10 +509,14 @@ namespace Yu3zx.TaggingSevice
                         {
                             Log.Instance.LogWrite("L412：开始上线另外的");
                             //开始上线  ----要注意超出
+
+
+
                             WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
                             WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
                             int iSumNeed = 0;//累计需要
                             int iAClass = 0;
+
                             //计算出需要移出多少个
                             foreach (var iCloth in ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems)
                             {
@@ -778,15 +810,15 @@ namespace Yu3zx.TaggingSevice
                         {
                             case 0:
                                 detail.RollNum1 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum,2);
-                                //detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 1:
                                 detail.RollNum2 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 2:
                                 detail.RollNum3 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 3:
                                 detail.RollNum4 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
@@ -794,11 +826,11 @@ namespace Yu3zx.TaggingSevice
                                 break;
                             case 4:
                                 detail.RollNum5 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
                                 break;
                             case 5:
                                 detail.RollNum6 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
+                                detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
                                 break;
                         }
                     }
@@ -1109,7 +1141,7 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 通知薄膜已打印
         /// </summary>
-        private void NoticePrintedFabric(byte iLNum,int rolldiam)
+        private void NoticePrintedFabric(byte iLNum,int rolldiam,bool isA = true)
         {
             //通知上线
             try
@@ -1119,6 +1151,14 @@ namespace Yu3zx.TaggingSevice
                 lCmd.Add(iLNum);//产线号
 
                 lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rolldiam)));
+                if(isA)
+                {
+                    lCmd.Add(0x00);
+                }
+                else
+                {
+                    lCmd.Add(0x01);
+                }
 
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
@@ -1281,6 +1321,12 @@ namespace Yu3zx.TaggingSevice
             {
                 //最重要的是保存状态
                 ProductStateManager.GetInstance().Save();
+
+                if(thConn != null)
+                {
+                    thConn.Abort();
+                    thConn = null;
+                }
             }
             catch
             {

@@ -37,13 +37,18 @@
       <Type value="string" />
       <Name value="CompanyName" />
     </EastReport.Variant>
+    <EastReport.Variant>
+      <DefaultValue value="" />
+      <Type value="Decimal" />
+      <Name value="RollDiamSum" />
+    </EastReport.Variant>
   </Variants>
   <Pages>
     <EastReport.Page>
       <Name value="Page1" />
       <TabIndex value="0" />
       <Size value="{Width=827, Height=1169}" />
-      <Location value="{X=27,Y=16}" />
+      <Location value="{X=279,Y=16}" />
       <EndPrintScript value="" />
       <BeginPrintScript value="" />
       <MarginsBottom value="50" />
@@ -57,161 +62,11 @@
       <IsSubPage value="False" />
       <Controls>
         <EastReport.Component.ExpressionLabel>
-          <Name value="expressionLabel11" />
-          <Text value="expressionLabel11" />
-          <TabIndex value="42" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=644,Y=172}" />
-          <EndPrintScript value="" />
-          <BeginPrintScript value="" />
-          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
-          <FontUnderline value="False" />
-          <FontStrikeout value="False" />
-          <FontItalic value="False" />
-          <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
-          <ForeColor value="Color [Black]" />
-          <BackColor value="Color [Transparent]" />
-          <BorderColor value="Color [Black]" />
-          <BorderWidth value="1" />
-          <DrawBottomBorder value="True" />
-          <DrawRightBorder value="True" />
-          <DrawLeftBorder value="True" />
-          <DrawTopBorder value="True" />
-          <TextAlignment value="MiddleCenter" />
-          <Expression value="BoxDetail.ReelNum6" />
-        </EastReport.Component.ExpressionLabel>
-        <EastReport.Component.ExpressionLabel>
-          <Name value="expressionLabel10" />
-          <Text value="expressionLabel10" />
-          <TabIndex value="41" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=568,Y=172}" />
-          <EndPrintScript value="" />
-          <BeginPrintScript value="" />
-          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
-          <FontUnderline value="False" />
-          <FontStrikeout value="False" />
-          <FontItalic value="False" />
-          <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
-          <ForeColor value="Color [Black]" />
-          <BackColor value="Color [Transparent]" />
-          <BorderColor value="Color [Black]" />
-          <BorderWidth value="1" />
-          <DrawBottomBorder value="True" />
-          <DrawRightBorder value="True" />
-          <DrawLeftBorder value="True" />
-          <DrawTopBorder value="True" />
-          <TextAlignment value="MiddleCenter" />
-          <Expression value="BoxDetail.ReelNum5" />
-        </EastReport.Component.ExpressionLabel>
-        <EastReport.Component.ExpressionLabel>
-          <Name value="expressionLabel9" />
-          <Text value="expressionLabel9" />
-          <TabIndex value="40" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=492,Y=172}" />
-          <EndPrintScript value="" />
-          <BeginPrintScript value="" />
-          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
-          <FontUnderline value="False" />
-          <FontStrikeout value="False" />
-          <FontItalic value="False" />
-          <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
-          <ForeColor value="Color [Black]" />
-          <BackColor value="Color [Transparent]" />
-          <BorderColor value="Color [Black]" />
-          <BorderWidth value="1" />
-          <DrawBottomBorder value="True" />
-          <DrawRightBorder value="True" />
-          <DrawLeftBorder value="True" />
-          <DrawTopBorder value="True" />
-          <TextAlignment value="MiddleCenter" />
-          <Expression value="BoxDetail.ReelNum4" />
-        </EastReport.Component.ExpressionLabel>
-        <EastReport.Component.ExpressionLabel>
-          <Name value="expressionLabel8" />
-          <Text value="expressionLabel8" />
-          <TabIndex value="39" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=416,Y=172}" />
-          <EndPrintScript value="" />
-          <BeginPrintScript value="" />
-          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
-          <FontUnderline value="False" />
-          <FontStrikeout value="False" />
-          <FontItalic value="False" />
-          <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
-          <ForeColor value="Color [Black]" />
-          <BackColor value="Color [Transparent]" />
-          <BorderColor value="Color [Black]" />
-          <BorderWidth value="1" />
-          <DrawBottomBorder value="True" />
-          <DrawRightBorder value="True" />
-          <DrawLeftBorder value="True" />
-          <DrawTopBorder value="True" />
-          <TextAlignment value="MiddleCenter" />
-          <Expression value="BoxDetail.ReelNum3" />
-        </EastReport.Component.ExpressionLabel>
-        <EastReport.Component.ExpressionLabel>
-          <Name value="expressionLabel7" />
-          <Text value="expressionLabel7" />
-          <TabIndex value="38" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=340,Y=172}" />
-          <EndPrintScript value="" />
-          <BeginPrintScript value="" />
-          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
-          <FontUnderline value="False" />
-          <FontStrikeout value="False" />
-          <FontItalic value="False" />
-          <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
-          <ForeColor value="Color [Black]" />
-          <BackColor value="Color [Transparent]" />
-          <BorderColor value="Color [Black]" />
-          <BorderWidth value="1" />
-          <DrawBottomBorder value="True" />
-          <DrawRightBorder value="True" />
-          <DrawLeftBorder value="True" />
-          <DrawTopBorder value="True" />
-          <TextAlignment value="MiddleCenter" />
-          <Expression value="BoxDetail.ReelNum2" />
-        </EastReport.Component.ExpressionLabel>
-        <EastReport.Component.ExpressionLabel>
-          <Name value="expressionLabel6" />
-          <Text value="expressionLabel6" />
-          <TabIndex value="37" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=264,Y=172}" />
-          <EndPrintScript value="" />
-          <BeginPrintScript value="" />
-          <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
-          <FontUnderline value="False" />
-          <FontStrikeout value="False" />
-          <FontItalic value="False" />
-          <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=10, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
-          <ForeColor value="Color [Black]" />
-          <BackColor value="Color [Transparent]" />
-          <BorderColor value="Color [Black]" />
-          <BorderWidth value="1" />
-          <DrawBottomBorder value="True" />
-          <DrawRightBorder value="True" />
-          <DrawLeftBorder value="True" />
-          <DrawTopBorder value="True" />
-          <TextAlignment value="MiddleCenter" />
-          <Expression value="BoxDetail.ReelNum1" />
-        </EastReport.Component.ExpressionLabel>
-        <EastReport.Component.ExpressionLabel>
           <Name value="expressionLabel5" />
           <Text value="expressionLabel5" />
           <TabIndex value="36" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=720,Y=232}" />
+          <Size value="{Width=81, Height=25}" />
+          <Location value="{X=716,Y=232}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -219,7 +74,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -228,15 +83,15 @@
           <DrawRightBorder value="False" />
           <DrawLeftBorder value="False" />
           <DrawTopBorder value="False" />
-          <TextAlignment value="TopLeft" />
-          <Expression value="BoxDetail.RollSum" />
+          <TextAlignment value="MiddleCenter" />
+          <Expression value="RollDiamSum" />
         </EastReport.Component.ExpressionLabel>
         <EastReport.Component.ExpressionLabel>
           <Name value="expressionLabel4" />
           <Text value="expressionLabel4" />
           <TabIndex value="35" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=704,Y=120}" />
+          <Size value="{Width=89, Height=25}" />
+          <Location value="{X=704,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -244,7 +99,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -254,14 +109,14 @@
           <DrawLeftBorder value="False" />
           <DrawTopBorder value="False" />
           <TextAlignment value="MiddleLeft" />
-          <Expression value="Specs.ToString()" />
+          <Expression value="BoxInfo.Specs" />
         </EastReport.Component.ExpressionLabel>
         <EastReport.Component.ExpressionLabel>
           <Name value="expressionLabel3" />
           <Text value="expressionLabel3" />
           <TabIndex value="34" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=544,Y=120}" />
+          <Size value="{Width=93, Height=25}" />
+          <Location value="{X=544,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -269,7 +124,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -279,14 +134,14 @@
           <DrawLeftBorder value="False" />
           <DrawTopBorder value="False" />
           <TextAlignment value="MiddleLeft" />
-          <Expression value="ColorNum.ToString()" />
+          <Expression value="BoxInfo.ColorNum" />
         </EastReport.Component.ExpressionLabel>
         <EastReport.Component.ExpressionLabel>
           <Name value="expressionLabel2" />
           <Text value="expressionLabel2" />
           <TabIndex value="33" />
-          <Size value="{Width=121, Height=25}" />
-          <Location value="{X=316,Y=120}" />
+          <Size value="{Width=157, Height=25}" />
+          <Location value="{X=324,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -294,7 +149,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -304,14 +159,14 @@
           <DrawLeftBorder value="False" />
           <DrawTopBorder value="False" />
           <TextAlignment value="MiddleLeft" />
-          <Expression value="QualityString.ToString()" />
+          <Expression value="BoxInfo.QualityString" />
         </EastReport.Component.ExpressionLabel>
         <EastReport.Component.ExpressionLabel>
           <Name value="expressionLabel" />
           <Text value="expressionLabel" />
           <TabIndex value="32" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=92,Y=120}" />
+          <Size value="{Width=141, Height=25}" />
+          <Location value="{X=116,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -319,7 +174,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -329,14 +184,14 @@
           <DrawLeftBorder value="False" />
           <DrawTopBorder value="False" />
           <TextAlignment value="MiddleLeft" />
-          <Expression value="BatchNo.ToString()" />
+          <Expression value="BoxInfo.BatchNo" />
         </EastReport.Component.ExpressionLabel>
         <EastReport.Component.Label>
           <Name value="label19" />
           <Text value="label19" />
           <TabIndex value="31" />
-          <Size value="{Width=53, Height=25}" />
-          <Location value="{X=648,Y=120}" />
+          <Size value="{Width=57, Height=25}" />
+          <Location value="{X=644,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -344,7 +199,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -360,8 +215,8 @@
           <Name value="label18" />
           <Text value="label18" />
           <TabIndex value="30" />
-          <Size value="{Width=45, Height=25}" />
-          <Location value="{X=496,Y=120}" />
+          <Size value="{Width=57, Height=25}" />
+          <Location value="{X=488,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -369,7 +224,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -385,8 +240,8 @@
           <Name value="label17" />
           <Text value="label17" />
           <TabIndex value="29" />
-          <Size value="{Width=45, Height=25}" />
-          <Location value="{X=268,Y=120}" />
+          <Size value="{Width=57, Height=25}" />
+          <Location value="{X=268,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -394,7 +249,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -410,8 +265,8 @@
           <Name value="label16" />
           <Text value="label16" />
           <TabIndex value="28" />
-          <Size value="{Width=45, Height=25}" />
-          <Location value="{X=44,Y=120}" />
+          <Size value="{Width=57, Height=25}" />
+          <Location value="{X=44,Y=116}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -419,7 +274,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -444,7 +299,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -461,8 +316,8 @@
           <Name value="dBText7" />
           <Text value="dBText7" />
           <TabIndex value="26" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=644,Y=196}" />
+          <Size value="{Width=77, Height=49}" />
+          <Location value="{X=644,Y=172}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -470,7 +325,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -487,8 +342,8 @@
           <Name value="dBText6" />
           <Text value="dBText6" />
           <TabIndex value="25" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=568,Y=196}" />
+          <Size value="{Width=77, Height=49}" />
+          <Location value="{X=568,Y=172}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -496,7 +351,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -513,8 +368,8 @@
           <Name value="dBText5" />
           <Text value="dBText5" />
           <TabIndex value="24" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=492,Y=196}" />
+          <Size value="{Width=77, Height=49}" />
+          <Location value="{X=492,Y=172}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -522,7 +377,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -539,8 +394,8 @@
           <Name value="dBText4" />
           <Text value="dBText4" />
           <TabIndex value="23" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=416,Y=196}" />
+          <Size value="{Width=77, Height=49}" />
+          <Location value="{X=416,Y=172}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -548,7 +403,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -565,8 +420,8 @@
           <Name value="dBText3" />
           <Text value="dBText3" />
           <TabIndex value="22" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=340,Y=196}" />
+          <Size value="{Width=77, Height=49}" />
+          <Location value="{X=340,Y=172}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -574,7 +429,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -591,8 +446,8 @@
           <Name value="dBText2" />
           <Text value="dBText2" />
           <TabIndex value="21" />
-          <Size value="{Width=77, Height=25}" />
-          <Location value="{X=264,Y=196}" />
+          <Size value="{Width=77, Height=49}" />
+          <Location value="{X=264,Y=172}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -600,7 +455,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -701,7 +556,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -719,7 +574,7 @@
           <Text value="label12" />
           <TabIndex value="16" />
           <Size value="{Width=77, Height=25}" />
-          <Location value="{X=116,Y=232}" />
+          <Location value="{X=636,Y=232}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
@@ -727,7 +582,7 @@
           <FontStrikeout value="False" />
           <FontItalic value="False" />
           <FontBold value="False" />
-          <Font value="[Font: Name=宋体, Size=9, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
+          <Font value="[Font: Name=宋体, Size=12, Units=3, GdiCharSet=1, GdiVerticalFont=False]" />
           <ForeColor value="Color [Black]" />
           <BackColor value="Color [Transparent]" />
           <BorderColor value="Color [Black]" />
@@ -736,14 +591,14 @@
           <DrawRightBorder value="False" />
           <DrawLeftBorder value="False" />
           <DrawTopBorder value="False" />
-          <TextAlignment value="MiddleCenter" />
-          <Caption value="制表" />
+          <TextAlignment value="BottomCenter" />
+          <Caption value="总计" />
         </EastReport.Component.Label>
         <EastReport.Component.Label>
           <Name value="label11" />
           <Text value="label11" />
           <TabIndex value="15" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=720,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -761,14 +616,14 @@
           <DrawRightBorder value="True" />
           <DrawLeftBorder value="True" />
           <DrawTopBorder value="True" />
-          <TextAlignment value="TopCenter" />
+          <TextAlignment value="MiddleCenter" />
           <Caption value="合计/m" />
         </EastReport.Component.Label>
         <EastReport.Component.Label>
           <Name value="label10" />
           <Text value="label10" />
           <TabIndex value="14" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=644,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -793,7 +648,7 @@
           <Name value="label9" />
           <Text value="label9" />
           <TabIndex value="13" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=568,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -818,7 +673,7 @@
           <Name value="label8" />
           <Text value="label8" />
           <TabIndex value="12" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=492,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -843,7 +698,7 @@
           <Name value="label7" />
           <Text value="label7" />
           <TabIndex value="11" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=416,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -868,7 +723,7 @@
           <Name value="label6" />
           <Text value="label6" />
           <TabIndex value="10" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=340,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -893,7 +748,7 @@
           <Name value="label5" />
           <Text value="label5" />
           <TabIndex value="9" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=264,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -918,7 +773,7 @@
           <Name value="label4" />
           <Text value="label4" />
           <TabIndex value="8" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=188,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -943,7 +798,7 @@
           <Name value="label3" />
           <Text value="label3" />
           <TabIndex value="7" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=112,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -968,7 +823,7 @@
           <Name value="label2" />
           <Text value="label2" />
           <TabIndex value="6" />
-          <Size value="{Width=77, Height=25}" />
+          <Size value="{Width=77, Height=29}" />
           <Location value="{X=36,Y=148}" />
           <EndPrintScript value="" />
           <BeginPrintScript value="" />
@@ -1021,7 +876,7 @@
           <Location value="{X=0,Y=172}" />
           <BackColor value="Color [PeachPuff]" />
           <EndPrintScript value="" />
-          <BeginPrintScript value="" />
+          <BeginPrintScript value="if (!BoxDetail.Bottom)&#xA;{  &#xA;    BoxDetail.Next();  &#xA;    RollDiamSum = RollDiamSum + BoxDetail.RollSum;&#xA;    BoxDetail.Prior(); &#xA;}" />
           <Page value="Page1 [EastReport.Page], BorderStyle: System.Windows.Forms.BorderStyle.None" />
           <Caption value="Master Data" />
           <DataTableName value="BoxDetail" />
@@ -1030,8 +885,8 @@
           <Name value="pageHeaderBand" />
           <Text value="pageHeaderBand" />
           <TabIndex value="2" />
-          <Size value="{Width=827, Height=57}" />
-          <Location value="{X=0,Y=116}" />
+          <Size value="{Width=827, Height=65}" />
+          <Location value="{X=0,Y=112}" />
           <BackColor value="Color [PeachPuff]" />
           <EndPrintScript value="" />
           <BeginPrintScript value="BatchNo=&quot;20230307001&quot;;&#xA;QualityString=&quot;yks362554555&quot;;&#xA;ColorNum=&quot;199&quot;;&#xA;Specs=&quot;177&quot;;" />
