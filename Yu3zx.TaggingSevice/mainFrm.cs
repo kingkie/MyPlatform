@@ -292,6 +292,13 @@ namespace Yu3zx.TaggingSevice
                         if (PlcReceive.TryDequeue(out plcCmd))
                         {
                             Log.Instance.LogWrite(string.Format("处理Plc指令：{0}", plcCmd.CmdCode));
+                            this.Invoke((EventHandler)delegate {
+                                if(txtInfo.TextLength > 800)
+                                {
+                                    txtInfo.Text = string.Empty;
+                                }
+                                txtInfo.Text += string.Format("处理Plc指令：{0}", plcCmd.CmdCode);
+                            });
                             switch (plcCmd.CmdCode)
                             {
                                 case 0x01:
@@ -324,11 +331,21 @@ namespace Yu3zx.TaggingSevice
                                             //NoticeRollDiam(item);//告知当前布卷卷径
                                             byte lNum = byte.Parse(item.LineNum);
                                             bool isA = true;
+                                            int flag = 0;
                                             if (item.QualityName != "A")
                                             {
+                                                if(item.QualityName == "HC")
+                                                {
+                                                    flag = 3;
+                                                }
+                                                else if(item.QualityName == "KC" || item.QualityName == "SC")
+                                                {
+                                                    flag = 2;
+                                                }
                                                 isA = false;
                                             }
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), isA);
+
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), isA, flag);
                                             Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0},品质：A{1}", item.LineNum, isA));
                                         }
                                         catch (Exception ex)
@@ -1122,7 +1139,7 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 通知薄膜已打印
         /// </summary>
-        private void NoticePrintedFabric(byte iLNum,int rolldiam,bool isA = true)
+        private void NoticePrintedFabric(byte iLNum,int rolldiam,bool isA = true,int flag = 0)
         {
             //通知上线
             try
@@ -1132,13 +1149,20 @@ namespace Yu3zx.TaggingSevice
                 lCmd.Add(iLNum);//产线号
 
                 lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rolldiam)));
-                if(isA)
+                if (flag > 0)
                 {
-                    lCmd.Add(0x00);
+                    lCmd.Add((byte)flag);
                 }
                 else
                 {
-                    lCmd.Add(0x01);
+                    if (isA)
+                    {
+                        lCmd.Add(0x01);
+                    }
+                    else
+                    {
+                        lCmd.Add(0x02);
+                    }
                 }
 
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
@@ -1475,5 +1499,10 @@ namespace Yu3zx.TaggingSevice
         }
         #endregion End
 
+        private void btnSysState_Click(object sender, EventArgs e)
+        {
+            string sysInfo = ProductStateManager.GetInstance().SysInfo();
+            txtSysState.Text = sysInfo;
+        }
     }
 }

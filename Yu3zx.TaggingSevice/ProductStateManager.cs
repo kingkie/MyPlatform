@@ -71,6 +71,13 @@ namespace Yu3zx.TaggingSevice
             }
         }
 
+        public string SysInfo()
+        {
+            string jsonsavestr = JSONUtil.SerializeJSON(this);
+            return jsonsavestr;
+        }
+
+
         private static ProductStateManager Read()
         {
             string filepathstring = Path.Combine(Application.StartupPath, "Config") + "\\ProductStateManager.json";

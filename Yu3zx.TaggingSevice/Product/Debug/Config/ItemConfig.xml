@@ -11,6 +11,7 @@
 		<LabelItem dataname="QualityString" matchname="QSName"/>
 		<LabelItem dataname="ColorNum" matchname="ColorNum"/>
 		<LabelItem dataname="Specs" matchname="Specs"/>
+		<LabelItem dataname="ReelNum" matchname="ReelNum"/>
 	</FabricConfig>
 	<CartonConfig name="整包模板">
 		<LabelItem dataname="BatchNo" matchname="BatchNo"/>
@@ -25,6 +26,12 @@
 		<LabelItem dataname="RollNum4" matchname="RN4"/>
 		<LabelItem dataname="RollNum5" matchname="RN5"/>
 		<LabelItem dataname="RollNum6" matchname="RN6"/>
+		<LabelItem dataname="ReelNum1" matchname="ReelNum1"/>
+		<LabelItem dataname="ReelNum2" matchname="ReelNum2"/>
+		<LabelItem dataname="ReelNum3" matchname="ReelNum3"/>
+		<LabelItem dataname="ReelNum4" matchname="ReelNum4"/>
+		<LabelItem dataname="ReelNum5" matchname="ReelNum5"/>
+		<LabelItem dataname="ReelNum6" matchname="ReelNum6"/>
 	</CartonConfig>
 	<PrinterConfig>
 		<PrinterItem linenum="1" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
@@ -35,6 +42,6 @@
 	<PortConfig CommName="COM2" CommRate="19200"/>
 	<AutoStartBoot value="1"/>
 	<UsedDevice Id="dev210602001" Name="气味模块"/>
-	<Server ip="127.0.0.1" port="8266" auto="1" plcip="192.168.0.201"/>
+	<Server ip="192.168.0.99" port="8266" auto="1" plcip="192.168.0.201"/>
 	<LineNum value="1" fullnum="6"/>
 </Configuration>
