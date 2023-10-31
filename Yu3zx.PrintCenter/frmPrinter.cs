@@ -117,6 +117,13 @@ namespace Yu3zx.PrintCenter
             carton.Specs = txtBoxSpecs.Text;
             carton.QualityString = txtBoxQs.Text;
 
+            carton.ReelNum1 = int.Parse(txtSerial1.Text);
+            carton.ReelNum2 = int.Parse(txtSerial2.Text);
+            carton.ReelNum3 = int.Parse(txtSerial3.Text);
+            carton.ReelNum4 = int.Parse(txtSerial4.Text);
+            carton.ReelNum5 = int.Parse(txtSerial5.Text);
+            carton.ReelNum6 = int.Parse(txtSerial6.Text);
+
             carton.RollNum1 = decimal.Parse(txtRoll1.Text);
             carton.RollNum2 = decimal.Parse(txtRoll2.Text);
             carton.RollNum3 = decimal.Parse(txtRoll3.Text);
