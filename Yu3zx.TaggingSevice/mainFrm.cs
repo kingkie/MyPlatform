@@ -437,10 +437,14 @@ namespace Yu3zx.TaggingSevice
                                     break;
                                 case 0x05:
                                     //强制上线,还是需要判断现在是否忙碌中
-                                    if(!ProductStateManager.GetInstance().CurrentDoing)
+                                    if (!ProductStateManager.GetInstance().CurrentDoing)
                                     {
                                         bForce = true;
                                     }
+                                    break;
+                                case 0x06:
+                                    //复位指令
+                                    ProductStateManager.GetInstance().CurrentDoing = false;
                                     break;
                             }
                         }
@@ -526,8 +530,6 @@ namespace Yu3zx.TaggingSevice
                         {
                             Log.Instance.LogWrite("L412：开始上线另外的");
                             //开始上线  ----要注意超出
-
-
 
                             WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
                             WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
@@ -676,12 +678,20 @@ namespace Yu3zx.TaggingSevice
                                     PlcReceive.Enqueue(cmd4);
                                     break;
                                 case 0x05:
-                                    //下线完成通知
+                                    //强制
                                     PlcCmd cmd5 = new PlcCmd();
-                                    cmd5.CmdCode = 0x04;
+                                    cmd5.CmdCode = 0x05;
                                     cmd5.MachineId = cmdInput[1];
                                     //
                                     PlcReceive.Enqueue(cmd5);
+                                    break;
+                                case 0x06:
+                                    //强制
+                                    PlcCmd cmd6 = new PlcCmd();
+                                    cmd6.CmdCode = 0x06;
+                                    cmd6.MachineId = cmdInput[1];
+                                    //
+                                    PlcReceive.Enqueue(cmd6);
                                     break;
                                 default:
 
