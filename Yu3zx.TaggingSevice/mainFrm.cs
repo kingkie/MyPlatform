@@ -732,7 +732,8 @@ namespace Yu3zx.TaggingSevice
                         if (pbCfg != null)
                         {
                             Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
-                            string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.LabelBName;
+                            //string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.LabelBName;// FabricKCSC.btw
+                            string lblFile = Application.StartupPath + "\\Templates\\KcSc" + pbCfg.LabelBName;
                             if (File.Exists(lblFile))
                             {
                                 PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pbCfg.PrintCopies);

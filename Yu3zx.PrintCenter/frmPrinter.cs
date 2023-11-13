@@ -100,8 +100,20 @@ namespace Yu3zx.PrintCenter
             clothItem.ProduceNum = float.Parse(txtProduceNum.Text);
             clothItem.Specs = txtSpecs.Text;
             clothItem.QualityString = txtQuatilyString.Text;
+            clothItem.ReelNum = int.Parse(txtFabItemNum.Text); //
+            clothItem.QualityName = txtQName.Text;
             Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(clothItem);
-            string lblFile = Application.StartupPath + "\\Templates\\" + "FabricLbl.btw";
+
+            string lblFile = string.Empty;
+            if (clothItem.QualityName != "A")
+            {
+                lblFile = Application.StartupPath + "\\Templates\\KcSc" + "FabricLbl.btw";
+            }
+            else
+            {
+                lblFile = Application.StartupPath + "\\Templates\\" + "FabricLbl.btw";
+            }
+
             if (File.Exists(lblFile))
             {
                 PrintHelper.CreateInstance().BarPrintInit(lblFile, cboInitprinter.Text, dictData, PrintHelper.FabricTempleteFieldsList, (int)nudCopys.Value);

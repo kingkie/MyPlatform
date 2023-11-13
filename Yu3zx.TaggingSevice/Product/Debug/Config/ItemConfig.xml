@@ -12,6 +12,7 @@
 		<LabelItem dataname="ColorNum" matchname="ColorNum"/>
 		<LabelItem dataname="Specs" matchname="Specs"/>
 		<LabelItem dataname="ReelNum" matchname="ReelNum"/>
+		<LabelItem dataname="QualityName" matchname="QualityName"/>
 	</FabricConfig>
 	<CartonConfig name="整包模板">
 		<LabelItem dataname="BatchNo" matchname="BatchNo"/>
