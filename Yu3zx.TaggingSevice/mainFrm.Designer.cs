@@ -51,6 +51,8 @@ namespace Yu3zx.TaggingSevice
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpgCtrl = new System.Windows.Forms.TabPage();
+            this.txtSysState = new System.Windows.Forms.TextBox();
+            this.btnSysState = new System.Windows.Forms.Button();
             this.btnStateClear = new System.Windows.Forms.Button();
             this.btnStateSave = new System.Windows.Forms.Button();
             this.tpgConfig = new System.Windows.Forms.TabPage();
@@ -78,8 +80,9 @@ namespace Yu3zx.TaggingSevice
             this.label22 = new System.Windows.Forms.Label();
             this.txtEBatchNo = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.btnSysState = new System.Windows.Forms.Button();
-            this.txtSysState = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btClsBatch = new System.Windows.Forms.Button();
+            this.txtClsBatchNo = new System.Windows.Forms.TextBox();
             this.cmsMenu.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tpgHome.SuspendLayout();
@@ -92,6 +95,7 @@ namespace Yu3zx.TaggingSevice
             this.tpgConfig.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIco
@@ -145,7 +149,7 @@ namespace Yu3zx.TaggingSevice
             this.tpgHome.Controls.Add(this.panel2);
             this.tpgHome.Location = new System.Drawing.Point(4, 31);
             this.tpgHome.Name = "tpgHome";
-            this.tpgHome.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpgHome.Padding = new System.Windows.Forms.Padding(3);
             this.tpgHome.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tpgHome.Size = new System.Drawing.Size(746, 439);
             this.tpgHome.TabIndex = 0;
@@ -183,7 +187,7 @@ namespace Yu3zx.TaggingSevice
             // 
             this.txtInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtInfo.Location = new System.Drawing.Point(3, 17);
-            this.txtInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInfo.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.Size = new System.Drawing.Size(357, 318);
@@ -215,7 +219,7 @@ namespace Yu3zx.TaggingSevice
             // btnReConn
             // 
             this.btnReConn.Location = new System.Drawing.Point(248, 20);
-            this.btnReConn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReConn.Margin = new System.Windows.Forms.Padding(2);
             this.btnReConn.Name = "btnReConn";
             this.btnReConn.Size = new System.Drawing.Size(73, 25);
             this.btnReConn.TabIndex = 2;
@@ -236,7 +240,7 @@ namespace Yu3zx.TaggingSevice
             this.swtPlc.DisableTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.swtPlc.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold);
             this.swtPlc.Location = new System.Drawing.Point(15, 21);
-            this.swtPlc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.swtPlc.Margin = new System.Windows.Forms.Padding(2);
             this.swtPlc.Name = "swtPlc";
             this.swtPlc.Size = new System.Drawing.Size(50, 24);
             this.swtPlc.Style = WinformControlLibraryExtension.SwitchButtonExt.SwitchSlideStyles.Internal;
@@ -323,6 +327,7 @@ namespace Yu3zx.TaggingSevice
             // 
             // tpgCtrl
             // 
+            this.tpgCtrl.Controls.Add(this.groupBox2);
             this.tpgCtrl.Controls.Add(this.txtSysState);
             this.tpgCtrl.Controls.Add(this.btnSysState);
             this.tpgCtrl.Controls.Add(this.btnStateClear);
@@ -334,10 +339,29 @@ namespace Yu3zx.TaggingSevice
             this.tpgCtrl.Text = "操作";
             this.tpgCtrl.UseVisualStyleBackColor = true;
             // 
+            // txtSysState
+            // 
+            this.txtSysState.Location = new System.Drawing.Point(18, 74);
+            this.txtSysState.Multiline = true;
+            this.txtSysState.Name = "txtSysState";
+            this.txtSysState.Size = new System.Drawing.Size(720, 357);
+            this.txtSysState.TabIndex = 3;
+            // 
+            // btnSysState
+            // 
+            this.btnSysState.Location = new System.Drawing.Point(227, 18);
+            this.btnSysState.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSysState.Name = "btnSysState";
+            this.btnSysState.Size = new System.Drawing.Size(82, 39);
+            this.btnSysState.TabIndex = 2;
+            this.btnSysState.Text = "查看状态";
+            this.btnSysState.UseVisualStyleBackColor = true;
+            this.btnSysState.Click += new System.EventHandler(this.btnSysState_Click);
+            // 
             // btnStateClear
             // 
             this.btnStateClear.Location = new System.Drawing.Point(119, 18);
-            this.btnStateClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStateClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnStateClear.Name = "btnStateClear";
             this.btnStateClear.Size = new System.Drawing.Size(82, 39);
             this.btnStateClear.TabIndex = 1;
@@ -348,7 +372,7 @@ namespace Yu3zx.TaggingSevice
             // btnStateSave
             // 
             this.btnStateSave.Location = new System.Drawing.Point(18, 18);
-            this.btnStateSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStateSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnStateSave.Name = "btnStateSave";
             this.btnStateSave.Size = new System.Drawing.Size(82, 39);
             this.btnStateSave.TabIndex = 0;
@@ -362,7 +386,7 @@ namespace Yu3zx.TaggingSevice
             this.tpgConfig.Controls.Add(this.groupBox5);
             this.tpgConfig.Location = new System.Drawing.Point(4, 31);
             this.tpgConfig.Name = "tpgConfig";
-            this.tpgConfig.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpgConfig.Padding = new System.Windows.Forms.Padding(3);
             this.tpgConfig.Size = new System.Drawing.Size(746, 439);
             this.tpgConfig.TabIndex = 1;
             this.tpgConfig.Text = "数据编辑";
@@ -381,9 +405,9 @@ namespace Yu3zx.TaggingSevice
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(738, 431);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
@@ -486,7 +510,7 @@ namespace Yu3zx.TaggingSevice
             "KC",
             "SC"});
             this.cboQualityName.Location = new System.Drawing.Point(158, 230);
-            this.cboQualityName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboQualityName.Margin = new System.Windows.Forms.Padding(2);
             this.cboQualityName.Name = "cboQualityName";
             this.cboQualityName.Size = new System.Drawing.Size(92, 26);
             this.cboQualityName.TabIndex = 32;
@@ -651,24 +675,34 @@ namespace Yu3zx.TaggingSevice
             this.label19.TabIndex = 25;
             this.label19.Text = "布料批次";
             // 
-            // btnSysState
+            // groupBox2
             // 
-            this.btnSysState.Location = new System.Drawing.Point(227, 18);
-            this.btnSysState.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSysState.Name = "btnSysState";
-            this.btnSysState.Size = new System.Drawing.Size(82, 39);
-            this.btnSysState.TabIndex = 2;
-            this.btnSysState.Text = "查看状态";
-            this.btnSysState.UseVisualStyleBackColor = true;
-            this.btnSysState.Click += new System.EventHandler(this.btnSysState_Click);
+            this.groupBox2.Controls.Add(this.txtClsBatchNo);
+            this.groupBox2.Controls.Add(this.btClsBatch);
+            this.groupBox2.Location = new System.Drawing.Point(458, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(280, 61);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "批次号";
             // 
-            // txtSysState
+            // btClsBatch
             // 
-            this.txtSysState.Location = new System.Drawing.Point(18, 74);
-            this.txtSysState.Multiline = true;
-            this.txtSysState.Name = "txtSysState";
-            this.txtSysState.Size = new System.Drawing.Size(720, 357);
-            this.txtSysState.TabIndex = 3;
+            this.btClsBatch.Location = new System.Drawing.Point(150, 11);
+            this.btClsBatch.Margin = new System.Windows.Forms.Padding(2);
+            this.btClsBatch.Name = "btClsBatch";
+            this.btClsBatch.Size = new System.Drawing.Size(113, 39);
+            this.btClsBatch.TabIndex = 2;
+            this.btClsBatch.Text = "清除此批次状态";
+            this.btClsBatch.UseVisualStyleBackColor = true;
+            this.btClsBatch.Click += new System.EventHandler(this.btClsBatch_Click);
+            // 
+            // txtClsBatchNo
+            // 
+            this.txtClsBatchNo.Location = new System.Drawing.Point(6, 21);
+            this.txtClsBatchNo.Name = "txtClsBatchNo";
+            this.txtClsBatchNo.Size = new System.Drawing.Size(126, 21);
+            this.txtClsBatchNo.TabIndex = 3;
             // 
             // mainFrm
             // 
@@ -700,6 +734,8 @@ namespace Yu3zx.TaggingSevice
             this.groupBox5.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -754,6 +790,9 @@ namespace Yu3zx.TaggingSevice
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSysState;
         private System.Windows.Forms.TextBox txtSysState;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btClsBatch;
+        private System.Windows.Forms.TextBox txtClsBatchNo;
     }
 }
 

@@ -1535,5 +1535,25 @@ namespace Yu3zx.TaggingSevice
             string sysInfo = ProductStateManager.GetInstance().SysInfo();
             txtSysState.Text = sysInfo;
         }
+
+        private void btClsBatch_Click(object sender, EventArgs e)
+        {
+            string strBatchNoCls = txtClsBatchNo.Text.Trim();
+            if ( MessageBox.Show("确定清除此批次上线,请确保线上已经无此批次正在\r\n包装的产品，并停止上线的状态！", "警告",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(strBatchNoCls) && ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNoCls))
+                    {
+                        ProductStateManager.GetInstance().CurrentDoing = false;
+                        ProductStateManager.GetInstance().DictOnLine.Remove(strBatchNoCls);
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+        }
     }
 }
