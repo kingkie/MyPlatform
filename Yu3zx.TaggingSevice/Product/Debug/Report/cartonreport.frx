@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates how to print multiple Table rows with a script. To do this:&#13;&#10;- select the Table object;&#13;&#10;- go to the &quot;Properties&quot; window and click the &quot;Events&quot; button to view list of available events;&#13;&#10;- doubleclick the &quot;ManualBuild&quot; event;&#13;&#10;- you will see the empty event handler. You need to print rows using TableObject.PrintRow method; in each row, you must also print all columns (using PrintColumns method). See the script code for more details.&#13;&#10;When you run a report, the Table will repeat a row and fill it with data." ReportInfo.Created="01/17/2008 20:40:24" ReportInfo.Modified="11/19/2023 00:44:17" ReportInfo.CreatorVersion="2019.1.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    private void ColumnFooter1_BeforePrint(object sender, EventArgs e)
+    {
+      //Decimal totalData = 0;
+      //DataSourceBase rowData = Report.GetDataSource(&quot;Products&quot;);
+      //rowData.Init();
+      //while(rowData.HasMoreRows)
+      //{
+         //totalData+=  ToSingle(rowData.CurrentRow[&quot;RollSum&quot;]);
+         //rowData.Next();
+      //}
+      //Parameter para = Report.Parameters.FindByName(&quot;ParaTotal&quot;);
+      //para.Value = totalData;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Products" ReferenceName="NorthWind.Products" DataType="System.Int32" Enabled="true">
+      <Column Name="ProductID" Enabled="false" DataType="System.Int32"/>
+      <Column Name="ProductName" Enabled="false" DataType="System.String"/>
+      <Column Name="SupplierID" Enabled="false" DataType="System.Int32"/>
+      <Column Name="CategoryID" Enabled="false" DataType="System.Int32"/>
+      <Column Name="QuantityPerUnit" Enabled="false" DataType="System.String"/>
+      <Column Name="UnitPrice" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="UnitsInStock" Enabled="false" DataType="System.Int16"/>
+      <Column Name="UnitsOnOrder" Enabled="false" DataType="System.Int16"/>
+      <Column Name="ReorderLevel" Enabled="false" DataType="System.Int16"/>
+      <Column Name="Discontinued" Enabled="false" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="EAN13" Enabled="false" DataType="System.String"/>
+      <Column Name="BoxNum" DataType="System.String" PropName="Column"/>
+      <Column Name="ReelNum1" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ReelNum2" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ReelNum3" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ReelNum4" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ReelNum5" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ReelNum6" DataType="System.Int32" PropName="Column"/>
+      <Column Name="RollNum1" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="RollNum2" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="RollNum3" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="RollNum4" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="RollNum5" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="RollNum6" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="RollSum" DataType="System.Decimal" PropName="Column" Format="Number"/>
+    </TableDataSource>
+    <Parameter Name="BatchNo" DataType="System.String"/>
+    <Parameter Name="ColorNum" DataType="System.String"/>
+    <Parameter Name="QualityString" DataType="System.String"/>
+    <Parameter Name="Specs" DataType="System.String"/>
+    <Parameter Name="ParaTotal" DataType="System.String"/>
+    <Total Name="RollTotals" Expression="[Products.RollSum]" Evaluator="Data1" PrintOn="ColumnFooter1" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="132.3" CanGrow="true">
+      <TextObject Name="Text2" Top="28.35" Width="718.2" Height="28.35" Text="宁波宜阳宾霸纺织品有限公司" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 14pt, style=Bold"/>
+      <TextObject Name="Text3" Left="28.35" Top="75.6" Width="56.7" Height="28.35" Text="批 号：" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="217.35" Top="75.6" Width="56.7" Height="28.35" Text="品 名：" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="396.9" Top="75.6" Width="56.7" Height="28.35" Text="色 号：" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="548.1" Top="75.6" Width="56.7" Height="28.35" Text="规 格：" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="94.5" Top="75.6" Width="113.4" Height="28.35" Text="[BatchNo]" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="283.5" Top="75.6" Width="94.5" Height="28.35" Text="[QualityString]" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="463.05" Top="75.6" Width="75.6" Height="28.35" Text="[ColorNum]" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="614.25" Top="75.6" Width="66.15" Height="28.35" Text="[Specs]" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="28.35" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="箱 号" HorzAlign="Center" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="94.5" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="等 级" HorzAlign="Center" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text14" Left="160.65" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="箱内卷数" HorzAlign="Center" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text15" Left="226.8" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text16" Left="292.95" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text17" Left="359.1" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text18" Left="425.25" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text19" Left="491.4" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text20" Left="557.55" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="6" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text21" Left="623.7" Top="103.95" Width="66.15" Height="28.35" Border.Lines="All" Text="合计/m" HorzAlign="Center" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="136.3" Width="718.2" Height="37.8" CanGrow="true" CanBreak="true" DataSource="Products" Columns.Layout="DownThenAcross">
+      <TextObject Name="Text22" Left="28.35" Width="66.15" Height="37.8" Border.Lines="All" Text="[Products.BoxNum]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text23" Left="160.65" Width="66.15" Height="18.9" Border.Lines="All" Text="卷 号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text24" Left="160.65" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="米 数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text25" Left="226.8" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.ReelNum1]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="226.8" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.RollNum1]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="¥" Format.PositivePattern="0" Format.NegativePattern="2" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="292.95" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.ReelNum2]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="292.95" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.RollNum2]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="¥" Format.PositivePattern="0" Format.NegativePattern="2" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="359.1" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.ReelNum3]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text30" Left="359.1" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.RollNum3]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="¥" Format.PositivePattern="0" Format.NegativePattern="2" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="425.25" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.ReelNum4]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text32" Left="425.25" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.RollNum4]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="¥" Format.PositivePattern="0" Format.NegativePattern="2" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text33" Left="491.4" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.ReelNum5]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="491.4" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.RollNum5]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="¥" Format.PositivePattern="0" Format.NegativePattern="2" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text35" Left="557.55" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.ReelNum6]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text36" Left="557.55" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="[Products.RollNum6]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="¥" Format.PositivePattern="0" Format.NegativePattern="2" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text37" Left="623.7" Width="66.15" Height="37.8" Border.Lines="All" Text="[Products.RollSum]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text38" Left="94.5" Width="66.15" Height="37.8" Border.Lines="All" Text="A" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="219.9" Width="718.2" Height="37.8" CanGrow="true" CanBreak="true"/>
+    <ColumnFooterBand Name="ColumnFooter1" Top="178.1" Width="718.2" Height="37.8" BeforePrintEvent="ColumnFooter1_BeforePrint">
+      <TextObject Name="Text39" Left="529.2" Width="56.7" Height="18.9" Text="总 计：" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text1" Left="585.9" Width="94.5" Height="18.9" Fill.Color="White" Text="[ParaTotal]" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="261.7" Width="718.2" Height="37.8" Fill.Color="White"/>
+  </ReportPage>
+</Report>

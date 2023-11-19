@@ -10,6 +10,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+
+using FastReport;
+using FastReport.Data;
+
 using Yu3zx.DapperExtend;
 using Yu3zx.Logs;
 
@@ -812,8 +816,13 @@ namespace Yu3zx.TaggingSevice
                 //一垛总包数
                 List <BoxDetail> Boxes = new List<BoxDetail>();
                 //增加装箱信息
-                BoxInfo info = new BoxInfo();
-                List<BoxInfo> BoxInfos = new List<BoxInfo>();
+                //BoxInfo info = new BoxInfo();
+                //List<BoxInfo> BoxInfos = new List<BoxInfo>();
+                string strBatchNo = string.Empty;
+                string strColorNum = string.Empty;
+                string strQualityString = string.Empty;
+                string strSpecs = string.Empty;
+                decimal sumRoll = 0;
                 for (int i = 0; i < minPack; i++)
                 {
                     CartonBox item = ProductStateManager.GetInstance().CartonBoxItems[i];
@@ -822,11 +831,15 @@ namespace Yu3zx.TaggingSevice
                     {
                         if(j == 0 && i == 0)
                         {
-                            info.BatchNo = item.OnLaunchItems[j].BatchNo;
-                            info.ColorNum = item.OnLaunchItems[j].ColorNum;
-                            info.QualityString = item.OnLaunchItems[j].QualityString;
-                            info.Specs = item.OnLaunchItems[j].Specs;
-                            BoxInfos.Add(info);
+                            //info.BatchNo = item.OnLaunchItems[j].BatchNo;
+                            //info.ColorNum = item.OnLaunchItems[j].ColorNum;
+                            //info.QualityString = item.OnLaunchItems[j].QualityString;
+                            //info.Specs = item.OnLaunchItems[j].Specs;
+                            strBatchNo = item.OnLaunchItems[j].BatchNo;
+                            strColorNum = item.OnLaunchItems[j].ColorNum;
+                            strQualityString = item.OnLaunchItems[j].QualityString;
+                            strSpecs = item.OnLaunchItems[j].Specs;
+                            //BoxInfos.Add(info);
                             try
                             {
                                 lineNum = byte.Parse(item.OnLaunchItems[j].LineNum);
@@ -862,36 +875,82 @@ namespace Yu3zx.TaggingSevice
                                 break;
                         }
                     }
+
+                    sumRoll =+ detail.RollSum;//总计
                     detail.BoxNum = item.BoxNum;
                     Boxes.Add(detail);
                 }
+                //-------------------
+                var FDataSet = new DataSet();
+                DataTable table = PackHelper.ListToDataTable(Boxes);
+                table.TableName = "Products";
+                FDataSet.Tables.Add(table);
+                string filePath = Application.StartupPath + "\\Report\\cartonreport.frx";
+                Report report = new Report();
+                report.Load(filePath);
+                Parameter BatchNo = new Parameter();
+                BatchNo.Name = "BatchNo";
+                BatchNo.DataType = typeof(string);
+                BatchNo.Value = strBatchNo;
+                Parameter colorNum = new Parameter();
+                colorNum.Name = "ColorNum";
+                colorNum.DataType = typeof(string);
+                colorNum.Value = strColorNum;
+                Parameter QualityString = new Parameter();
+                QualityString.Name = "QualityString";
+                QualityString.DataType = typeof(string);
+                QualityString.Value = strQualityString;
+                Parameter Specs = new Parameter();
+                Specs.Name = "Specs";
+                Specs.DataType = typeof(string);
+                Specs.Value = strSpecs;
+                Parameter paraTotal = new Parameter();
+                paraTotal.Name = "ParaTotal";
+                paraTotal.DataType = typeof(string);
+                paraTotal.Value = sumRoll.ToString();
 
-                EastReport.Report report = new EastReport.Report();
-                string filePath = Application.StartupPath + "\\Report\\cartonreport.rpt";
-                try
-                {
-                    DataSet dsInfo = ConvertToDataSet(BoxInfos);
-                    report.AddDataSet(dsInfo);
+                report.Parameters.Add(BatchNo);
+                report.Parameters.Add(colorNum);
+                report.Parameters.Add(QualityString);
+                report.Parameters.Add(Specs);
+                report.Parameters.Add(paraTotal);
 
-                    DataSet pDatset = ConvertToDataSet(Boxes);
-                    report.AddDataSet(pDatset);
+                report.RegisterData(FDataSet, "NorthWind");//NorthWind
+                report.SmoothGraphics = true;
 
-                    report.Variants.Add(new EastReport.Variant("RollDiamSum", EastReport.VariantType.Decimal, ""));
-
-                    //report.Variants.Add(new EastReport.Variant("BatchNo", EastReport.VariantType.String, "230A321"));
-                    //report.Variants.Add(new EastReport.Variant("QualityString", EastReport.VariantType.String, "yke813017029"));
-                    //report.Variants.Add(new EastReport.Variant("ColorNum", EastReport.VariantType.String, "199"));
-                    //report.Variants.Add(new EastReport.Variant("Specs", EastReport.VariantType.String, "137"));
-                }
-                catch (Exception)
-                { }
-
-                System.Xml.XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(filePath);//载入报表
-                report.Load(xmlDoc);
-                report.Print(true);
-                //报表打印
+                report.Print();
                 report.Dispose();
+
+                #region EastReport
+
+                //EastReport.Report report = new EastReport.Report();
+                //string filePath = Application.StartupPath + "\\Report\\cartonreport.rpt";
+                //try
+                //{
+                //    DataSet dsInfo = ConvertToDataSet(BoxInfos);
+                //    report.AddDataSet(dsInfo);
+
+                //    DataSet pDatset = ConvertToDataSet(Boxes);
+                //    report.AddDataSet(pDatset);
+
+                //    report.Variants.Add(new EastReport.Variant("RollDiamSum", EastReport.VariantType.Decimal, ""));
+
+                //    //report.Variants.Add(new EastReport.Variant("BatchNo", EastReport.VariantType.String, "230A321"));
+                //    //report.Variants.Add(new EastReport.Variant("QualityString", EastReport.VariantType.String, "yke813017029"));
+                //    //report.Variants.Add(new EastReport.Variant("ColorNum", EastReport.VariantType.String, "199"));
+                //    //report.Variants.Add(new EastReport.Variant("Specs", EastReport.VariantType.String, "137"));
+                //}
+                //catch (Exception)
+                //{ }
+
+                //System.Xml.XmlDocument xmlDoc = new XmlDocument();
+                //xmlDoc.Load(filePath);//载入报表
+                //report.Load(xmlDoc);
+                //report.Print(true);
+                ////报表打印
+                //report.Dispose();
+
+                #endregion End
 
                 Console.WriteLine("总包数打印！");
                 //通知已经打印
