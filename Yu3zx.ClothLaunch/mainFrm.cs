@@ -73,6 +73,12 @@ namespace Yu3zx.ClothLaunch
             //    return;
             //}
 
+            if (string.IsNullOrEmpty(txtProduceNum.Text))
+            {
+                txtProduceNum.Focus();
+                return;
+            }
+
             string strBatchNo = txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
             string strColorNum = txtColorNum.Text;
             float fProduceNum = float.Parse(txtProduceNum.Text);
@@ -162,6 +168,8 @@ namespace Yu3zx.ClothLaunch
                 DataManager.CreateInstance().NeedSend.Add(item);
                 Console.WriteLine(ex.Message);
             }
+
+            txtProduceNum.Text = "50";
         }
         /// <summary>
         /// 
