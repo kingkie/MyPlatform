@@ -170,6 +170,7 @@ namespace Yu3zx.ClothLaunch
             }
 
             txtProduceNum.Text = "50";
+            rdoA.Checked = true;
         }
         /// <summary>
         /// 
