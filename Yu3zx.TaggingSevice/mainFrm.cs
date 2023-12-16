@@ -213,6 +213,7 @@ namespace Yu3zx.TaggingSevice
                 {
                     string infoStr = DateTime.Now.ToString("[HH:mm:ss]") + "接收到对象：" + Json.JSONUtil.SerializeJSON(item);
                     Console.WriteLine(infoStr);
+                    Log.Instance.LogWrite(string.Format("接收到：{0},{1},{2}", item.BatchNo, item.ReelNum, item.RndString));
                     this.Invoke((EventHandler)delegate {
                         this.txtInfo.Text = infoStr;
                     });

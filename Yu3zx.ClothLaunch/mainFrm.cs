@@ -121,6 +121,8 @@ namespace Yu3zx.ClothLaunch
             if (!SaveFabricCloth(item))
             {
                 MessageBox.Show("保存失败，请检查后重新保存！");
+                Logs.Log.Instance.LogWrite("保存失败，请检查后重新保存！");
+                Logs.Log.Instance.LogWrite("批次：" + strBatchNo);
                 return;
             }
             else
@@ -165,6 +167,7 @@ namespace Yu3zx.ClothLaunch
             }
             catch(Exception ex)
             {
+                Logs.Log.Instance.LogWrite("网络异常：" + ex.Message);
                 DataManager.CreateInstance().NeedSend.Add(item);
                 Console.WriteLine(ex.Message);
             }
@@ -193,6 +196,7 @@ namespace Yu3zx.ClothLaunch
                     else
                     {
                         Console.WriteLine("添加失败");
+                        Logs.Log.Instance.LogWrite("L199,添加失败！");
                         return false;
                     }
                 }
