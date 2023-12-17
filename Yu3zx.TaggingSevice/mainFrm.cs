@@ -408,10 +408,11 @@ namespace Yu3zx.TaggingSevice
                                     {
                                         iPfl = plcCmd.DataSegment[0];
                                     }
+                                    Log.Instance.LogWrite(string.Format("打印入库单,箱数：{0}", iPfl));
                                     if (iPfl > 0)
                                     {
                                         this.Invoke((EventHandler)delegate {
-                                            PrintFabricList(iPfl); //打印总箱数
+                                            PrintFabricList(iPfl); //打印入库单
                                         });
                                         //剔除已经成垛的
                                         int moveIndex = iPfl;
@@ -612,7 +613,8 @@ namespace Yu3zx.TaggingSevice
                 }
                 catch(Exception ex)
                 {
-                    Log.Instance.LogWrite("L486:" + ex);
+                    Log.Instance.LogWrite("L486:" + ex.Message);
+                    Log.Instance.LogWrite("L486:" + ex.StackTrace);
                     Console.WriteLine(ex);
                 }
             }
@@ -814,6 +816,12 @@ namespace Yu3zx.TaggingSevice
                 }
                 byte lineNum = 0;
                 int minPack = Math.Min(ProductStateManager.GetInstance().CartonBoxItems.Count, packNum);
+                if(minPack < 1)
+                {
+                    //通知已经打印
+                    NoticePrintedReport(lineNum, minPack);
+                    return;
+                }
                 //一垛总包数
                 List <BoxDetail> Boxes = new List<BoxDetail>();
                 //增加装箱信息
