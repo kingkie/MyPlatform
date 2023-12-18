@@ -832,62 +832,70 @@ namespace Yu3zx.TaggingSevice
                 string strQualityString = string.Empty;
                 string strSpecs = string.Empty;
                 decimal sumRoll = 0;
-                for (int i = 0; i < minPack; i++)
+                try
                 {
-                    CartonBox item = ProductStateManager.GetInstance().CartonBoxItems[i];
-                    BoxDetail detail = new BoxDetail();
-                    for(int j=0; j < item.OnLaunchItems.Count;j++)
+                    for (int i = 0; i < minPack; i++)
                     {
-                        if(j == 0 && i == 0)
+                        CartonBox item = ProductStateManager.GetInstance().CartonBoxItems[i];
+                        BoxDetail detail = new BoxDetail();
+                        for (int j = 0; j < item.OnLaunchItems.Count; j++)
                         {
-                            //info.BatchNo = item.OnLaunchItems[j].BatchNo;
-                            //info.ColorNum = item.OnLaunchItems[j].ColorNum;
-                            //info.QualityString = item.OnLaunchItems[j].QualityString;
-                            //info.Specs = item.OnLaunchItems[j].Specs;
-                            strBatchNo = item.OnLaunchItems[j].BatchNo;
-                            strColorNum = item.OnLaunchItems[j].ColorNum;
-                            strQualityString = item.OnLaunchItems[j].QualityString;
-                            strSpecs = item.OnLaunchItems[j].Specs;
-                            //BoxInfos.Add(info);
-                            try
+                            if (j == 0 && i == 0)
                             {
-                                lineNum = byte.Parse(item.OnLaunchItems[j].LineNum);
+                                //info.BatchNo = item.OnLaunchItems[j].BatchNo;
+                                //info.ColorNum = item.OnLaunchItems[j].ColorNum;
+                                //info.QualityString = item.OnLaunchItems[j].QualityString;
+                                //info.Specs = item.OnLaunchItems[j].Specs;
+                                strBatchNo = item.OnLaunchItems[j].BatchNo;
+                                strColorNum = item.OnLaunchItems[j].ColorNum;
+                                strQualityString = item.OnLaunchItems[j].QualityString;
+                                strSpecs = item.OnLaunchItems[j].Specs;
+                                //BoxInfos.Add(info);
+                                try
+                                {
+                                    lineNum = byte.Parse(item.OnLaunchItems[j].LineNum);
+                                }
+                                catch
+                                { }
                             }
-                            catch
-                            { }
+                            switch (j)
+                            {
+                                case 0:
+                                    detail.RollNum1 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 1:
+                                    detail.RollNum2 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 2:
+                                    detail.RollNum3 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 3:
+                                    detail.RollNum4 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum4 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 4:
+                                    detail.RollNum5 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 5:
+                                    detail.RollNum6 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                            }
                         }
-                        switch(j)
-                        {
-                            case 0:
-                                detail.RollNum1 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum,2);
-                                detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
-                                break;
-                            case 1:
-                                detail.RollNum2 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
-                                break;
-                            case 2:
-                                detail.RollNum3 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
-                                break;
-                            case 3:
-                                detail.RollNum4 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                //detail.ReelNum4 = item.OnLaunchItems[j].ReelNum;
-                                break;
-                            case 4:
-                                detail.RollNum5 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
-                                break;
-                            case 5:
-                                detail.RollNum6 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
-                                detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
-                                break;
-                        }
-                    }
 
-                    sumRoll =+ detail.RollSum;//总计
-                    detail.BoxNum = item.BoxNum;
-                    Boxes.Add(detail);
+                        sumRoll = +detail.RollSum;//总计
+                        detail.BoxNum = item.BoxNum;
+                        Boxes.Add(detail);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Log.Instance.LogWrite("L897:" + ex.Message);
+                    Log.Instance.LogWrite(ex.StackTrace);
                 }
                 //-------------------
                 var FDataSet = new DataSet();
@@ -967,7 +975,7 @@ namespace Yu3zx.TaggingSevice
             }
             catch(Exception ex)
             {
-                Log.Instance.LogWrite("L763:" + ex.Message);
+                Log.Instance.LogWrite("L977:" + ex.Message);
                 Log.Instance.LogWrite(ex.StackTrace);
             }
         }
