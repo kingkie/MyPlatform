@@ -1624,31 +1624,31 @@ namespace Yu3zx.TaggingSevice
 
         private void btClsBatch_Click(object sender, EventArgs e)
         {
-            var carton = new CartonBox();
-            carton.BatchNo = "ABC231218";
-            carton.LaunchIndex = 0;
-            carton.BoxNum = "1";
-            carton.OnLaunchItems = new List<FabricClothItem>();
-            int realnum = rd.Next(5);
-            for (int i = 0; i < 6; i++)
-            {
-                FabricClothItem fabric = new FabricClothItem();
-                fabric.BatchNo = "ABC231218";
-                fabric.QualityName = "QN";
-                fabric.ReelNum = realnum + i;
-                fabric.LineNum = realnum.ToString();
-                fabric.ColorNum = realnum.ToString();
-                fabric.ProduceNum =  (float)(45 + realnum + rd.NextDouble());
-                fabric.Specs = "Sp";
-                fabric.QualityString = "Qs";
-                carton.OnLaunchItems.Add(fabric);
-            }
+            //var carton = new CartonBox();
+            //carton.BatchNo = "ABC231218";
+            //carton.LaunchIndex = 0;
+            //carton.BoxNum = "1";
+            //carton.OnLaunchItems = new List<FabricClothItem>();
+            //int realnum = rd.Next(5);
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    FabricClothItem fabric = new FabricClothItem();
+            //    fabric.BatchNo = "ABC231218";
+            //    fabric.QualityName = "QN";
+            //    fabric.ReelNum = realnum + i;
+            //    fabric.LineNum = realnum.ToString();
+            //    fabric.ColorNum = realnum.ToString();
+            //    fabric.ProduceNum =  (float)(45 + realnum + rd.NextDouble());
+            //    fabric.Specs = "Sp";
+            //    fabric.QualityString = "Qs";
+            //    carton.OnLaunchItems.Add(fabric);
+            //}
 
-            ProductStateManager.GetInstance().CartonBoxItems.Add(carton);
+            //ProductStateManager.GetInstance().CartonBoxItems.Add(carton);
 
-            PrintFabricList(1);
+            //PrintFabricList(1);
 
-            return;
+            //return;
             string strBatchNoCls = txtClsBatchNo.Text.Trim();
             if ( MessageBox.Show("确定清除此批次上线,请确保线上已经无此批次正在\r\n包装的产品，并停止上线的状态！", "警告",MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
