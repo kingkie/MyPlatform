@@ -43,6 +43,6 @@
 	<PortConfig CommName="COM2" CommRate="19200"/>
 	<AutoStartBoot value="1"/>
 	<UsedDevice Id="dev210602001" Name="气味模块"/>
-	<Server ip="192.168.0.99" port="8266" auto="1" plcip="192.168.0.201"/>
+	<Server ip="127.0.0.1" port="8266" auto="0" plcip="192.168.0.201"/>
 	<LineNum value="1" fullnum="6"/>
 </Configuration>
