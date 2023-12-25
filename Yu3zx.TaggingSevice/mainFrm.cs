@@ -903,38 +903,48 @@ namespace Yu3zx.TaggingSevice
                 table.TableName = "Products";
                 FDataSet.Tables.Add(table);
                 string filePath = Application.StartupPath + "\\Report\\cartonreport.frx";
+                if(File.Exists(filePath))
+                {
+                }
+                else
+                {
+                    Log.Instance.LogWrite("L 1.0,文件不存在:" + filePath);
+                }
                 Report report = new Report();
                 report.Load(filePath);
+
                 Parameter BatchNo = new Parameter();
                 BatchNo.Name = "BatchNo";
                 BatchNo.DataType = typeof(string);
                 BatchNo.Value = strBatchNo;
+
                 Parameter colorNum = new Parameter();
                 colorNum.Name = "ColorNum";
                 colorNum.DataType = typeof(string);
                 colorNum.Value = strColorNum;
+
                 Parameter QualityString = new Parameter();
                 QualityString.Name = "QualityString";
                 QualityString.DataType = typeof(string);
                 QualityString.Value = strQualityString;
+
                 Parameter Specs = new Parameter();
                 Specs.Name = "Specs";
                 Specs.DataType = typeof(string);
                 Specs.Value = strSpecs;
+
                 Parameter paraTotal = new Parameter();
                 paraTotal.Name = "ParaTotal";
                 paraTotal.DataType = typeof(string);
                 paraTotal.Value = sumRoll.ToString();
-
+   
                 report.Parameters.Add(BatchNo);
                 report.Parameters.Add(colorNum);
                 report.Parameters.Add(QualityString);
                 report.Parameters.Add(Specs);
                 report.Parameters.Add(paraTotal);
-
                 report.RegisterData(FDataSet, "NorthWind");//NorthWind
                 report.SmoothGraphics = true;
-
                 report.Print();
                 report.Dispose();
 
@@ -1614,6 +1624,31 @@ namespace Yu3zx.TaggingSevice
 
         private void btClsBatch_Click(object sender, EventArgs e)
         {
+            //var carton = new CartonBox();
+            //carton.BatchNo = "ABC231218";
+            //carton.LaunchIndex = 0;
+            //carton.BoxNum = "1";
+            //carton.OnLaunchItems = new List<FabricClothItem>();
+            //int realnum = rd.Next(5);
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    FabricClothItem fabric = new FabricClothItem();
+            //    fabric.BatchNo = "ABC231218";
+            //    fabric.QualityName = "QN";
+            //    fabric.ReelNum = realnum + i;
+            //    fabric.LineNum = realnum.ToString();
+            //    fabric.ColorNum = realnum.ToString();
+            //    fabric.ProduceNum =  (float)(45 + realnum + rd.NextDouble());
+            //    fabric.Specs = "Sp";
+            //    fabric.QualityString = "Qs";
+            //    carton.OnLaunchItems.Add(fabric);
+            //}
+
+            //ProductStateManager.GetInstance().CartonBoxItems.Add(carton);
+
+            //PrintFabricList(1);
+
+            //return;
             string strBatchNoCls = txtClsBatchNo.Text.Trim();
             if ( MessageBox.Show("确定清除此批次上线,请确保线上已经无此批次正在\r\n包装的产品，并停止上线的状态！", "警告",MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
