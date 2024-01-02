@@ -13,7 +13,7 @@ using System.Xml;
 
 using FastReport;
 using FastReport.Data;
-
+using FastReport.Utils;
 using Yu3zx.DapperExtend;
 using Yu3zx.Logs;
 
@@ -912,6 +912,8 @@ namespace Yu3zx.TaggingSevice
                 }
                 Report report = new Report();
                 report.Load(filePath);
+
+                Config.ReportSettings.ShowProgress = false;//不显示进度
 
                 Parameter BatchNo = new Parameter();
                 BatchNo.Name = "BatchNo";
