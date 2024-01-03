@@ -37,15 +37,7 @@
     <ApplicationIcon>NOTEPA~2.ICO</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EastReport, Version=1.1.0.27016, Culture=neutral, PublicKeyToken=f133ad5174c70ebc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Product\Debug\EastReport.dll</HintPath>
-    </Reference>
-    <Reference Include="EastReportDesigner, Version=1.1.0.27016, Culture=neutral, PublicKeyToken=f133ad5174c70ebc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Product\Debug\EastReportDesigner.dll</HintPath>
-    </Reference>
-    <Reference Include="FastReport, Version=2019.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+    <Reference Include="FastReport, Version=2019.1.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Product\Debug\FastReport.dll</HintPath>
     </Reference>
