@@ -32,6 +32,8 @@ namespace Yu3zx.ClothLaunch
             this.tabContent = new System.Windows.Forms.TabControl();
             this.tpgHome = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnMesData = new System.Windows.Forms.Button();
+            this.btnLaunch = new System.Windows.Forms.Button();
             this.btnBatchInfo = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,7 +55,6 @@ namespace Yu3zx.ClothLaunch
             this.txtProduceNum = new System.Windows.Forms.TextBox();
             this.btnGetLenth = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnLaunch = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -118,6 +119,9 @@ namespace Yu3zx.ClothLaunch
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtGrade = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.btnServer = new System.Windows.Forms.Button();
             this.tabContent.SuspendLayout();
             this.tpgHome.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -157,7 +161,7 @@ namespace Yu3zx.ClothLaunch
             this.tpgHome.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tpgHome.Location = new System.Drawing.Point(4, 46);
             this.tpgHome.Name = "tpgHome";
-            this.tpgHome.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpgHome.Padding = new System.Windows.Forms.Padding(3);
             this.tpgHome.Size = new System.Drawing.Size(886, 624);
             this.tpgHome.TabIndex = 0;
             this.tpgHome.Text = " -操作首页- ";
@@ -165,6 +169,8 @@ namespace Yu3zx.ClothLaunch
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnServer);
+            this.groupBox2.Controls.Add(this.btnMesData);
             this.groupBox2.Controls.Add(this.btnLaunch);
             this.groupBox2.Controls.Add(this.btnBatchInfo);
             this.groupBox2.Controls.Add(this.groupBox6);
@@ -186,13 +192,37 @@ namespace Yu3zx.ClothLaunch
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(880, 312);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "面料批次信息";
+            // 
+            // btnMesData
+            // 
+            this.btnMesData.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnMesData.Location = new System.Drawing.Point(742, 20);
+            this.btnMesData.Name = "btnMesData";
+            this.btnMesData.Size = new System.Drawing.Size(121, 36);
+            this.btnMesData.TabIndex = 21;
+            this.btnMesData.Text = "获取MES数据";
+            this.btnMesData.UseVisualStyleBackColor = true;
+            this.btnMesData.Click += new System.EventHandler(this.btnMesData_Click);
+            // 
+            // btnLaunch
+            // 
+            this.btnLaunch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLaunch.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLaunch.Location = new System.Drawing.Point(686, 158);
+            this.btnLaunch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLaunch.Name = "btnLaunch";
+            this.btnLaunch.Size = new System.Drawing.Size(177, 75);
+            this.btnLaunch.TabIndex = 0;
+            this.btnLaunch.Text = "上 线";
+            this.btnLaunch.UseVisualStyleBackColor = true;
+            this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
             // btnBatchInfo
             // 
@@ -207,12 +237,14 @@ namespace Yu3zx.ClothLaunch
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label26);
+            this.groupBox6.Controls.Add(this.txtGrade);
             this.groupBox6.Controls.Add(this.tableLayoutPanel1);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox6.Location = new System.Drawing.Point(2, 246);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox6.Size = new System.Drawing.Size(876, 54);
             this.groupBox6.TabIndex = 19;
             this.groupBox6.TabStop = false;
@@ -244,7 +276,7 @@ namespace Yu3zx.ClothLaunch
             this.rdoA.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rdoA.ForeColor = System.Drawing.Color.LimeGreen;
             this.rdoA.Location = new System.Drawing.Point(2, 2);
-            this.rdoA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoA.Margin = new System.Windows.Forms.Padding(2);
             this.rdoA.Name = "rdoA";
             this.rdoA.Size = new System.Drawing.Size(61, 26);
             this.rdoA.TabIndex = 0;
@@ -259,7 +291,7 @@ namespace Yu3zx.ClothLaunch
             this.rdoSC.AutoSize = true;
             this.rdoSC.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rdoSC.Location = new System.Drawing.Point(299, 2);
-            this.rdoSC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoSC.Margin = new System.Windows.Forms.Padding(2);
             this.rdoSC.Name = "rdoSC";
             this.rdoSC.Size = new System.Drawing.Size(72, 26);
             this.rdoSC.TabIndex = 3;
@@ -273,7 +305,7 @@ namespace Yu3zx.ClothLaunch
             this.rdoHC.AutoSize = true;
             this.rdoHC.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rdoHC.Location = new System.Drawing.Point(101, 2);
-            this.rdoHC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoHC.Margin = new System.Windows.Forms.Padding(2);
             this.rdoHC.Name = "rdoHC";
             this.rdoHC.Size = new System.Drawing.Size(72, 26);
             this.rdoHC.TabIndex = 1;
@@ -287,7 +319,7 @@ namespace Yu3zx.ClothLaunch
             this.rdoKC.AutoSize = true;
             this.rdoKC.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rdoKC.Location = new System.Drawing.Point(200, 2);
-            this.rdoKC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoKC.Margin = new System.Windows.Forms.Padding(2);
             this.rdoKC.Name = "rdoKC";
             this.rdoKC.Size = new System.Drawing.Size(72, 26);
             this.rdoKC.TabIndex = 2;
@@ -431,35 +463,21 @@ namespace Yu3zx.ClothLaunch
             this.btnGetLenth.Name = "btnGetLenth";
             this.btnGetLenth.Size = new System.Drawing.Size(121, 36);
             this.btnGetLenth.TabIndex = 6;
-            this.btnGetLenth.Text = "获取长度";
+            this.btnGetLenth.Text = "更新当前上线";
             this.btnGetLenth.UseVisualStyleBackColor = true;
-            this.btnGetLenth.Visible = false;
             this.btnGetLenth.Click += new System.EventHandler(this.btnGetLenth_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox4.Location = new System.Drawing.Point(2, 300);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(876, 10);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Visible = false;
-            // 
-            // btnLaunch
-            // 
-            this.btnLaunch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLaunch.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLaunch.Location = new System.Drawing.Point(686, 158);
-            this.btnLaunch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnLaunch.Name = "btnLaunch";
-            this.btnLaunch.Size = new System.Drawing.Size(177, 75);
-            this.btnLaunch.TabIndex = 0;
-            this.btnLaunch.Text = "上 线";
-            this.btnLaunch.UseVisualStyleBackColor = true;
-            this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
             // label2
             // 
@@ -490,9 +508,9 @@ namespace Yu3zx.ClothLaunch
             this.groupBox1.Controls.Add(this.dgvShow);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(3, 315);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(880, 306);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -513,7 +531,7 @@ namespace Yu3zx.ClothLaunch
             this.specs});
             this.dgvShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvShow.Location = new System.Drawing.Point(2, 21);
-            this.dgvShow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvShow.Margin = new System.Windows.Forms.Padding(2);
             this.dgvShow.Name = "dgvShow";
             this.dgvShow.ReadOnly = true;
             this.dgvShow.RowHeadersWidth = 51;
@@ -593,7 +611,7 @@ namespace Yu3zx.ClothLaunch
             this.tpgConfig.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tpgConfig.Location = new System.Drawing.Point(4, 46);
             this.tpgConfig.Name = "tpgConfig";
-            this.tpgConfig.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpgConfig.Padding = new System.Windows.Forms.Padding(3);
             this.tpgConfig.Size = new System.Drawing.Size(886, 624);
             this.tpgConfig.TabIndex = 1;
             this.tpgConfig.Text = " -系统设置- ";
@@ -608,9 +626,9 @@ namespace Yu3zx.ClothLaunch
             this.groupBox9.Controls.Add(this.label25);
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox9.Location = new System.Drawing.Point(3, 160);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox9.Size = new System.Drawing.Size(880, 80);
             this.groupBox9.TabIndex = 2;
             this.groupBox9.TabStop = false;
@@ -674,9 +692,9 @@ namespace Yu3zx.ClothLaunch
             this.groupBox7.Controls.Add(this.btnOnLine);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(3, 80);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox7.Size = new System.Drawing.Size(880, 80);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
@@ -753,7 +771,7 @@ namespace Yu3zx.ClothLaunch
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(218, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.Size = new System.Drawing.Size(71, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "服务端口";
             // 
@@ -762,7 +780,7 @@ namespace Yu3zx.ClothLaunch
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "服务端IP";
             // 
@@ -776,7 +794,7 @@ namespace Yu3zx.ClothLaunch
             this.tpgDataEdit.Controls.Add(this.txtEBatchNo);
             this.tpgDataEdit.Controls.Add(this.label19);
             this.tpgDataEdit.Location = new System.Drawing.Point(4, 46);
-            this.tpgDataEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpgDataEdit.Margin = new System.Windows.Forms.Padding(2);
             this.tpgDataEdit.Name = "tpgDataEdit";
             this.tpgDataEdit.Size = new System.Drawing.Size(886, 624);
             this.tpgDataEdit.TabIndex = 3;
@@ -860,7 +878,7 @@ namespace Yu3zx.ClothLaunch
             "KC",
             "SC"});
             this.cboQualityName.Location = new System.Drawing.Point(158, 230);
-            this.cboQualityName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboQualityName.Margin = new System.Windows.Forms.Padding(2);
             this.cboQualityName.Name = "cboQualityName";
             this.cboQualityName.Size = new System.Drawing.Size(92, 26);
             this.cboQualityName.TabIndex = 32;
@@ -1032,7 +1050,7 @@ namespace Yu3zx.ClothLaunch
             this.tpgData.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tpgData.Location = new System.Drawing.Point(4, 46);
             this.tpgData.Name = "tpgData";
-            this.tpgData.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpgData.Padding = new System.Windows.Forms.Padding(3);
             this.tpgData.Size = new System.Drawing.Size(886, 624);
             this.tpgData.TabIndex = 2;
             this.tpgData.Text = " -标签补打- ";
@@ -1195,7 +1213,7 @@ namespace Yu3zx.ClothLaunch
             this.tableLayoutPanel2.Controls.Add(this.tabContent, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1203,6 +1221,35 @@ namespace Yu3zx.ClothLaunch
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 730);
             this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // txtGrade
+            // 
+            this.txtGrade.Location = new System.Drawing.Point(761, 18);
+            this.txtGrade.Name = "txtGrade";
+            this.txtGrade.Size = new System.Drawing.Size(100, 26);
+            this.txtGrade.TabIndex = 5;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(660, 24);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(95, 16);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "MES返回品质";
+            // 
+            // btnServer
+            // 
+            this.btnServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnServer.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnServer.Location = new System.Drawing.Point(19, 158);
+            this.btnServer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnServer.Name = "btnServer";
+            this.btnServer.Size = new System.Drawing.Size(177, 75);
+            this.btnServer.TabIndex = 22;
+            this.btnServer.Text = "启动服务";
+            this.btnServer.UseVisualStyleBackColor = true;
+            this.btnServer.Click += new System.EventHandler(this.btnServer_Click);
             // 
             // mainFrm
             // 
@@ -1222,6 +1269,7 @@ namespace Yu3zx.ClothLaunch
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1335,6 +1383,10 @@ namespace Yu3zx.ClothLaunch
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtEditBatchNo;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button btnMesData;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtGrade;
+        private System.Windows.Forms.Button btnServer;
     }
 }
 

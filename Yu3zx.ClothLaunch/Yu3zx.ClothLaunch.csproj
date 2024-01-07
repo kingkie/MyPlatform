@@ -46,6 +46,7 @@
       <HintPath>..\Product\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,12 +63,6 @@
     <Compile Include="ClothItem.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="DeviceManager.cs" />
-    <Compile Include="frmLaunch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLaunch.Designer.cs">
-      <DependentUpon>frmLaunch.cs</DependentUpon>
-    </Compile>
     <Compile Include="mainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,16 +70,17 @@
       <DependentUpon>mainFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\BaseEntityOne.cs" />
     <Compile Include="Models\FabricClothItem.cs" />
+    <Compile Include="Models\HSFabric.cs" />
     <Compile Include="Models\ProductPlan.cs" />
+    <Compile Include="Models\RoleItem.cs" />
     <Compile Include="Models\SetConfig.cs" />
     <Compile Include="OnLaunchItem.cs" />
     <Compile Include="PrintHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmLaunch.resx">
-      <DependentUpon>frmLaunch.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="SqlDataHelper.cs" />
     <EmbeddedResource Include="mainFrm.resx">
       <DependentUpon>mainFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +113,10 @@
     <ProjectReference Include="..\Yu3zx.DapperExtend\Yu3zx.DapperExtend.csproj">
       <Project>{8ab4c274-da11-4cd5-a6d1-8a24742b49cc}</Project>
       <Name>Yu3zx.DapperExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.DataBases\Yu3zx.DataBases.csproj">
+      <Project>{aa3abffd-4839-49d9-80fe-45925c08edce}</Project>
+      <Name>Yu3zx.DataBases</Name>
     </ProjectReference>
     <ProjectReference Include="..\Yu3zx.Json\Yu3zx.Json.csproj">
       <Project>{398fa901-48fe-4f6a-b4db-e34d3f790079}</Project>

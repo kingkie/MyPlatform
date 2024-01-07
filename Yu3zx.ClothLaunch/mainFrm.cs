@@ -14,8 +14,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+
+using Yu3zx.ClothLaunch.Models;
 using Yu3zx.DapperExtend;
 using Yu3zx.Json;
+using Yu3zx.Logs;
 
 namespace Yu3zx.ClothLaunch
 {
@@ -25,6 +28,8 @@ namespace Yu3zx.ClothLaunch
         Random rd = new Random();
         private int SNum = 13;//
         Thread thHeart = null;//心跳包
+
+        System.Windows.Forms.Timer thMesTimer = null;// new System.Windows.Forms.Timer();
 
         private List<OnLaunchItem> ProduceList = new List<OnLaunchItem>();
         private List<FabricClothItem> OnlineClothItems = new List<FabricClothItem>();
@@ -54,25 +59,144 @@ namespace Yu3zx.ClothLaunch
         public mainFrm()
         {
             InitializeComponent();
+            thMesTimer = new System.Windows.Forms.Timer();
+            thMesTimer.Interval = 5000;
+            thMesTimer.Tick += ThMesTimer_Tick;
+        }
+
+        private void ThMesTimer_Tick(object sender, EventArgs e)
+        {
+            //Console.WriteLine("获取MES数据：" + DateTime.Now.ToString("yyyyMMddHHmmss"));
+            //return;
+            try
+            {
+                var fabric = SqlDataHelper.GetNoPackFabric("JY0" + AppManager.CreateInstance().LineNum);//
+                if (fabric != null)
+                {
+                    string strGrade = fabric.SGrade.Trim();
+                    if (strGrade == "A" || strGrade == "HC" || strGrade == "KC" || strGrade == "SC")
+                    {
+                        CurrentFabirc = fabric;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            SqlDataHelper.HSFabricUpdate(fabric.SFabricNo);//更新
+                        }
+                        catch(Exception ex)
+                        {
+                            Log.Instance.LogWrite("L89:" + ex.Message);
+                        }
+                        return;
+                    }
+
+                    string strBatchNo = fabric.SCardNo;// txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
+                    string strColorNum = fabric.SColorNo;// txtColorNum.Text;
+                    float fProduceNum = (float)fabric.NLength;// float.Parse(txtProduceNum.Text);
+                    string strQualityName = strGrade;
+                    string strSpecs = fabric.SYarnInfo;// txtSpecs.Text;//
+                    string strQString = fabric.SMaterialName;
+                    int iWidth = int.Parse(fabric.SFabricWidth);
+                    int iRoll = 0;// int.Parse(fabric.);///txtRollDiam.Text
+
+                    if (DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
+                    {
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                    FabricClothItem item = new FabricClothItem();
+                    item.BatchNo = strBatchNo;
+                    item.ColorNum = strColorNum;
+                    item.LineNum = AppManager.CreateInstance().LineNum.ToString();
+                    item.ProduceNum = fProduceNum;
+                    item.QualityName = strQualityName;
+                    item.QualityString = strQString;
+                    item.Specs = strSpecs;
+                    item.FabricWidth = iWidth;
+                    item.RollDiam = iRoll;
+                    item.ReelNum = fabric.IManualOrderNo;//卷号
+
+                    item.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
+
+                    OnlineClothItems.Add(item);//临时
+
+                    Dictionary<string, string> dictData = GetEntityPropertyToDict(item);
+
+                    if (!SaveFabricCloth(item))
+                    {
+                        Logs.Log.Instance.LogWrite("保存失败，请检查后重新保存！");
+                        Logs.Log.Instance.LogWrite("批次：" + strBatchNo);
+                        return;
+                    }
+                    else
+                    {
+                    }
+                    OnLaunchItem item1 = new OnLaunchItem();
+                    item1.Id = item.ReelNum;
+                    item1.BatchNo = strBatchNo;
+                    item1.ColorNum = strColorNum;
+                    item1.ProduceNum = fProduceNum;
+                    item1.QualityName = strQualityName;
+                    item1.QualityString = strQString;
+                    item1.Specs = strSpecs;
+
+                    Task.Run(() => {
+                        this.Invoke((EventHandler)delegate {
+
+                            ProduceList.Insert(0, item1);
+                            dgvShow.DataSource = new BindingList<OnLaunchItem>(ProduceList);
+                            dgvShow.Refresh();
+
+                            string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
+                            if (File.Exists(lblFile))
+                            {
+                                PrintHelper.CreateInstance().BarPrintInit(lblFile, AppManager.CreateInstance().PrinterName, dictData, AppManager.CreateInstance().PrintCopies);
+                            }
+                        });
+                    });
+
+                    try
+                    {
+                        NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
+                        if (ntwStream == null || !ntwStream.CanWrite)
+                        {
+                            DataManager.CreateInstance().NeedSend.Add(item);
+                            return;
+                        }
+
+                        if (ntwStream.CanWrite)
+                        {
+                            string strData = JSONUtil.SerializeJSON(item);
+                            byte[] buff = Encoding.UTF8.GetBytes(strData);
+                            if (buff != null)
+                            {
+                                ntwStream.Write(buff, 0, buff.Length);
+                            }
+                        }
+
+                        SqlDataHelper.HSFabricUpdate(fabric.SFabricNo);//更新
+                    }
+                    catch (Exception ex)
+                    {
+                        Logs.Log.Instance.LogWrite("网络异常：" + ex.Message);
+                        DataManager.CreateInstance().NeedSend.Add(item);
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Log.Instance.LogWrite(ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
+            }
         }
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            //Debug模式
-            {
-                //txtBatchNo.Text ="BN" + DateTime.Now.ToString("yyyyMMddfff");
-                //txtProduceNum.Text = (49 + rd.Next(1, 20) / 10f).ToString();
-            }
-
-            //if(MessageBox.Show("请确认输入正确，检查正确了就按确认进行上线！","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
-            //{
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-
             if (string.IsNullOrEmpty(txtProduceNum.Text))
             {
                 txtProduceNum.Focus();
@@ -108,8 +232,16 @@ namespace Yu3zx.ClothLaunch
             item.FabricWidth = iWidth;
             item.RollDiam = iRoll;
             
-            item.ReelNum = AppManager.CreateInstance().GetSerialNoAndUpdate(strBatchNo);
-            SNum++;
+            if(CurrentFabirc != null)
+            {
+                item.ReelNum = CurrentFabirc.IManualOrderNo;
+            }
+            else
+            {
+                item.ReelNum = AppManager.CreateInstance().GetSerialNoAndUpdate(strBatchNo);
+                SNum++;
+            }
+
             item.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
 
             OnlineClothItems.Add(item);//临时
@@ -163,7 +295,7 @@ namespace Yu3zx.ClothLaunch
                     {
                         ntwStream.Write(buff, 0, buff.Length);
                     }
-                }
+                }               
             }
             catch(Exception ex)
             {
@@ -175,6 +307,21 @@ namespace Yu3zx.ClothLaunch
             txtProduceNum.Text = "50";
             rdoA.Checked = true;
         }
+
+        private void FabricUpdate()
+        {
+            try 
+            {
+                if (CurrentFabirc != null)
+                {
+                    SqlDataHelper.HSFabricUpdate(CurrentFabirc.SFabricNo);
+                }
+            }
+            catch(Exception ex) 
+            {
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -250,16 +397,19 @@ namespace Yu3zx.ClothLaunch
                     if (lPlan != null && lPlan.Count > 0)
                     {
                         Console.WriteLine("添加成功");
+                        Logs.Log.Instance.LogWrite("ProductPlan查询成功：" + lPlan.Count.ToString());
                         return lPlan[0];
                     }
                     else
                     {
-                        Console.WriteLine("添加失败");
+                        Logs.Log.Instance.LogWrite("ProductPlan查询失败：");
                         return null;
                     }
                 }
                 catch (Exception ex)
                 {
+                    Logs.Log.Instance.LogWrite("ProductPlan查询异常" + ex.Message);
+                    Logs.Log.Instance.LogWrite("ProductPlan查询异常" + ex.StackTrace);
                     return null;
                 }
             }
@@ -347,8 +497,8 @@ namespace Yu3zx.ClothLaunch
             }
             catch(Exception ex)
             {
-                MessageBox.Show("连接服务端失败，请联系管理员！");
-                Application.Exit();
+                //MessageBox.Show("连接服务端失败，请联系管理员！");
+                //Application.Exit();
                 return;
             }
 
@@ -417,7 +567,10 @@ namespace Yu3zx.ClothLaunch
 
         private void btnGetLenth_Click(object sender, EventArgs e)
         {
-
+            if(CurrentFabirc != null)
+            {
+                SqlDataHelper.HSFabricUpdate(CurrentFabirc.SFabricNo);
+            }
         }
 
         private void btnBatchInfo_Click(object sender, EventArgs e)
@@ -871,6 +1024,90 @@ namespace Yu3zx.ClothLaunch
                 {
                     MessageBox.Show(string.Format("批号: {0}设置开始卷号{1}成功！",strBatchNum,iReel));
                 }
+            }
+        }
+
+        private HSFabric CurrentFabirc
+        {
+            get;
+            set;
+        }
+
+        private void btnMesData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = SqlDataHelper.GetNoPackFabric("JY0" + AppManager.CreateInstance().LineNum);
+                if (item != null)
+                {
+                    txtBatchNo.Text = item.SCardNo;
+                    txtProduceNum.Text = string.Format("{0}", item.NLength);
+                    txtQuatilyString.Text = item.SMaterialName;
+                    txtColorNum.Text = item.SColorNo;
+                    txtSpecs.Text = item.SYarnInfo;
+                    txtCWidth.Text = item.SFabricWidth;
+                    txtRollDiam.Text = "0";
+
+                    string strGrade = item.SGrade;
+                    txtGrade.Text = strGrade;
+                    if (strGrade.StartsWith("A"))
+                    {
+                        rdoA.Checked = true;
+                    }
+                    else if (strGrade.StartsWith("HC"))
+                    {
+                        rdoHC.Checked = true;
+                    }
+                    else if (strGrade.StartsWith("KC"))
+                    {
+                        rdoKC.Checked = true;
+                    }
+                    else if (strGrade.StartsWith("SC"))
+                    {
+                        rdoSC.Checked = true;
+                    }
+
+                    CurrentFabirc = item;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            //try
+            //{
+            //    var itemList = SqlDataHelper.GetFabricList("JY0" + AppManager.CreateInstance().LineNum);
+            //    if (itemList != null && itemList.Count > 0)
+            //    {
+            //        foreach(var item in itemList) 
+            //        {
+            //            txtSql.Text += string.Format("Fabric:{0},{1},{2},{3}\r\n", item.SCardNo,item.SFabricNo,item.IManualOrderNo,item.NLength);
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    txtSql.Text += ex.StackTrace;
+            //}
+
+        }
+
+        private void btnServer_Click(object sender, EventArgs e)
+        {
+            if(btnServer.Text == "启动服务")
+            {
+                if(thMesTimer != null)
+                {
+                    thMesTimer.Stop();
+                }
+                thMesTimer.Start();
+                btnServer.Text = "停止服务";
+            }
+            else
+            {
+                thMesTimer.Stop();
+                btnServer.Text = "启动服务";
             }
         }
     }

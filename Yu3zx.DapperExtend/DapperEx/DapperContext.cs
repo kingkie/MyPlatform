@@ -88,31 +88,38 @@ namespace Yu3zx.DapperExtend
         public void Open()
         {
             SetParamPrefix();
-            switch (_dbType)
+            try
             {
-                case DBType.SqlServer:
-                case DBType.Oracle:
-                    dbFactory = DbProviderFactories.GetFactory(ProviderName);
-                    dbConn = dbFactory.CreateConnection();
-                    if (dbConn != null)
-                    {
+                switch (_dbType)
+                {
+                    case DBType.SqlServer:
+                    case DBType.Oracle:
+                        dbFactory = DbProviderFactories.GetFactory(ProviderName);
+                        dbConn = dbFactory.CreateConnection();
+                        if (dbConn != null)
+                        {
+                            dbConn.ConnectionString = ConnString;
+                            dbConn.Open();
+                        }
+                        break;
+                    case DBType.MySql:
+                        dbConn = new MySqlConnection();//  MySql.Data.MySqlClient()
                         dbConn.ConnectionString = ConnString;
                         dbConn.Open();
-                    }
-                    break;
-                case DBType.MySql:
-                    dbConn = new  MySqlConnection();//  MySql.Data.MySqlClient()
-                    dbConn.ConnectionString = ConnString;
-                    dbConn.Open();
-                    break;
-                case DBType.SQLite:
-                    dbConn = new SQLiteConnection(ConnString);
-                    //dbConn.ConnectionString = ConnString;
-                    dbConn.Open();
-                    break;
-                case DBType.SqlServerCE:
-                case DBType.PostgreSQL:
-                    break;
+                        break;
+                    case DBType.SQLite:
+                        dbConn = new SQLiteConnection(ConnString);
+                        //dbConn.ConnectionString = ConnString;
+                        dbConn.Open();
+                        break;
+                    case DBType.SqlServerCE:
+                    case DBType.PostgreSQL:
+                        break;
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
