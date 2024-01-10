@@ -78,6 +78,16 @@ namespace Yu3zx.ClothLaunch.Models
             set;
         }
         /// <summary>
+        /// 卷径
+        /// </summary>
+        [Column("nClothRollDiameter")]
+        public int NClothRollDiameter
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 幅宽
         /// </summary>
         [Column("sProductWidthOrder")]

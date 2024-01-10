@@ -77,7 +77,6 @@ namespace Yu3zx.TaggingSevice
             return jsonsavestr;
         }
 
-
         private static ProductStateManager Read()
         {
             string filepathstring = Path.Combine(Application.StartupPath, "Config") + "\\ProductStateManager.json";
@@ -169,6 +168,11 @@ namespace Yu3zx.TaggingSevice
         /// </summary>
         public List<CartonBox> CartonBoxList = new List<CartonBox>();//
 
+        /// <summary>
+        /// 生产的各个包装: 需要打印统计的垛
+        /// </summary>
+        public Dictionary<string, List<CartonBox>> DictCartonList = new Dictionary<string, List<CartonBox>>();
+        
         public string GetOnLineList()
         {
             try
@@ -205,6 +209,32 @@ namespace Yu3zx.TaggingSevice
             catch
             { }
             return string.Empty;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DictInit()
+        {
+            try
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    if (DictCartonList.ContainsKey(i.ToString()))
+                    {
+                        if (DictCartonList[i.ToString()] == null)
+                        {
+                            DictCartonList[i.ToString()] = new List<CartonBox>();
+                        }
+                    }
+                    else
+                    {
+                        DictCartonList.Add(i.ToString(), new List<CartonBox>());
+                    }
+                }
+            }
+            catch
+            {
+            }
         }
     }
 }

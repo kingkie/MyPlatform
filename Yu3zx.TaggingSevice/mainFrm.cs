@@ -2,15 +2,12 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-
 using FastReport;
 using FastReport.Data;
 using FastReport.Utils;
@@ -48,6 +45,7 @@ namespace Yu3zx.TaggingSevice
             cboServerIP.Items.AddRange(loaclIps.ToArray());
             cboServerIP.SelectedItem = AppManager.CreateInstance().ServerIp;
 
+            ProductStateManager.GetInstance().DictInit();//2024-01-10
             //-=-=-=-=-=-=-=-获取配置文件-=-=-=-=-=-=-=-
             InitPlc();
             if(AppManager.CreateInstance().AutoServer)
@@ -60,6 +58,189 @@ namespace Yu3zx.TaggingSevice
             thConn.Name = "thConn";
             thConn.Start();
         }
+
+        #region 窗体操作
+        /// <summary>
+        /// 启动服务
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnService_Click(object sender, EventArgs e)
+        {
+            if (btnService.Text == "启动服务")
+            {
+                if (tcpServer != null)
+                {
+                    tcpServer.StopServer();
+                    tcpServer = null;
+                }
+
+                if (thWorkFlow != null)
+                {
+                    thWorkFlow.Abort();
+                    thWorkFlow = null;
+                }
+
+                if (thPlc != null)
+                {
+                    thPlc.Abort();
+                    thPlc = null;
+                }
+
+                tcpServer = new TcpServer(IPAddress.Any, int.Parse(txtPort.Text));//IPAddress.Parse(cboServerIP.Text)
+                tcpServer.OnClothDataHandle += TcpServer_OnClothDataHandle;
+                tcpServer.StartServer();
+                //工作流程
+                thWorkFlow = new Thread(WorkFlowGoing);
+                thWorkFlow.IsBackground = true;
+                thWorkFlow.Name = "thWork";
+                thWorkFlow.Start();
+                //PLC状态查询读取
+                thPlc = new Thread(SearchPlcState);
+                thPlc.IsBackground = true;
+                thPlc.Name = "thPlc";
+                thPlc.Start();
+
+                if (tcpServer.IsServer)
+                {
+                    btnService.Text = "停止服务";
+                }
+            }
+            else
+            {
+                try
+                {
+                    if (tcpServer != null)
+                    {
+                        tcpServer.StopServer();
+                        tcpServer = null;
+                    }
+                    if (thWorkFlow != null)
+                    {
+                        thWorkFlow.Abort();
+                        thWorkFlow = null;
+                    }
+                    if (thPlc != null)
+                    {
+                        thPlc.Abort();
+                        thPlc = null;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                btnService.Text = "启动服务";
+            }
+        }
+        /// <summary>
+        /// 显示主界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmBackto_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.Activate();
+        }
+        /// <summary>
+        /// 退出服务
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmQuit_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("确认退出服务？","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Close();
+                Application.Exit();
+            }
+        }
+
+        private void mainFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                //最重要的是保存状态
+                ProductStateManager.GetInstance().Save();
+
+                if (thConn != null)
+                {
+                    thConn.Abort();
+                    thConn = null;
+                }
+            }
+            catch
+            {
+            }
+            try
+            {
+                if (thWorkFlow != null)
+                {
+                    thWorkFlow.Abort();
+                    thWorkFlow = null;
+                }
+                if (thPlc != null)
+                {
+                    thPlc.Abort();
+                    thPlc = null;
+                }
+                if (tcpServer != null)
+                {
+                    tcpServer.StopServer();
+                    tcpServer = null;
+                }
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                PrintHelper.CreateInstance().UnInit();
+            }
+            catch
+            { }
+        }
+
+        private void btnStateSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //最重要的是保存状态
+                ProductStateManager.GetInstance().Save();
+                MessageBox.Show("保存状态成功！");
+            }
+            catch
+            {
+            }
+        }
+
+        private void btnReConn_Click(object sender, EventArgs e)
+        {
+            InitPlc();
+        }
+
+        private void btnStateClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //最重要的是保存状态
+                ProductStateManager.GetInstance().CartonBoxItems.Clear();
+                ProductStateManager.GetInstance().CartonBoxList.Clear();
+                ProductStateManager.GetInstance().DictOnLine.Clear();
+
+                ProductStateManager.GetInstance().CurrentDoing = false;
+
+                ProductStateManager.GetInstance().Save();
+                MessageBox.Show("清除状态成功！");
+            }
+            catch
+            {
+            }
+        }
+
+        #endregion End
 
         private void InitPlc()
         {
@@ -115,90 +296,6 @@ namespace Yu3zx.TaggingSevice
                 }
             }
             return Ips;
-        }
-
-        private void tsmBackto_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            this.Activate();
-        }
-
-        private void tsmQuit_Click(object sender, EventArgs e)
-        {
-            if(MessageBox.Show("确认退出服务？","提示",MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                this.Close();
-                Application.Exit();
-            }
-        }
-
-        private void btnService_Click(object sender, EventArgs e)
-        {
-            if (btnService.Text == "启动服务")
-            {
-                if(tcpServer != null)
-                {
-                    tcpServer.StopServer();
-                    tcpServer = null;
-                }
-
-                if(thWorkFlow != null)
-                {
-                    thWorkFlow.Abort();
-                    thWorkFlow = null;
-                }
-
-                if(thPlc != null)
-                {
-                    thPlc.Abort();
-                    thPlc = null;
-                }
-
-                tcpServer = new TcpServer(IPAddress.Parse(cboServerIP.Text), int.Parse(txtPort.Text));
-                tcpServer.OnClothDataHandle += TcpServer_OnClothDataHandle;
-                tcpServer.StartServer();
-                //工作流程
-                thWorkFlow = new Thread(WorkFlowGoing);
-                thWorkFlow.IsBackground = true;
-                thWorkFlow.Name = "thWork";
-                thWorkFlow.Start();
-                //PLC状态查询读取
-                thPlc = new Thread(SearchPlcState);
-                thPlc.IsBackground = true;
-                thPlc.Name = "thPlc";
-                thPlc.Start();
-
-                if (tcpServer.IsServer)
-                {
-                    btnService.Text = "停止服务";
-                }
-            }
-            else
-            {
-                try
-                {
-                    if (tcpServer != null)
-                    {
-                        tcpServer.StopServer();
-                        tcpServer = null;
-                    }
-                    if (thWorkFlow != null)
-                    {
-                        thWorkFlow.Abort();
-                        thWorkFlow = null;
-                    }
-                    if (thPlc != null)
-                    {
-                        thPlc.Abort();
-                        thPlc = null;
-                    }
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-                btnService.Text = "启动服务";
-            }
         }
 
         /// <summary>
@@ -301,12 +398,12 @@ namespace Yu3zx.TaggingSevice
         {
             Log.Instance.LogWrite("工作线程启动:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             bool bForce = false;//强制
-            while(true)
+            while (true)
             {
                 try
                 {
                     PlcCmd plcCmd;
-                    if(PlcReceive.Count > 0)
+                    if (PlcReceive.Count > 0)
                     {
                         //取消循环，通知比较少
                         //for(int i = 0;i < PlcReceive.Count;i++)
@@ -330,7 +427,7 @@ namespace Yu3zx.TaggingSevice
                                     break;
                                 case 0x02://套袋请求打印标签
                                           //获取当前需要打印的
-                                    if(ProductStateManager.GetInstance().CurrentBox == null)
+                                    if (ProductStateManager.GetInstance().CurrentBox == null)
                                     {
                                         break;
                                     }
@@ -425,6 +522,7 @@ namespace Yu3zx.TaggingSevice
                                                     try
                                                     {
                                                         ProductStateManager.GetInstance().CartonBoxItems.RemoveAt(0);
+                                                        moveIndex--;//BUG
                                                     }
                                                     catch
                                                     {
@@ -466,7 +564,7 @@ namespace Yu3zx.TaggingSevice
                             {
                                 bForce = false;//这时有强制指令时做
                                 string strForceBatchNum = ProductStateManager.GetInstance().GetOnLineLastList();
-                                if(!string.IsNullOrEmpty(strForceBatchNum))
+                                if (!string.IsNullOrEmpty(strForceBatchNum))
                                 {
                                     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
                                     //开始强制上线
@@ -500,10 +598,22 @@ namespace Yu3zx.TaggingSevice
                                         ProductStateManager.GetInstance().CurrentBatchNo = strForceBatchNum;
                                         ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
                                         ProductStateManager.GetInstance().CartonBoxItems.Add(newBox);
+
                                         if (ProductStateManager.GetInstance().CurrentBox != null && ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count > 0)
                                         {
                                             ProductStateManager.GetInstance().CurrentLine = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0].LineNum;//当前线
                                         }
+
+                                        if (ProductStateManager.GetInstance().DictCartonList.ContainsKey(ProductStateManager.GetInstance().CurrentLine))
+                                        {
+                                            ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);//当前线增加一箱
+                                        }
+                                        else
+                                        {
+                                            ProductStateManager.GetInstance().DictCartonList.Add(ProductStateManager.GetInstance().CurrentLine, new List<CartonBox>());
+                                            ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);
+                                        }
+
                                         ProductStateManager.GetInstance().Save();
                                     }
                                     //以及打印包装箱标签
@@ -577,6 +687,17 @@ namespace Yu3zx.TaggingSevice
                                 {
                                     ProductStateManager.GetInstance().CurrentLine = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0].LineNum;//当前线
                                 }
+
+                                if (ProductStateManager.GetInstance().DictCartonList.ContainsKey(ProductStateManager.GetInstance().CurrentLine))
+                                {
+                                    ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);//当前线增加一箱
+                                }
+                                else
+                                {
+                                    ProductStateManager.GetInstance().DictCartonList.Add(ProductStateManager.GetInstance().CurrentLine, new List<CartonBox>());
+                                    ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);
+                                }
+
                                 ProductStateManager.GetInstance().Save();
                             }
                             Log.Instance.LogWrite("L455：新上线！");
@@ -803,7 +924,7 @@ namespace Yu3zx.TaggingSevice
             try
             {
                 //没有就不打印
-                if(packNum < 0)
+                if (packNum < 0)
                 {
                     return;
                 }
@@ -1201,7 +1322,7 @@ namespace Yu3zx.TaggingSevice
         /// <param name="fabricWidth"></param>
         /// <param name="iRollDiam">长度</param>
         /// <param name="carton"></param>
-        private void NoticePlc(byte iLNum, Int16 fabricWidth, Int16 iRollDiam, CartonBox carton)
+        private void NoticePlc(byte iLNum, short fabricWidth, Int16 iRollDiam, CartonBox carton)
         {
             //通知上线
             try
@@ -1444,88 +1565,7 @@ namespace Yu3zx.TaggingSevice
             }
         }
 
-        private void mainFrm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                //最重要的是保存状态
-                ProductStateManager.GetInstance().Save();
 
-                if(thConn != null)
-                {
-                    thConn.Abort();
-                    thConn = null;
-                }
-            }
-            catch
-            {
-            }
-            try
-            {
-                if (thWorkFlow != null)
-                {
-                    thWorkFlow.Abort();
-                    thWorkFlow = null;
-                }
-                if (thPlc != null)
-                {
-                    thPlc.Abort();
-                    thPlc = null;
-                }
-                if (tcpServer != null)
-                {
-                    tcpServer.StopServer();
-                    tcpServer = null;
-                }
-            }
-            catch
-            {
-            }
-
-            try
-            {
-                PrintHelper.CreateInstance().UnInit();
-            }
-            catch
-            { }
-        }
-
-        private void btnStateSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //最重要的是保存状态
-                ProductStateManager.GetInstance().Save();
-                MessageBox.Show("保存状态成功！");
-            }
-            catch
-            {
-            }
-        }
-
-        private void btnReConn_Click(object sender, EventArgs e)
-        {
-            InitPlc();
-        }
-
-        private void btnStateClear_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //最重要的是保存状态
-                ProductStateManager.GetInstance().CartonBoxItems.Clear();
-                ProductStateManager.GetInstance().CartonBoxList.Clear();
-                ProductStateManager.GetInstance().DictOnLine.Clear();
-
-                ProductStateManager.GetInstance().CurrentDoing = false;
-
-                ProductStateManager.GetInstance().Save();
-                MessageBox.Show("清除状态成功！");
-            }
-            catch
-            {
-            }
-        }
 
         #region 修改数据
 
@@ -1632,34 +1672,34 @@ namespace Yu3zx.TaggingSevice
 
         private void btClsBatch_Click(object sender, EventArgs e)
         {
-            var carton = new CartonBox();
-            carton.BatchNo = "ABC231218";
-            carton.LaunchIndex = 0;
-            carton.BoxNum = "1";
-            carton.OnLaunchItems = new List<FabricClothItem>();
-            int realnum = rd.Next(5);
-            for (int i = 0; i < 6; i++)
-            {
-                FabricClothItem fabric = new FabricClothItem();
-                fabric.BatchNo = "ABC231218";
-                fabric.QualityName = "QN";
-                fabric.ReelNum = realnum + i;
-                fabric.LineNum = realnum.ToString();
-                fabric.ColorNum = realnum.ToString();
-                fabric.ProduceNum = (float)(45 + realnum + rd.NextDouble());
-                fabric.Specs = "Sp";
-                fabric.QualityString = "Qs";
-                carton.OnLaunchItems.Add(fabric);
-            }
+            //var carton = new CartonBox();
+            //carton.BatchNo = "ABC231218";
+            //carton.LaunchIndex = 0;
+            //carton.BoxNum = "1";
+            //carton.OnLaunchItems = new List<FabricClothItem>();
+            //int realnum = rd.Next(5);
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    FabricClothItem fabric = new FabricClothItem();
+            //    fabric.BatchNo = "ABC231218";
+            //    fabric.QualityName = "QN";
+            //    fabric.ReelNum = realnum + i;
+            //    fabric.LineNum = realnum.ToString();
+            //    fabric.ColorNum = realnum.ToString();
+            //    fabric.ProduceNum = (float)(45 + realnum + rd.NextDouble());
+            //    fabric.Specs = "Sp";
+            //    fabric.QualityString = "Qs";
+            //    carton.OnLaunchItems.Add(fabric);
+            //}
 
-            ProductStateManager.GetInstance().CartonBoxItems.Add(carton);
+            //ProductStateManager.GetInstance().CartonBoxItems.Add(carton);
 
-            PrintFabricList(1);
+            //PrintFabricList(1);
 
-            return;
+            //return;
 
             string strBatchNoCls = txtClsBatchNo.Text.Trim();
-            if ( MessageBox.Show("确定清除此批次上线,请确保线上已经无此批次正在\r\n包装的产品，并停止上线的状态！", "警告",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("确定清除此批次上线,请确保线上已经无此批次正在\r\n包装的产品，并停止上线的状态！", "警告",MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {

@@ -97,8 +97,14 @@ namespace Yu3zx.ClothLaunch
                     string strQualityName = strGrade;
                     string strSpecs = fabric.SYarnInfo;// txtSpecs.Text;//
                     string strQString = fabric.SMaterialName;
-                    int iWidth = int.Parse(fabric.SFabricWidth);
-                    int iRoll = 0;// int.Parse(fabric.);///txtRollDiam.Text
+
+                    float iWidth = 0;
+                        
+                    if (!float.TryParse(fabric.SFabricWidth,out iWidth))
+                    {
+                        return;
+                    }
+                    int iRoll = fabric.NClothRollDiameter;// int.Parse(fabric.);///txtRollDiam.Text
 
                     if (DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
                     {
@@ -116,7 +122,7 @@ namespace Yu3zx.ClothLaunch
                     item.QualityName = strQualityName;
                     item.QualityString = strQString;
                     item.Specs = strSpecs;
-                    item.FabricWidth = iWidth;
+                    item.FabricWidth = (int)(iWidth * 10);
                     item.RollDiam = iRoll;
                     item.ReelNum = fabric.IManualOrderNo;//卷号
 
@@ -128,8 +134,8 @@ namespace Yu3zx.ClothLaunch
 
                     if (!SaveFabricCloth(item))
                     {
-                        Logs.Log.Instance.LogWrite("保存失败，请检查后重新保存！");
-                        Logs.Log.Instance.LogWrite("批次：" + strBatchNo);
+                        Log.Instance.LogWrite("保存失败，请检查后重新保存！");
+                        Log.Instance.LogWrite("批次：" + strBatchNo);
                         return;
                     }
                     else
@@ -209,8 +215,20 @@ namespace Yu3zx.ClothLaunch
             string strQualityName = QualityName;
             string strSpecs = txtSpecs.Text;//
             string strQString = txtQuatilyString.Text.Trim();
-            int iWidth = int.Parse(txtCWidth.Text);
-            int iRoll = int.Parse(txtRollDiam.Text);
+
+            int iWidth = 0;
+            int iRoll = 0;
+
+            if (!int.TryParse(txtCWidth.Text,out iWidth))
+            {
+                MessageBox.Show("宽度错误！");
+                return;
+            }
+            if (!int.TryParse(txtRollDiam.Text,out iRoll))
+            {
+                MessageBox.Show("卷径错误！");
+                return;
+            }
 
             if (DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
             {
@@ -232,7 +250,7 @@ namespace Yu3zx.ClothLaunch
             item.FabricWidth = iWidth;
             item.RollDiam = iRoll;
             
-            if(CurrentFabirc != null)
+            if (CurrentFabirc != null)
             {
                 item.ReelNum = CurrentFabirc.IManualOrderNo;
             }
@@ -295,7 +313,11 @@ namespace Yu3zx.ClothLaunch
                     {
                         ntwStream.Write(buff, 0, buff.Length);
                     }
-                }               
+                }
+                if (CurrentFabirc != null)
+                {
+                    SqlDataHelper.HSFabricUpdate(CurrentFabirc.SFabricNo);//更新
+                }
             }
             catch(Exception ex)
             {
@@ -1045,8 +1067,16 @@ namespace Yu3zx.ClothLaunch
                     txtQuatilyString.Text = item.SMaterialName;
                     txtColorNum.Text = item.SColorNo;
                     txtSpecs.Text = item.SYarnInfo;
-                    txtCWidth.Text = item.SFabricWidth;
-                    txtRollDiam.Text = "0";
+                    float fFabLen = 0;
+                    try
+                    {
+                        float.TryParse(item.SFabricWidth, out fFabLen);
+                    }
+                    catch
+                    { }
+
+                    txtCWidth.Text = ((int)(fFabLen * 10)).ToString();
+                    txtRollDiam.Text = item.NClothRollDiameter.ToString();
 
                     string strGrade = item.SGrade;
                     txtGrade.Text = strGrade;
