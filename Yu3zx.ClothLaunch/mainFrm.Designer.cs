@@ -32,10 +32,13 @@ namespace Yu3zx.ClothLaunch
             this.tabContent = new System.Windows.Forms.TabControl();
             this.tpgHome = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnServer = new System.Windows.Forms.Button();
             this.btnMesData = new System.Windows.Forms.Button();
             this.btnLaunch = new System.Windows.Forms.Button();
             this.btnBatchInfo = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtGrade = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rdoA = new System.Windows.Forms.RadioButton();
             this.rdoSC = new System.Windows.Forms.RadioButton();
@@ -119,9 +122,8 @@ namespace Yu3zx.ClothLaunch
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtGrade = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.btnServer = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.btnAllOnline = new System.Windows.Forms.Button();
             this.tabContent.SuspendLayout();
             this.tpgHome.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -138,6 +140,7 @@ namespace Yu3zx.ClothLaunch
             this.tpgData.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabContent
@@ -200,6 +203,19 @@ namespace Yu3zx.ClothLaunch
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "面料批次信息";
             // 
+            // btnServer
+            // 
+            this.btnServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnServer.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnServer.Location = new System.Drawing.Point(19, 158);
+            this.btnServer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnServer.Name = "btnServer";
+            this.btnServer.Size = new System.Drawing.Size(177, 75);
+            this.btnServer.TabIndex = 22;
+            this.btnServer.Text = "启动服务";
+            this.btnServer.UseVisualStyleBackColor = true;
+            this.btnServer.Click += new System.EventHandler(this.btnServer_Click);
+            // 
             // btnMesData
             // 
             this.btnMesData.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -249,6 +265,22 @@ namespace Yu3zx.ClothLaunch
             this.groupBox6.TabIndex = 19;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "检测品质";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(660, 24);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(96, 16);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "MES返回品质";
+            // 
+            // txtGrade
+            // 
+            this.txtGrade.Location = new System.Drawing.Point(761, 18);
+            this.txtGrade.Name = "txtGrade";
+            this.txtGrade.Size = new System.Drawing.Size(100, 26);
+            this.txtGrade.TabIndex = 5;
             // 
             // tableLayoutPanel1
             // 
@@ -605,6 +637,7 @@ namespace Yu3zx.ClothLaunch
             // 
             // tpgConfig
             // 
+            this.tpgConfig.Controls.Add(this.groupBox10);
             this.tpgConfig.Controls.Add(this.groupBox9);
             this.tpgConfig.Controls.Add(this.groupBox7);
             this.tpgConfig.Controls.Add(this.groupBox3);
@@ -771,7 +804,7 @@ namespace Yu3zx.ClothLaunch
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(218, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 16);
+            this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "服务端口";
             // 
@@ -780,7 +813,7 @@ namespace Yu3zx.ClothLaunch
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "服务端IP";
             // 
@@ -1222,34 +1255,28 @@ namespace Yu3zx.ClothLaunch
             this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 730);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // txtGrade
+            // groupBox10
             // 
-            this.txtGrade.Location = new System.Drawing.Point(761, 18);
-            this.txtGrade.Name = "txtGrade";
-            this.txtGrade.Size = new System.Drawing.Size(100, 26);
-            this.txtGrade.TabIndex = 5;
+            this.groupBox10.Controls.Add(this.btnAllOnline);
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox10.Location = new System.Drawing.Point(3, 240);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox10.Size = new System.Drawing.Size(880, 80);
+            this.groupBox10.TabIndex = 3;
+            this.groupBox10.TabStop = false;
             // 
-            // label26
+            // btnAllOnline
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(660, 24);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(95, 16);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "MES返回品质";
-            // 
-            // btnServer
-            // 
-            this.btnServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnServer.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnServer.Location = new System.Drawing.Point(19, 158);
-            this.btnServer.Margin = new System.Windows.Forms.Padding(2);
-            this.btnServer.Name = "btnServer";
-            this.btnServer.Size = new System.Drawing.Size(177, 75);
-            this.btnServer.TabIndex = 22;
-            this.btnServer.Text = "启动服务";
-            this.btnServer.UseVisualStyleBackColor = true;
-            this.btnServer.Click += new System.EventHandler(this.btnServer_Click);
+            this.btnAllOnline.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAllOnline.Location = new System.Drawing.Point(679, 24);
+            this.btnAllOnline.Name = "btnAllOnline";
+            this.btnAllOnline.Size = new System.Drawing.Size(186, 34);
+            this.btnAllOnline.TabIndex = 6;
+            this.btnAllOnline.Text = "更新全部上线";
+            this.btnAllOnline.UseVisualStyleBackColor = true;
+            this.btnAllOnline.Click += new System.EventHandler(this.btnAllOnline_Click);
             // 
             // mainFrm
             // 
@@ -1288,6 +1315,7 @@ namespace Yu3zx.ClothLaunch
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1387,6 +1415,8 @@ namespace Yu3zx.ClothLaunch
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtGrade;
         private System.Windows.Forms.Button btnServer;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button btnAllOnline;
     }
 }
 

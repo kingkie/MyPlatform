@@ -513,7 +513,7 @@ namespace Yu3zx.TaggingSevice
                                         });
                                         //剔除已经成垛的
                                         int moveIndex = iPfl;
-                                        if(ProductStateManager.GetInstance().CartonBoxItems.Count >= iPfl)
+                                        if (ProductStateManager.GetInstance().CartonBoxItems.Count >= iPfl)
                                         {
                                             lock (ProductStateManager.GetInstance().CartonBoxItems)
                                             {

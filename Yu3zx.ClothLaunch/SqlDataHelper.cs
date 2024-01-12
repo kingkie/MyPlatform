@@ -78,6 +78,23 @@ namespace Yu3zx.ClothLaunch
             }
         }
 
+        public static bool HSFabricAllUpdate(string lineNum)
+        {
+            using (var db = new DapperContext("DbConnection"))
+            {
+                try
+                {
+                    //var rtnUpdate = db.Update<AlarmItem>(u => new { u.AlarmTime },new AlarmItem() { DevId = id, AlarmTime = dtUpdate });
+                    var rtnUpdate = db.Update("UPDATE qmInspectHdr SET bEnd = 1 WHERE sEquipmentNo=@EquipmentNo", new { EquipmentNo = lineNum });//
+                    return rtnUpdate;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
         public static List<HSFabric> GetFabricList(string lineNum)
         {
             using (var db = new DapperContext("DbConnection"))

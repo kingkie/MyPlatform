@@ -211,6 +211,10 @@ namespace Yu3zx.ClothLaunch
 
             string strBatchNo = txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
             string strColorNum = txtColorNum.Text;
+            if(string.IsNullOrEmpty(strColorNum))
+            {
+                strColorNum = "0";
+            }
             float fProduceNum = float.Parse(txtProduceNum.Text);
             string strQualityName = QualityName;
             string strSpecs = txtSpecs.Text;//
@@ -263,6 +267,14 @@ namespace Yu3zx.ClothLaunch
             item.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
 
             OnlineClothItems.Add(item);//临时
+
+            if (CurrentFabric != null)
+            {
+                if (CurrentFabric.ReelNum == item.ReelNum && CurrentFabric.BatchNo == item.BatchNo)
+                {
+                    item.RndString = CurrentFabric.RndString;
+                }
+            }
 
             CurrentFabric = item;
 
@@ -371,6 +383,7 @@ namespace Yu3zx.ClothLaunch
                 }
                 catch(Exception ex)
                 {
+                    Logs.Log.Instance.LogWrite("L199:" + ex.Message + ex.StackTrace);
                     return false;
                 }
             }
@@ -1139,6 +1152,11 @@ namespace Yu3zx.ClothLaunch
                 thMesTimer.Stop();
                 btnServer.Text = "启动服务";
             }
+        }
+
+        private void btnAllOnline_Click(object sender, EventArgs e)
+        {
+            SqlDataHelper.HSFabricAllUpdate("JY0" + AppManager.CreateInstance().LineNum);
         }
     }
 }
