@@ -95,7 +95,7 @@ namespace Yu3zx.ClothLaunch
                     string strColorNum = fabric.SColorNo;// txtColorNum.Text;
                     float fProduceNum = (float)fabric.NLength;// float.Parse(txtProduceNum.Text);
                     string strQualityName = strGrade;
-                    string strSpecs = fabric.SYarnInfo;// txtSpecs.Text;//
+                    string strSpecs = fabric.SProductWidthOrder;// txtSpecs.Text;//SYarnInfo
                     string strQString = fabric.SMaterialName;
 
                     float iWidth = 0;
@@ -1079,7 +1079,7 @@ namespace Yu3zx.ClothLaunch
                     txtProduceNum.Text = string.Format("{0}", item.NLength);
                     txtQuatilyString.Text = item.SMaterialName;
                     txtColorNum.Text = item.SColorNo;
-                    txtSpecs.Text = item.SYarnInfo;
+                    txtSpecs.Text = item.SProductWidthOrder;
                     float fFabLen = 0;
                     try
                     {
