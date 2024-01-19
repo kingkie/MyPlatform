@@ -74,7 +74,15 @@ namespace Yu3zx.ClothLaunch
                 if (fabric != null)
                 {
                     string strGrade = fabric.SGrade.Trim();
-                    if (strGrade == "A" || strGrade == "HC" || strGrade == "KC" || strGrade == "SC")
+                    string strBatchNo = fabric.SCardNo;// txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
+                    string strColorNum = fabric.SColorNo;// txtColorNum.Text;
+                    float fProduceNum = (float)fabric.NLength;// float.Parse(txtProduceNum.Text);
+                    string strQualityName = strGrade;
+                    string strSpecs = fabric.SYarnInfo;// txtSpecs.Text;//
+                    string strQString = fabric.SMaterialName;
+                    int iRoll = fabric.NClothRollDiameter;// int.Parse(fabric.);///txtRollDiam.Text
+
+                    if (strGrade == "A" || strGrade == "KC" || strGrade == "SC")
                     {
                         CurrentFabirc = fabric;
                     }
@@ -82,6 +90,46 @@ namespace Yu3zx.ClothLaunch
                     {
                         try
                         {
+                            if (strGrade.ToUpper() == "HC")
+                            {
+                                FabricClothItem fcItem = new FabricClothItem();
+                                fcItem.BatchNo = strBatchNo;
+                                fcItem.ColorNum = strColorNum;
+                                fcItem.LineNum = AppManager.CreateInstance().LineNum.ToString();
+                                fcItem.ProduceNum = fProduceNum;
+                                fcItem.QualityName = strQualityName;
+                                fcItem.QualityString = strQString;
+                                fcItem.Specs = strSpecs;
+                                fcItem.FabricWidth = 0;//
+                                fcItem.RollDiam = iRoll;
+                                fcItem.ReelNum = fabric.IManualOrderNo;//卷号
+
+                                fcItem.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
+
+                                Dictionary<string, string> dictData1 = GetEntityPropertyToDict(fcItem);
+
+                                if (!SaveFabricCloth(fcItem))
+                                {
+                                    Log.Instance.LogWrite("保存失败，请检查后重新保存！");
+                                    Log.Instance.LogWrite("批次：" + strBatchNo);
+                                    //return;
+                                }
+                                else
+                                {
+                                }
+
+                                Task.Run(() => {
+                                    this.Invoke((EventHandler)delegate {
+
+                                        string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
+                                        if (File.Exists(lblFile))
+                                        {
+                                            PrintHelper.CreateInstance().BarPrintInit(lblFile, AppManager.CreateInstance().PrinterName, dictData1, AppManager.CreateInstance().PrintCopies);
+                                        }
+                                    });
+                                });
+                            }
+
                             SqlDataHelper.HSFabricUpdate(fabric.SFabricNo);//更新
                         }
                         catch(Exception ex)
@@ -91,20 +139,12 @@ namespace Yu3zx.ClothLaunch
                         return;
                     }
 
-                    string strBatchNo = fabric.SCardNo;// txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
-                    string strColorNum = fabric.SColorNo;// txtColorNum.Text;
-                    float fProduceNum = (float)fabric.NLength;// float.Parse(txtProduceNum.Text);
-                    string strQualityName = strGrade;
-                    string strSpecs = fabric.SYarnInfo;// txtSpecs.Text;//
-                    string strQString = fabric.SMaterialName;
-
                     float iWidth = 0;
                         
                     if (!float.TryParse(fabric.SFabricWidth,out iWidth))
                     {
                         return;
                     }
-                    int iRoll = fabric.NClothRollDiameter;// int.Parse(fabric.);///txtRollDiam.Text
 
                     if (DeviceManager.CreateInstance().ClothClient != null && DeviceManager.CreateInstance().ClothClient.Connected)
                     {
@@ -308,8 +348,20 @@ namespace Yu3zx.ClothLaunch
                 PrintHelper.CreateInstance().BarPrintInit(lblFile,AppManager.CreateInstance().PrinterName,dictData,AppManager.CreateInstance().PrintCopies);
             }
 
+            if (strQualityName.ToUpper() == "HC")
+            {
+                if (CurrentFabirc != null)
+                {
+                    SqlDataHelper.HSFabricUpdate(CurrentFabirc.SFabricNo);//更新
+                }
+                txtProduceNum.Text = "50";
+                rdoA.Checked = true;
+                return;
+            }
+
             try
             {
+                //上线到服务端
                 NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
                 if(ntwStream == null || !ntwStream.CanWrite)
                 {
@@ -1157,6 +1209,23 @@ namespace Yu3zx.ClothLaunch
         private void btnAllOnline_Click(object sender, EventArgs e)
         {
             SqlDataHelper.HSFabricAllUpdate("JY0" + AppManager.CreateInstance().LineNum);
+        }
+
+        private void btnMesUpdate_Click(object sender, EventArgs e)
+        {
+            string strBatch = txtHsBatch.Text;
+            if(string.IsNullOrEmpty(strBatch))
+            {
+                return;
+            }
+            else
+            {
+                var rtnBool = SqlDataHelper.HSFabricUpdate("JY0" + AppManager.CreateInstance().LineNum, strBatch);
+                if(rtnBool)
+                {
+                    MessageBox.Show("更新成功！");
+                }
+            }
         }
     }
 }
