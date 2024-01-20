@@ -44,6 +44,7 @@ namespace Yu3zx.ClothLaunch
                 {
                     var lFabric = db.Select<HSFabric>("SELECT sCardNo,sMaterialLot,sFabricNo,sMaterialName,sYarnInfo,iManualOrderNo,nLength,nClothRollDiameter,sProductWidthOrder,sColorNo,sColorName,sEquipmentNo,sFabricWidth,sGrade,sRemark,bend,tInspectTime " +
                         " from qmInspectHdr where sEquipmentNo=@EquipmentNo AND (bEnd is null OR bEnd = 0) ORDER BY tInspectTime ASC ", new { EquipmentNo = lineNum });// u => u.AlarmTime.Date == date.Date && u.DevId == strId
+                    db.Dispose();
                     if (lFabric != null && lFabric.Count > 0)
                     {
                         Log.Instance.LogWrite("查询到数据：" + lFabric.Count.ToString());
@@ -53,6 +54,7 @@ namespace Yu3zx.ClothLaunch
                 }
                 catch (Exception ex)
                 {
+                    db.Dispose();
                     Log.Instance.LogWrite(ex.Message);
                     Log.Instance.LogWrite(ex.StackTrace);
                     return null;
@@ -69,10 +71,12 @@ namespace Yu3zx.ClothLaunch
                 {
                     //var rtnUpdate = db.Update<AlarmItem>(u => new { u.AlarmTime },new AlarmItem() { DevId = id, AlarmTime = dtUpdate });
                     var rtnUpdate = db.Update("UPDATE qmInspectHdr SET bEnd = 1 WHERE sFabricNo = @sFabricNo", new { sFabricNo = sFabricNo});//
+                    db.Dispose();
                     return rtnUpdate;
                 }
                 catch (Exception ex)
                 {
+                    db.Dispose();
                     return false;
                 }
             }
@@ -86,10 +90,12 @@ namespace Yu3zx.ClothLaunch
                 {
                     //var rtnUpdate = db.Update<AlarmItem>(u => new { u.AlarmTime },new AlarmItem() { DevId = id, AlarmTime = dtUpdate });
                     var rtnUpdate = db.Update("UPDATE qmInspectHdr SET bEnd = 1 WHERE sEquipmentNo=@EquipmentNo", new { EquipmentNo = lineNum });//
+                    db.Dispose();
                     return rtnUpdate;
                 }
                 catch (Exception ex)
                 {
+                    db.Dispose();
                     return false;
                 }
             }
@@ -103,10 +109,12 @@ namespace Yu3zx.ClothLaunch
                 {
                     //var rtnUpdate = db.Update<AlarmItem>(u => new { u.AlarmTime },new AlarmItem() { DevId = id, AlarmTime = dtUpdate });
                     var rtnUpdate = db.Update("UPDATE qmInspectHdr SET bEnd = 1 WHERE sEquipmentNo=@EquipmentNo AND sCardNo=@CardNo", new { EquipmentNo = lineNum, CardNo = strbatch });//
+                    db.Dispose();
                     return rtnUpdate;
                 }
                 catch (Exception ex)
                 {
+                    db.Dispose();
                     return false;
                 }
             }
@@ -120,6 +128,7 @@ namespace Yu3zx.ClothLaunch
                 {
                     var lFabric = db.Select<HSFabric>("SELECT sCardNo,sMaterialLot,sFabricNo,sMaterialName,sYarnInfo,iManualOrderNo,nLength,sProductWidthOrder,sColorNo,sColorName,sEquipmentNo,sFabricWidth,sGrade,sRemark,bend,tInspectTime " +
                         " from qmInspectHdr where sEquipmentNo=@EquipmentNo AND (bEnd is null OR bEnd = 0) ORDER BY tInspectTime ASC ", new { EquipmentNo = lineNum });// u => u.AlarmTime.Date == date.Date && u.DevId == strId
+                    db.Dispose();
                     if (lFabric != null && lFabric.Count > 0)
                     {
                         Log.Instance.LogWrite("查询到数据：" + lFabric.Count.ToString());
@@ -129,6 +138,7 @@ namespace Yu3zx.ClothLaunch
                 }
                 catch (Exception ex)
                 {
+                    db.Dispose();
                     Log.Instance.LogWrite(ex.Message);
                     Log.Instance.LogWrite(ex.StackTrace);
                     return null;
@@ -147,6 +157,7 @@ namespace Yu3zx.ClothLaunch
                 try
                 {
                     var lFabric = db.Select<RoleItem>("SELECT * FROM Sys_Role ",null);// u => u.AlarmTime.Date == date.Date && u.DevId == strId
+                    db.Dispose();
                     if (lFabric != null && lFabric.Count > 0)
                     {
                         return lFabric[0];
@@ -154,6 +165,7 @@ namespace Yu3zx.ClothLaunch
                 }
                 catch (Exception ex)
                 {
+                    db.Dispose();
                     Log.Instance.LogWrite(ex.Message);
                     Log.Instance.LogWrite(ex.StackTrace);
                     return null;
