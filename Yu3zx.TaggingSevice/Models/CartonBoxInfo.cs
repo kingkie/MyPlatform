@@ -87,5 +87,14 @@ namespace Yu3zx.TaggingSevice
             get;
             set;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Column("ProdLens")]
+        public string ProdLens
+        {
+            get;
+            set;
+        }
     }
 }

@@ -1008,7 +1008,7 @@ namespace Yu3zx.TaggingSevice
                             }
                         }
 
-                        sumRoll = +detail.RollSum;//总计
+                        sumRoll = sumRoll + detail.RollSum;//总计
                         detail.BoxNum = item.BoxNum;
                         Boxes.Add(detail);
                     }
@@ -1175,6 +1175,7 @@ namespace Yu3zx.TaggingSevice
                 int iNum = 0;
                 string strRndString = "";
                 string strRollNums = "";
+                string strProdLens = "";
                 if (ProductStateManager.GetInstance().CurrentBox != null)
                 {
                     var fItem = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0];
@@ -1192,6 +1193,7 @@ namespace Yu3zx.TaggingSevice
                         {
                             strRndString += item.RndString + ",";
                             strRollNums += item.ReelNum.ToString() + ",";
+                            strProdLens += item.ProduceNum.ToString() + ",";
                             switch (idx)
                             {
                                 case 0:
@@ -1246,6 +1248,7 @@ namespace Yu3zx.TaggingSevice
                 boxInfo.SumNum = cartonBox.RollSum.ToString();
                 boxInfo.RndStrings = strRndString.Trim(',');
                 boxInfo.ReelNums = strRollNums.Trim(',');
+                boxInfo.ProdLens = strProdLens;//
                 SaveFabricCloth(boxInfo);
 
                 //通知LC已经打印

@@ -4,81 +4,137 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Yu3zx.FactoryLine.Views"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:view="clr-namespace:WPF_DateTimePicker.UserControls.DateTimePicker.View;assembly=WPF_DateTimePicker.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:WPF_DateTimePicker.UserControls.DateTimePicker.View;assembly=WPF_DateTimePicker.UserControls"
     Title="CartonInfoSearchPage"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="720"
+    d:DesignWidth="1280"
+    Loaded="Page_Loaded"
+    Unloaded="Page_Unloaded"
     mc:Ignorable="d">
 
     <Grid>
         <DockPanel LastChildFill="True">
             <Grid Height="96" DockPanel.Dock="Top">
-                <StackPanel
-                    Margin="20,10,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Orientation="Horizontal">
-                    <CheckBox
-                        x:Name="chkTime"
-                        VerticalAlignment="Center"
-                        Content="根据时间"
-                        FontSize="16"
-                        Foreground="Red" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="生产时间："
-                        TextAlignment="Right" />
-                    <view:DateTimePicker
-                        x:Name="dptBegin"
-                        Width="180px"
-                        Height="35px"
-                        Margin="0,0,0,0"
-                        BorderBrush="Gray"
-                        FontSize="14px" />
-                    <TextBlock
-                        Margin="0,0,0,0"
-                        FontSize="24"
-                        Text="--"
-                        TextAlignment="Center" />
-                    <view:DateTimePicker
-                        x:Name="dptEnd"
-                        Width="180px"
-                        Height="35px"
-                        Margin="0,0,0,0"
-                        BorderBrush="Gray"
-                        FontSize="14px" />
+                <StackPanel>
+                    <StackPanel
+                        Margin="20,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                        <CheckBox
+                            x:Name="chkTime"
+                            VerticalAlignment="Center"
+                            Content="根据时间"
+                            FontSize="18"
+                            Foreground="Red" />
+                        <TextBlock
+                            Width="108"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Text="生产时间："
+                            TextAlignment="Right" />
+                        <view:DateTimePicker
+                            x:Name="dptBegin"
+                            Width="180px"
+                            Height="35px"
+                            Margin="0,0,0,0"
+                            BorderBrush="Gray"
+                            FontSize="14px" />
+                        <TextBlock
+                            Width="36"
+                            Margin="0,0,0,0"
+                            FontSize="24"
+                            Text="--"
+                            TextAlignment="Center" />
+                        <view:DateTimePicker
+                            x:Name="dptEnd"
+                            Width="180px"
+                            Height="35px"
+                            Margin="0,0,0,0"
+                            BorderBrush="Gray"
+                            FontSize="14px" />
 
-                    <TextBlock
-                        Margin="0,0,0,0"
-                        FontSize="16" VerticalAlignment="Center"
-                        Text="批次："
-                        TextAlignment="Left" />
-                    <TextBox x:Name="txtBatchNo" Width="120" FontSize="20" VerticalAlignment="Center"/>
+                        <TextBlock
+                            Width="72"
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Text="批次："
+                            TextAlignment="Right" />
+                        <TextBox
+                            x:Name="txtBatchNo"
+                            Width="136"
+                            VerticalAlignment="Center"
+                            FontSize="20" />
+
+                    </StackPanel>
+
+                    <StackPanel
+                        Margin="0,10,0,10"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="72"
+                            Margin="156,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Text="机台号："
+                            TextAlignment="Right" />
+                        <ComboBox
+                            Width="108"
+                            Height="28"
+                            FontSize="18"
+                            SelectedIndex="0">
+                            <ComboBoxItem Content="全  部" />
+                            <ComboBoxItem Content="机台一" />
+                            <ComboBoxItem Content="机台二" />
+                            <ComboBoxItem Content="机台三" />
+                            <ComboBoxItem Content="机台四" />
+                        </ComboBox>
+                    </StackPanel>
                 </StackPanel>
 
 
-                <Button
-                    x:Name="btnSearch"
-                    Width="96"
-                    Height="36"
-                    Margin="0,0,20,10"
-                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                    Click="btnSearch_Click"
-                    Content="查 询"
-                    Style="{StaticResource M_RadiusButton}" />
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <Button
+                        x:Name="btnSearch"
+                        Width="128"
+                        Height="36"
+                        Margin="0,10,20,10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Click="btnSearch_Click"
+                        Content="查  询"
+                        Style="{StaticResource M_RadiusButton}" />
+                    <Button
+                        x:Name="btnPrint"
+                        Width="128"
+                        Height="36"
+                        Margin="0,10,20,10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Click="btnPrint_Click"
+                        Content="打  印"
+                        Style="{StaticResource M_RadiusButton}" />
+                </StackPanel>
             </Grid>
             <GroupBox Header="查询结果">
                 <DataGrid
                     x:Name="dgView"
-                    AutoGenerateColumns="False" IsReadOnly="True"
-                    CanUserAddRows="False" HeadersVisibility="Column"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    HeadersVisibility="Column"
+                    IsReadOnly="True"
                     ItemsSource="{Binding}">
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="60"
-                            Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}"
+                            Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=Header}"
                             Header="序号" />
                         <DataGridTextColumn
                             Width="120"
@@ -108,6 +164,10 @@
                             Width="120"
                             Binding="{Binding ReelNums}"
                             Header="箱内卷号" />
+                        <DataGridTextColumn
+                            Width="120"
+                            Binding="{Binding ProdLens}"
+                            Header="箱内长度" />
 
                         <DataGridTextColumn
                             Width="180"

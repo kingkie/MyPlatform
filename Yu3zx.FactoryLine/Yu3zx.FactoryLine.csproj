@@ -54,9 +54,26 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Product\Tagging\Debug\DMSkin.CyanDesign.dll</HintPath>
     </Reference>
+    <Reference Include="FastReport, Version=2019.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Tagging\Debug\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=2019.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Tagging\Debug\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Compat, Version=2023.1.0.0, Culture=neutral, PublicKeyToken=406e1f4c3c8ef97e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Product\Tagging\Debug\FastReport.Compat.dll</HintPath>
+    </Reference>
     <Reference Include="HandyControl, Version=1.4.0.29210, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Product\Tagging\Debug\HandyControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.BarTender, Version=11.0.7.1, Culture=neutral, PublicKeyToken=109ff779a1b4cbc7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Product\Tagging\Debug\Interop.BarTender.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf">
       <HintPath>..\Yu3zx.UICore\bin\Debug\MaterialDesignThemes.Wpf.dll</HintPath>
@@ -87,6 +104,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\IndentConverter.cs" />
     <Compile Include="DataModels\BaseEntity.cs" />
+    <Compile Include="DataModels\BoxDetail.cs" />
     <Compile Include="DataModels\FabricClothItem.cs" />
     <Compile Include="MainWindowModel.cs" />
     <Compile Include="DataModels\CartonBoxInfo.cs" />
@@ -94,6 +112,7 @@
     <Compile Include="Models\ProductPlan.cs" />
     <Compile Include="Models\TubeLabel.cs" />
     <Compile Include="PrintHelper.cs" />
+    <Compile Include="Utils\PrinterHelper.cs" />
     <Compile Include="Views\BeOnlinePage.xaml.cs">
       <DependentUpon>BeOnlinePage.xaml</DependentUpon>
     </Compile>
@@ -205,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
-    <Folder Include="Utils\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
