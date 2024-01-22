@@ -321,13 +321,15 @@ namespace Yu3zx.TaggingSevice
                     {
                         return;
                     }
+
                     //批次号
-                    if(!ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNo))
+                    if (!ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNo))
                     {
                         OnLineCloth onLine = new OnLineCloth();
                         onLine.BatchNo = strBatchNo;
                         ProductStateManager.GetInstance().DictOnLine.Add(strBatchNo, onLine);
                     }
+
                     //增加已经上线的
                     lock (ProductStateManager.GetInstance().DictOnLine)
                     {

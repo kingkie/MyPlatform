@@ -154,9 +154,15 @@ namespace Yu3zx.TaggingSevice
         }
 
         /// <summary>
+        /// 20240122：以机台号划分
+        /// </summary>
+        public Dictionary<string, List<FabricClothItem>> DictMacNums = new Dictionary<string, List<FabricClothItem>>();
+
+        /// <summary>
         /// 上线各个批次的数量
         /// </summary>
         public Dictionary<string, OnLineCloth> DictOnLine = new Dictionary<string, OnLineCloth>();//由客户端传过来
+
 
         /// <summary>
         /// 在生产线上的布料:未打印标签
@@ -178,7 +184,7 @@ namespace Yu3zx.TaggingSevice
             try
             {
                 var item = DictOnLine.OrderByDescending(x => x.Value.ClothItems.Count).ToList();//.Find(p=>p.Value.AClassSum >= 6);//.Select(p => p.Value.AClassSum > 6).ToList();
-                foreach(var subItem in item)
+                foreach (var subItem in item)
                 {
                     if(subItem.Value.AClassSum >= AppManager.CreateInstance().PackingNum)
                     {
@@ -210,6 +216,7 @@ namespace Yu3zx.TaggingSevice
             { }
             return string.Empty;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -229,6 +236,18 @@ namespace Yu3zx.TaggingSevice
                     else
                     {
                         DictCartonList.Add(i.ToString(), new List<CartonBox>());
+                    }
+
+                    if (DictMacNums.ContainsKey(i.ToString()))
+                    {
+                        if (DictMacNums[i.ToString()] == null)
+                        {
+                            DictMacNums[i.ToString()] = new List<FabricClothItem>();
+                        }
+                    }
+                    else
+                    {
+                        DictMacNums.Add(i.ToString(), new List<FabricClothItem>());
                     }
                 }
             }

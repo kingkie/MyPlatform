@@ -65,7 +65,7 @@ namespace Yu3zx.FactoryLine.Utils
                             int iReel = 0;
                             decimal dLen = 0.0M;
 
-                            if(lReelNums.Count > j)
+                            if (lReelNums.Count > j)
                             {
                                 try
                                 {
@@ -74,7 +74,7 @@ namespace Yu3zx.FactoryLine.Utils
                                 catch
                                 { }
                             }
-                            if(lProdLens.Count > j)
+                            if (lProdLens.Count > j)
                             {
                                 try
                                 {
@@ -128,7 +128,7 @@ namespace Yu3zx.FactoryLine.Utils
                 DataTable table = ListToDataTable(Boxes);
                 table.TableName = "Products";
                 FDataSet.Tables.Add(table);
-                string filePath = Path.Combine( AppDomain.CurrentDomain.BaseDirectory , "\\Report\\cartonreport.frx");
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory , "Report\\cartonreport.frx");
                 if (File.Exists(filePath))
                 {
                 }
