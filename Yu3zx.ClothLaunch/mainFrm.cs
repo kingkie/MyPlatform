@@ -60,7 +60,7 @@ namespace Yu3zx.ClothLaunch
         {
             InitializeComponent();
             thMesTimer = new System.Windows.Forms.Timer();
-            thMesTimer.Interval = 5000;
+            thMesTimer.Interval = 60000;
             thMesTimer.Tick += ThMesTimer_Tick;
         }
 
@@ -78,7 +78,7 @@ namespace Yu3zx.ClothLaunch
                     string strColorNum = fabric.SColorNo;// txtColorNum.Text;
                     float fProduceNum = (float)fabric.NLength;// float.Parse(txtProduceNum.Text);
                     string strQualityName = strGrade;
-                    string strSpecs = fabric.SYarnInfo;// txtSpecs.Text;//
+                    string strSpecs = fabric.SProductWidthOrder;// txtSpecs.Text;//
                     string strQString = fabric.SMaterialName;
                     int iRoll = fabric.NClothRollDiameter;// int.Parse(fabric.);///txtRollDiam.Text
 
@@ -222,9 +222,12 @@ namespace Yu3zx.ClothLaunch
                             {
                                 ntwStream.Write(buff, 0, buff.Length);
                             }
+                            SqlDataHelper.HSFabricUpdate(fabric.SFabricNo);//更新
                         }
-
-                        SqlDataHelper.HSFabricUpdate(fabric.SFabricNo);//更新
+                        else
+                        {
+                            DataManager.CreateInstance().NeedSend.Add(item);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -801,7 +804,7 @@ namespace Yu3zx.ClothLaunch
                     XmlNode vNode = xmlDoc.SelectSingleNode("Configuration/Server"); //
                     if(vNode != null)
                     {
-                        vNode.Attributes["ip"].Value = txtServerPort.Text.Trim();
+                        vNode.Attributes["ip"].Value = txtServerIp.Text.Trim();
                         vNode.Attributes["port"].Value = sPort.ToString();
                     }
                     xmlDoc.Save("Config/ItemConfig.xml");

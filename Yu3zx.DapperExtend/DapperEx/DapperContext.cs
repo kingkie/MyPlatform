@@ -173,6 +173,7 @@ namespace Yu3zx.DapperExtend
                 try
                 {
                     dbConn.Dispose();
+                    dbConn = null;
                 }
                 catch 
                 {

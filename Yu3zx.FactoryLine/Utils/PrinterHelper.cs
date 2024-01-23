@@ -45,13 +45,12 @@ namespace Yu3zx.FactoryLine.Utils
                         List<string> lProdLens = new List<string>();
                         if(!string.IsNullOrEmpty(strReelNums))
                         {
-                            lReelNums.AddRange(strReelNums.Split(new string[] { "" }, StringSplitOptions.RemoveEmptyEntries));
+                            lReelNums.AddRange(strReelNums.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries));
                         }
                         if (!string.IsNullOrEmpty(strProdLens))
                         {
-                            lProdLens.AddRange(strProdLens.Split(new string[] { "" }, StringSplitOptions.RemoveEmptyEntries));
+                            lProdLens.AddRange(strProdLens.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries));
                         }
-
                         BoxDetail detail = new BoxDetail();
                         for (int j = 0; j < Math.Max(lReelNums.Count, lProdLens.Count); j++)
                         {

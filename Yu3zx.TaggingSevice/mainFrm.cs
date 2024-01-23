@@ -1269,6 +1269,7 @@ namespace Yu3zx.TaggingSevice
             using (var db = new DapperContext("MySqlDbConnection"))
             {
                 var result = db.InsertRow(item);
+                db.Dispose();
                 if (result > 0)
                 {
                     Console.WriteLine("添加成功");
@@ -1569,7 +1570,6 @@ namespace Yu3zx.TaggingSevice
                 return myCp;
             }
         }
-
 
 
         #region 修改数据
