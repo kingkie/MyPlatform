@@ -83,6 +83,7 @@
                             Text="机台号："
                             TextAlignment="Right" />
                         <ComboBox
+                            x:Name="cboLine"
                             Width="108"
                             Height="28"
                             FontSize="18"

@@ -30,6 +30,10 @@ namespace Yu3zx.TaggingSevice
         /// PLC收到的命令
         /// </summary>
         private ConcurrentQueue<PlcCmd> PlcReceive = new ConcurrentQueue<PlcCmd>();
+        /// <summary>
+        /// 强制指令序列
+        /// </summary>
+        private ConcurrentQueue<PlcCmd> PrePlcReceive = new ConcurrentQueue<PlcCmd>();
 
         public mainFrm()
         {
@@ -322,6 +326,12 @@ namespace Yu3zx.TaggingSevice
                         return;
                     }
 
+                    //-------20240123-以机台号为分类-----
+                    if(ProductStateManager.GetInstance().DictMacNums.ContainsKey(lNum))
+                    {
+                        ProductStateManager.GetInstance().DictMacNums[lNum].Add(item);
+                    }
+
                     //批次号
                     if (!ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNo))
                     {
@@ -558,6 +568,15 @@ namespace Yu3zx.TaggingSevice
                     //第一箱上完了上线第二箱
                     if (!ProductStateManager.GetInstance().CurrentDoing)//是否是当前上线
                     {
+                        if(PrePlcReceive.Count > 0)
+                        {
+                            PlcCmd preCmd;
+                            if(PrePlcReceive.TryDequeue(out preCmd))
+                            {
+                                Log.Instance.LogWrite(string.Format("有强制指令：线号 {0}，指令 {1}" , preCmd.MachineId.ToString(), preCmd.CmdCode.ToString()));
+                            }
+                        }
+
                         string strBatchNum = ProductStateManager.GetInstance().GetOnLineList();
                         if (string.IsNullOrEmpty(strBatchNum))
                         {
@@ -813,10 +832,13 @@ namespace Yu3zx.TaggingSevice
                                     cmd5.CmdCode = 0x05;
                                     cmd5.MachineId = cmdInput[1];
                                     //
-                                    PlcReceive.Enqueue(cmd5);
+                                    // PlcReceive.Enqueue(cmd5);
+
+                                    PrePlcReceive.Enqueue(cmd5);//优先的特殊指令
+
                                     break;
                                 case 0x06:
-                                    //强制
+                                    //强制，复位指令
                                     PlcCmd cmd6 = new PlcCmd();
                                     cmd6.CmdCode = 0x06;
                                     cmd6.MachineId = cmdInput[1];
@@ -1251,6 +1273,9 @@ namespace Yu3zx.TaggingSevice
                 boxInfo.RndStrings = strRndString.Trim(',');
                 boxInfo.ReelNums = strRollNums.Trim(',');
                 boxInfo.ProdLens = strProdLens;//
+                //lStrNum
+                boxInfo.LineNum = lStrNum;//线号
+
                 SaveFabricCloth(boxInfo);
 
                 //通知LC已经打印

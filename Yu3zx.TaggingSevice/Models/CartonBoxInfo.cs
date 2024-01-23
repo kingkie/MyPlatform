@@ -96,5 +96,15 @@ namespace Yu3zx.TaggingSevice
             get;
             set;
         }
+
+        /// <summary>
+        /// 生产线号
+        /// </summary>
+        [Column("LineNum")]
+        public string LineNum
+        {
+            get;
+            set;
+        }
     }
 }
