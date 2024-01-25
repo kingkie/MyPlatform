@@ -517,7 +517,7 @@ namespace Yu3zx.TaggingSevice
                                     {
                                         iPfl = plcCmd.DataSegment[0];
                                     }
-                                    Log.Instance.LogWrite(string.Format("打印入库单,箱数：{0}", iPfl));
+                                    Log.Instance.LogWrite(string.Format("打印入库单,箱数：{0},线号{1}", iPfl, plcCmd.MachineId));
                                     if (iPfl > 0)
                                     {
                                         this.Invoke((EventHandler)delegate {
@@ -1135,6 +1135,210 @@ namespace Yu3zx.TaggingSevice
                 NoticePrintedReport(lineNum, packNum);
             }
             catch(Exception ex)
+            {
+                Console.WriteLine("L977:" + ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Log.Instance.LogWrite("L977:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
+            }
+        }
+
+        /// <summary>
+        /// 打印总垛数据，并移除打印的,打印报表
+        /// </summary>
+        /// <param name="packNum">总包数装成垛</param>
+        private void PrintFabricList(int lineNum, int packNum)
+        {
+            try
+            {
+                //没有就不打印
+                if (packNum < 0)
+                {
+                    return;
+                }
+                if (ProductStateManager.GetInstance().CartonBoxItems.Count >= packNum)
+                {
+                }
+                else
+                {
+                    return;
+                }
+
+                int minPack = Math.Min(ProductStateManager.GetInstance().CartonBoxItems.Count, packNum);
+                if (minPack < 1)
+                {
+                    //通知已经打印
+                    NoticePrintedReport((byte)lineNum, minPack);
+                    return;
+                }
+                //一垛总包数
+                List<BoxDetail> Boxes = new List<BoxDetail>();
+                //增加装箱信息
+                //BoxInfo info = new BoxInfo();
+                //List<BoxInfo> BoxInfos = new List<BoxInfo>();
+                string strBatchNo = string.Empty;
+                string strColorNum = string.Empty;
+                string strQualityString = string.Empty;
+                string strSpecs = string.Empty;
+                decimal sumRoll = 0;
+                try
+                {
+                    for (int i = 0; i < minPack; i++)
+                    {
+                        CartonBox item = ProductStateManager.GetInstance().CartonBoxItems[i];
+                        BoxDetail detail = new BoxDetail();
+                        for (int j = 0; j < item.OnLaunchItems.Count; j++)
+                        {
+                            if (j == 0 && i == 0)
+                            {
+                                //info.BatchNo = item.OnLaunchItems[j].BatchNo;
+                                //info.ColorNum = item.OnLaunchItems[j].ColorNum;
+                                //info.QualityString = item.OnLaunchItems[j].QualityString;
+                                //info.Specs = item.OnLaunchItems[j].Specs;
+                                strBatchNo = item.OnLaunchItems[j].BatchNo;
+                                strColorNum = item.OnLaunchItems[j].ColorNum;
+                                strQualityString = item.OnLaunchItems[j].QualityString;
+                                strSpecs = item.OnLaunchItems[j].Specs;
+                                //BoxInfos.Add(info);
+                                try
+                                {
+                                    lineNum = byte.Parse(item.OnLaunchItems[j].LineNum);
+                                }
+                                catch
+                                { }
+                            }
+                            switch (j)
+                            {
+                                case 0:
+                                    detail.RollNum1 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum1 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 1:
+                                    detail.RollNum2 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum2 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 2:
+                                    detail.RollNum3 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum3 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 3:
+                                    detail.RollNum4 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum4 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 4:
+                                    detail.RollNum5 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum5 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                                case 5:
+                                    detail.RollNum6 = decimal.Round((decimal)item.OnLaunchItems[j].ProduceNum, 2);
+                                    detail.ReelNum6 = item.OnLaunchItems[j].ReelNum;
+                                    break;
+                            }
+                        }
+
+                        sumRoll = sumRoll + detail.RollSum;//总计
+                        detail.BoxNum = item.BoxNum;
+                        Boxes.Add(detail);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Instance.LogWrite("L897:" + ex.Message);
+                    Log.Instance.LogWrite(ex.StackTrace);
+                }
+                //-------------------
+                var FDataSet = new DataSet();
+                DataTable table = PackHelper.ListToDataTable(Boxes);
+                table.TableName = "Products";
+                FDataSet.Tables.Add(table);
+                string filePath = Application.StartupPath + "\\Report\\cartonreport.frx";
+                if (File.Exists(filePath))
+                {
+                }
+                else
+                {
+                    Log.Instance.LogWrite("L 1.0,文件不存在:" + filePath);
+                }
+                Report report = new Report();
+                report.Load(filePath);
+
+                Config.ReportSettings.ShowProgress = false;//不显示进度
+
+                Parameter BatchNo = new Parameter();
+                BatchNo.Name = "BatchNo";
+                BatchNo.DataType = typeof(string);
+                BatchNo.Value = strBatchNo;
+
+                Parameter colorNum = new Parameter();
+                colorNum.Name = "ColorNum";
+                colorNum.DataType = typeof(string);
+                colorNum.Value = strColorNum;
+
+                Parameter QualityString = new Parameter();
+                QualityString.Name = "QualityString";
+                QualityString.DataType = typeof(string);
+                QualityString.Value = strQualityString;
+
+                Parameter Specs = new Parameter();
+                Specs.Name = "Specs";
+                Specs.DataType = typeof(string);
+                Specs.Value = strSpecs;
+
+                Parameter paraTotal = new Parameter();
+                paraTotal.Name = "ParaTotal";
+                paraTotal.DataType = typeof(string);
+                paraTotal.Value = sumRoll.ToString();
+
+                report.Parameters.Add(BatchNo);
+                report.Parameters.Add(colorNum);
+                report.Parameters.Add(QualityString);
+                report.Parameters.Add(Specs);
+                report.Parameters.Add(paraTotal);
+                report.RegisterData(FDataSet, "NorthWind");//NorthWind
+                report.SmoothGraphics = true;
+
+                report.Prepare();
+                report.PrintSettings.ShowDialog = false;
+
+                report.Print();
+                report.Dispose();
+
+                #region EastReport
+
+                //EastReport.Report report = new EastReport.Report();
+                //string filePath = Application.StartupPath + "\\Report\\cartonreport.rpt";
+                //try
+                //{
+                //    DataSet dsInfo = ConvertToDataSet(BoxInfos);
+                //    report.AddDataSet(dsInfo);
+
+                //    DataSet pDatset = ConvertToDataSet(Boxes);
+                //    report.AddDataSet(pDatset);
+
+                //    report.Variants.Add(new EastReport.Variant("RollDiamSum", EastReport.VariantType.Decimal, ""));
+
+                //    //report.Variants.Add(new EastReport.Variant("BatchNo", EastReport.VariantType.String, "230A321"));
+                //    //report.Variants.Add(new EastReport.Variant("QualityString", EastReport.VariantType.String, "yke813017029"));
+                //    //report.Variants.Add(new EastReport.Variant("ColorNum", EastReport.VariantType.String, "199"));
+                //    //report.Variants.Add(new EastReport.Variant("Specs", EastReport.VariantType.String, "137"));
+                //}
+                //catch (Exception)
+                //{ }
+
+                //System.Xml.XmlDocument xmlDoc = new XmlDocument();
+                //xmlDoc.Load(filePath);//载入报表
+                //report.Load(xmlDoc);
+                //report.Print(true);
+                ////报表打印
+                //report.Dispose();
+
+                #endregion End
+
+                Console.WriteLine("总包数打印！");
+                //通知已经打印
+                NoticePrintedReport((byte)lineNum, packNum);
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("L977:" + ex.Message);
                 Console.WriteLine(ex.StackTrace);
