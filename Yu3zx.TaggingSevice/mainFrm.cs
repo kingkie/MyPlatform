@@ -327,25 +327,68 @@ namespace Yu3zx.TaggingSevice
                     }
 
                     //-------20240123-以机台号为分类-----
-                    if(ProductStateManager.GetInstance().DictMacNums.ContainsKey(lNum))
-                    {
-                        ProductStateManager.GetInstance().DictMacNums[lNum].Add(item);
-                    }
-
-                    //批次号
-                    if (!ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNo))
+                    if (!ProductStateManager.GetInstance().DictMacNums.ContainsKey(strBatchNo))
                     {
                         OnLineCloth onLine = new OnLineCloth();
                         onLine.BatchNo = strBatchNo;
-                        ProductStateManager.GetInstance().DictOnLine.Add(strBatchNo, onLine);
+                        ProductStateManager.GetInstance().DictMacNums.Add(lNum, onLine);
                     }
+                    if (ProductStateManager.GetInstance().DictMacNums.ContainsKey(lNum))
+                    {
+                        ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Add(item);//
+                    }
+
+                    lock (ProductStateManager.GetInstance().DictMacNums)
+                    {
+                        var fItem = ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Find(x => x.BatchNo == item.BatchNo && x.ReelNum == item.ReelNum);//批次和卷号决定唯一
+                        if (fItem != null)
+                        {
+                            if (fItem.QualityName != item.QualityName)//修改了品质
+                            {
+                                //品质发生变化则需要修改
+                                if (item.QualityName == "A") //需要包装的
+                                {
+                                    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
+                                }
+                                else
+                                {
+                                    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum - 1;
+                                    if (ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum < 0)
+                                    {
+                                        ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                fItem = item;
+                            }
+                        }
+                        else
+                        {
+                            ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Add(item);
+                            if (item.QualityName == "A") //需要包装的
+                            {
+                                ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum + 1;
+                            }
+                        }
+                    }
+
+
+                    //批次号
+                    //if (!ProductStateManager.GetInstance().DictOnLine.ContainsKey(strBatchNo))
+                    //{
+                    //    OnLineCloth onLine = new OnLineCloth();
+                    //    onLine.BatchNo = strBatchNo;
+                    //    ProductStateManager.GetInstance().DictOnLine.Add(strBatchNo, onLine);
+                    //}
 
                     //增加已经上线的
                     lock (ProductStateManager.GetInstance().DictOnLine)
                     {
                         //判断是否已经存在，如果存在，则修改
                         var findItem = ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Find(x => x.RndString == item.RndString);
-                        if(findItem != null)
+                        if (findItem != null)
                         {
                             if(findItem.QualityName != item.QualityName)
                             {
@@ -409,7 +452,6 @@ namespace Yu3zx.TaggingSevice
         private void WorkFlowGoing()
         {
             Log.Instance.LogWrite("工作线程启动:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            bool bForce = false;//强制
             while (true)
             {
                 try
@@ -417,10 +459,6 @@ namespace Yu3zx.TaggingSevice
                     PlcCmd plcCmd;
                     if (PlcReceive.Count > 0)
                     {
-                        //取消循环，通知比较少
-                        //for(int i = 0;i < PlcReceive.Count;i++)
-                        //{
-                        //}
                         if (PlcReceive.TryDequeue(out plcCmd))
                         {
                             Log.Instance.LogWrite(string.Format("处理Plc指令：{0}", plcCmd.CmdCode));
@@ -522,6 +560,7 @@ namespace Yu3zx.TaggingSevice
                                     {
                                         this.Invoke((EventHandler)delegate {
                                             PrintFabricList(iPfl); //打印入库单
+                                            // PrintFabricList(plcCmd.MachineId,iPfl); //打印入库单
                                         });
                                         //剔除已经成垛的
                                         int moveIndex = iPfl;
@@ -534,6 +573,25 @@ namespace Yu3zx.TaggingSevice
                                                     try
                                                     {
                                                         ProductStateManager.GetInstance().CartonBoxItems.RemoveAt(0);
+                                                        moveIndex--;//BUG
+                                                    }
+                                                    catch
+                                                    {
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        //20240126
+                                        if (ProductStateManager.GetInstance().DictCartonList.ContainsKey(plcCmd.MachineId.ToString()) && ProductStateManager.GetInstance().DictCartonList[plcCmd.MachineId.ToString()].Count >= iPfl)
+                                        {
+                                            lock (ProductStateManager.GetInstance().DictCartonList)
+                                            {
+                                                while (moveIndex > 0)
+                                                {
+                                                    try
+                                                    {
+                                                        ProductStateManager.GetInstance().DictCartonList[plcCmd.MachineId.ToString()].RemoveAt(0);
                                                         moveIndex--;//BUG
                                                     }
                                                     catch
@@ -555,7 +613,7 @@ namespace Yu3zx.TaggingSevice
                                     //强制上线,还是需要判断现在是否忙碌中
                                     if (!ProductStateManager.GetInstance().CurrentDoing)
                                     {
-                                        bForce = true;
+
                                     }
                                     break;
                                 case 0x06:
@@ -565,191 +623,187 @@ namespace Yu3zx.TaggingSevice
                             }
                         }
                     }
-                    //第一箱上完了上线第二箱
+                    //第一箱上完了上线第二箱，如果有强制优先的先优先，否则按正常算法
                     if (!ProductStateManager.GetInstance().CurrentDoing)//是否是当前上线
                     {
-                        if(PrePlcReceive.Count > 0)
+                        if (PrePlcReceive.Count > 0)
                         {
                             PlcCmd preCmd;
-                            if(PrePlcReceive.TryDequeue(out preCmd))
+                            if (PrePlcReceive.TryDequeue(out preCmd))
                             {
                                 Log.Instance.LogWrite(string.Format("有强制指令：线号 {0}，指令 {1}" , preCmd.MachineId.ToString(), preCmd.CmdCode.ToString()));
-                            }
-                        }
 
-                        string strBatchNum = ProductStateManager.GetInstance().GetOnLineList();
-                        if (string.IsNullOrEmpty(strBatchNum))
-                        {
-                            //有强制上线的
-                            if (bForce)
-                            {
-                                bForce = false;//这时有强制指令时做
-                                string strForceBatchNum = ProductStateManager.GetInstance().GetOnLineLastList();
-                                if (!string.IsNullOrEmpty(strForceBatchNum))
+                                //开始执行
+                                switch(preCmd.CmdCode)
                                 {
-                                    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-                                    //开始强制上线
-                                    WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems[0].LineNum;
-                                    WorkFlowManager.CreateInstance().CurrentBatchNo = strForceBatchNum;
-                                    int iSumNeed1 = 0;//累计需要
-                                    int iAClass1 = 0;
-                                    //计算出需要移出多少个，剩余的部分全部移出
-                                    foreach (var iCloth in ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems)
-                                    {
-                                        if (iCloth.QualityName == "A")
+                                    case 0x05:
+                                        int macId = preCmd.MachineId;//看看哪条请求强制上线
+                                        if (ProductStateManager.GetInstance().DictMacNums[macId.ToString()].ClothItems.Count > 0)
                                         {
-                                            iAClass1++;
-                                        }
-                                        iSumNeed1++;
-                                    }
-                                    CartonBox newBox = new CartonBox();
-                                    newBox.BatchNo = strForceBatchNum;
-                                    newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strForceBatchNum).ToString(); ;
-                                    lock (ProductStateManager.GetInstance().DictOnLine)
-                                    {
-                                        while (iSumNeed1 > 0)
-                                        {
-                                            var iRemove = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems[0];
-                                            newBox.OnLaunchItems.Add(iRemove);
-                                            ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].ClothItems.RemoveAt(0);
-                                            iSumNeed1--;
-                                        }
-                                        ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum;//减掉上线的数量
-                                        ProductStateManager.GetInstance().CurrentDoing = true;
-                                        ProductStateManager.GetInstance().CurrentBatchNo = strForceBatchNum;
-                                        ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
-                                        ProductStateManager.GetInstance().CartonBoxItems.Add(newBox);
+                                            int minCnt = Math.Min(ProductStateManager.GetInstance().DictMacNums[macId.ToString()].ClothItems.Count,6);//最小数
+                                            WorkFlowManager.CreateInstance().CurrentLine = macId.ToString();//当前工作线号
 
-                                        if (ProductStateManager.GetInstance().CurrentBox != null && ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count > 0)
-                                        {
-                                            ProductStateManager.GetInstance().CurrentLine = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0].LineNum;//当前线
-                                        }
+                                            int iSumNeed1 = 0;//累计需要
+                                            int iAClass1 = 0;
+                                            string strForceBatchNum = string.Empty;
+                                            foreach (var iCloth in ProductStateManager.GetInstance().DictMacNums[macId.ToString()].ClothItems)
+                                            {
+                                                if (iCloth.QualityName == "A")
+                                                {
+                                                    iAClass1++;
+                                                    strForceBatchNum = iCloth.BatchNo;//取其中一个就可以
+                                                }
+                                                iSumNeed1++;
+                                                if (iAClass1 >= minCnt)
+                                                {
+                                                    break;
+                                                }
+                                            }
 
-                                        if (ProductStateManager.GetInstance().DictCartonList.ContainsKey(ProductStateManager.GetInstance().CurrentLine))
-                                        {
-                                            ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);//当前线增加一箱
+                                            CartonBox newBox = new CartonBox();
+                                            newBox.BatchNo = strForceBatchNum;//
+                                            newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strForceBatchNum).ToString();
+
+                                            lock (ProductStateManager.GetInstance().DictMacNums)
+                                            {
+                                                while (iSumNeed1 > 0)
+                                                {
+                                                    var iRemove = ProductStateManager.GetInstance().DictMacNums[macId.ToString()].ClothItems[0];
+                                                    newBox.OnLaunchItems.Add(iRemove);
+                                                    ProductStateManager.GetInstance().DictMacNums[macId.ToString()].ClothItems.RemoveAt(0);
+                                                    iSumNeed1--;
+                                                }
+
+                                                ProductStateManager.GetInstance().DictMacNums[macId.ToString()].AClassSum = ProductStateManager.GetInstance().DictMacNums[macId.ToString()].AClassSum - iAClass1;
+
+                                                //ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum;//减掉上线的数量
+                                                ProductStateManager.GetInstance().CurrentDoing = true;
+                                                ProductStateManager.GetInstance().CurrentBatchNo = macId.ToString();//strForceBatchNum
+                                                ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
+                                                ProductStateManager.GetInstance().DictCartonList[macId.ToString()].Add(newBox);
+
+                                                ProductStateManager.GetInstance().CurrentLine = macId.ToString();
+
+                                                ProductStateManager.GetInstance().Save();
+                                            }
+
+                                            //以及打印包装箱标签
+                                            if (ProductStateManager.GetInstance().CurrentDoing)
+                                            {
+                                                //------打印整箱的-------
+                                                this.Invoke((EventHandler)delegate {
+                                                    PrintCartonBoxLabel();// CurrentBox
+                                                });
+                                                try
+                                                {
+                                                    //通知PLC上线
+                                                    byte iLNum = (byte)macId;// byte.Parse(macId);//机台号
+                                                    short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
+                                                    short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
+                                                    Thread.Sleep(2400);
+                                                    NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    Log.Instance.LogWrite(ex);
+                                                }
+                                            }
                                         }
                                         else
                                         {
-                                            ProductStateManager.GetInstance().DictCartonList.Add(ProductStateManager.GetInstance().CurrentLine, new List<CartonBox>());
-                                            ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);
+                                            continue;//没有可强制上线的就跳过
                                         }
-
-                                        ProductStateManager.GetInstance().Save();
-                                    }
-                                    //以及打印包装箱标签
-                                    if (ProductStateManager.GetInstance().CurrentDoing)
-                                    {
-                                        //------打印整箱的-------
-                                        this.Invoke((EventHandler)delegate {
-                                            PrintCartonBoxLabel();//
-                                        });
-                                        try
-                                        {
-                                            //通知PLC上线
-                                            byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
-                                            short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
-                                            short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
-                                            Thread.Sleep(2400);
-                                            NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            Log.Instance.LogWrite(ex);
-                                        }
-                                    }
+                                        break;
                                 }
+
                             }
-                            //未能达到上线的条件
-                            Thread.Sleep(1000);
                         }
                         else
                         {
-                            Log.Instance.LogWrite("L412：开始上线另外的");
-                            //开始上线  ----要注意超出
-
-                            WorkFlowManager.CreateInstance().CurrentLine = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0].LineNum;
-                            WorkFlowManager.CreateInstance().CurrentBatchNo = strBatchNum;
-                            int iSumNeed = 0;//累计需要
-                            int iAClass = 0;
-
-                            //计算出需要移出多少个
-                            foreach (var iCloth in ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems)
+                            //没有强制上线的
+                            string lineNum = ProductStateManager.GetInstance().GetNextBoxLineNum();
+                            if (!string.IsNullOrEmpty(lineNum))//有适合的线可以上线
                             {
-                                if (iAClass >= AppManager.CreateInstance().PackingNum)
+                                Log.Instance.LogWrite("L412：开始上线另外的");
+                                WorkFlowManager.CreateInstance().CurrentLine = lineNum;
+                                WorkFlowManager.CreateInstance().CurrentBatchNo = ProductStateManager.GetInstance().DictMacNums[lineNum].BatchNo;
+                                int iSumNeed = 0;//累计需要
+                                int iAClass = 0;
+
+                                foreach (var iCloth in ProductStateManager.GetInstance().DictMacNums[lineNum].ClothItems)
                                 {
-                                    break;
+                                    if (iAClass >= AppManager.CreateInstance().PackingNum)
+                                    {
+                                        break;
+                                    }
+                                    if (iCloth.QualityName == "A")
+                                    {
+                                        iAClass++;
+                                    }
+                                    iSumNeed++;
                                 }
-                                if (iCloth.QualityName == "A")
+
+                                CartonBox newBox = new CartonBox();
+                                string strBatchNum1 = ProductStateManager.GetInstance().DictMacNums[lineNum].BatchNo;
+                                newBox.BatchNo = strBatchNum1;
+                                newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strBatchNum1).ToString();
+
+                                lock (ProductStateManager.GetInstance().DictMacNums)
                                 {
-                                    iAClass++;
+                                    while (iSumNeed > 0)
+                                    {
+                                        var iRemove = ProductStateManager.GetInstance().DictMacNums[lineNum].ClothItems[0];
+                                        newBox.OnLaunchItems.Add(iRemove);
+                                        ProductStateManager.GetInstance().DictMacNums[lineNum].ClothItems.RemoveAt(0);
+                                        iSumNeed--;
+                                    }
+
+                                    ProductStateManager.GetInstance().DictMacNums[lineNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lineNum].AClassSum - iAClass;
+
+                                    ProductStateManager.GetInstance().CurrentDoing = true;
+                                    ProductStateManager.GetInstance().CurrentBatchNo = lineNum;//strForceBatchNum
+                                    ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
+                                    ProductStateManager.GetInstance().DictCartonList[lineNum].Add(newBox);
+
+                                    ProductStateManager.GetInstance().CurrentLine = lineNum;
+
+                                    ProductStateManager.GetInstance().Save();
                                 }
-                                iSumNeed++;
+                                Log.Instance.LogWrite("L455：新上线！");
+                                //正常的以及打印包装箱标签
+                                if (ProductStateManager.GetInstance().CurrentDoing)
+                                {
+                                    //------打印整箱的-------
+                                    this.Invoke((EventHandler)delegate {
+                                        PrintCartonBoxLabel();// CurrentBox
+                                    });
+                                    try
+                                    {
+                                        //通知PLC上线
+                                        byte iLNum = byte.Parse(lineNum);//机台号
+                                        short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
+                                        short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
+                                        Thread.Sleep(2400);
+                                        NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Log.Instance.LogWrite(ex);
+                                    }
+                                }
+
                             }
-                            CartonBox newBox = new CartonBox();
-                            newBox.BatchNo = strBatchNum;
-                            newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strBatchNum).ToString();
-
-                            lock (ProductStateManager.GetInstance().DictOnLine)
+                            else
                             {
-                                while (iSumNeed > 0)
-                                {
-                                    var iRemove = ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems[0];
-                                    newBox.OnLaunchItems.Add(iRemove);
-                                    ProductStateManager.GetInstance().DictOnLine[strBatchNum].ClothItems.RemoveAt(0);
-                                    iSumNeed--;
-                                }
-                                ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNum].AClassSum - AppManager.CreateInstance().PackingNum;//减掉上线的数量
-                                ProductStateManager.GetInstance().CurrentDoing = true;
-                                ProductStateManager.GetInstance().CurrentBatchNo = strBatchNum;
-                                ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
-                                ProductStateManager.GetInstance().CartonBoxItems.Add(newBox);
-                                if (ProductStateManager.GetInstance().CurrentBox != null && ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count > 0)
-                                {
-                                    ProductStateManager.GetInstance().CurrentLine = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[0].LineNum;//当前线
-                                }
-
-                                if (ProductStateManager.GetInstance().DictCartonList.ContainsKey(ProductStateManager.GetInstance().CurrentLine))
-                                {
-                                    ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);//当前线增加一箱
-                                }
-                                else
-                                {
-                                    ProductStateManager.GetInstance().DictCartonList.Add(ProductStateManager.GetInstance().CurrentLine, new List<CartonBox>());
-                                    ProductStateManager.GetInstance().DictCartonList[ProductStateManager.GetInstance().CurrentLine].Add(newBox);
-                                }
-
-                                ProductStateManager.GetInstance().Save();
-                            }
-                            Log.Instance.LogWrite("L455：新上线！");
-                            //以及打印包装箱标签
-                            if (ProductStateManager.GetInstance().CurrentDoing)
-                            {
-                                //------打印整箱的-------
-                                this.Invoke((EventHandler)delegate {
-                                    PrintCartonBoxLabel();//
-                                });
-                                try
-                                {
-                                    Thread.Sleep(2400);//延迟1秒
-                                    //通知PLC上线
-                                    byte iLNum = byte.Parse(ProductStateManager.GetInstance().CurrentLine);
-                                    short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
-                                    short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
-                                    NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
-                                }
-                                catch(Exception ex)
-                                {
-                                    Log.Instance.LogWrite("L471:" + ex.Message);
-                                    Log.Instance.LogWrite(ex.StackTrace);
-                                }
+                                //没有符合上线要求的
+                                //空闲就休息10秒
+                                Thread.Sleep(10000);
                             }
                         }
                     }
                     else
                     {
-                        bForce = false;
-                        //空闲就休息2秒
+                        //还在包装的
                         Thread.Sleep(2000);
                     }
                 }
@@ -948,7 +1002,7 @@ namespace Yu3zx.TaggingSevice
             try
             {
                 //没有就不打印
-                if (packNum < 0)
+                if (packNum < 1)
                 {
                     return;
                 }
@@ -1152,11 +1206,11 @@ namespace Yu3zx.TaggingSevice
             try
             {
                 //没有就不打印
-                if (packNum < 0)
+                if (packNum < 1)
                 {
                     return;
                 }
-                if (ProductStateManager.GetInstance().CartonBoxItems.Count >= packNum)
+                if (ProductStateManager.GetInstance().DictCartonList.ContainsKey(lineNum.ToString()) && ProductStateManager.GetInstance().DictCartonList[lineNum.ToString()].Count >= packNum)
                 {
                 }
                 else
@@ -1164,7 +1218,7 @@ namespace Yu3zx.TaggingSevice
                     return;
                 }
 
-                int minPack = Math.Min(ProductStateManager.GetInstance().CartonBoxItems.Count, packNum);
+                int minPack = Math.Min(ProductStateManager.GetInstance().DictCartonList[lineNum.ToString()].Count, packNum);
                 if (minPack < 1)
                 {
                     //通知已经打印
@@ -1185,7 +1239,7 @@ namespace Yu3zx.TaggingSevice
                 {
                     for (int i = 0; i < minPack; i++)
                     {
-                        CartonBox item = ProductStateManager.GetInstance().CartonBoxItems[i];
+                        CartonBox item = ProductStateManager.GetInstance().DictCartonList[lineNum.ToString()][i];
                         BoxDetail detail = new BoxDetail();
                         for (int j = 0; j < item.OnLaunchItems.Count; j++)
                         {

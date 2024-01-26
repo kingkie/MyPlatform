@@ -63,6 +63,12 @@
     <Compile Include="ClothItem.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="DeviceManager.cs" />
+    <Compile Include="frmMesServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesServer.Designer.cs">
+      <DependentUpon>frmMesServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDataHelper.cs" />
+    <EmbeddedResource Include="frmMesServer.resx">
+      <DependentUpon>frmMesServer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainFrm.resx">
       <DependentUpon>mainFrm.cs</DependentUpon>
     </EmbeddedResource>

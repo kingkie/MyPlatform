@@ -154,15 +154,14 @@ namespace Yu3zx.TaggingSevice
         }
 
         /// <summary>
-        /// 20240122：以机台号划分
+        /// 20240122：以机台号划分 // List<FabricClothItem> , List<FabricClothItem>
         /// </summary>
-        public Dictionary<string, List<FabricClothItem>> DictMacNums = new Dictionary<string, List<FabricClothItem>>();
+        public Dictionary<string, OnLineCloth> DictMacNums = new Dictionary<string, OnLineCloth>();//
 
         /// <summary>
         /// 上线各个批次的数量
         /// </summary>
-        public Dictionary<string, OnLineCloth> DictOnLine = new Dictionary<string, OnLineCloth>();//由客户端传过来
-
+        public Dictionary<string, OnLineCloth> DictOnLine = new Dictionary<string, OnLineCloth>(); //由客户端传过来
 
         /// <summary>
         /// 在生产线上的布料:未打印标签
@@ -197,6 +196,29 @@ namespace Yu3zx.TaggingSevice
             { }
             return string.Empty;
         }
+        /// <summary>
+        /// 获取下一个包装的线号(机台号)
+        /// </summary>
+        /// <returns></returns>
+        public string GetNextBoxLineNum()
+        {
+            try
+            {
+                var item = DictMacNums.OrderByDescending(x => x.Value.ClothItems.Count).ToList();//.Find(p=>p.Value.AClassSum >= 6);//.Select(p => p.Value.AClassSum > 6).ToList();
+                foreach (var subItem in item)
+                {
+                    if (subItem.Value.AClassSum >= AppManager.CreateInstance().PackingNum)
+                    {
+                        return subItem.Key;
+                    }
+                }
+                return string.Empty;
+            }
+            catch
+            { }
+            return string.Empty;
+        }
+
         //最后部分的清除
         public string GetOnLineLastList()
         {
@@ -242,12 +264,12 @@ namespace Yu3zx.TaggingSevice
                     {
                         if (DictMacNums[i.ToString()] == null)
                         {
-                            DictMacNums[i.ToString()] = new List<FabricClothItem>();
+                            DictMacNums[i.ToString()] = new OnLineCloth();
                         }
                     }
                     else
                     {
-                        DictMacNums.Add(i.ToString(), new List<FabricClothItem>());
+                        DictMacNums.Add(i.ToString(), new OnLineCloth());
                     }
                 }
             }

@@ -71,6 +71,9 @@ namespace Yu3zx.ClothLaunch
             this.specs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpgConfig = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.txtHsBatch = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.btnMesUpdate = new System.Windows.Forms.Button();
             this.btnAllOnline = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.btnSetBegin = new System.Windows.Forms.Button();
@@ -124,9 +127,6 @@ namespace Yu3zx.ClothLaunch
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnMesUpdate = new System.Windows.Forms.Button();
-            this.txtHsBatch = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.tabContent.SuspendLayout();
             this.tpgHome.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -667,6 +667,39 @@ namespace Yu3zx.ClothLaunch
             this.groupBox10.Size = new System.Drawing.Size(880, 80);
             this.groupBox10.TabIndex = 3;
             this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "MES设置";
+            // 
+            // txtHsBatch
+            // 
+            this.txtHsBatch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtHsBatch.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtHsBatch.Location = new System.Drawing.Point(168, 29);
+            this.txtHsBatch.Name = "txtHsBatch";
+            this.txtHsBatch.Size = new System.Drawing.Size(122, 29);
+            this.txtHsBatch.TabIndex = 26;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label27.Location = new System.Drawing.Point(99, 37);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(67, 15);
+            this.label27.TabIndex = 25;
+            this.label27.Text = "布料批次";
+            // 
+            // btnMesUpdate
+            // 
+            this.btnMesUpdate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMesUpdate.Location = new System.Drawing.Point(320, 26);
+            this.btnMesUpdate.Name = "btnMesUpdate";
+            this.btnMesUpdate.Size = new System.Drawing.Size(186, 34);
+            this.btnMesUpdate.TabIndex = 7;
+            this.btnMesUpdate.Text = "更新MES此批次";
+            this.btnMesUpdate.UseVisualStyleBackColor = true;
+            this.btnMesUpdate.Click += new System.EventHandler(this.btnMesUpdate_Click);
             // 
             // btnAllOnline
             // 
@@ -1283,38 +1316,6 @@ namespace Yu3zx.ClothLaunch
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 730);
             this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // btnMesUpdate
-            // 
-            this.btnMesUpdate.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMesUpdate.Location = new System.Drawing.Point(320, 26);
-            this.btnMesUpdate.Name = "btnMesUpdate";
-            this.btnMesUpdate.Size = new System.Drawing.Size(186, 34);
-            this.btnMesUpdate.TabIndex = 7;
-            this.btnMesUpdate.Text = "更新MES此批次";
-            this.btnMesUpdate.UseVisualStyleBackColor = true;
-            this.btnMesUpdate.Click += new System.EventHandler(this.btnMesUpdate_Click);
-            // 
-            // txtHsBatch
-            // 
-            this.txtHsBatch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtHsBatch.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtHsBatch.Location = new System.Drawing.Point(168, 29);
-            this.txtHsBatch.Name = "txtHsBatch";
-            this.txtHsBatch.Size = new System.Drawing.Size(122, 29);
-            this.txtHsBatch.TabIndex = 26;
-            // 
-            // label27
-            // 
-            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label27.Location = new System.Drawing.Point(99, 37);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(67, 15);
-            this.label27.TabIndex = 25;
-            this.label27.Text = "布料批次";
             // 
             // mainFrm
             // 
