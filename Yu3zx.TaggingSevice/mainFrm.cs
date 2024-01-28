@@ -383,43 +383,45 @@ namespace Yu3zx.TaggingSevice
                     //    ProductStateManager.GetInstance().DictOnLine.Add(strBatchNo, onLine);
                     //}
 
+                    #region 旧的方法
                     //增加已经上线的
-                    lock (ProductStateManager.GetInstance().DictOnLine)
-                    {
-                        //判断是否已经存在，如果存在，则修改
-                        var findItem = ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Find(x => x.RndString == item.RndString);
-                        if (findItem != null)
-                        {
-                            if(findItem.QualityName != item.QualityName)
-                            {
-                                //品质发生变化则需要修改
-                                if (item.QualityName == "A") //需要包装的
-                                {
-                                    ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
-                                }
-                                else
-                                {
-                                    ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum - 1;
-                                    if(ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum < 0)
-                                    {
-                                        ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = 0;
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                findItem = item;
-                            }
-                        }
-                        else
-                        {
-                            ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Add(item);
-                            if (item.QualityName == "A") //需要包装的
-                            {
-                                ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
-                            }
-                        }
-                    }
+                    //lock (ProductStateManager.GetInstance().DictOnLine)
+                    //{
+                    //    //判断是否已经存在，如果存在，则修改
+                    //    var findItem = ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Find(x => x.RndString == item.RndString);
+                    //    if (findItem != null)
+                    //    {
+                    //        if(findItem.QualityName != item.QualityName)
+                    //        {
+                    //            //品质发生变化则需要修改
+                    //            if (item.QualityName == "A") //需要包装的
+                    //            {
+                    //                ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
+                    //            }
+                    //            else
+                    //            {
+                    //                ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum - 1;
+                    //                if(ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum < 0)
+                    //                {
+                    //                    ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = 0;
+                    //                }
+                    //            }
+                    //        }
+                    //        else
+                    //        {
+                    //            findItem = item;
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        ProductStateManager.GetInstance().DictOnLine[strBatchNo].ClothItems.Add(item);
+                    //        if (item.QualityName == "A") //需要包装的
+                    //        {
+                    //            ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
+                    //        }
+                    //    }
+                    //}
+                    #endregion End
                 }
             }
             catch (Exception ex)
@@ -897,7 +899,7 @@ namespace Yu3zx.TaggingSevice
                                     cmd6.CmdCode = 0x06;
                                     cmd6.MachineId = cmdInput[1];
                                     //
-                                    PlcReceive.Enqueue(cmd6);
+                                    PrePlcReceive.Enqueue(cmd6);
                                     break;
                                 default:
 
