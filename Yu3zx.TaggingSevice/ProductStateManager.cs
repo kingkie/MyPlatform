@@ -264,12 +264,13 @@ namespace Yu3zx.TaggingSevice
                     {
                         if (DictMacNums[i.ToString()] == null)
                         {
-                            DictMacNums[i.ToString()] = new OnLineCloth();
+                            DictMacNums[i.ToString()] = new OnLineCloth() {LineNum = i.ToString() };
+
                         }
                     }
                     else
                     {
-                        DictMacNums.Add(i.ToString(), new OnLineCloth());
+                        DictMacNums.Add(i.ToString(), new OnLineCloth() {  LineNum = i.ToString() });
                     }
                 }
             }

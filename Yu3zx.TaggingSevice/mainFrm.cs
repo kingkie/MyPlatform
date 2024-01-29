@@ -331,29 +331,28 @@ namespace Yu3zx.TaggingSevice
                     {
                         OnLineCloth onLine = new OnLineCloth();
                         onLine.BatchNo = strBatchNo;
+                        onLine.LineNum = lNum;
                         ProductStateManager.GetInstance().DictMacNums.Add(lNum, onLine);
                     }
 
-                    if (ProductStateManager.GetInstance().DictMacNums.ContainsKey(lNum))
-                    {
-                        ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Add(item);//
-                    }
+                    //ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Add(item);//
 
                     lock (ProductStateManager.GetInstance().DictMacNums)
                     {
                         var fItem = ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Find(x => x.BatchNo == item.BatchNo && x.ReelNum == item.ReelNum);//批次和卷号决定唯一
                         if (fItem != null)
                         {
+                            Log.Instance.LogWrite(string.Format("接收到已经有的：{0},{1},{2}", item.BatchNo, item.ReelNum, item.RndString));
                             if (fItem.QualityName != item.QualityName)//修改了品质
                             {
                                 //品质发生变化则需要修改
                                 if (item.QualityName == "A") //需要包装的
                                 {
-                                    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum + 1;
+                                    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum + 1;
                                 }
                                 else
                                 {
-                                    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strBatchNo].AClassSum - 1;
+                                    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum - 1;
                                     if (ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum < 0)
                                     {
                                         ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = 0;
@@ -653,11 +652,11 @@ namespace Yu3zx.TaggingSevice
                                                 if (iCloth.QualityName == "A")
                                                 {
                                                     iAClass1++;
-                                                    strForceBatchNum = iCloth.BatchNo;//取其中一个就可以
                                                 }
                                                 iSumNeed1++;
                                                 if (iAClass1 >= minCnt)
                                                 {
+                                                    strForceBatchNum = iCloth.BatchNo;//取其中一个就可以
                                                     break;
                                                 }
                                             }
@@ -680,7 +679,7 @@ namespace Yu3zx.TaggingSevice
 
                                                 //ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum = ProductStateManager.GetInstance().DictOnLine[strForceBatchNum].AClassSum;//减掉上线的数量
                                                 ProductStateManager.GetInstance().CurrentDoing = true;
-                                                ProductStateManager.GetInstance().CurrentBatchNo = macId.ToString();//strForceBatchNum
+                                                ProductStateManager.GetInstance().CurrentBatchNo = strForceBatchNum;//strForceBatchNum
                                                 ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
                                                 ProductStateManager.GetInstance().DictCartonList[macId.ToString()].Add(newBox);
 
@@ -726,16 +725,16 @@ namespace Yu3zx.TaggingSevice
                             string lineNum = ProductStateManager.GetInstance().GetNextBoxLineNum();
                             if (!string.IsNullOrEmpty(lineNum))//有适合的线可以上线
                             {
-                                Log.Instance.LogWrite("L412：开始上线另外的");
                                 WorkFlowManager.CreateInstance().CurrentLine = lineNum;
                                 WorkFlowManager.CreateInstance().CurrentBatchNo = ProductStateManager.GetInstance().DictMacNums[lineNum].BatchNo;
                                 int iSumNeed = 0;//累计需要
                                 int iAClass = 0;
-
+                                string strBatchNo = string.Empty;
                                 foreach (var iCloth in ProductStateManager.GetInstance().DictMacNums[lineNum].ClothItems)
                                 {
                                     if (iAClass >= AppManager.CreateInstance().PackingNum)
                                     {
+                                        strBatchNo = iCloth.BatchNo;//取其中一个就可以
                                         break;
                                     }
                                     if (iCloth.QualityName == "A")
@@ -746,9 +745,8 @@ namespace Yu3zx.TaggingSevice
                                 }
 
                                 CartonBox newBox = new CartonBox();
-                                string strBatchNum1 = ProductStateManager.GetInstance().DictMacNums[lineNum].BatchNo;
-                                newBox.BatchNo = strBatchNum1;
-                                newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strBatchNum1).ToString();
+                                newBox.BatchNo = strBatchNo;
+                                newBox.BoxNum = AppManager.CreateInstance().GetBoxNoAndUpdate(strBatchNo).ToString();
 
                                 lock (ProductStateManager.GetInstance().DictMacNums)
                                 {

@@ -1,0 +1,1104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\NBJJ\\MyPlatform\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|f:\\nbjj\\myplatform\\yu3zx.taggingsevice\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|solutionrelative:yu3zx.taggingsevice\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|f:\\nbjj\\myplatform\\yu3zx.taggingsevice\\productstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|solutionrelative:yu3zx.taggingsevice\\productstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\NBJJ\\0129.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\verificationimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\verificationimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\validatorhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\validatorhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\excelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\excelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\datatablehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\datatablehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|f:\\nbjj\\myplatform\\yu3zx.clothlaunch\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|solutionrelative:yu3zx.clothlaunch\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|f:\\nbjj\\myplatform\\yu3zx.clothlaunch\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|solutionrelative:yu3zx.clothlaunch\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|f:\\nbjj\\myplatform\\yu3zx.clothlaunch\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|solutionrelative:yu3zx.clothlaunch\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|f:\\nbjj\\myplatform\\yu3zx.clothlaunch\\models\\fabricclothitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|solutionrelative:yu3zx.clothlaunch\\models\\fabricclothitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|f:\\nbjj\\myplatform\\yu3zx.clothlaunch\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|solutionrelative:yu3zx.clothlaunch\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|f:\\nbjj\\myplatform\\yu3zx.securityutil\\desencrypt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|solutionrelative:yu3zx.securityutil\\desencrypt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\netutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\netutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\reflectionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\reflectionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\machinehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\machinehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\enumhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\enumhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\screenhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\screenhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\serializehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\serializehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\spellhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\spellhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\typehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\typehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\windowshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\windowshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\lunarcalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\lunarcalendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\imageclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\imageclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\getusbserailnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\getusbserailnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\getserailnumberhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\getserailnumberhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\encryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\encryptutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\deepcopy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\deepcopy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\crchelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\crchelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\csvhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\csvhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\controldraggerhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\controldraggerhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\attachedpropertybuffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|solutionrelative:yu3zx.util\\attachedpropertybuffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|f:\\nbjj\\myplatform\\yu3zx.securityutil\\verificationimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|solutionrelative:yu3zx.securityutil\\verificationimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|f:\\nbjj\\myplatform\\yu3zx.securityutil\\rsacryption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|solutionrelative:yu3zx.securityutil\\rsacryption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|f:\\nbjj\\myplatform\\yu3zx.securityutil\\hashencode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E329BED-1E50-4955-B298-7283258ACF08}|Yu3zx.SecurityUtil\\Yu3zx.SecurityUtil.csproj|solutionrelative:yu3zx.securityutil\\hashencode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BCD2E5B-B6EB-4635-9CA3-6C783A14B365}|Yu3zx.Protobuf\\Yu3zx.Protobuf.csproj|f:\\nbjj\\myplatform\\yu3zx.protobuf\\protobufhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BCD2E5B-B6EB-4635-9CA3-6C783A14B365}|Yu3zx.Protobuf\\Yu3zx.Protobuf.csproj|solutionrelative:yu3zx.protobuf\\protobufhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{456B2704-73AE-443E-9EFE-D703A0563787}|Yu3zx.RegTools\\Yu3zx.RegTools.csproj|f:\\nbjj\\myplatform\\yu3zx.regtools\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{456B2704-73AE-443E-9EFE-D703A0563787}|Yu3zx.RegTools\\Yu3zx.RegTools.csproj|solutionrelative:yu3zx.regtools\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E85C203A-57AF-4E8B-816A-44D60EE2CEA2}|Yu3zx.Net\\Yu3zx.NetBase.csproj|f:\\nbjj\\myplatform\\yu3zx.net\\stockserver\\netsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E85C203A-57AF-4E8B-816A-44D60EE2CEA2}|Yu3zx.Net\\Yu3zx.NetBase.csproj|solutionrelative:yu3zx.net\\stockserver\\netsocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E85C203A-57AF-4E8B-816A-44D60EE2CEA2}|Yu3zx.Net\\Yu3zx.NetBase.csproj|f:\\nbjj\\myplatform\\yu3zx.net\\stockserver\\stockinfogather.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E85C203A-57AF-4E8B-816A-44D60EE2CEA2}|Yu3zx.Net\\Yu3zx.NetBase.csproj|solutionrelative:yu3zx.net\\stockserver\\stockinfogather.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A269C5F2-0C0B-41BE-A1FC-73269673CE71}|Yu3zx.Enroll\\Yu3zx.Enroll.csproj|f:\\nbjj\\myplatform\\yu3zx.enroll\\encryptutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A269C5F2-0C0B-41BE-A1FC-73269673CE71}|Yu3zx.Enroll\\Yu3zx.Enroll.csproj|solutionrelative:yu3zx.enroll\\encryptutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BF7860-1D9E-475F-9C58-A22E005AC87E}|Yu3zx.Devices\\Yu3zx.Devices.csproj|f:\\nbjj\\myplatform\\yu3zx.devices\\commondevices\\gatherdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BF7860-1D9E-475F-9C58-A22E005AC87E}|Yu3zx.Devices\\Yu3zx.Devices.csproj|solutionrelative:yu3zx.devices\\commondevices\\gatherdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23BF7860-1D9E-475F-9C58-A22E005AC87E}|Yu3zx.Devices\\Yu3zx.Devices.csproj|f:\\nbjj\\myplatform\\yu3zx.devices\\commondevices\\siemensplc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23BF7860-1D9E-475F-9C58-A22E005AC87E}|Yu3zx.Devices\\Yu3zx.Devices.csproj|solutionrelative:yu3zx.devices\\commondevices\\siemensplc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|f:\\nbjj\\myplatform\\yu3zx.dapperextend\\dbadapter\\oraclequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|solutionrelative:yu3zx.dapperextend\\dbadapter\\oraclequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|f:\\nbjj\\myplatform\\yu3zx.dapperextend\\dapperex\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|solutionrelative:yu3zx.dapperextend\\dapperex\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|f:\\nbjj\\myplatform\\yu3zx.dapperextend\\dapper\\sqlmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|solutionrelative:yu3zx.dapperextend\\dapper\\sqlmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|f:\\nbjj\\myplatform\\yu3zx.dapperextend\\resolve\\entityresolve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|solutionrelative:yu3zx.dapperextend\\resolve\\entityresolve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|f:\\nbjj\\myplatform\\yu3zx.dapperextend\\dapperusehelp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB4C274-DA11-4CD5-A6D1-8A24742B49CC}|Yu3zx.DapperExtend\\Yu3zx.DapperExtend.csproj|solutionrelative:yu3zx.dapperextend\\dapperusehelp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|f:\\nbjj\\myplatform\\yu3zx.audio\\directsoundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|solutionrelative:yu3zx.audio\\directsoundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|f:\\nbjj\\myplatform\\yu3zx.audio\\circularbuffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|solutionrelative:yu3zx.audio\\circularbuffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|f:\\nbjj\\myplatform\\yu3zx.audio\\audiofileop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|solutionrelative:yu3zx.audio\\audiofileop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|f:\\nbjj\\myplatform\\yu3zx.audio\\soundplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0718674-228F-402A-BA59-3181066E5623}|Yu3zx.Audio\\Yu3zx.Audio.csproj|solutionrelative:yu3zx.audio\\soundplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\views\\productplansearchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\views\\productplansearchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\views\\fabricclothsearchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\views\\fabricclothsearchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\models\\productplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\models\\productplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\views\\productplansearchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\views\\productplansearchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|f:\\nbjj\\myplatform\\yu3zx.taggingsevice\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|solutionrelative:yu3zx.taggingsevice\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\views\\fabricclothsearchpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\views\\fabricclothsearchpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\mainwindowmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\mainwindowmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\views\\cartoninfosearchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\views\\cartoninfosearchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\datamodels\\cartonboxinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\datamodels\\cartonboxinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\datamodels\\fabricclothitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\datamodels\\fabricclothitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|f:\\nbjj\\myplatform\\yu3zx.clothlaunch\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A9885E5F-8EF7-473B-8F1B-B5CBBB25D5D9}|Yu3zx.ClothLaunch\\Yu3zx.ClothLaunch.csproj|solutionrelative:yu3zx.clothlaunch\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\NBJJ\\MyPlatform\\Yu3zx.Windows\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Yu3zx.Windows\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "0129.json",
+              "DocumentMoniker": "F:\\NBJJ\\0129.json",
+              "RelativeDocumentMoniker": "..\\0129.json",
+              "ToolTip": "F:\\NBJJ\\0129.json",
+              "RelativeToolTip": "..\\0129.json",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAAcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-01-29T06:11:36.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductStateManager.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\ProductStateManager.cs",
+              "RelativeDocumentMoniker": "Yu3zx.TaggingSevice\\ProductStateManager.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\ProductStateManager.cs",
+              "RelativeToolTip": "Yu3zx.TaggingSevice\\ProductStateManager.cs",
+              "ViewState": "AQIAAMAAAAAAAAAAAAAMwMoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-29T05:30:44.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mainFrm.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\mainFrm.cs",
+              "RelativeDocumentMoniker": "Yu3zx.TaggingSevice\\mainFrm.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\mainFrm.cs",
+              "RelativeToolTip": "Yu3zx.TaggingSevice\\mainFrm.cs",
+              "ViewState": "AQIAANYBAAAAAAAAAAApwNQCAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-29T05:30:16.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VerificationImg.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\VerificationImg.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\VerificationImg.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\VerificationImg.cs",
+              "RelativeToolTip": "Yu3zx.Util\\VerificationImg.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvxoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-20T02:59:54.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ValidatorHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ValidatorHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\ValidatorHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ValidatorHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\ValidatorHelper.cs",
+              "ViewState": "AQIAAEcBAAAAAAAAAAAIwFQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-20T02:58:00.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExcelHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ExcelHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\ExcelHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ExcelHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\ExcelHelper.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-20T02:57:33.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DataTableHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\DataTableHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\DataTableHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\DataTableHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\DataTableHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-20T02:04:21.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FabricClothItem.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\Models\\FabricClothItem.cs",
+              "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\Models\\FabricClothItem.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\Models\\FabricClothItem.cs",
+              "RelativeToolTip": "Yu3zx.ClothLaunch\\Models\\FabricClothItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-16T10:28:23.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DataManager.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\DataManager.cs",
+              "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\DataManager.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\DataManager.cs",
+              "RelativeToolTip": "Yu3zx.ClothLaunch\\DataManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-16T09:56:10.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "mainFrm.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\mainFrm.cs",
+              "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\mainFrm.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\mainFrm.cs",
+              "RelativeToolTip": "Yu3zx.ClothLaunch\\mainFrm.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAgwFYAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-16T09:54:34.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DESEncrypt.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\DESEncrypt.cs",
+              "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\DESEncrypt.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\DESEncrypt.cs",
+              "RelativeToolTip": "Yu3zx.SecurityUtil\\DESEncrypt.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-16T02:13:19.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Windows\\Class1.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Windows\\Class1.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Windows\\Class1.cs",
+              "RelativeToolTip": "Yu3zx.Windows\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-20T01:46:36.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NetUtil.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\NetUtil.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\NetUtil.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\NetUtil.cs",
+              "RelativeToolTip": "Yu3zx.Util\\NetUtil.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T08:26:10.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MachineHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\MachineHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\MachineHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\MachineHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\MachineHelper.cs",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T08:25:40.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EnumHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\EnumHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\EnumHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\EnumHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\EnumHelper.cs",
+              "ViewState": "AQIAAOYAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T08:25:28.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ScreenHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ScreenHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\ScreenHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ScreenHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\ScreenHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:42:56.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TaskManager.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\TaskManager.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\TaskManager.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\TaskManager.cs",
+              "RelativeToolTip": "Yu3zx.Util\\TaskManager.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAcwDQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:41:12.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppManager.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\AppManager.cs",
+              "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\AppManager.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\AppManager.cs",
+              "RelativeToolTip": "Yu3zx.ClothLaunch\\AppManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-16T10:28:50.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SerializeHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\SerializeHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\SerializeHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\SerializeHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\SerializeHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEAAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:42:00.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SpellHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\SpellHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\SpellHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\SpellHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\SpellHelper.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAADwvzUAAABvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:41:45.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "StringUtil.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\StringUtil.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\StringUtil.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\StringUtil.cs",
+              "RelativeToolTip": "Yu3zx.Util\\StringUtil.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANYAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:41:25.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "mainFrm.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\mainFrm.cs",
+              "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\mainFrm.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\mainFrm.cs",
+              "RelativeToolTip": "Yu3zx.ClothLaunch\\mainFrm.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-09T04:58:31.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ReflectionHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ReflectionHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\ReflectionHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ReflectionHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\ReflectionHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T08:25:46.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TypeHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\TypeHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\TypeHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\TypeHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\TypeHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:41:07.72Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "WindowsHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\WindowsHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\WindowsHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\WindowsHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\WindowsHelper.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:40:47.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LunarCalendar.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\LunarCalendar.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\LunarCalendar.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\LunarCalendar.cs",
+              "RelativeToolTip": "Yu3zx.Util\\LunarCalendar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:40:26.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ImageClass.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ImageClass.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\ImageClass.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ImageClass.cs",
+              "RelativeToolTip": "Yu3zx.Util\\ImageClass.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAwCkCAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:37:56.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "GetUSBSerailNumber.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\GetUSBSerailNumber.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\GetUSBSerailNumber.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\GetUSBSerailNumber.cs",
+              "RelativeToolTip": "Yu3zx.Util\\GetUSBSerailNumber.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:37:51.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "GetSerailNumberHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\GetSerailNumberHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\GetSerailNumberHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\GetSerailNumberHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\GetSerailNumberHelper.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:37:48.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "EncryptUtil.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\EncryptUtil.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\EncryptUtil.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\EncryptUtil.cs",
+              "RelativeToolTip": "Yu3zx.Util\\EncryptUtil.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:36:46.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "DeepCopy.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\DeepCopy.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\DeepCopy.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\DeepCopy.cs",
+              "RelativeToolTip": "Yu3zx.Util\\DeepCopy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:36:44.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CRCHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\CRCHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\CRCHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\CRCHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\CRCHelper.cs",
+              "ViewState": "AQIAAMIAAAAAAAAAAAAUwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:36:24.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "CsvHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\CsvHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\CsvHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\CsvHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\CsvHelper.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:36:18.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ControlDraggerHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ControlDraggerHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\ControlDraggerHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ControlDraggerHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\ControlDraggerHelper.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAswAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:35:40.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AttachedPropertyBuffer.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\AttachedPropertyBuffer.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\AttachedPropertyBuffer.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\AttachedPropertyBuffer.cs",
+              "RelativeToolTip": "Yu3zx.Util\\AttachedPropertyBuffer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:35:18.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RSACryption.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\RSACryption.cs",
+              "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\RSACryption.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\RSACryption.cs",
+              "RelativeToolTip": "Yu3zx.SecurityUtil\\RSACryption.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:33:14.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "VerificationImg.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\VerificationImg.cs",
+              "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\VerificationImg.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\VerificationImg.cs",
+              "RelativeToolTip": "Yu3zx.SecurityUtil\\VerificationImg.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAN8AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:32:55.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "HashEncode.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\HashEncode.cs",
+              "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\HashEncode.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\HashEncode.cs",
+              "RelativeToolTip": "Yu3zx.SecurityUtil\\HashEncode.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:32:22.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ProtobufHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Protobuf\\ProtobufHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Protobuf\\ProtobufHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Protobuf\\ProtobufHelper.cs",
+              "RelativeToolTip": "Yu3zx.Protobuf\\ProtobufHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:30:09.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.RegTools\\Program.cs",
+              "RelativeDocumentMoniker": "Yu3zx.RegTools\\Program.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.RegTools\\Program.cs",
+              "RelativeToolTip": "Yu3zx.RegTools\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:28:08.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "NetSocket.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Net\\StockServer\\NetSocket.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Net\\StockServer\\NetSocket.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Net\\StockServer\\NetSocket.cs",
+              "RelativeToolTip": "Yu3zx.Net\\StockServer\\NetSocket.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAGoCAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:26:30.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "StockInfoGather.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Net\\StockServer\\StockInfoGather.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Net\\StockServer\\StockInfoGather.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Net\\StockServer\\StockInfoGather.cs",
+              "RelativeToolTip": "Yu3zx.Net\\StockServer\\StockInfoGather.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:26:25.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "EncryptUtils.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Enroll\\EncryptUtils.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Enroll\\EncryptUtils.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Enroll\\EncryptUtils.cs",
+              "RelativeToolTip": "Yu3zx.Enroll\\EncryptUtils.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:16:03.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "SiemensPLC.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Devices\\CommonDevices\\SiemensPLC.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Devices\\CommonDevices\\SiemensPLC.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Devices\\CommonDevices\\SiemensPLC.cs",
+              "RelativeToolTip": "Yu3zx.Devices\\CommonDevices\\SiemensPLC.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:14:23.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "GatherDevice.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Devices\\CommonDevices\\GatherDevice.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Devices\\CommonDevices\\GatherDevice.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Devices\\CommonDevices\\GatherDevice.cs",
+              "RelativeToolTip": "Yu3zx.Devices\\CommonDevices\\GatherDevice.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:14:18.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "OracleQuery.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DBAdapter\\OracleQuery.cs",
+              "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\DBAdapter\\OracleQuery.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DBAdapter\\OracleQuery.cs",
+              "RelativeToolTip": "Yu3zx.DapperExtend\\DBAdapter\\OracleQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:09:38.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Query.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DapperEx\\Query.cs",
+              "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\DapperEx\\Query.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DapperEx\\Query.cs",
+              "RelativeToolTip": "Yu3zx.DapperExtend\\DapperEx\\Query.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:09:18.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "SqlMapper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\Dapper\\SqlMapper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\Dapper\\SqlMapper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\Dapper\\SqlMapper.cs",
+              "RelativeToolTip": "Yu3zx.DapperExtend\\Dapper\\SqlMapper.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAUwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:09:11.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "EntityResolve.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\Resolve\\EntityResolve.cs",
+              "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\Resolve\\EntityResolve.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\Resolve\\EntityResolve.cs",
+              "RelativeToolTip": "Yu3zx.DapperExtend\\Resolve\\EntityResolve.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:09:08.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "DapperUseHelp.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DapperUseHelp.cs",
+              "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\DapperUseHelp.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DapperUseHelp.cs",
+              "RelativeToolTip": "Yu3zx.DapperExtend\\DapperUseHelp.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:09:02.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "AudioFileOP.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\AudioFileOP.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Audio\\AudioFileOP.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\AudioFileOP.cs",
+              "RelativeToolTip": "Yu3zx.Audio\\AudioFileOP.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:04:09.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "CircularBuffer.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\CircularBuffer.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Audio\\CircularBuffer.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\CircularBuffer.cs",
+              "RelativeToolTip": "Yu3zx.Audio\\CircularBuffer.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:00:06.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "DirectSoundManager.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\DirectSoundManager.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Audio\\DirectSoundManager.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\DirectSoundManager.cs",
+              "RelativeToolTip": "Yu3zx.Audio\\DirectSoundManager.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAwDsAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T07:00:02.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "SoundPlayer.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\SoundPlayer.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Audio\\SoundPlayer.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\SoundPlayer.cs",
+              "RelativeToolTip": "Yu3zx.Audio\\SoundPlayer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJgAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-14T06:59:58.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ProductPlan.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Models\\ProductPlan.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Models\\ProductPlan.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Models\\ProductPlan.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\Models\\ProductPlan.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-13T08:50:27.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "AppManager.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\AppManager.cs",
+              "RelativeDocumentMoniker": "Yu3zx.TaggingSevice\\AppManager.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\AppManager.cs",
+              "RelativeToolTip": "Yu3zx.TaggingSevice\\AppManager.cs",
+              "ViewState": "AQIAALcAAAAAAAAAAAAiwMoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-13T08:26:17.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "ProductPlanSearchPage.xaml",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-03-13T07:31:45.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "FabricClothSearchPage.xaml",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-03-09T05:37:23.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ProductPlanSearchPage.xaml.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-09T07:08:06.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\MainWindow.xaml.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAUwEwAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-16T02:09:33.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "FabricClothSearchPage.xaml.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAC4AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-16T02:09:33.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "MainWindowModel.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindowModel.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\MainWindowModel.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindowModel.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\MainWindowModel.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAwCoAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-13T07:22:57.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "FabricClothItem.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\DataModels\\FabricClothItem.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\DataModels\\FabricClothItem.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\DataModels\\FabricClothItem.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\DataModels\\FabricClothItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-13T06:57:11.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "CartonInfoSearchPage.xaml.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\CartonInfoSearchPage.xaml.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\CartonInfoSearchPage.xaml.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\CartonInfoSearchPage.xaml.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\Views\\CartonInfoSearchPage.xaml.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAQwDsAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-13T06:37:35.177Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "CartonBoxInfo.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\DataModels\\CartonBoxInfo.cs",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\DataModels\\CartonBoxInfo.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\DataModels\\CartonBoxInfo.cs",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\DataModels\\CartonBoxInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-13T06:57:38.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\MainWindow.xaml",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindow.xaml",
+              "RelativeToolTip": "Yu3zx.FactoryLine\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-03-09T06:00:04.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "App.config",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\App.config",
+              "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\App.config",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\App.config",
+              "RelativeToolTip": "Yu3zx.ClothLaunch\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2023-03-09T05:01:08.237Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
