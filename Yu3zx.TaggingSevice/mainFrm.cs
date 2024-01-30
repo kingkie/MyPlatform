@@ -761,7 +761,7 @@ namespace Yu3zx.TaggingSevice
                                     ProductStateManager.GetInstance().DictMacNums[lineNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lineNum].AClassSum - iAClass;
 
                                     ProductStateManager.GetInstance().CurrentDoing = true;
-                                    ProductStateManager.GetInstance().CurrentBatchNo = lineNum;//strForceBatchNum
+                                    ProductStateManager.GetInstance().CurrentBatchNo = strBatchNo;//strBatchNo lineNum
                                     ProductStateManager.GetInstance().CurrentBox = newBox;//当前装箱
                                     ProductStateManager.GetInstance().DictCartonList[lineNum].Add(newBox);
 
@@ -1853,7 +1853,6 @@ namespace Yu3zx.TaggingSevice
                 return myCp;
             }
         }
-
 
         #region 修改数据
 

@@ -3,15 +3,12 @@
   "WorkspaceRootPath": "F:\\NBJJ\\MyPlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|f:\\nbjj\\myplatform\\yu3zx.taggingsevice\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|solutionrelative:yu3zx.taggingsevice\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|f:\\nbjj\\myplatform\\yu3zx.taggingsevice\\productstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|solutionrelative:yu3zx.taggingsevice\\productstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\NBJJ\\0129.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|f:\\nbjj\\myplatform\\yu3zx.taggingsevice\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|solutionrelative:yu3zx.taggingsevice\\mainfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}|Yu3zx.Util\\Yu3zx.Util.csproj|f:\\nbjj\\myplatform\\yu3zx.util\\verificationimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -230,10 +227,6 @@
       "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\views\\productplansearchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|f:\\nbjj\\myplatform\\yu3zx.taggingsevice\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB139991-9548-4341-B242-C815F0F630F7}|Yu3zx.TaggingSevice\\Yu3zx.TaggingSevice.csproj|solutionrelative:yu3zx.taggingsevice\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|f:\\nbjj\\myplatform\\yu3zx.factoryline\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{B17A00F4-67BB-4BFD-B0E3-7FC6303F487C}|Yu3zx.FactoryLine\\Yu3zx.FactoryLine.csproj|solutionrelative:yu3zx.factoryline\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -277,30 +270,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "0129.json",
-              "DocumentMoniker": "F:\\NBJJ\\0129.json",
-              "RelativeDocumentMoniker": "..\\0129.json",
-              "ToolTip": "F:\\NBJJ\\0129.json",
-              "RelativeToolTip": "..\\0129.json",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAAcAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-01-29T06:11:36.006Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ProductStateManager.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\ProductStateManager.cs",
               "RelativeDocumentMoniker": "Yu3zx.TaggingSevice\\ProductStateManager.cs",
               "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\ProductStateManager.cs",
               "RelativeToolTip": "Yu3zx.TaggingSevice\\ProductStateManager.cs",
-              "ViewState": "AQIAAMAAAAAAAAAAAAAMwMoAAAAnAAAA",
+              "ViewState": "AQIAAAgBAAAAAAAAAAAawBoBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-29T05:30:44.053Z",
               "EditorCaption": ""
@@ -319,20 +299,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "mainFrm.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\mainFrm.cs",
               "RelativeDocumentMoniker": "Yu3zx.TaggingSevice\\mainFrm.cs",
               "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\mainFrm.cs",
               "RelativeToolTip": "Yu3zx.TaggingSevice\\mainFrm.cs",
-              "ViewState": "AQIAANYBAAAAAAAAAAApwNQCAABUAAAA",
+              "ViewState": "AQIAAEEDAAAAAAAAAAArwDsDAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-29T05:30:16.203Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "VerificationImg.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\VerificationImg.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\VerificationImg.cs",
@@ -346,18 +326,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ValidatorHelper.cs",
-              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ValidatorHelper.cs",
-              "RelativeDocumentMoniker": "Yu3zx.Util\\ValidatorHelper.cs",
-              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ValidatorHelper.cs",
-              "RelativeToolTip": "Yu3zx.Util\\ValidatorHelper.cs",
-              "ViewState": "AQIAAEcBAAAAAAAAAAAIwFQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-03-20T02:58:00.321Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "ExcelHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ExcelHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\ExcelHelper.cs",
@@ -369,7 +337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "DataTableHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\DataTableHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\DataTableHelper.cs",
@@ -381,7 +349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "FabricClothItem.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\Models\\FabricClothItem.cs",
               "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\Models\\FabricClothItem.cs",
@@ -393,7 +361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "DataManager.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\DataManager.cs",
               "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\DataManager.cs",
@@ -405,7 +373,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
+              "Title": "ValidatorHelper.cs",
+              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ValidatorHelper.cs",
+              "RelativeDocumentMoniker": "Yu3zx.Util\\ValidatorHelper.cs",
+              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ValidatorHelper.cs",
+              "RelativeToolTip": "Yu3zx.Util\\ValidatorHelper.cs",
+              "ViewState": "AQIAAEcBAAAAAAAAAAAIwFQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-20T02:58:00.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "mainFrm.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\mainFrm.cs",
               "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\mainFrm.cs",
@@ -418,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "DESEncrypt.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\DESEncrypt.cs",
               "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\DESEncrypt.cs",
@@ -430,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 64,
               "Title": "Class1.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Windows\\Class1.cs",
               "RelativeDocumentMoniker": "Yu3zx.Windows\\Class1.cs",
@@ -442,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "NetUtil.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\NetUtil.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\NetUtil.cs",
@@ -454,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "MachineHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\MachineHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\MachineHelper.cs",
@@ -466,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "EnumHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\EnumHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\EnumHelper.cs",
@@ -478,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "ScreenHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ScreenHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\ScreenHelper.cs",
@@ -490,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "TaskManager.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\TaskManager.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\TaskManager.cs",
@@ -502,7 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "AppManager.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\AppManager.cs",
               "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\AppManager.cs",
@@ -514,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "SerializeHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\SerializeHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\SerializeHelper.cs",
@@ -526,7 +506,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "SpellHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\SpellHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\SpellHelper.cs",
@@ -538,7 +518,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "StringUtil.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\StringUtil.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\StringUtil.cs",
@@ -550,7 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "mainFrm.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\mainFrm.cs",
               "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\mainFrm.cs",
@@ -561,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "ReflectionHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ReflectionHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\ReflectionHelper.cs",
@@ -573,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "TypeHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\TypeHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\TypeHelper.cs",
@@ -585,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "WindowsHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\WindowsHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\WindowsHelper.cs",
@@ -597,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "LunarCalendar.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\LunarCalendar.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\LunarCalendar.cs",
@@ -609,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "ImageClass.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ImageClass.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\ImageClass.cs",
@@ -621,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "GetUSBSerailNumber.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\GetUSBSerailNumber.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\GetUSBSerailNumber.cs",
@@ -633,7 +613,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "GetSerailNumberHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\GetSerailNumberHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\GetSerailNumberHelper.cs",
@@ -645,7 +625,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "EncryptUtil.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\EncryptUtil.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\EncryptUtil.cs",
@@ -657,7 +637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "DeepCopy.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\DeepCopy.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\DeepCopy.cs",
@@ -669,7 +649,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "CRCHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\CRCHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\CRCHelper.cs",
@@ -681,7 +661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "CsvHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\CsvHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\CsvHelper.cs",
@@ -693,7 +673,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "ControlDraggerHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\ControlDraggerHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\ControlDraggerHelper.cs",
@@ -705,7 +685,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "AttachedPropertyBuffer.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Util\\AttachedPropertyBuffer.cs",
               "RelativeDocumentMoniker": "Yu3zx.Util\\AttachedPropertyBuffer.cs",
@@ -717,7 +697,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "RSACryption.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\RSACryption.cs",
               "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\RSACryption.cs",
@@ -729,7 +709,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "VerificationImg.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\VerificationImg.cs",
               "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\VerificationImg.cs",
@@ -741,7 +721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "HashEncode.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.SecurityUtil\\HashEncode.cs",
               "RelativeDocumentMoniker": "Yu3zx.SecurityUtil\\HashEncode.cs",
@@ -753,7 +733,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 36,
               "Title": "ProtobufHelper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Protobuf\\ProtobufHelper.cs",
               "RelativeDocumentMoniker": "Yu3zx.Protobuf\\ProtobufHelper.cs",
@@ -765,7 +745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 37,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.RegTools\\Program.cs",
               "RelativeDocumentMoniker": "Yu3zx.RegTools\\Program.cs",
@@ -777,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 38,
               "Title": "NetSocket.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Net\\StockServer\\NetSocket.cs",
               "RelativeDocumentMoniker": "Yu3zx.Net\\StockServer\\NetSocket.cs",
@@ -789,7 +769,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "StockInfoGather.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Net\\StockServer\\StockInfoGather.cs",
               "RelativeDocumentMoniker": "Yu3zx.Net\\StockServer\\StockInfoGather.cs",
@@ -801,7 +781,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "EncryptUtils.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Enroll\\EncryptUtils.cs",
               "RelativeDocumentMoniker": "Yu3zx.Enroll\\EncryptUtils.cs",
@@ -813,7 +793,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "SiemensPLC.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Devices\\CommonDevices\\SiemensPLC.cs",
               "RelativeDocumentMoniker": "Yu3zx.Devices\\CommonDevices\\SiemensPLC.cs",
@@ -825,7 +805,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "GatherDevice.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Devices\\CommonDevices\\GatherDevice.cs",
               "RelativeDocumentMoniker": "Yu3zx.Devices\\CommonDevices\\GatherDevice.cs",
@@ -837,7 +817,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "OracleQuery.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DBAdapter\\OracleQuery.cs",
               "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\DBAdapter\\OracleQuery.cs",
@@ -849,7 +829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "Query.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DapperEx\\Query.cs",
               "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\DapperEx\\Query.cs",
@@ -861,7 +841,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "SqlMapper.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\Dapper\\SqlMapper.cs",
               "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\Dapper\\SqlMapper.cs",
@@ -873,7 +853,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "EntityResolve.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\Resolve\\EntityResolve.cs",
               "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\Resolve\\EntityResolve.cs",
@@ -885,7 +865,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 47,
               "Title": "DapperUseHelp.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.DapperExtend\\DapperUseHelp.cs",
               "RelativeDocumentMoniker": "Yu3zx.DapperExtend\\DapperUseHelp.cs",
@@ -897,7 +877,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 50,
               "Title": "AudioFileOP.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\AudioFileOP.cs",
               "RelativeDocumentMoniker": "Yu3zx.Audio\\AudioFileOP.cs",
@@ -909,7 +889,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 49,
               "Title": "CircularBuffer.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\CircularBuffer.cs",
               "RelativeDocumentMoniker": "Yu3zx.Audio\\CircularBuffer.cs",
@@ -921,7 +901,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 48,
               "Title": "DirectSoundManager.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\DirectSoundManager.cs",
               "RelativeDocumentMoniker": "Yu3zx.Audio\\DirectSoundManager.cs",
@@ -933,7 +913,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 51,
               "Title": "SoundPlayer.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.Audio\\SoundPlayer.cs",
               "RelativeDocumentMoniker": "Yu3zx.Audio\\SoundPlayer.cs",
@@ -945,7 +925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 54,
               "Title": "ProductPlan.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Models\\ProductPlan.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Models\\ProductPlan.cs",
@@ -957,19 +937,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "AppManager.cs",
-              "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\AppManager.cs",
-              "RelativeDocumentMoniker": "Yu3zx.TaggingSevice\\AppManager.cs",
-              "ToolTip": "F:\\NBJJ\\MyPlatform\\Yu3zx.TaggingSevice\\AppManager.cs",
-              "RelativeToolTip": "Yu3zx.TaggingSevice\\AppManager.cs",
-              "ViewState": "AQIAALcAAAAAAAAAAAAiwMoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-03-13T08:26:17.674Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 55,
               "Title": "ProductPlanSearchPage.xaml",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml",
@@ -980,7 +948,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 53,
               "Title": "FabricClothSearchPage.xaml",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml",
@@ -991,7 +959,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 52,
               "Title": "ProductPlanSearchPage.xaml.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\ProductPlanSearchPage.xaml.cs",
@@ -1003,7 +971,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 56,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\MainWindow.xaml.cs",
@@ -1015,7 +983,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 57,
               "Title": "FabricClothSearchPage.xaml.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\FabricClothSearchPage.xaml.cs",
@@ -1027,7 +995,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 58,
               "Title": "MainWindowModel.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindowModel.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\MainWindowModel.cs",
@@ -1039,7 +1007,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 61,
               "Title": "FabricClothItem.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\DataModels\\FabricClothItem.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\DataModels\\FabricClothItem.cs",
@@ -1051,7 +1019,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 59,
               "Title": "CartonInfoSearchPage.xaml.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\Views\\CartonInfoSearchPage.xaml.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\Views\\CartonInfoSearchPage.xaml.cs",
@@ -1063,7 +1031,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 60,
               "Title": "CartonBoxInfo.cs",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\DataModels\\CartonBoxInfo.cs",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\DataModels\\CartonBoxInfo.cs",
@@ -1075,7 +1043,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 62,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.FactoryLine\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Yu3zx.FactoryLine\\MainWindow.xaml",
@@ -1086,7 +1054,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 63,
               "Title": "App.config",
               "DocumentMoniker": "F:\\NBJJ\\MyPlatform\\Yu3zx.ClothLaunch\\App.config",
               "RelativeDocumentMoniker": "Yu3zx.ClothLaunch\\App.config",
