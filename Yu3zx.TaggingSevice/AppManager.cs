@@ -184,40 +184,49 @@ namespace Yu3zx.TaggingSevice
         {
             if (string.IsNullOrEmpty(batchno))
             {
+                Logs.Log.Instance.LogWrite("没有batchno！");
                 return 0;
             }
             int iSnRtn = 0;
-            PoductSerial config = GetPoductSerial("Box" + batchno);
-            if (config != null)
+            try
             {
-                iSnRtn = int.Parse(config.KeyValue);
-            }
-            else
-            {
-                iSnRtn = 1;
-                PoductSerial confignew = new PoductSerial();
-                confignew.KeyName = "Box" + batchno;
-                confignew.KeyValue = iSnRtn.ToString();
-                SetPoductSerialSave(confignew);
-            }
-            using (var db = new DapperContext("MySqlDbConnection"))
-            {
-                try
+                PoductSerial config = GetPoductSerial("Box" + batchno);
+                if (config != null)
                 {
-                    var rtnB = db.Update("update productserial set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = iSnRtn + 1, KeyName = "Box" + batchno });
-                    if (rtnB)
+                    iSnRtn = int.Parse(config.KeyValue);
+                    Logs.Log.Instance.LogWrite(string.Format("箱号:{0}；{1}", batchno, iSnRtn));
+                    using (var db = new DapperContext("MySqlDbConnection"))
                     {
-                        Console.WriteLine("更新成功！");
-                    }
-                    else
-                    {
-                        Console.WriteLine("更新失败！");
+                        try
+                        {
+                            var rtnB = db.Update("update productserial set KeyValue=@KeyValue where KeyName=@KeyName", new { KeyValue = iSnRtn + 1, KeyName = "Box" + batchno });
+                            db.Dispose();
+                            if (rtnB)
+                            {
+                                Console.WriteLine("更新成功！");
+                            }
+                            else
+                            {
+                                Console.WriteLine("更新失败！");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                        }
                     }
                 }
-                catch (Exception ex)
+                else
                 {
+                    iSnRtn = 1;
+                    PoductSerial confignew = new PoductSerial();
+                    confignew.KeyName = "Box" + batchno;
+                    confignew.KeyValue = (iSnRtn + 1).ToString();
+                    SetPoductSerialSave(confignew);
                 }
             }
+            catch
+            { }
+
             return iSnRtn;
         }
 
