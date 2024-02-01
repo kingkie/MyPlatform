@@ -82,7 +82,7 @@ namespace Yu3zx.ClothLaunch
                     string strQString = fabric.SMaterialName;
                     int iRoll = fabric.NClothRollDiameter;// int.Parse(fabric.);///txtRollDiam.Text
 
-                    if (strGrade == "A" || strGrade == "KC" || strGrade == "SC")
+                    if (strGrade == "A" || strGrade == "KB" || strGrade == "SB" || strGrade == "KC" || strGrade == "SC")
                     {
                         CurrentFabirc = fabric;
                     }
@@ -498,8 +498,8 @@ namespace Yu3zx.ClothLaunch
                 }
                 catch (Exception ex)
                 {
-                    Logs.Log.Instance.LogWrite("ProductPlan查询异常" + ex.Message);
-                    Logs.Log.Instance.LogWrite("ProductPlan查询异常" + ex.StackTrace);
+                    Log.Instance.LogWrite("ProductPlan查询异常" + ex.Message);
+                    Log.Instance.LogWrite("ProductPlan查询异常" + ex.StackTrace);
                     return null;
                 }
             }
@@ -1145,12 +1145,21 @@ namespace Yu3zx.ClothLaunch
 
                     txtCWidth.Text = ((int)(fFabLen * 10)).ToString();
                     txtRollDiam.Text = item.NClothRollDiameter.ToString();
+                    txtReelNum.Text = item.IManualOrderNo.ToString();
 
                     string strGrade = item.SGrade;
                     txtGrade.Text = strGrade;
                     if (strGrade.StartsWith("A"))
                     {
                         rdoA.Checked = true;
+                    }
+                    else if (strGrade.StartsWith("KB"))
+                    {
+                        rdoKB.Checked = true;
+                    }
+                    else if (strGrade.StartsWith("SB"))
+                    {
+                        rdoSB.Checked = true;
                     }
                     else if (strGrade.StartsWith("HC"))
                     {
@@ -1224,7 +1233,7 @@ namespace Yu3zx.ClothLaunch
             else
             {
                 var rtnBool = SqlDataHelper.HSFabricUpdate("JY0" + AppManager.CreateInstance().LineNum, strBatch);
-                if(rtnBool)
+                if (rtnBool)
                 {
                     MessageBox.Show("更新成功！");
                 }

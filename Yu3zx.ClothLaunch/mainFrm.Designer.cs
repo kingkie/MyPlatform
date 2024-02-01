@@ -127,6 +127,10 @@ namespace Yu3zx.ClothLaunch
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtReelNum = new System.Windows.Forms.TextBox();
+            this.rdoKB = new System.Windows.Forms.RadioButton();
+            this.rdoSB = new System.Windows.Forms.RadioButton();
             this.tabContent.SuspendLayout();
             this.tpgHome.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -222,7 +226,7 @@ namespace Yu3zx.ClothLaunch
             // btnMesData
             // 
             this.btnMesData.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnMesData.Location = new System.Drawing.Point(742, 20);
+            this.btnMesData.Location = new System.Drawing.Point(614, 19);
             this.btnMesData.Name = "btnMesData";
             this.btnMesData.Size = new System.Drawing.Size(121, 36);
             this.btnMesData.TabIndex = 21;
@@ -246,7 +250,7 @@ namespace Yu3zx.ClothLaunch
             // btnBatchInfo
             // 
             this.btnBatchInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBatchInfo.Location = new System.Drawing.Point(613, 19);
+            this.btnBatchInfo.Location = new System.Drawing.Point(741, 19);
             this.btnBatchInfo.Name = "btnBatchInfo";
             this.btnBatchInfo.Size = new System.Drawing.Size(121, 36);
             this.btnBatchInfo.TabIndex = 20;
@@ -256,6 +260,8 @@ namespace Yu3zx.ClothLaunch
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label28);
+            this.groupBox6.Controls.Add(this.txtReelNum);
             this.groupBox6.Controls.Add(this.label26);
             this.groupBox6.Controls.Add(this.txtGrade);
             this.groupBox6.Controls.Add(this.tableLayoutPanel1);
@@ -272,7 +278,7 @@ namespace Yu3zx.ClothLaunch
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(660, 24);
+            this.label26.Location = new System.Drawing.Point(681, 24);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(96, 16);
             this.label26.TabIndex = 6;
@@ -280,28 +286,32 @@ namespace Yu3zx.ClothLaunch
             // 
             // txtGrade
             // 
-            this.txtGrade.Location = new System.Drawing.Point(761, 18);
+            this.txtGrade.Location = new System.Drawing.Point(784, 18);
             this.txtGrade.Name = "txtGrade";
-            this.txtGrade.Size = new System.Drawing.Size(100, 26);
+            this.txtGrade.Size = new System.Drawing.Size(77, 26);
             this.txtGrade.TabIndex = 5;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.rdoSB, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.rdoKB, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.rdoA, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rdoSC, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rdoHC, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rdoKC, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(230, 16);
+            this.tableLayoutPanel1.Controls.Add(this.rdoSC, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.rdoKC, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.rdoHC, 3, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(227, 16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(398, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(424, 32);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // rdoA
@@ -325,10 +335,10 @@ namespace Yu3zx.ClothLaunch
             // 
             this.rdoSC.AutoSize = true;
             this.rdoSC.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rdoSC.Location = new System.Drawing.Point(299, 2);
+            this.rdoSC.Location = new System.Drawing.Point(352, 2);
             this.rdoSC.Margin = new System.Windows.Forms.Padding(2);
             this.rdoSC.Name = "rdoSC";
-            this.rdoSC.Size = new System.Drawing.Size(72, 26);
+            this.rdoSC.Size = new System.Drawing.Size(70, 26);
             this.rdoSC.TabIndex = 3;
             this.rdoSC.Tag = "SC";
             this.rdoSC.Text = "SC品";
@@ -339,10 +349,10 @@ namespace Yu3zx.ClothLaunch
             // 
             this.rdoHC.AutoSize = true;
             this.rdoHC.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rdoHC.Location = new System.Drawing.Point(101, 2);
+            this.rdoHC.Location = new System.Drawing.Point(212, 2);
             this.rdoHC.Margin = new System.Windows.Forms.Padding(2);
             this.rdoHC.Name = "rdoHC";
-            this.rdoHC.Size = new System.Drawing.Size(72, 26);
+            this.rdoHC.Size = new System.Drawing.Size(66, 26);
             this.rdoHC.TabIndex = 1;
             this.rdoHC.Tag = "HC";
             this.rdoHC.Text = "HC品";
@@ -353,10 +363,10 @@ namespace Yu3zx.ClothLaunch
             // 
             this.rdoKC.AutoSize = true;
             this.rdoKC.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rdoKC.Location = new System.Drawing.Point(200, 2);
+            this.rdoKC.Location = new System.Drawing.Point(282, 2);
             this.rdoKC.Margin = new System.Windows.Forms.Padding(2);
             this.rdoKC.Name = "rdoKC";
-            this.rdoKC.Size = new System.Drawing.Size(72, 26);
+            this.rdoKC.Size = new System.Drawing.Size(66, 26);
             this.rdoKC.TabIndex = 2;
             this.rdoKC.Tag = "KC";
             this.rdoKC.Text = "KC品";
@@ -494,7 +504,7 @@ namespace Yu3zx.ClothLaunch
             // btnGetLenth
             // 
             this.btnGetLenth.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnGetLenth.Location = new System.Drawing.Point(613, 69);
+            this.btnGetLenth.Location = new System.Drawing.Point(614, 66);
             this.btnGetLenth.Name = "btnGetLenth";
             this.btnGetLenth.Size = new System.Drawing.Size(121, 36);
             this.btnGetLenth.TabIndex = 6;
@@ -1317,6 +1327,54 @@ namespace Yu3zx.ClothLaunch
             this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 730);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(7, 24);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(96, 16);
+            this.label28.TabIndex = 8;
+            this.label28.Text = "MES返回卷号";
+            // 
+            // txtReelNum
+            // 
+            this.txtReelNum.Location = new System.Drawing.Point(108, 18);
+            this.txtReelNum.Name = "txtReelNum";
+            this.txtReelNum.Size = new System.Drawing.Size(100, 26);
+            this.txtReelNum.TabIndex = 7;
+            // 
+            // rdoKB
+            // 
+            this.rdoKB.AutoSize = true;
+            this.rdoKB.Checked = true;
+            this.rdoKB.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rdoKB.ForeColor = System.Drawing.Color.LimeGreen;
+            this.rdoKB.Location = new System.Drawing.Point(72, 2);
+            this.rdoKB.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoKB.Name = "rdoKB";
+            this.rdoKB.Size = new System.Drawing.Size(50, 26);
+            this.rdoKB.TabIndex = 4;
+            this.rdoKB.TabStop = true;
+            this.rdoKB.Tag = "KB";
+            this.rdoKB.Text = "KB";
+            this.rdoKB.UseVisualStyleBackColor = true;
+            // 
+            // rdoSB
+            // 
+            this.rdoSB.AutoSize = true;
+            this.rdoSB.Checked = true;
+            this.rdoSB.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rdoSB.ForeColor = System.Drawing.Color.LimeGreen;
+            this.rdoSB.Location = new System.Drawing.Point(142, 2);
+            this.rdoSB.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoSB.Name = "rdoSB";
+            this.rdoSB.Size = new System.Drawing.Size(50, 26);
+            this.rdoSB.TabIndex = 5;
+            this.rdoSB.TabStop = true;
+            this.rdoSB.Tag = "SB";
+            this.rdoSB.Text = "SB";
+            this.rdoSB.UseVisualStyleBackColor = true;
+            // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1460,6 +1518,10 @@ namespace Yu3zx.ClothLaunch
         private System.Windows.Forms.TextBox txtHsBatch;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnMesUpdate;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtReelNum;
+        private System.Windows.Forms.RadioButton rdoSB;
+        private System.Windows.Forms.RadioButton rdoKB;
     }
 }
 

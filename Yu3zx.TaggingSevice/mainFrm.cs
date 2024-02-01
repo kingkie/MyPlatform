@@ -52,7 +52,7 @@ namespace Yu3zx.TaggingSevice
             ProductStateManager.GetInstance().DictInit();//2024-01-10
             //-=-=-=-=-=-=-=-获取配置文件-=-=-=-=-=-=-=-
             InitPlc();
-            if(AppManager.CreateInstance().AutoServer)
+            if (AppManager.CreateInstance().AutoServer)
             {
                 btnService_Click(sender, e);
             }
@@ -346,7 +346,7 @@ namespace Yu3zx.TaggingSevice
                             if (fItem.QualityName != item.QualityName)//修改了品质
                             {
                                 //品质发生变化则需要修改
-                                if (item.QualityName == "A") //需要包装的
+                                if ((item.QualityName == "A" || item.QualityName == "KB" || item.QualityName == "SB") && (fItem.QualityName != "A" && fItem.QualityName != "KB" && fItem.QualityName != "SB"))
                                 {
                                     ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum + 1;
                                 }
@@ -358,16 +358,31 @@ namespace Yu3zx.TaggingSevice
                                         ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = 0;
                                     }
                                 }
+
+                                //旧方法
+                                //if (item.QualityName == "A" || item.QualityName == "KB" || item.QualityName == "SB") //需要包装的
+                                //{
+                                //    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum + 1;
+                                //}
+                                //else
+                                //{
+                                //    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum - 1;
+                                //    if (ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum < 0)
+                                //    {
+                                //        ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = 0;
+                                //    }
+                                //}
                             }
                             else
                             {
+                                //未修改品质
                                 fItem = item;
                             }
                         }
                         else
                         {
                             ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Add(item);
-                            if (item.QualityName == "A") //需要包装的
+                            if (item.QualityName == "A" || item.QualityName == "KB" || item.QualityName == "SB") //需要包装的
                             {
                                 ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum + 1;
                             }
@@ -504,13 +519,13 @@ namespace Yu3zx.TaggingSevice
                                             byte lNum = byte.Parse(item.LineNum);
                                             bool isA = true;
                                             int flag = 0;
-                                            if (item.QualityName != "A")
+                                            if (item.QualityName != "A" && item.QualityName != "KB" && item.QualityName != "SB")
                                             {
                                                 if(item.QualityName == "HC")
                                                 {
                                                     flag = 3;
                                                 }
-                                                else if(item.QualityName == "KC" || item.QualityName == "SC")
+                                                else if (item.QualityName == "KC" || item.QualityName == "SC")
                                                 {
                                                     flag = 2;
                                                 }
@@ -518,7 +533,7 @@ namespace Yu3zx.TaggingSevice
                                             }
 
                                             NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), isA, flag);
-                                            Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号:{0},品质：A{1}", item.LineNum, isA));
+                                            Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
                                         }
                                         catch (Exception ex)
                                         {
@@ -649,7 +664,7 @@ namespace Yu3zx.TaggingSevice
                                             string strForceBatchNum = string.Empty;
                                             foreach (var iCloth in ProductStateManager.GetInstance().DictMacNums[macId.ToString()].ClothItems)
                                             {
-                                                if (iCloth.QualityName == "A")
+                                                if (iCloth.QualityName == "A" || iCloth.QualityName == "KB" || iCloth.QualityName == "SB")
                                                 {
                                                     iAClass1++;
                                                 }
@@ -716,7 +731,6 @@ namespace Yu3zx.TaggingSevice
                                         }
                                         break;
                                 }
-
                             }
                         }
                         else
@@ -737,7 +751,7 @@ namespace Yu3zx.TaggingSevice
                                         strBatchNo = iCloth.BatchNo;//取其中一个就可以
                                         break;
                                     }
-                                    if (iCloth.QualityName == "A")
+                                    if (iCloth.QualityName == "A" || iCloth.QualityName == "KB" || iCloth.QualityName == "SB")
                                     {
                                         iAClass++;
                                     }
@@ -791,7 +805,6 @@ namespace Yu3zx.TaggingSevice
                                         Log.Instance.LogWrite(ex);
                                     }
                                 }
-
                             }
                             else
                             {
@@ -947,8 +960,11 @@ namespace Yu3zx.TaggingSevice
                         }
                         //调用C类模板打印
                         Console.WriteLine(strQC + "已经打印");
+                        Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
                         break;
                     case "A":
+                    case "KB":
+                    case "SB":
                         //调用A类模板打印
                         var pCfg = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
                         if (pCfg != null)
@@ -960,11 +976,12 @@ namespace Yu3zx.TaggingSevice
                                 PrintHelper.CreateInstance().BarPrintInit(lblFile, pCfg.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pCfg.PrintCopies);
                             }
                         }
-                        Console.WriteLine(strQC + " A类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
+                        Console.WriteLine(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
+                        Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
                         break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.Instance.LogWrite(ex);
             }
@@ -1471,7 +1488,7 @@ namespace Yu3zx.TaggingSevice
                     int idx = 0;
                     foreach (var item in ProductStateManager.GetInstance().CurrentBox.OnLaunchItems)
                     {
-                        if (item.QualityName == "A")
+                        if (item.QualityName == "A" || item.QualityName == "KB" || item.QualityName == "SB")
                         {
                             strRndString += item.RndString + ",";
                             strRollNums += item.ReelNum.ToString() + ",";
@@ -1646,7 +1663,7 @@ namespace Yu3zx.TaggingSevice
                     List<int> lNaclasslsnew = new List<int>();
                     for (int i = 0; i < carton.OnLaunchItems.Count; i++)
                     {
-                        if (carton.OnLaunchItems[i].QualityName != "A")
+                        if (carton.OnLaunchItems[i].QualityName != "A" && carton.OnLaunchItems[i].QualityName != "SB" && carton.OnLaunchItems[i].QualityName != "KB")
                         {
                             lNaclasslsnew.Add(i);//次品序号
                         }
