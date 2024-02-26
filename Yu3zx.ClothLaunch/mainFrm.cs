@@ -346,12 +346,12 @@ namespace Yu3zx.ClothLaunch
             dgvShow.Refresh();
 
             string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
-            if(File.Exists(lblFile))
+            if (File.Exists(lblFile))
             {
                 PrintHelper.CreateInstance().BarPrintInit(lblFile,AppManager.CreateInstance().PrinterName,dictData,AppManager.CreateInstance().PrintCopies);
             }
 
-            if (strQualityName.ToUpper() == "HC")
+            if (strQualityName.ToUpper() == "HC" || strQualityName.ToUpper() == "零次" || item.ReelNum == 0)
             {
                 if (CurrentFabirc != null)
                 {
