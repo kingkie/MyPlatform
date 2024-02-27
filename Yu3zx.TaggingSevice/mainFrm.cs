@@ -668,10 +668,16 @@ namespace Yu3zx.TaggingSevice
                                                 {
                                                     iAClass1++;
                                                 }
+
+                                                if (string.IsNullOrEmpty(strForceBatchNum))
+                                                {
+                                                    strForceBatchNum = iCloth.BatchNo;
+                                                }
+
                                                 iSumNeed1++;
                                                 if (iAClass1 >= minCnt)
                                                 {
-                                                    strForceBatchNum = iCloth.BatchNo;//取其中一个就可以
+                                                    //strForceBatchNum = iCloth.BatchNo;//取其中一个就可以
                                                     break;
                                                 }
                                             }
@@ -748,9 +754,15 @@ namespace Yu3zx.TaggingSevice
                                 {
                                     if (iAClass >= AppManager.CreateInstance().PackingNum)
                                     {
-                                        strBatchNo = iCloth.BatchNo;//取其中一个就可以
+                                        //strBatchNo = iCloth.BatchNo;//取其中一个就可以
                                         break;
                                     }
+
+                                    if(string.IsNullOrEmpty(strBatchNo))
+                                    {
+                                        strBatchNo = iCloth.BatchNo;
+                                    }
+
                                     if (iCloth.QualityName == "A" || iCloth.QualityName == "KB" || iCloth.QualityName == "SB")
                                     {
                                         iAClass++;
