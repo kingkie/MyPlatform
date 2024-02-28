@@ -16,7 +16,8 @@ namespace Yu3zx.ClothLaunch
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainFrm());
+            //Application.Run(new mainFrm());
+            Application.Run(new frmMesServer());
         }
     }
 }

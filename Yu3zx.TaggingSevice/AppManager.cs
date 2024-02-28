@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net;
+using System.Reflection;
 using System.Xml;
 
 using Yu3zx.DapperExtend;
@@ -275,6 +276,30 @@ namespace Yu3zx.TaggingSevice
                 {
                 }
             }
+        }
+
+        public Dictionary<string, string> GetEntityPropertyToDict<T>(T tEntity)
+        {
+            Dictionary<string, string> dictClass = new Dictionary<string, string>();
+            Type ty = tEntity.GetType();//获取对象类型
+            PropertyInfo[] infos = ty.GetProperties();
+            foreach (PropertyInfo item in infos)
+            {
+                try
+                {
+                    string pName = item.Name;//获取属性名称
+                    string pValue = string.Empty;
+                    var itVal = item.GetValue(tEntity, null);
+                    if (itVal != null)
+                    {
+                        pValue = itVal.ToString();
+                    }
+                    dictClass.Add(pName, pValue);
+                }
+                catch
+                { }
+            }
+            return dictClass;
         }
     }
 }
