@@ -314,6 +314,20 @@ namespace Yu3zx.ClothLaunch
 
             CurrentFabric = item;
 
+            if (strQualityName.ToUpper() == "HC" || strQualityName.ToUpper().Trim() == "零次" || item.ReelNum == 0)
+            {
+                if (CurrentFabirc != null)
+                {
+                    bool bUp = SqlDataHelper.HSFabricUpdate(CurrentFabirc.SFabricNo);//更新
+                    if (bUp)
+                    {
+                        //btnMesData_Click(sender, e);
+                    }
+                }
+                txtProduceNum.Text = "50";
+                return;
+            }
+
             Dictionary<string, string> dictData = GetEntityPropertyToDict(item);
 
             if (!SaveFabricCloth(item))
@@ -326,6 +340,7 @@ namespace Yu3zx.ClothLaunch
             else
             {
             }
+
             OnLaunchItem item1 = new OnLaunchItem();
             item1.Id = item.ReelNum;
             item1.BatchNo = strBatchNo;
@@ -339,16 +354,6 @@ namespace Yu3zx.ClothLaunch
             if (File.Exists(lblFile))
             {
                 PrintHelper.CreateInstance().BarPrintInit(lblFile, AppManager.CreateInstance().PrinterName, dictData, AppManager.CreateInstance().PrintCopies);
-            }
-
-            if (strQualityName.ToUpper() == "HC" || strQualityName.ToUpper() == "零次" || item.ReelNum == 0)
-            {
-                if (CurrentFabirc != null)
-                {
-                    SqlDataHelper.HSFabricUpdate(CurrentFabirc.SFabricNo);//更新
-                }
-                txtProduceNum.Text = "50";
-                return;
             }
 
             try
@@ -377,6 +382,11 @@ namespace Yu3zx.ClothLaunch
                     {
                         lblIfo.Text = "数据未更新成功，请按更新按钮更新";
                     }
+                    else
+                    {
+                        btnMesData_Click(sender, e);
+                    }
+
                     ProduceList.Insert(0, item1);
                     dgvShow.DataSource = new BindingList<OnLaunchItem>(ProduceList);
                     dgvShow.Refresh();
