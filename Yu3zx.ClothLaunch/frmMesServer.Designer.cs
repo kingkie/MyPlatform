@@ -29,7 +29,8 @@ namespace Yu3zx.ClothLaunch
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -96,20 +97,20 @@ namespace Yu3zx.ClothLaunch
             this.pnl1.Controls.Add(this.btnGetLenth);
             this.pnl1.Controls.Add(this.label2);
             this.pnl1.Controls.Add(this.label1);
-            this.pnl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl1.Location = new System.Drawing.Point(0, 0);
             this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(1008, 308);
+            this.pnl1.Size = new System.Drawing.Size(800, 1041);
             this.pnl1.TabIndex = 0;
             // 
             // label26
             // 
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.Location = new System.Drawing.Point(496, 265);
+            this.label26.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label26.Location = new System.Drawing.Point(315, 543);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(63, 16);
+            this.label26.Size = new System.Drawing.Size(108, 27);
             this.label26.TabIndex = 11;
             this.label26.Text = "MES品质";
             // 
@@ -117,28 +118,28 @@ namespace Yu3zx.ClothLaunch
             // 
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label28.Location = new System.Drawing.Point(321, 265);
+            this.label28.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label28.Location = new System.Drawing.Point(36, 543);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(63, 16);
+            this.label28.Size = new System.Drawing.Size(108, 27);
             this.label28.TabIndex = 13;
             this.label28.Text = "MES卷号";
             // 
             // txtGrade
             // 
             this.txtGrade.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtGrade.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtGrade.Location = new System.Drawing.Point(564, 259);
+            this.txtGrade.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtGrade.Location = new System.Drawing.Point(428, 522);
             this.txtGrade.Name = "txtGrade";
             this.txtGrade.ReadOnly = true;
-            this.txtGrade.Size = new System.Drawing.Size(84, 29);
+            this.txtGrade.Size = new System.Drawing.Size(150, 62);
             this.txtGrade.TabIndex = 10;
             // 
             // btnServer
             // 
             this.btnServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnServer.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnServer.Location = new System.Drawing.Point(76, 212);
+            this.btnServer.Location = new System.Drawing.Point(25, 941);
             this.btnServer.Margin = new System.Windows.Forms.Padding(2);
             this.btnServer.Name = "btnServer";
             this.btnServer.Size = new System.Drawing.Size(177, 75);
@@ -150,33 +151,33 @@ namespace Yu3zx.ClothLaunch
             // txtReelNum
             // 
             this.txtReelNum.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtReelNum.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtReelNum.Location = new System.Drawing.Point(391, 259);
+            this.txtReelNum.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtReelNum.Location = new System.Drawing.Point(149, 522);
             this.txtReelNum.Name = "txtReelNum";
             this.txtReelNum.ReadOnly = true;
-            this.txtReelNum.Size = new System.Drawing.Size(92, 29);
+            this.txtReelNum.Size = new System.Drawing.Size(149, 62);
             this.txtReelNum.TabIndex = 12;
             // 
             // btnMesData
             // 
             this.btnMesData.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnMesData.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnMesData.Location = new System.Drawing.Point(677, 26);
+            this.btnMesData.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMesData.Location = new System.Drawing.Point(602, 113);
             this.btnMesData.Name = "btnMesData";
-            this.btnMesData.Size = new System.Drawing.Size(142, 81);
+            this.btnMesData.Size = new System.Drawing.Size(174, 82);
             this.btnMesData.TabIndex = 40;
-            this.btnMesData.Text = "获取MES数据";
+            this.btnMesData.Text = "获取MES   数  据 \r\n\r\n";
             this.btnMesData.UseVisualStyleBackColor = true;
             this.btnMesData.Click += new System.EventHandler(this.btnMesData_Click);
             // 
             // btnLaunch
             // 
             this.btnLaunch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLaunch.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLaunch.Location = new System.Drawing.Point(677, 212);
+            this.btnLaunch.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLaunch.Location = new System.Drawing.Point(149, 642);
             this.btnLaunch.Margin = new System.Windows.Forms.Padding(2);
             this.btnLaunch.Name = "btnLaunch";
-            this.btnLaunch.Size = new System.Drawing.Size(142, 75);
+            this.btnLaunch.Size = new System.Drawing.Size(429, 127);
             this.btnLaunch.TabIndex = 24;
             this.btnLaunch.Text = "上 线";
             this.btnLaunch.UseVisualStyleBackColor = true;
@@ -185,127 +186,128 @@ namespace Yu3zx.ClothLaunch
             // txtRollDiam
             // 
             this.txtRollDiam.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtRollDiam.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtRollDiam.Location = new System.Drawing.Point(564, 211);
+            this.txtRollDiam.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtRollDiam.Location = new System.Drawing.Point(428, 433);
             this.txtRollDiam.Name = "txtRollDiam";
-            this.txtRollDiam.Size = new System.Drawing.Size(84, 29);
+            this.txtRollDiam.Size = new System.Drawing.Size(150, 62);
             this.txtRollDiam.TabIndex = 38;
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(490, 217);
+            this.label13.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(303, 454);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 16);
+            this.label13.Size = new System.Drawing.Size(120, 27);
             this.label13.TabIndex = 37;
             this.label13.Text = "布料卷径";
             // 
             // txtCWidth
             // 
             this.txtCWidth.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCWidth.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtCWidth.Location = new System.Drawing.Point(391, 211);
+            this.txtCWidth.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtCWidth.Location = new System.Drawing.Point(149, 433);
             this.txtCWidth.Name = "txtCWidth";
-            this.txtCWidth.Size = new System.Drawing.Size(92, 29);
+            this.txtCWidth.Size = new System.Drawing.Size(149, 62);
             this.txtCWidth.TabIndex = 36;
             // 
             // label14
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(318, 217);
+            this.label14.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(24, 454);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 16);
+            this.label14.Size = new System.Drawing.Size(120, 27);
             this.label14.TabIndex = 35;
             this.label14.Text = "布料宽度";
             // 
             // txtQuatilyString
             // 
             this.txtQuatilyString.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtQuatilyString.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtQuatilyString.Location = new System.Drawing.Point(391, 122);
+            this.txtQuatilyString.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtQuatilyString.Location = new System.Drawing.Point(149, 267);
             this.txtQuatilyString.Name = "txtQuatilyString";
             this.txtQuatilyString.ReadOnly = true;
-            this.txtQuatilyString.Size = new System.Drawing.Size(257, 29);
+            this.txtQuatilyString.Size = new System.Drawing.Size(429, 62);
             this.txtQuatilyString.TabIndex = 34;
             // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(316, 127);
+            this.label12.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(22, 285);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 16);
+            this.label12.Size = new System.Drawing.Size(122, 27);
             this.label12.TabIndex = 33;
             this.label12.Text = "品    名";
             // 
             // txtSpecs
             // 
             this.txtSpecs.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtSpecs.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSpecs.Location = new System.Drawing.Point(564, 165);
+            this.txtSpecs.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtSpecs.Location = new System.Drawing.Point(428, 349);
             this.txtSpecs.Name = "txtSpecs";
             this.txtSpecs.ReadOnly = true;
-            this.txtSpecs.Size = new System.Drawing.Size(84, 29);
+            this.txtSpecs.Size = new System.Drawing.Size(150, 62);
             this.txtSpecs.TabIndex = 32;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(489, 171);
+            this.label6.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(303, 367);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 16);
+            this.label6.Size = new System.Drawing.Size(120, 27);
             this.label6.TabIndex = 31;
             this.label6.Text = "产品规格";
             // 
             // txtColorNum
             // 
             this.txtColorNum.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtColorNum.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtColorNum.Location = new System.Drawing.Point(391, 165);
+            this.txtColorNum.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtColorNum.Location = new System.Drawing.Point(149, 349);
             this.txtColorNum.Name = "txtColorNum";
             this.txtColorNum.ReadOnly = true;
-            this.txtColorNum.Size = new System.Drawing.Size(92, 29);
+            this.txtColorNum.Size = new System.Drawing.Size(149, 62);
             this.txtColorNum.TabIndex = 30;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(318, 171);
+            this.label5.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(24, 367);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 16);
+            this.label5.Size = new System.Drawing.Size(120, 27);
             this.label5.TabIndex = 29;
             this.label5.Text = "布料色号";
             // 
             // txtBatchNo
             // 
             this.txtBatchNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtBatchNo.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBatchNo.Location = new System.Drawing.Point(391, 29);
+            this.txtBatchNo.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtBatchNo.Location = new System.Drawing.Point(149, 113);
             this.txtBatchNo.Name = "txtBatchNo";
-            this.txtBatchNo.Size = new System.Drawing.Size(257, 32);
+            this.txtBatchNo.Size = new System.Drawing.Size(429, 62);
             this.txtBatchNo.TabIndex = 28;
+            this.txtBatchNo.Text = "255555555";
             // 
             // txtProduceNum
             // 
             this.txtProduceNum.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtProduceNum.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtProduceNum.Location = new System.Drawing.Point(391, 75);
+            this.txtProduceNum.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtProduceNum.Location = new System.Drawing.Point(149, 190);
             this.txtProduceNum.Name = "txtProduceNum";
-            this.txtProduceNum.Size = new System.Drawing.Size(257, 32);
+            this.txtProduceNum.Size = new System.Drawing.Size(429, 62);
             this.txtProduceNum.TabIndex = 27;
             this.txtProduceNum.Text = "50";
             // 
@@ -313,23 +315,24 @@ namespace Yu3zx.ClothLaunch
             // 
             this.btnGetLenth.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnGetLenth.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnGetLenth.Location = new System.Drawing.Point(851, 27);
+            this.btnGetLenth.Location = new System.Drawing.Point(602, 506);
             this.btnGetLenth.Name = "btnGetLenth";
-            this.btnGetLenth.Size = new System.Drawing.Size(131, 78);
+            this.btnGetLenth.Size = new System.Drawing.Size(174, 78);
             this.btnGetLenth.TabIndex = 26;
             this.btnGetLenth.Text = "更新当前上线";
             this.btnGetLenth.UseVisualStyleBackColor = true;
+            this.btnGetLenth.Visible = false;
             this.btnGetLenth.Click += new System.EventHandler(this.btnGetLenth_Click);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(318, 80);
+            this.label2.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(24, 208);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.Size = new System.Drawing.Size(120, 27);
             this.label2.TabIndex = 25;
             this.label2.Text = "布料长度";
             // 
@@ -337,11 +340,11 @@ namespace Yu3zx.ClothLaunch
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(318, 37);
+            this.label1.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(24, 134);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 16);
+            this.label1.Size = new System.Drawing.Size(120, 27);
             this.label1.TabIndex = 23;
             this.label1.Text = "布料批次";
             // 
@@ -349,9 +352,9 @@ namespace Yu3zx.ClothLaunch
             // 
             this.pnl2.Controls.Add(this.lblIfo);
             this.pnl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl2.Location = new System.Drawing.Point(0, 308);
+            this.pnl2.Location = new System.Drawing.Point(800, 0);
             this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(1008, 41);
+            this.pnl2.Size = new System.Drawing.Size(1104, 12);
             this.pnl2.TabIndex = 2;
             // 
             // lblIfo
@@ -359,9 +362,9 @@ namespace Yu3zx.ClothLaunch
             this.lblIfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblIfo.AutoSize = true;
             this.lblIfo.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblIfo.Location = new System.Drawing.Point(479, 12);
+            this.lblIfo.Location = new System.Drawing.Point(527, 12);
             this.lblIfo.Name = "lblIfo";
-            this.lblIfo.Size = new System.Drawing.Size(55, 16);
+            this.lblIfo.Size = new System.Drawing.Size(56, 16);
             this.lblIfo.TabIndex = 0;
             this.lblIfo.Text = "label3";
             this.lblIfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -374,7 +377,7 @@ namespace Yu3zx.ClothLaunch
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(1008, 380);
+            this.groupBox1.Size = new System.Drawing.Size(1104, 1029);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "上线记录";
@@ -383,6 +386,14 @@ namespace Yu3zx.ClothLaunch
             // 
             this.dgvShow.AllowUserToAddRows = false;
             this.dgvShow.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -397,18 +408,18 @@ namespace Yu3zx.ClothLaunch
             this.dgvShow.Margin = new System.Windows.Forms.Padding(2);
             this.dgvShow.Name = "dgvShow";
             this.dgvShow.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShow.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShow.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvShow.RowHeadersWidth = 51;
             this.dgvShow.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dgvShow.RowTemplate.Height = 27;
-            this.dgvShow.Size = new System.Drawing.Size(1004, 362);
+            this.dgvShow.Size = new System.Drawing.Size(1100, 1011);
             this.dgvShow.TabIndex = 0;
             // 
             // ID
@@ -478,16 +489,16 @@ namespace Yu3zx.ClothLaunch
             // 
             this.pnl3.Controls.Add(this.groupBox1);
             this.pnl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl3.Location = new System.Drawing.Point(0, 349);
+            this.pnl3.Location = new System.Drawing.Point(800, 12);
             this.pnl3.Name = "pnl3";
-            this.pnl3.Size = new System.Drawing.Size(1008, 380);
+            this.pnl3.Size = new System.Drawing.Size(1104, 1029);
             this.pnl3.TabIndex = 3;
             // 
             // frmMesServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.pnl3);
             this.Controls.Add(this.pnl2);
             this.Controls.Add(this.pnl1);
