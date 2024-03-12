@@ -346,7 +346,7 @@ namespace Yu3zx.TaggingSevice
                             if (fItem.QualityName != item.QualityName)//修改了品质
                             {
                                 //品质发生变化则需要修改
-                                if ((item.QualityName == "A" || item.QualityName == "KB" || item.QualityName == "SB") && (fItem.QualityName != "A" && fItem.QualityName != "KB" && fItem.QualityName != "SB"))
+                                if ((item.QualityName == "A" || item.QualityName.Contains( "KB") || item.QualityName == "SB") && (fItem.QualityName != "A" && !fItem.QualityName.Contains( "KB") && !fItem.QualityName.Contains("SB")))
                                 {
                                     ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum + 1;
                                 }
@@ -382,7 +382,7 @@ namespace Yu3zx.TaggingSevice
                         else
                         {
                             ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Add(item);
-                            if (item.QualityName == "A" || item.QualityName == "KB" || item.QualityName == "SB") //需要包装的
+                            if (item.QualityName == "A" || item.QualityName.Contains( "KB") || item.QualityName.Contains("SB")) //需要包装的
                             {
                                 ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum + 1;
                             }
@@ -519,13 +519,13 @@ namespace Yu3zx.TaggingSevice
                                             byte lNum = byte.Parse(item.LineNum);
                                             bool isA = true;
                                             int flag = 0;
-                                            if (item.QualityName != "A" && item.QualityName != "KB" && item.QualityName != "SB")
+                                            if (item.QualityName != "A" && !item.QualityName.Contains("KB") && !item.QualityName.Contains("SB"))
                                             {
-                                                if(item.QualityName == "HC")
+                                                if(item.QualityName.Contains("HC"))
                                                 {
                                                     flag = 3;
                                                 }
-                                                else if (item.QualityName == "KC" || item.QualityName == "SC")
+                                                else if (item.QualityName.Contains("KC") || item.QualityName.Contains("SC"))
                                                 {
                                                     flag = 2;
                                                 }
@@ -664,7 +664,7 @@ namespace Yu3zx.TaggingSevice
                                             string strForceBatchNum = string.Empty;
                                             foreach (var iCloth in ProductStateManager.GetInstance().DictMacNums[macId.ToString()].ClothItems)
                                             {
-                                                if (iCloth.QualityName == "A" || iCloth.QualityName == "KB" || iCloth.QualityName == "SB")
+                                                if (iCloth.QualityName == "A" || iCloth.QualityName.Contains("KB") || iCloth.QualityName.Contains("SB"))
                                                 {
                                                     iAClass1++;
                                                 }
@@ -763,7 +763,7 @@ namespace Yu3zx.TaggingSevice
                                         strBatchNo = iCloth.BatchNo;
                                     }
 
-                                    if (iCloth.QualityName == "A" || iCloth.QualityName == "KB" || iCloth.QualityName == "SB")
+                                    if (iCloth.QualityName == "A" || iCloth.QualityName.Contains("KB") || iCloth.QualityName.Contains("SB"))
                                     {
                                         iAClass++;
                                     }
@@ -1675,7 +1675,7 @@ namespace Yu3zx.TaggingSevice
                     List<int> lNaclasslsnew = new List<int>();
                     for (int i = 0; i < carton.OnLaunchItems.Count; i++)
                     {
-                        if (carton.OnLaunchItems[i].QualityName != "A" && carton.OnLaunchItems[i].QualityName != "SB" && carton.OnLaunchItems[i].QualityName != "KB")
+                        if (carton.OnLaunchItems[i].QualityName != "A" && !carton.OnLaunchItems[i].QualityName.Contains("SB") && !carton.OnLaunchItems[i].QualityName.Contains("KB"))
                         {
                             lNaclasslsnew.Add(i);//次品序号
                         }

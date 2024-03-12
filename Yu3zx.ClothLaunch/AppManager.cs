@@ -74,6 +74,15 @@ namespace Yu3zx.ClothLaunch
             get;
             set;
         }
+        /// <summary>
+        /// 需要上线类型
+        /// </summary>
+        public string NeedGoLive
+        {
+            get;
+            set;
+        }
+
         #region 打印相关属性
         /// <summary>
         /// 标签名称
@@ -141,6 +150,10 @@ namespace Yu3zx.ClothLaunch
                             PrintHelper.TempleteFieldsList.Add(sKey, sMatch);
                         }
                     }
+
+                    //
+                    XmlNode classNode = xmlDoc.SelectSingleNode("Configuration/NeedGoLive"); //
+                    NeedGoLive = configNode.Attributes["value"].Value.Trim();
                 }
                 catch (Exception ex)
                 {

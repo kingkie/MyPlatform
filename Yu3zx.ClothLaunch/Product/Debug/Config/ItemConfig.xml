@@ -11,4 +11,5 @@
 	<UsedDevice Id="dev210602001" Name="气味模块"/>
 	<Server ip="127.0.0.1" port="8266" auto="1"/>
 	<LineNum value="1"/>
+    <NeedGoLive value="A,KB,KC,KC1,SB,SC,SC1"/>
 </Configuration>

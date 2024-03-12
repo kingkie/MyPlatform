@@ -26,6 +26,7 @@ namespace Yu3zx.ClothLaunch
 
         private List<OnLaunchItem> ProduceList = new List<OnLaunchItem>();
         private List<FabricClothItem> OnlineClothItems = new List<FabricClothItem>();
+        List<string> NeedGoLives = new List<string>();
 
         public frmMesServer()
         {
@@ -52,6 +53,11 @@ namespace Yu3zx.ClothLaunch
         {
             lblIfo.Text = "";
             AppManager.CreateInstance().Init();
+            string[] strs = AppManager.CreateInstance().NeedGoLive.Split(new char[]{ ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if(strs != null && strs.Length > 0)
+            {
+                NeedGoLives.AddRange(strs);
+            }
 
             try
             {
@@ -302,8 +308,6 @@ namespace Yu3zx.ClothLaunch
 
             item.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
 
-            OnlineClothItems.Add(item);//临时
-
             if (CurrentFabric != null)
             {
                 if (CurrentFabric.ReelNum == item.ReelNum && CurrentFabric.BatchNo == item.BatchNo)
@@ -314,7 +318,7 @@ namespace Yu3zx.ClothLaunch
 
             CurrentFabric = item;
 
-            if (strQualityName.ToUpper() == "HC" || strQualityName.ToUpper().Trim() == "零次" || item.ReelNum == 0)
+            if (!NeedGoLives.Contains(strQualityName.ToUpper()))
             {
                 if (CurrentFabirc != null)
                 {
@@ -327,6 +331,22 @@ namespace Yu3zx.ClothLaunch
                 txtProduceNum.Text = "50";
                 return;
             }
+
+            //if (strQualityName.ToUpper() == "HC" || strQualityName.ToUpper().Trim() == "零次" || item.ReelNum == 0)
+            //{
+            //    if (CurrentFabirc != null)
+            //    {
+            //        bool bUp = SqlDataHelper.HSFabricUpdate(CurrentFabirc.SFabricNo);//更新
+            //        if (bUp)
+            //        {
+            //            //btnMesData_Click(sender, e);
+            //        }
+            //    }
+            //    txtProduceNum.Text = "50";
+            //    return;
+            //}
+
+            OnlineClothItems.Add(item);//临时
 
             Dictionary<string, string> dictData = GetEntityPropertyToDict(item);
 
