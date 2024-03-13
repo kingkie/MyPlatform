@@ -4,8 +4,17 @@ using System.Text;
 
 namespace Yu3zx.TaggingSevice
 {
-    public class BoxDetail
+    public class BoxDetail: IComparable
     {
+        /// <summary>
+        /// 等级名称
+        /// </summary>
+        public string GradeName
+        {
+            get;
+            set;
+        }
+
         public string BoxNum
         {
             get;
@@ -108,6 +117,11 @@ namespace Yu3zx.TaggingSevice
         {
             get;
             set;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return this.GradeName.CompareTo((obj as BoxDetail).GradeName);
         }
     }
 }

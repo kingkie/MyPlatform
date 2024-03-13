@@ -991,6 +991,25 @@ namespace Yu3zx.TaggingSevice
                         Console.WriteLine(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
                         Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
                         break;
+                    default:
+                        if(strQC.Contains("KC") || strQC.Contains("SC"))
+                        {
+                            //模板不同纸张不同，打印换纸麻烦
+                            var pbCfg1 = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
+                            if (pbCfg1 != null)
+                            {
+                                Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
+                                string lblFile = Application.StartupPath + "\\Templates\\KcSc" + pbCfg1.LabelBName;
+                                if (File.Exists(lblFile))
+                                {
+                                    PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg1.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pbCfg1.PrintCopies);
+                                }
+                            }
+                            //调用C类模板打印
+                            Console.WriteLine(strQC + "已经打印");
+                            Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
+                        }
+                        break;
                 }
             }
             catch (Exception ex)
@@ -1282,6 +1301,9 @@ namespace Yu3zx.TaggingSevice
                                 strColorNum = item.OnLaunchItems[j].ColorNum;
                                 strQualityString = item.OnLaunchItems[j].QualityString;
                                 strSpecs = item.OnLaunchItems[j].Specs;
+
+                                //
+                                detail.GradeName = strQualityString;
                                 //BoxInfos.Add(info);
                                 try
                                 {
@@ -1329,6 +1351,10 @@ namespace Yu3zx.TaggingSevice
                     Log.Instance.LogWrite("L897:" + ex.Message);
                     Log.Instance.LogWrite(ex.StackTrace);
                 }
+
+                //---------排序--------
+                Boxes.Sort((a,b)=> a.GradeName.CompareTo(b.GradeName));
+
                 //-------------------
                 var FDataSet = new DataSet();
                 DataTable table = PackHelper.ListToDataTable(Boxes);
