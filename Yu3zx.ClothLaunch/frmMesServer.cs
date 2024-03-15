@@ -54,9 +54,22 @@ namespace Yu3zx.ClothLaunch
             lblIfo.Text = "";
             AppManager.CreateInstance().Init();
             string[] strs = AppManager.CreateInstance().NeedGoLive.Split(new char[]{ ',' }, StringSplitOptions.RemoveEmptyEntries);
-            if(strs != null && strs.Length > 0)
+            NeedGoLives.Clear();
+            if (strs != null && strs.Length > 0)
             {
-                NeedGoLives.AddRange(strs);
+                foreach (string str in strs)
+                {
+                    NeedGoLives.Add(str);
+                    Logs.Log.Instance.LogWrite("上线品级：" + str);
+                }
+            }
+            else
+            {
+                NeedGoLives.Add("A");
+                NeedGoLives.Add("KB");
+                NeedGoLives.Add("SB");
+                NeedGoLives.Add("KC");
+                NeedGoLives.Add("SC");
             }
 
             try
@@ -327,6 +340,8 @@ namespace Yu3zx.ClothLaunch
                     {
                         //btnMesData_Click(sender, e);
                     }
+                    Logs.Log.Instance.LogWrite("不上线：" + CurrentFabirc.SCardNo + CurrentFabirc.IManualOrderNo);
+
                 }
                 txtProduceNum.Text = "50";
                 return;

@@ -153,7 +153,7 @@ namespace Yu3zx.ClothLaunch
 
                     //
                     XmlNode classNode = xmlDoc.SelectSingleNode("Configuration/NeedGoLive"); //
-                    NeedGoLive = configNode.Attributes["value"].Value.Trim();
+                    NeedGoLive = classNode.Attributes["value"].Value.Trim();
                 }
                 catch (Exception ex)
                 {

@@ -1145,6 +1145,9 @@ namespace Yu3zx.TaggingSevice
                     Log.Instance.LogWrite(ex.StackTrace);
                 }
                 //-------------------
+
+
+
                 var FDataSet = new DataSet();
                 DataTable table = PackHelper.ListToDataTable(Boxes);
                 table.TableName = "Products";
