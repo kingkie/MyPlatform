@@ -1576,6 +1576,14 @@ namespace Yu3zx.TaggingSevice
                     {
                         PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.CartonPrinter, dictData,PrintHelper.CartonTempleteFieldsList, pbCfg.PrintCopies);
                     }
+                    else
+                    {
+                        Log.Instance.LogWrite("L1581:" + lblFile);
+                    }
+                }
+                else
+                {
+                    Log.Instance.LogWrite("L1586:模板没找到！");
                 }
 
                 //保存
@@ -1599,7 +1607,7 @@ namespace Yu3zx.TaggingSevice
             }
             catch (Exception ex)
             {
-                Log.Instance.LogWrite("L895:" + ex.Message);
+                Log.Instance.LogWrite("L1605:" + ex.Message);
                 Log.Instance.LogWrite(ex.StackTrace);
             }
         }
