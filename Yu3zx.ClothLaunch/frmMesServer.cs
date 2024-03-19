@@ -52,6 +52,7 @@ namespace Yu3zx.ClothLaunch
         private void frmMesServer_Load(object sender, EventArgs e)
         {
             lblIfo.Text = "";
+            dgvShow.AlternatingRowsDefaultCellStyle.ForeColor = Color.LimeGreen;
             AppManager.CreateInstance().Init();
             string[] strs = AppManager.CreateInstance().NeedGoLive.Split(new char[]{ ',' }, StringSplitOptions.RemoveEmptyEntries);
             NeedGoLives.Clear();
