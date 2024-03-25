@@ -644,6 +644,7 @@ namespace Yu3zx.TaggingSevice
                     {
                         if (PrePlcReceive.Count > 0)
                         {
+                            //有强制上线的
                             PlcCmd preCmd;
                             if (PrePlcReceive.TryDequeue(out preCmd))
                             {
@@ -712,10 +713,15 @@ namespace Yu3zx.TaggingSevice
                                             //以及打印包装箱标签
                                             if (ProductStateManager.GetInstance().CurrentDoing)
                                             {
-                                                //------打印整箱的-------
-                                                this.Invoke((EventHandler)delegate {
-                                                    PrintCartonBoxLabel();// CurrentBox
-                                                });
+                                                //如果强制下，整箱A数>=6按正常打印，其它按强制结束打印
+                                                if (iAClass1 == 6)
+                                                {
+                                                    //------打印整箱的-------
+                                                    this.Invoke((EventHandler)delegate {
+                                                        PrintCartonBoxLabel();// CurrentBox
+                                                    });
+                                                }
+
                                                 try
                                                 {
                                                     //通知PLC上线
@@ -723,7 +729,14 @@ namespace Yu3zx.TaggingSevice
                                                     short fWidth = (short)newBox.OnLaunchItems[0].FabricWidth;
                                                     short iRoll = (short)newBox.OnLaunchItems[0].RollDiam;
                                                     Thread.Sleep(2400);
-                                                    NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
+                                                    if(iAClass1 != 6) //强制的
+                                                    {
+                                                        NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox,1);
+                                                    }
+                                                    else
+                                                    {
+                                                        NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
+                                                    }
                                                 }
                                                 catch (Exception ex)
                                                 {
@@ -758,7 +771,7 @@ namespace Yu3zx.TaggingSevice
                                         break;
                                     }
 
-                                    if(string.IsNullOrEmpty(strBatchNo))
+                                    if (string.IsNullOrEmpty(strBatchNo))
                                     {
                                         strBatchNo = iCloth.BatchNo;
                                     }
@@ -1066,7 +1079,7 @@ namespace Yu3zx.TaggingSevice
                 if(minPack < 1)
                 {
                     //通知已经打印
-                    NoticePrintedReport(lineNum, minPack);
+                   // NoticePrintedReport(lineNum, minPack);
                     return;
                 }
                 //一垛总包数
@@ -1237,7 +1250,7 @@ namespace Yu3zx.TaggingSevice
 
                 Console.WriteLine("总包数打印！");
                 //通知已经打印
-                NoticePrintedReport(lineNum, packNum);
+                //NoticePrintedReport(lineNum, packNum);
             }
             catch(Exception ex)
             {
@@ -1677,7 +1690,8 @@ namespace Yu3zx.TaggingSevice
         /// <param name="fabricWidth"></param>
         /// <param name="iRollDiam">长度</param>
         /// <param name="carton"></param>
-        private void NoticePlc(byte iLNum, short fabricWidth, Int16 iRollDiam, CartonBox carton)
+        /// <param name="force">强制上线标志</param>
+        private void NoticePlc(byte iLNum, short fabricWidth, Int16 iRollDiam, CartonBox carton,byte force = 0)
         {
             //通知上线
             try
@@ -1720,6 +1734,9 @@ namespace Yu3zx.TaggingSevice
                     lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclasslsnew));
                 }
                 #endregion End
+
+                lCmd.Add(force);//强制指令
+
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
             catch(Exception ex)
@@ -1737,9 +1754,9 @@ namespace Yu3zx.TaggingSevice
             { }
         }
         /// <summary>
-        /// 通知薄膜已打印
+        /// 通知薄膜已打印：flag为类型，A，HC，SC
         /// </summary>
-        private void NoticePrintedFabric(byte iLNum,int rolldiam,bool isA = true,int flag = 0)
+        private void NoticePrintedFabric(byte iLNum,int rolldiam,bool isA = true, int flag = 0)
         {
             //通知上线
             try
@@ -1781,7 +1798,11 @@ namespace Yu3zx.TaggingSevice
             catch
             { }
         }
-
+        /// <summary>
+        /// 装箱单
+        /// </summary>
+        /// <param name="iLNum"></param>
+        /// <param name="print"></param>
         private void NoticePrintedCarton(byte iLNum, int print)
         {
             //通知上线
@@ -1809,14 +1830,18 @@ namespace Yu3zx.TaggingSevice
             catch
             { }
         }
-
+        /// <summary>
+        /// 入库单
+        /// </summary>
+        /// <param name="iLNum"></param>
+        /// <param name="cartonNum"></param>
         private void NoticePrintedReport(byte iLNum, int cartonNum)
         {
             //通知上线
             try
             {
                 List<byte> lCmd = new List<byte>();
-                lCmd.Add(0x03); //
+                lCmd.Add(0x04); //
                 lCmd.Add(iLNum);//产线号
 
                 lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(cartonNum)));
