@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Xml;
 
 using Yu3zx.DapperExtend;
+using Yu3zx.TaggingSevice.Models;
 
 namespace Yu3zx.TaggingSevice
 {
@@ -77,6 +78,8 @@ namespace Yu3zx.TaggingSevice
         }
 
         public List<PrintCfg> LPrinter = new List<PrintCfg>();
+
+        public List<RollSet> RollSets = new List<RollSet>();
 
         /// <summary>
         /// 初始化
@@ -158,6 +161,16 @@ namespace Yu3zx.TaggingSevice
                         //---------------
                         cfg.PrintCopies = int.Parse(nSub.Attributes["copies"].Value.Trim());
                         LPrinter.Add(cfg);
+                    }
+
+                    XmlNode prNode = xmlDoc.SelectSingleNode("Configuration/PrinterConfig"); //
+                    foreach (XmlNode rSub in prNode.ChildNodes)
+                    {
+                        RollSet roll = new RollSet();
+                        roll.TypeName = rSub.Attributes["type"].Value.Trim();
+                        roll.RollNum = (int)float.Parse(rSub.Attributes["rollnum"].Value.Trim());
+
+                        RollSets.Add(roll);
                     }
                 }
                 catch (Exception ex)

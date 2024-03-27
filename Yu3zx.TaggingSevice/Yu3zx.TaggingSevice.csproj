@@ -82,6 +82,7 @@
     <Compile Include="CartonBox.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="Models\CartonBoxInfo.cs" />
+    <Compile Include="Models\RollSet.cs" />
     <Compile Include="Models\SetConfig.cs" />
     <Compile Include="PackHelper.cs" />
     <Compile Include="PlcCmd.cs" />
