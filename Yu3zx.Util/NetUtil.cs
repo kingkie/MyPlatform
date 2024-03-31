@@ -116,6 +116,59 @@ namespace Yu3zx.Util
             return Flage;
         }
 
+        //用于转换ip地址
+        [DllImport("ws2_32.dll")]
+        public static extern int inet_addr(string cp);
+
+        //用于发送APR包（根据APR协议！）
+        [DllImport("IPHLPAPI.dll")]
+        public static extern int SendARP(int DestIP, int ScrIP, ref long pMacAddr, ref int PhyAddrLen);
+        /// <summary>
+        /// 根据IP地址发送ARP获取MAC地址
+        /// </summary>
+        /// <param name="IP"></param>
+        /// <param name="destMac"></param>
+        /// <returns></returns>
+        public static int ExtractMac(string IP, ref string destMac)
+        {
+            StringBuilder MacRouteBuilder = new StringBuilder();
+            int flag = 0;
+            try
+            {
+                int ldest = inet_addr(IP); //将IP地址从 点数格式转换成无符号长整型
+                long macinfo = new long();
+                int len = 6;
+                //SendARP函数发送一个地址解析协议(ARP)请求获得指定的目的地IPv4地址相对应的物理地址
+                int ret = SendARP(ldest, 0, ref macinfo, ref len);
+                if (ret == 0)
+                {
+                    string TmpMac = Convert.ToString(macinfo, 16).PadLeft(12, '0');//转换成16进制
+                                                                                   //
+                    for (int i = 10; i >= 0; i = i - 2)//反过来读取，原因可以查看接口函数sendApr！
+                    {
+                        MacRouteBuilder.Append(TmpMac.Substring(i, 2).ToUpper());
+
+                        if (i >= 2)
+                        {
+                            MacRouteBuilder.Append("-");
+                        }
+                    }
+                    flag = 1;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            if (flag == 1)
+            {
+                destMac = MacRouteBuilder.ToString();
+                return 0;
+            }
+            return -1;
+        }
+
+
         #endregion End
     }
 }

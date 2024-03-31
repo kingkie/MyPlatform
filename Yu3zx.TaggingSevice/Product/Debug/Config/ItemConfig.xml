@@ -45,4 +45,14 @@
 	<UsedDevice Id="dev210602001" Name="气味模块"/>
 	<Server ip="127.0.0.1" port="8266" auto="0" plcip="192.168.0.201"/>
 	<LineNum value="1" fullnum="6"/>
+	<Rolldiams>
+		<RollItem type="YK20" rollnum="76.5"/>
+		<RollItem type="YK580" rollnum="113"/>
+		<RollItem type="YK320" rollnum="127"/>
+		<RollItem type="YK1780" rollnum="144"/>
+		<RollItem type="YK1650" rollnum="144"/>
+		<RollItem type="YKE8129" rollnum="144"/>
+		<RollItem type="YK5888" rollnum="144"/>
+		<RollItem type="YKE8130" rollnum="147"/>
+	</Rolldiams>
 </Configuration>
