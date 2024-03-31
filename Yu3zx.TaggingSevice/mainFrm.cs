@@ -12,6 +12,7 @@ using FastReport;
 using FastReport.Data;
 using FastReport.Utils;
 using Yu3zx.DapperExtend;
+using Yu3zx.Enroll;
 using Yu3zx.Logs;
 
 namespace Yu3zx.TaggingSevice
@@ -43,6 +44,34 @@ namespace Yu3zx.TaggingSevice
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
+            //增加注册机制
+            if (SoftRegisterManager.GetInstance().CheckCode())
+            {
+                if(SoftRegisterManager.GetInstance().Probation)
+                {
+                    this.Text += " " + SoftRegisterManager.GetInstance().ErrMsg;
+                }
+            }
+            else
+            {
+
+                if (MessageBox.Show("软件未注册，是否立即注册！", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    EnrollFrm enroll = new EnrollFrm();
+                    enroll.ShowDialog();
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    this.Text = this.Text + " (试用版)";
+                    if(DateTime.Now.Month > 7 && DateTime.Now.Year >= 2024)
+                    {
+                        Environment.Exit(0);
+                    }
+                    //Environment.Exit(0);
+                }
+            }
+
             AppManager.CreateInstance().Init();
             txtPort.Text = AppManager.CreateInstance().Port.ToString();
             List<string> loaclIps = GetLoacalIp();
@@ -635,6 +664,7 @@ namespace Yu3zx.TaggingSevice
                                 case 0x06:
                                     //复位指令
                                     ProductStateManager.GetInstance().CurrentDoing = false;
+
                                     break;
                             }
                         }
@@ -1677,7 +1707,7 @@ namespace Yu3zx.TaggingSevice
         /// <param name="fabricWidth"></param>
         /// <param name="iRollDiam">长度</param>
         /// <param name="carton"></param>
-        private void NoticePlc(byte iLNum, short fabricWidth, Int16 iRollDiam, CartonBox carton)
+        private void NoticePlc(byte iLNum, short fabricWidth, Int16 iRollDiam, CartonBox carton,int force = 0)
         {
             //通知上线
             try

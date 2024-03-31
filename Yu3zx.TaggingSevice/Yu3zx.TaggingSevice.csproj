@@ -154,6 +154,10 @@
       <Project>{8ab4c274-da11-4cd5-a6d1-8a24742b49cc}</Project>
       <Name>Yu3zx.DapperExtend</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Yu3zx.Enroll\Yu3zx.Enroll.csproj">
+      <Project>{a269c5f2-0c0b-41be-a1fc-73269673ce71}</Project>
+      <Name>Yu3zx.Enroll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Yu3zx.Json\Yu3zx.Json.csproj">
       <Project>{398fa901-48fe-4f6a-b4db-e34d3f790079}</Project>
       <Name>Yu3zx.Json</Name>
