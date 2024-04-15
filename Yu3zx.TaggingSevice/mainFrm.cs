@@ -806,11 +806,11 @@ namespace Yu3zx.TaggingSevice
                                                     Thread.Sleep(2400);
                                                     if (iAClass1 != 6) //强制的
                                                     {
-                                                        NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox,1);
+                                                        NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox,1);
                                                     }
                                                     else
                                                     {
-                                                        NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
+                                                        NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox);
                                                     }
                                                 }
                                                 catch (Exception ex)
@@ -902,7 +902,7 @@ namespace Yu3zx.TaggingSevice
                                             iRoll = GetRollDiam(newBox.OnLaunchItems[0].QualityString);
                                         }
                                         Thread.Sleep(2400);
-                                        NoticePlc(iLNum, fWidth, iRoll, ProductStateManager.GetInstance().CurrentBox);
+                                        NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox);
                                     }
                                     catch (Exception ex)
                                     {
@@ -1786,6 +1786,8 @@ namespace Yu3zx.TaggingSevice
                 Console.WriteLine(ex);
             }
         }
+
+
         /// <summary>
         /// 通知PLC上线 1号指令
         /// </summary>
@@ -1794,7 +1796,7 @@ namespace Yu3zx.TaggingSevice
         /// <param name="iRollDiam">长度</param>
         /// <param name="carton"></param>
         /// <param name="force">强制上线标志</param>
-        private void NoticePlc(byte iLNum, short fabricWidth, short iRollDiam, CartonBox carton,byte force = 0)
+        private void OldNoticePlc(byte iLNum, short fabricWidth, short iRollDiam, CartonBox carton, byte force = 0)
         {
             //通知上线
             try
@@ -1839,6 +1841,64 @@ namespace Yu3zx.TaggingSevice
                 #endregion End
 
                 // lCmd.Add(force);//强制指令
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite("L1010:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+
+        /// <summary>
+        /// 通知PLC上线 1号指令
+        /// </summary>
+        /// <param name="iLNum"></param>
+        /// <param name="fabricWidth">布料宽度</param>
+        /// <param name="iRollDiam">长度</param>
+        /// <param name="carton"></param>
+        /// <param name="force">强制上线标志</param>
+        private void NoticePlc(byte iLNum, short fabricWidth, CartonBox carton,byte force = 0)
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x01); //命令码
+                lCmd.Add(iLNum);//产线号
+
+                //=======================方法二--------------------
+                #region 方法二
+                {
+                    lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(carton.OnLaunchItems.Count)));// 增加一箱总个数
+                    lCmd.AddRange(MathHelper.ShortToBytes(fabricWidth));//宽度
+
+                    List<int> lNaclasslsnew = new List<int>();
+                    for (int i = 0; i < carton.OnLaunchItems.Count; i++)
+                    {
+                        if (carton.OnLaunchItems[i].QualityName != "A" && !carton.OnLaunchItems[i].QualityName.Contains("SB") && !carton.OnLaunchItems[i].QualityName.Contains("KB"))
+                        {
+                            lNaclasslsnew.Add(i);//次品序号
+                        }
+                    }
+                    lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclasslsnew));//正次排序
+                }
+
+
+                #endregion End
+
+                lCmd.Add(force);//强制指令
+
+
 
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
