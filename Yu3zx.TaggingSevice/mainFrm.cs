@@ -600,7 +600,7 @@ namespace Yu3zx.TaggingSevice
                                             byte bForce = IsForce();
                                             //ProductStateManager.GetInstance().CurrentBox.OnLaunchItems
 
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), isA, flag, bForce);
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, isA, flag, bForce);
 
                                             Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
                                         }
