@@ -1859,7 +1859,7 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 通知薄膜已打印：flag为类型，A，HC，SC
         /// </summary>
-        private void NoticePrintedFabric(byte iLNum,int rolldiam,bool isA = true, int flag = 0, byte isForce = 0)
+        private void NoticePrintedFabric(byte iLNum,int rolldiam,int rollindex,bool isA = true, int flag = 0, byte isForce = 0)
         {
             //通知上线
             try
@@ -1886,6 +1886,8 @@ namespace Yu3zx.TaggingSevice
                 }
 
                 lCmd.Add(isForce);//是否为强制上线
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rollindex))); //0415增加卷号
 
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
