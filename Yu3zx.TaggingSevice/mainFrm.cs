@@ -600,7 +600,7 @@ namespace Yu3zx.TaggingSevice
                                             byte bForce = IsForce();
                                             //ProductStateManager.GetInstance().CurrentBox.OnLaunchItems
 
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, isA, flag, bForce);
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.Specs,item.ColorNum, isA, flag, bForce);
 
                                             Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
                                         }
@@ -1870,6 +1870,7 @@ namespace Yu3zx.TaggingSevice
         private void NoticePlc(byte iLNum, short fabricWidth, CartonBox carton,byte force = 0)
         {
             //通知上线
+            // string result = System.Text.RegularExpressions.Regex.Replace(str, @"[^0-9]+", "");
             try
             {
                 List<byte> lCmd = new List<byte>();
@@ -1877,6 +1878,8 @@ namespace Yu3zx.TaggingSevice
                 lCmd.Add(iLNum);//产线号
 
                 //=======================方法二--------------------
+                short iColor = 0;
+                short iy = 0;
                 #region 方法二
                 {
                     lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(carton.OnLaunchItems.Count)));// 增加一箱总个数
@@ -1889,20 +1892,39 @@ namespace Yu3zx.TaggingSevice
                         {
                             lNaclasslsnew.Add(i);//次品序号
                         }
+                        if (i == 0)
+                        {
+                            try
+                            {
+                                iColor = short.Parse(carton.OnLaunchItems[i].ColorNum);
+                                //iy = GetRollDiam(carton.OnLaunchItems[i].QualityString);
+                                //iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].QualityString, @"[^0-9]+", ""));
+
+                                iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].Specs, @"[^0-9]+", ""));
+                            }
+                            catch
+                            { }
+                        }
                     }
                     lCmd.AddRange(PackHelper.BuildBTypeValue(lNaclasslsnew));//正次排序
                 }
-
 
                 #endregion End
 
                 lCmd.Add(force);//强制指令
 
+                lCmd.AddRange(MathHelper.ShortToBytes(iy));//规格
 
+                lCmd.AddRange(MathHelper.ShortToBytes(iColor));//色号
+
+                for (int i = 0; i < carton.OnLaunchItems.Count; i++)
+                {
+                    lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(carton.OnLaunchItems[i].ReelNum)));//卷号
+                }
 
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.Instance.LogWrite("L1010:" + ex.Message);
                 Log.Instance.LogWrite(ex.StackTrace);
@@ -1919,7 +1941,7 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 通知薄膜已打印：flag为类型，A，HC，SC
         /// </summary>
-        private void NoticePrintedFabric(byte iLNum,int rolldiam,int rollindex,bool isA = true, int flag = 0, byte isForce = 0)
+        private void OldNoticePrintedFabric(byte iLNum,int rolldiam,int rollindex,bool isA = true, int flag = 0, byte isForce = 0)
         {
             //通知上线
             try
@@ -1950,6 +1972,70 @@ namespace Yu3zx.TaggingSevice
                 lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rollindex))); //0415增加卷号
 
                 PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite("L1040:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+
+        /// <summary>
+        /// 通知薄膜已打印：flag为类型，A，HC，SC
+        /// </summary>
+        private void NoticePrintedFabric(byte iLNum, int rolldiam, int rollindex,string strSpec,string strColor, bool isA = true, int flag = 0, byte isForce = 0)
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x02); //命令码
+                lCmd.Add(iLNum);//产线号
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rolldiam)));//长度
+                if (flag > 0)
+                {
+                    lCmd.Add((byte)flag);
+                }
+                else
+                {
+                    if (isA)
+                    {
+                        lCmd.Add(0x01);
+                    }
+                    else
+                    {
+                        lCmd.Add(0x02);
+                    }
+                }
+
+                lCmd.Add(isForce);//是否为强制上线
+
+                short iColor = 0;
+                short iy = 0;
+                try
+                {
+                    iColor = short.Parse(System.Text.RegularExpressions.Regex.Replace(strColor, @"[^0-9]+", ""));
+                    iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(strSpec, @"[^0-9]+", ""));
+                }
+                catch
+                { }
+
+                lCmd.AddRange(MathHelper.ShortToBytes(iy)); //规格
+
+                lCmd.AddRange(MathHelper.ShortToBytes(iColor)); //颜色值
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(rollindex))); //0415增加卷号
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray()); //
             }
             catch (Exception ex)
             {
