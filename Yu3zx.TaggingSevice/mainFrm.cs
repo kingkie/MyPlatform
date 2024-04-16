@@ -600,7 +600,7 @@ namespace Yu3zx.TaggingSevice
                                             byte bForce = IsForce();
                                             //ProductStateManager.GetInstance().CurrentBox.OnLaunchItems
 
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.Specs,item.ColorNum, isA, flag, bForce);
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.QualityString,item.ColorNum, isA, flag, bForce);
 
                                             Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
                                         }
@@ -1127,6 +1127,8 @@ namespace Yu3zx.TaggingSevice
                     }
                     catch (Exception ex)
                     {
+                        Log.Instance.LogWrite(ex.Message);
+                        Log.Instance.LogWrite(ex.StackTrace);
                     }
                 }
             }
@@ -1991,7 +1993,15 @@ namespace Yu3zx.TaggingSevice
         /// <summary>
         /// 通知薄膜已打印：flag为类型，A，HC，SC
         /// </summary>
-        private void NoticePrintedFabric(byte iLNum, int rolldiam, int rollindex,string strSpec,string strColor, bool isA = true, int flag = 0, byte isForce = 0)
+        /// <param name="iLNum">1-4</param>
+        /// <param name="rolldiam"></param>
+        /// <param name="rollindex">1</param>
+        /// <param name="strQStr">YK1780</param>
+        /// <param name="strColor">229</param>
+        /// <param name="isA"></param>
+        /// <param name="flag"></param>
+        /// <param name="isForce">是否为强制</param>
+        private void NoticePrintedFabric(byte iLNum, int rolldiam, int rollindex,string strQStr,string strColor, bool isA = true, int flag = 0, byte isForce = 0)
         {
             //通知上线
             try
@@ -2024,7 +2034,7 @@ namespace Yu3zx.TaggingSevice
                 try
                 {
                     iColor = short.Parse(System.Text.RegularExpressions.Regex.Replace(strColor, @"[^0-9]+", ""));
-                    iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(strSpec, @"[^0-9]+", ""));
+                    iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(strQStr, @"[^0-9]+", ""));
                 }
                 catch
                 { }
