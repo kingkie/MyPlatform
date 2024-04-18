@@ -600,7 +600,7 @@ namespace Yu3zx.TaggingSevice
                                             byte bForce = IsForce();
                                             //ProductStateManager.GetInstance().CurrentBox.OnLaunchItems
 
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.Specs,item.ColorNum, isA, flag, bForce);
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.QualityString, item.ColorNum, isA, flag, bForce);
 
                                             Log.Instance.LogWrite(string.Format("通知面料标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
                                         }
@@ -623,7 +623,7 @@ namespace Yu3zx.TaggingSevice
                                                 ProductStateManager.GetInstance().CurrentBox.LaunchIndex = ProductStateManager.GetInstance().CurrentBox.LaunchIndex + 1;//累加
                                             }
                                         }
-                                        catch(Exception ex)
+                                        catch (Exception ex)
                                         {
                                             Log.Instance.LogWrite("L291:" + ex.Message);
                                             Log.Instance.LogWrite("L291:" + ex.StackTrace);
@@ -1900,7 +1900,7 @@ namespace Yu3zx.TaggingSevice
                                 //iy = GetRollDiam(carton.OnLaunchItems[i].QualityString);
                                 //iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].QualityString, @"[^0-9]+", ""));
 
-                                iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].Specs, @"[^0-9]+", ""));
+                                iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].QualityString, @"[^0-9]+", ""));
                             }
                             catch
                             { }
