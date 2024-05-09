@@ -856,6 +856,11 @@ namespace Yu3zx.TaggingSevice
                                         iAClass++;
                                     }
                                     iSumNeed++;
+                                    //批次最后一个
+                                    if(iCloth.BLast)
+                                    {
+                                        break;
+                                    }
                                 }
 
                                 CartonBox newBox = new CartonBox();
@@ -887,10 +892,14 @@ namespace Yu3zx.TaggingSevice
                                 //正常的以及打印包装箱标签
                                 if (ProductStateManager.GetInstance().CurrentDoing)
                                 {
-                                    //------打印整箱的-------
-                                    this.Invoke((EventHandler)delegate {
-                                        PrintCartonBoxLabel();// CurrentBox
-                                    });
+                                    if(iAClass == 6) //说明是正常的
+                                    {
+                                        //------打印整箱的-------
+                                        this.Invoke((EventHandler)delegate {
+                                            PrintCartonBoxLabel();// CurrentBox
+                                        });
+                                    }
+
                                     try
                                     {
                                         //通知PLC上线
@@ -902,7 +911,14 @@ namespace Yu3zx.TaggingSevice
                                             iRoll = GetRollDiam(newBox.OnLaunchItems[0].QualityString);
                                         }
                                         Thread.Sleep(2400);
-                                        NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox);
+                                        if (iAClass != 6) //强制的
+                                        {
+                                            NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox,1);
+                                        }
+                                        else
+                                        {
+                                            NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox);
+                                        }
                                     }
                                     catch (Exception ex)
                                     {

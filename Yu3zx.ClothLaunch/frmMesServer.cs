@@ -38,6 +38,14 @@ namespace Yu3zx.ClothLaunch
             get;
             set;
         }
+        /// <summary>
+        /// 是否是批次最后一个
+        /// </summary>
+        private bool IsBatchLast
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// 当前上线面料
@@ -122,12 +130,13 @@ namespace Yu3zx.ClothLaunch
 
                     string strGrade = item.SGrade;
                     txtGrade.Text = strGrade;
-
+                    IsBatchLast = item.BLast;
                     CurrentFabirc = item;
                 }
                 else
                 {
                     CurrentFabirc = null;
+                    IsBatchLast = false;
                 }
             }
             catch (Exception ex)
@@ -314,10 +323,12 @@ namespace Yu3zx.ClothLaunch
             if (CurrentFabirc != null)
             {
                 item.ReelNum = CurrentFabirc.IManualOrderNo;
+                item.BLast = CurrentFabirc.BLast;
             }
             else
             {
                 item.ReelNum = AppManager.CreateInstance().GetSerialNoAndUpdate(strBatchNo);
+                item.BLast = false;
             }
 
             item.RndString = "RN" + DateTime.Now.ToString("yyMMddHHmmssfff") + rd.Next(100, 999).ToString();
@@ -385,6 +396,7 @@ namespace Yu3zx.ClothLaunch
             item1.QualityName = strQualityName;
             item1.QualityString = strQString;
             item1.Specs = strSpecs;
+            item1.BLast = item.BLast;
 
             string lblFile = Application.StartupPath + "\\Templates\\" + AppManager.CreateInstance().LabelName;
             if (File.Exists(lblFile))

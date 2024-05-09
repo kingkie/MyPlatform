@@ -160,6 +160,16 @@ namespace Yu3zx.ClothLaunch.Models
             set;
         }
         /// <summary>
+        /// 批次最后一个
+        /// </summary>
+        [Column("bLast")]
+        public bool BLast
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 添加时间
         /// </summary>
         [Column("tInspectTime")]

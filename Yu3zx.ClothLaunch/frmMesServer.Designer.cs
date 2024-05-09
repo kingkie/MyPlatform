@@ -69,6 +69,7 @@ namespace Yu3zx.ClothLaunch
             this.speck = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colornum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkBatchLast = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnl1.SuspendLayout();
             this.pnl2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -368,7 +369,7 @@ namespace Yu3zx.ClothLaunch
             this.lblIfo.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblIfo.Location = new System.Drawing.Point(549, 12);
             this.lblIfo.Name = "lblIfo";
-            this.lblIfo.Size = new System.Drawing.Size(56, 16);
+            this.lblIfo.Size = new System.Drawing.Size(55, 16);
             this.lblIfo.TabIndex = 0;
             this.lblIfo.Text = "label3";
             this.lblIfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -409,7 +410,8 @@ namespace Yu3zx.ClothLaunch
             this.qualitycheck,
             this.speck,
             this.colornum,
-            this.specs});
+            this.specs,
+            this.chkBatchLast});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -513,6 +515,14 @@ namespace Yu3zx.ClothLaunch
             this.specs.ReadOnly = true;
             this.specs.Width = 120;
             // 
+            // chkBatchLast
+            // 
+            this.chkBatchLast.DataPropertyName = "IsLast";
+            this.chkBatchLast.HeaderText = "批次结束";
+            this.chkBatchLast.Name = "chkBatchLast";
+            this.chkBatchLast.ReadOnly = true;
+            this.chkBatchLast.Width = 120;
+            // 
             // frmMesServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -575,5 +585,6 @@ namespace Yu3zx.ClothLaunch
         private System.Windows.Forms.DataGridViewTextBoxColumn speck;
         private System.Windows.Forms.DataGridViewTextBoxColumn colornum;
         private System.Windows.Forms.DataGridViewTextBoxColumn specs;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chkBatchLast;
     }
 }

@@ -59,5 +59,13 @@ namespace Yu3zx.ClothLaunch
             get;
             set;
         }
+        /// <summary>
+        /// 是否是批次最后一个
+        /// </summary>
+        public bool BLast
+        {
+            get;
+            set;
+        }
     }
 }
