@@ -803,7 +803,7 @@ namespace Yu3zx.TaggingSevice
                                                         iRoll = GetRollDiam(newBox.OnLaunchItems[0].QualityString);
                                                     }
 
-                                                    Thread.Sleep(2400);
+                                                    Thread.Sleep(1200);
                                                     if (iAClass1 != 6) //强制的
                                                     {
                                                         NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox,1);
@@ -859,6 +859,7 @@ namespace Yu3zx.TaggingSevice
                                     //批次最后一个
                                     if(iCloth.BLast)
                                     {
+                                        Log.Instance.LogWrite(string.Format("批次最后一个，批次：{0}；A品：{1}；总个数：{2}", strBatchNo, iAClass, iSumNeed));
                                         break;
                                     }
                                 }
@@ -910,7 +911,7 @@ namespace Yu3zx.TaggingSevice
                                         {
                                             iRoll = GetRollDiam(newBox.OnLaunchItems[0].QualityString);
                                         }
-                                        Thread.Sleep(2400);
+                                        Thread.Sleep(1200);
                                         if (iAClass != 6) //强制的
                                         {
                                             NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox,1);
