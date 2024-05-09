@@ -119,9 +119,36 @@ namespace Yu3zx.TaggingSevice
             set;
         }
 
+        //public int CompareTo(object obj)
+        //{
+        //    return this.GradeName.CompareTo((obj as BoxDetail).GradeName);
+        //}
+
         public int CompareTo(object obj)
         {
-            return this.GradeName.CompareTo((obj as BoxDetail).GradeName);
+            try
+            {
+                if (obj == null)
+                {
+                    return 1; // 非空检查，如果obj为null则返回1（正数），表示当前实例大于比较对象
+                }
+
+                BoxDetail otherbox = obj as BoxDetail;
+                if (otherbox != null)
+                {
+                    return this.GradeName.CompareTo(otherbox.GradeName);
+                }
+                else
+                {
+                    return 0;
+                    //throw new ArgumentException("Object is not a Person"); // 如果比较对象不是Person类型则抛出异常
+                }
+            }
+            catch
+            {
+
+            }
+            return 0;
         }
     }
 }

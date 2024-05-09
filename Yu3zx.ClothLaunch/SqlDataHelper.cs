@@ -43,7 +43,7 @@ namespace Yu3zx.ClothLaunch
                 try
                 {
                     var lFabric = db.Select<HSFabric>("SELECT sCardNo,sMaterialLot,sFabricNo,sMaterialName,sYarnInfo,iManualOrderNo,nLength,nClothRollDiameter,sProductWidthOrder,sColorNo,sColorName,sEquipmentNo,sFabricWidth,sGrade,sRemark,bend,bLast,tInspectTime " +
-                        " from qmInspectHdr where sEquipmentNo=@EquipmentNo AND (bEnd is null OR bEnd = 0) ORDER BY tInspectTime ASC ", new { EquipmentNo = lineNum });// u => u.AlarmTime.Date == date.Date && u.DevId == strId
+                        " from qmInspectHdr where sEquipmentNo=@EquipmentNo AND (bEnd is null OR bEnd = 0) ORDER BY tInspectTime ASC,iManualOrderNo ASC ", new { EquipmentNo = lineNum });// u => u.AlarmTime.Date == date.Date && u.DevId == strId
                     db.Dispose();
                     if (lFabric != null && lFabric.Count > 0)
                     {

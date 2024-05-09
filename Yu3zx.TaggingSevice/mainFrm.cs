@@ -1254,14 +1254,12 @@ namespace Yu3zx.TaggingSevice
                 }
                 //-------------------
 
-
-
                 var FDataSet = new DataSet();
                 DataTable table = PackHelper.ListToDataTable(Boxes);
                 table.TableName = "Products";
                 FDataSet.Tables.Add(table);
                 string filePath = Application.StartupPath + "\\Report\\cartonreport.frx";
-                if(File.Exists(filePath))
+                if (File.Exists(filePath))
                 {
                 }
                 else
@@ -1464,7 +1462,12 @@ namespace Yu3zx.TaggingSevice
                 }
 
                 //---------排序--------
-                Boxes.Sort((a,b)=> a.GradeName.CompareTo(b.GradeName));
+                try
+                {
+                    Boxes.Sort((a, b) => a.GradeName.CompareTo(b.GradeName));
+                }
+                catch
+                { }
 
                 //-------------------
                 var FDataSet = new DataSet();
@@ -1912,11 +1915,17 @@ namespace Yu3zx.TaggingSevice
                         {
                             try
                             {
-                                iColor = short.Parse(carton.OnLaunchItems[i].ColorNum);
-                                //iy = GetRollDiam(carton.OnLaunchItems[i].QualityString);
-                                //iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].QualityString, @"[^0-9]+", ""));
+                                string strColor1 = System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].ColorNum, @"[^0-9]+", "");
+                                string strQString = System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].QualityString, @"[^0-9]+", "");
+                                if (!string.IsNullOrEmpty(strColor1))
+                                {
+                                    iColor = short.Parse(strColor1);
+                                }
 
-                                iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(carton.OnLaunchItems[i].QualityString, @"[^0-9]+", ""));
+                                if (!string.IsNullOrEmpty(strQString))
+                                {
+                                    iy = short.Parse(strQString);
+                                }
                             }
                             catch
                             { }
@@ -2039,8 +2048,20 @@ namespace Yu3zx.TaggingSevice
                 short iy = 0;
                 try
                 {
-                    iColor = short.Parse(System.Text.RegularExpressions.Regex.Replace(strColor, @"[^0-9]+", ""));
-                    iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(strSpec, @"[^0-9]+", ""));
+                    string strColor1 = System.Text.RegularExpressions.Regex.Replace(strColor, @"[^0-9]+", "");
+                    string strQString = System.Text.RegularExpressions.Regex.Replace(strSpec, @"[^0-9]+", "");
+                    if (!string.IsNullOrEmpty(strColor1))
+                    {
+                        iColor = short.Parse(strColor1);
+                    }
+
+                    if (!string.IsNullOrEmpty(strQString))
+                    {
+                        iy = short.Parse(strQString);
+                    }
+
+                    //iColor = short.Parse(System.Text.RegularExpressions.Regex.Replace(strColor, @"[^0-9]+", ""));
+                    //iy = short.Parse(System.Text.RegularExpressions.Regex.Replace(strSpec, @"[^0-9]+", ""));
                 }
                 catch
                 { }
