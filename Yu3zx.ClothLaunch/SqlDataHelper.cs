@@ -19,8 +19,8 @@ namespace Yu3zx.ClothLaunch
             {
                 try
                 {
-                    var lFabric = db.Select<HSFabric>("SELECT sCardNo,sMaterialLot,sFabricNo,sMaterialName,sYarnInfo,iManualOrderNo,nLength,nClothRollDiameter,sProductWidthOrder,sColorNo,sColorName,sEquipmentNo,sEquipmentName,sGrade,sRemark,bend,tInspectTime " +
-                        " from qmInspectHdr where Date(tInspectTime)=@AddTime AND (bEnd is null OR bEnd = 0) ORDER BY tInspectTime ASC ", new { AddTime = dtDay.Date});// u => u.AlarmTime.Date == date.Date && u.DevId == strId
+                    var lFabric = db.Select<HSFabric>("SELECT sCardNo,sMaterialLot,sFabricNo,sMaterialName,sYarnInfo,iManualOrderNo,nLength,nClothRollDiameter,sProductWidthOrder,sColorNo,sColorName,sEquipmentNo,sEquipmentName,sGrade,sRemark,bend,bLast,tInspectTime " +
+                        " from qmInspectHdr where Date(tInspectTime)=@AddTime AND (bEnd is null OR bEnd = 0) ORDER BY tInspectTime ASC,iManualOrderNo ASC ", new { AddTime = dtDay.Date});// u => u.AlarmTime.Date == date.Date && u.DevId == strId
                     if(lFabric != null && lFabric.Count > 0)
                     {
                         return lFabric[0];
