@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastReport;
 using FastReport.Data;
+using FastReport.Export.Email;
 using FastReport.Utils;
 using Yu3zx.DapperExtend;
 using Yu3zx.Enroll;
@@ -2252,29 +2253,48 @@ namespace Yu3zx.TaggingSevice
             //{
             //    return;
             //}
+            
 
-            //判断是否已经存在，如果存在，则修改
-            var findItem = ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Find(x => x.ReelNum == reelnum);
-            if (findItem != null)
+            try
             {
-                txtELen.Text = findItem.ProduceNum.ToString();
-                txtEQString.Text = findItem.QualityString.ToString();
-                txtEColorNum.Text = findItem.ColorNum.ToString();
-                txtESpecs.Text = findItem.Specs.ToString();
-                txtECWidth.Text = findItem.FabricWidth.ToString();
-                txtERollDiam.Text = findItem.RollDiam.ToString();
-                cboQualityName.SelectedItem = findItem.QualityName.ToString();
-                updateFindItem = findItem;
+                if(!ProductStateManager.GetInstance().DictMacNums.ContainsKey(lNum))
+                {
+                    txtELen.Text = "";
+                    txtEQString.Text = "";
+                    txtEColorNum.Text = "";
+                    txtESpecs.Text = "";
+                    txtECWidth.Text = "";
+                    txtERollDiam.Text = "";
+                    updateFindItem = null;
+                    return;
+                }
+
+                var findItem = ProductStateManager.GetInstance().DictMacNums[lNum].ClothItems.Find(x => x.ReelNum == reelnum && x.BatchNo == strBatchNo);
+                if (findItem != null)
+                {
+                    txtELen.Text = findItem.ProduceNum.ToString();
+                    txtEQString.Text = findItem.QualityString.ToString();
+                    txtEColorNum.Text = findItem.ColorNum.ToString();
+                    txtESpecs.Text = findItem.Specs.ToString();
+                    txtECWidth.Text = findItem.FabricWidth.ToString();
+                    txtERollDiam.Text = findItem.RollDiam.ToString();
+                    cboQualityName.SelectedItem = findItem.QualityName.ToString();
+                    updateFindItem = findItem;
+                }
+                else
+                {
+                    txtELen.Text = "";
+                    txtEQString.Text = "";
+                    txtEColorNum.Text = "";
+                    txtESpecs.Text = "";
+                    txtECWidth.Text = "";
+                    txtERollDiam.Text = "";
+                    updateFindItem = null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtELen.Text = "";
-                txtEQString.Text = "";
-                txtEColorNum.Text = "";
-                txtESpecs.Text = "";
-                txtECWidth.Text = "";
-                txtERollDiam.Text = "";
-                updateFindItem = null;
+
             }
         }
 
@@ -2287,6 +2307,14 @@ namespace Yu3zx.TaggingSevice
                 MessageBox.Show("未找到对应的产品，是否已经包装装箱！");
                 return;
             }
+            string lNum = txtLine.Text;
+            string strBatchNo = txtEBatchNo.Text;
+            int reelnum = int.Parse(txtEReelNum.Text);
+            if (string.IsNullOrEmpty(lNum))
+            {
+                return;
+            }
+
             try
             {
                 bool isEditQa = false;
@@ -2298,7 +2326,7 @@ namespace Yu3zx.TaggingSevice
                 updateFindItem.ColorNum = txtEColorNum.Text;
                 updateFindItem.Specs = txtESpecs.Text;
                 string strQa = cboQualityName.SelectedItem.ToString();
-
+                string strQa0 = updateFindItem.QualityName;
 
                 if (strQa != updateFindItem.QualityName)
                 {
@@ -2310,17 +2338,27 @@ namespace Yu3zx.TaggingSevice
                 {
                     if(isEditQa)
                     {
-                        //品质发生变化则需要修改
-                        if (updateFindItem.QualityName == "A") //需要包装的
+                        if(strQa0 == "A" || strQa0.Contains("KB") || strQa0.Contains("SB"))
                         {
-                            ProductStateManager.GetInstance().DictMacNums[strBatchNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[strBatchNum].AClassSum + 1;
+                            if (updateFindItem.QualityName == "A" || updateFindItem.QualityName.Contains("KB") || updateFindItem.QualityName.Contains("SB")) //需要包装的
+                            {
+                            }
+                            else
+                            {
+                                //现在不是A品了
+                                ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum - 1;
+                                if (ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum < 0)
+                                {
+                                    ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = 0;
+                                }
+                            }
                         }
                         else
                         {
-                            ProductStateManager.GetInstance().DictMacNums[strBatchNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[strBatchNum].AClassSum - 1;
-                            if (ProductStateManager.GetInstance().DictMacNums[strBatchNum].AClassSum < 0)
+                            //原来不是A,现在是A
+                            if (updateFindItem.QualityName == "A" || updateFindItem.QualityName.Contains("KB") || updateFindItem.QualityName.Contains("SB")) //需要包装的
                             {
-                                ProductStateManager.GetInstance().DictMacNums[strBatchNum].AClassSum = 0;
+                                ProductStateManager.GetInstance().DictMacNums[lNum].AClassSum = ProductStateManager.GetInstance().DictMacNums[strBatchNum].AClassSum + 1;
                             }
                         }
                     }
