@@ -284,6 +284,57 @@ namespace Yu3zx.ClothLaunch
                 return;
             }
 
+            try
+            {
+                NetworkStream ntwStream = DeviceManager.CreateInstance().ClothClient.GetStream();
+                if (ntwStream == null || !ntwStream.CanWrite)
+                {
+                    MessageBox.Show("连接服务端失败，重连或者请联系管理员！");
+                    return;
+                }
+
+                while (DataManager.CreateInstance().NeedSend.Count > 0)
+                {
+                    lock (DataManager.CreateInstance())
+                    {
+                        try
+                        {
+                            var nItem = DataManager.CreateInstance().NeedSend[0];
+                            if (ntwStream.CanWrite)
+                            {
+                                try
+                                {
+                                    if (nItem.QualityName == "A" || nItem.QualityName.Contains("KB") || nItem.QualityName == "SB")
+                                    {
+                                        if (nItem.ProduceNum != 50.0)
+                                        {
+                                            nItem.QualityName = "SCA";//添加一种类型
+                                        }
+                                    }
+                                }
+                                catch
+                                {
+                                }
+                                string strData = JSONUtil.SerializeJSON(nItem);
+                                byte[] buff = Encoding.UTF8.GetBytes(strData);
+                                if (buff != null)
+                                {
+                                    ntwStream.Write(buff, 0, buff.Length);
+                                }
+                                DataManager.CreateInstance().NeedSend.RemoveAt(0);
+                            }
+                            Thread.Sleep(50);
+                        }
+                        catch
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            catch
+            { }
+
             string strBatchNo = txtBatchNo.Text.Trim();// DateTime.Now.ToString("yyyyMMddfff");
             string strColorNum = txtColorNum.Text;
             if (string.IsNullOrEmpty(strColorNum))
@@ -416,6 +467,21 @@ namespace Yu3zx.ClothLaunch
 
                 if (ntwStream.CanWrite)
                 {
+                    try
+                    {
+                        if (item.QualityName == "A" || item.QualityName.Contains("KB") || item.QualityName == "SB")
+                        {
+                            if(item.ProduceNum != 50.0)
+                            {
+                                item.QualityName = "SCA";//添加一种类型
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+
                     string strData = JSONUtil.SerializeJSON(item);
                     byte[] buff = Encoding.UTF8.GetBytes(strData);
                     if (buff != null)

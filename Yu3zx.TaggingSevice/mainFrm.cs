@@ -1104,6 +1104,10 @@ namespace Yu3zx.TaggingSevice
                     default:
                         if(strQC.Contains("KC") || strQC.Contains("SC"))
                         {
+                            if(strQC == "SCA")
+                            {
+                                item.QualityName = "A";
+                            }
                             //模板不同纸张不同，打印换纸麻烦
                             var pbCfg1 = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
                             if (pbCfg1 != null)
