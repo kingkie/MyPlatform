@@ -597,6 +597,14 @@ namespace Yu3zx.TaggingSevice
                                                 }
                                                 isA = false;
                                             }
+                                            else
+                                            {
+                                                if (item.QualityName.ToUpper() == "SCA")
+                                                {
+                                                    flag = 2;
+                                                    isA = false;
+                                                }
+                                            }
 
                                             byte bForce = IsForce();
                                             //ProductStateManager.GetInstance().CurrentBox.OnLaunchItems
@@ -1104,24 +1112,54 @@ namespace Yu3zx.TaggingSevice
                     default:
                         if(strQC.Contains("KC") || strQC.Contains("SC"))
                         {
-                            if(strQC == "SCA")
+                            if (strQC == "SCA")
                             {
-                                item.QualityName = "A";
-                            }
-                            //模板不同纸张不同，打印换纸麻烦
-                            var pbCfg1 = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
-                            if (pbCfg1 != null)
-                            {
-                                Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
-                                string lblFile = Application.StartupPath + "\\Templates\\KcSc" + pbCfg1.LabelBName;
-                                if (File.Exists(lblFile))
+                                //item.QualityName = "A";
+                                FabricClothItem itemp = new FabricClothItem();
+                                itemp.BatchNo = item.BatchNo;
+                                itemp.ColorNum = item.ColorNum;
+                                itemp.LineNum = item.LineNum;
+                                itemp.ProduceNum = item.ProduceNum;
+                                itemp.QualityName = "A";
+                                itemp.QualityString = item.QualityString;
+                                itemp.Specs = item.Specs;
+                                itemp.FabricWidth = item.FabricWidth;
+                                itemp.RollDiam = item.RollDiam;
+                                itemp.ReelNum = item.ReelNum;
+                                itemp.BLast = item.BLast;
+                                itemp.RndString = item.RndString;
+
+                                //调用A类模板打印
+                                var pCfgSca = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
+                                if (pCfgSca != null)
                                 {
-                                    PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg1.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pbCfg1.PrintCopies);
+                                    Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(itemp);
+                                    string lblFile = Application.StartupPath + "\\Templates\\" + pCfgSca.LabelName;
+                                    if (File.Exists(lblFile))
+                                    {
+                                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pCfgSca.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pCfgSca.PrintCopies);
+                                    }
                                 }
+                                Console.WriteLine(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
+                                Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
                             }
-                            //调用C类模板打印
-                            Console.WriteLine(strQC + "已经打印");
-                            Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
+                            else
+                            {
+                                //模板不同纸张不同，打印换纸麻烦
+                                var pbCfg1 = AppManager.CreateInstance().GetPrintCfg(item.LineNum);
+                                if (pbCfg1 != null)
+                                {
+                                    Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
+                                    string lblFile = Application.StartupPath + "\\Templates\\KcSc" + pbCfg1.LabelBName;
+                                    if (File.Exists(lblFile))
+                                    {
+                                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg1.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pbCfg1.PrintCopies);
+                                    }
+                                }
+                                //调用C类模板打印
+                                Console.WriteLine(strQC + "已经打印");
+                                Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经打印");
+                            }
                         }
                         break;
                 }
