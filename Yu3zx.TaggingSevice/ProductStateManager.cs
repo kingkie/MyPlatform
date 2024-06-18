@@ -204,12 +204,15 @@ namespace Yu3zx.TaggingSevice
         {
             try
             {
-                var item = DictMacNums.OrderByDescending(x => x.Value.ClothItems.Count).ToList();//.Find(p=>p.Value.AClassSum >= 6);//.Select(p => p.Value.AClassSum > 6).ToList();
-                foreach (var subItem in item)
+                lock(DictMacNums)
                 {
-                    if (subItem.Value.AClassSum >= AppManager.CreateInstance().PackingNum)
+                    var item = DictMacNums.OrderByDescending(x => x.Value.ClothItems.Count).ToList();//.Find(p=>p.Value.AClassSum >= 6);//.Select(p => p.Value.AClassSum > 6).ToList();
+                    foreach (var subItem in item)
                     {
-                        return subItem.Key;
+                        if (subItem.Value.AClassSum >= AppManager.CreateInstance().PackingNum)
+                        {
+                            return subItem.Key;
+                        }
                     }
                 }
                 return string.Empty;

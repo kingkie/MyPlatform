@@ -709,11 +709,12 @@ namespace Yu3zx.TaggingSevice
                                     {
 
                                     }
+                                    Log.Instance.LogWrite(string.Format("接收到强制指令！"));
                                     break;
                                 case 0x06:
                                     //复位指令
                                     ProductStateManager.GetInstance().CurrentDoing = false;
-
+                                    Log.Instance.LogWrite(string.Format("接收到复位指令！"));
                                     break;
                             }
                         }
@@ -842,6 +843,7 @@ namespace Yu3zx.TaggingSevice
                             string lineNum = ProductStateManager.GetInstance().GetNextBoxLineNum();
                             if (!string.IsNullOrEmpty(lineNum))//有适合的线可以上线
                             {
+                                Log.Instance.LogWrite(string.Format("当前新上线线号：{0}",lineNum));
                                 WorkFlowManager.CreateInstance().CurrentLine = lineNum;
                                 WorkFlowManager.CreateInstance().CurrentBatchNo = ProductStateManager.GetInstance().DictMacNums[lineNum].BatchNo;
                                 int iSumNeed = 0;//累计需要
@@ -898,7 +900,7 @@ namespace Yu3zx.TaggingSevice
 
                                     ProductStateManager.GetInstance().Save();
                                 }
-                                Log.Instance.LogWrite("L455：新上线！");
+                                Log.Instance.LogWrite(string.Format( "L904：{0}号线新上线，批次号：{1}！", lineNum,strBatchNo));
                                 //正常的以及打印包装箱标签
                                 if (ProductStateManager.GetInstance().CurrentDoing)
                                 {
@@ -908,6 +910,10 @@ namespace Yu3zx.TaggingSevice
                                         this.Invoke((EventHandler)delegate {
                                             PrintCartonBoxLabel();// CurrentBox
                                         });
+                                    }
+                                    else
+                                    {
+                                        Log.Instance.LogWrite(string.Format("A数量不够，A Num:" + iAClass.ToString()));
                                     }
 
                                     try
@@ -923,6 +929,7 @@ namespace Yu3zx.TaggingSevice
                                         Thread.Sleep(1200);
                                         if (iAClass != 6) //强制的
                                         {
+                                            Log.Instance.LogWrite(string.Format("L931：强制上线！"));
                                             NoticePlc(iLNum, fWidth, ProductStateManager.GetInstance().CurrentBox,1);
                                         }
                                         else
@@ -940,7 +947,7 @@ namespace Yu3zx.TaggingSevice
                             {
                                 //没有符合上线要求的
                                 //空闲就休息10秒
-                                Thread.Sleep(10000);
+                                Thread.Sleep(5000);
                             }
                         }
                     }
