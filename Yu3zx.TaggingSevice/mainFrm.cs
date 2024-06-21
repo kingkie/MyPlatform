@@ -69,7 +69,6 @@ namespace Yu3zx.TaggingSevice
                     {
                         Environment.Exit(0);
                     }
-                    //Environment.Exit(0);
                 }
             }
 
@@ -761,6 +760,11 @@ namespace Yu3zx.TaggingSevice
                                                     //strForceBatchNum = iCloth.BatchNo;//取其中一个就可以
                                                     break;
                                                 }
+                                                //超过协议最大传输个数就直接断
+                                                if(iSumNeed1 >= 16)
+                                                {
+                                                    break;
+                                                }
                                             }
 
                                             CartonBox newBox = new CartonBox();
@@ -871,6 +875,11 @@ namespace Yu3zx.TaggingSevice
                                     if(iCloth.BLast)
                                     {
                                         Log.Instance.LogWrite(string.Format("批次最后一个，批次：{0}；A品：{1}；总个数：{2}", strBatchNo, iAClass, iSumNeed));
+                                        break;
+                                    }
+                                    //已经满数据
+                                    if (iSumNeed >= 16)
+                                    {
                                         break;
                                     }
                                 }
