@@ -853,6 +853,7 @@ namespace Yu3zx.TaggingSevice
                                 int iSumNeed = 0;//累计需要
                                 int iAClass = 0;
                                 string strBatchNo = string.Empty;
+                                FabricClothItem iFci = null;
                                 foreach (var iCloth in ProductStateManager.GetInstance().DictMacNums[lineNum].ClothItems)
                                 {
                                     if (iAClass >= AppManager.CreateInstance().PackingNum)
@@ -860,11 +861,28 @@ namespace Yu3zx.TaggingSevice
                                         //strBatchNo = iCloth.BatchNo;//取其中一个就可以
                                         break;
                                     }
+                                    if(iSumNeed == 0)
+                                    {
+                                        iFci = iCloth;
+                                    }
 
                                     if (string.IsNullOrEmpty(strBatchNo))
                                     {
                                         strBatchNo = iCloth.BatchNo;
                                     }
+
+                                    //判断是不是换编号了
+                                    if (iFci != null)
+                                    {
+                                        if (iFci.BatchNo != iCloth.BatchNo)
+                                        {
+                                            //换编号了，可以换箱子
+                                            break;
+                                        }
+                                    }
+
+                                    iFci = iCloth;//把当前赋值
+
 
                                     if (iCloth.QualityName == "A" || iCloth.QualityName.Contains("KB") || iCloth.QualityName.Contains("SB"))
                                     {
@@ -877,6 +895,7 @@ namespace Yu3zx.TaggingSevice
                                         Log.Instance.LogWrite(string.Format("批次最后一个，批次：{0}；A品：{1}；总个数：{2}", strBatchNo, iAClass, iSumNeed));
                                         break;
                                     }
+
                                     //已经满数据
                                     if (iSumNeed >= 16)
                                     {
