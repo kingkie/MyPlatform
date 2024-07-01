@@ -29,11 +29,11 @@ namespace Yu3zx.ClothLaunch
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -61,7 +61,6 @@ namespace Yu3zx.ClothLaunch
             this.lblIfo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvShow = new System.Windows.Forms.DataGridView();
-            this.pnl3 = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.batchno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +69,7 @@ namespace Yu3zx.ClothLaunch
             this.colornum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkBatchLast = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pnl3 = new System.Windows.Forms.Panel();
             this.pnl1.SuspendLayout();
             this.pnl2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -156,6 +156,7 @@ namespace Yu3zx.ClothLaunch
             // 
             this.txtReelNum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtReelNum.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtReelNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.txtReelNum.Location = new System.Drawing.Point(143, 549);
             this.txtReelNum.Name = "txtReelNum";
             this.txtReelNum.ReadOnly = true;
@@ -346,7 +347,7 @@ namespace Yu3zx.ClothLaunch
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(18, 134);
+            this.label1.Location = new System.Drawing.Point(18, 133);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 27);
@@ -391,17 +392,17 @@ namespace Yu3zx.ClothLaunch
             // 
             this.dgvShow.AllowUserToAddRows = false;
             this.dgvShow.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dgvShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dgvShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -412,45 +413,36 @@ namespace Yu3zx.ClothLaunch
             this.colornum,
             this.specs,
             this.chkBatchLast});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvShow.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvShow.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvShow.Location = new System.Drawing.Point(2, 16);
             this.dgvShow.Margin = new System.Windows.Forms.Padding(2);
             this.dgvShow.MultiSelect = false;
             this.dgvShow.Name = "dgvShow";
             this.dgvShow.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShow.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShow.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvShow.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvShow.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvShow.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvShow.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dgvShow.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.dgvShow.RowTemplate.Height = 27;
             this.dgvShow.Size = new System.Drawing.Size(1145, 1011);
             this.dgvShow.TabIndex = 0;
-            // 
-            // pnl3
-            // 
-            this.pnl3.Controls.Add(this.groupBox1);
-            this.pnl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl3.Location = new System.Drawing.Point(755, 12);
-            this.pnl3.Name = "pnl3";
-            this.pnl3.Size = new System.Drawing.Size(1149, 1029);
-            this.pnl3.TabIndex = 3;
             // 
             // ID
             // 
@@ -522,6 +514,15 @@ namespace Yu3zx.ClothLaunch
             this.chkBatchLast.Name = "chkBatchLast";
             this.chkBatchLast.ReadOnly = true;
             this.chkBatchLast.Width = 120;
+            // 
+            // pnl3
+            // 
+            this.pnl3.Controls.Add(this.groupBox1);
+            this.pnl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl3.Location = new System.Drawing.Point(755, 12);
+            this.pnl3.Name = "pnl3";
+            this.pnl3.Size = new System.Drawing.Size(1149, 1029);
+            this.pnl3.TabIndex = 3;
             // 
             // frmMesServer
             // 
