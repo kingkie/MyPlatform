@@ -16,7 +16,16 @@ namespace Yu3zx.TaggingSevice
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainFrm());
+
+            var mutex = new System.Threading.Mutex(true, "TaggingSevice");
+            if (mutex.WaitOne(0, false))
+            {
+                Application.Run(new mainFrm());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

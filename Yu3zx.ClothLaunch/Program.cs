@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,8 +17,16 @@ namespace Yu3zx.ClothLaunch
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new mainFrm());
-            Application.Run(new frmMesServer());
+
+            var mutex = new System.Threading.Mutex(true, "ClothLaunch");
+            if(mutex.WaitOne(0,false))
+            {
+                Application.Run(new frmMesServer());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }
