@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -734,6 +731,75 @@ namespace Yu3zx.Util
             g.Dispose();
 
             return imgP;
+        }
+    }
+
+    public class ImageHelper
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="strPath">路径</param>
+        /// <param name="name"></param>
+        /// <param name="suffix"></param>
+        /// <param name="buffer"></param>
+        /// <returns></returns>
+        public static string SaveImage(string strPath, string name, string suffix, byte[] buffer)
+        {
+            string path = strPath;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string fileName = "";
+            if (suffix != null)
+            {
+                fileName = Path.Combine(path, string.Format("{0}_{1}", name, suffix));
+            }
+            else
+            {
+                fileName = Path.Combine(path, name);
+            }
+
+            return CreateImageFromBytes(fileName, buffer);
+        }
+
+        private static Image BytesToImage(byte[] buffer)
+        {
+            MemoryStream ms = new MemoryStream(buffer);
+            Image image = Image.FromStream(ms);
+            return image;
+        }
+
+        private static string CreateImageFromBytes(string fileName, byte[] buffer)
+        {
+            string file = fileName;
+            Image image = BytesToImage(buffer);
+            ImageFormat format = image.RawFormat;
+            if (format.Equals(ImageFormat.Jpeg))
+            {
+                file += ".jpeg";
+            }
+            else if (format.Equals(ImageFormat.Png))
+            {
+                file += ".png";
+            }
+            else if (format.Equals(ImageFormat.Bmp))
+            {
+                file += ".bmp";
+            }
+            else if (format.Equals(ImageFormat.Gif))
+            {
+                file += ".gif";
+            }
+            else if (format.Equals(ImageFormat.Icon))
+            {
+                file += ".icon";
+            }
+            System.IO.FileInfo info = new System.IO.FileInfo(file);
+            System.IO.Directory.CreateDirectory(info.Directory.FullName);
+            File.WriteAllBytes(file, buffer);
+            return file;
         }
     }
 }

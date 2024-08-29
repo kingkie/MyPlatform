@@ -102,5 +102,82 @@ namespace Yu3zx.Util
             result.Append(input.Substring(startIndex));
             return result.ToString();
         }
+
+        //====-=-=-=-=--=-=-=-=-=止-=-=-==-=-=-=-=-=---
+
+        #region DataTableToXml
+        /// <summary>
+        /// 将DataTable对象转换成XML字符串
+        /// </summary>
+        /// <param name="ds">DataSet对象</param>
+        /// <returns>XML字符串</returns>
+        public static string DataTableToXml(DataTable dt, string sName)
+        {
+            if (dt != null)
+            {
+                MemoryStream ms = null;
+                XmlTextWriter XmlWt = null;
+                try
+                {
+                    ms = new MemoryStream();
+                    //根据ms实例化XmlWt
+                    XmlWt = new XmlTextWriter(ms, System.Text.Encoding.Unicode);
+                    //获取ds中的数据
+                    dt.TableName = sName;
+                    dt.WriteXml(XmlWt, XmlWriteMode.WriteSchema);
+                    int count = (int)ms.Length;
+                    byte[] temp = new byte[count];
+                    ms.Seek(0, SeekOrigin.Begin);
+                    ms.Read(temp, 0, count);
+                    //返回Unicode编码的文本
+                    System.Text.UnicodeEncoding ucode = new System.Text.UnicodeEncoding();
+                    string returnValue = ucode.GetString(temp).Trim();
+                    return returnValue;
+                }
+                catch (System.Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    //释放资源
+                    if (XmlWt != null)
+                    {
+                        XmlWt.Close();
+                        ms.Close();
+                        ms.Dispose();
+                    }
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
+        #endregion
+
+        #region Xml To DataSet
+        public static DataSet XmlToDataSet(string xmlString)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            xmldoc.LoadXml(xmlString);
+            StringReader stream = null;
+            XmlTextReader reader = null;
+            try
+            {
+                DataSet xmlDS = new DataSet();
+                stream = new StringReader(xmldoc.InnerXml);
+                reader = new XmlTextReader(stream);
+                xmlDS.ReadXml(reader);
+                reader.Close();
+                return xmlDS;
+            }
+            catch (System.Exception ex)
+            {
+                reader.Close();
+                throw ex;
+            }
+        }
+        #endregion
     }
 }
