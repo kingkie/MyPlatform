@@ -65,7 +65,7 @@ namespace Yu3zx.TaggingSevice
                 else
                 {
                     this.Text = this.Text + " (试用版)";
-                    if(DateTime.Now.Month > 7 && DateTime.Now.Year >= 2024)
+                    if(DateTime.Now.Year != 2024)
                     {
                         Environment.Exit(0);
                     }
@@ -528,6 +528,12 @@ namespace Yu3zx.TaggingSevice
             return 0x00;
         }
 
+        public FabricClothItem CurrentItem
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 工作监督
         /// </summary>
@@ -573,6 +579,7 @@ namespace Yu3zx.TaggingSevice
                                         Log.Instance.LogWrite(string.Format("L263,当前序号：{0},当前箱内数{1}", ProductStateManager.GetInstance().CurrentBox.LaunchIndex, ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count));
 
                                         FabricClothItem item = ProductStateManager.GetInstance().CurrentBox.OnLaunchItems[ProductStateManager.GetInstance().CurrentBox.LaunchIndex];
+                                        CurrentItem = item;
                                         this.Invoke((EventHandler)delegate {
                                             PrintFabricLabel(item);//打印当前
                                             Log.Instance.LogWrite(string.Format("打印面料标签：{0}", item.ReelNum));
@@ -714,6 +721,62 @@ namespace Yu3zx.TaggingSevice
                                     //复位指令
                                     ProductStateManager.GetInstance().CurrentDoing = false;
                                     Log.Instance.LogWrite(string.Format("接收到复位指令！"));
+                                    break;
+                                case 0x07:
+                                    //
+                                    //获取当前需要打印的
+                                    if (ProductStateManager.GetInstance().CurrentBox == null)
+                                    {
+                                        break;
+                                    }
+
+                                    if(CurrentItem != null)
+                                    {
+                                        this.Invoke((EventHandler)delegate {
+                                            PrintTwiceFabricLabel(CurrentItem);//打印当前
+                                            Log.Instance.LogWrite(string.Format("打印面料二次标签：{0}", CurrentItem.ReelNum));
+                                        });
+
+                                        try
+                                        {
+                                            var item = CurrentItem;
+                                            //NoticeRollDiam(item);//告知当前布卷卷径
+                                            byte lNum = byte.Parse(item.LineNum);
+                                            bool isA = true;
+                                            int flag = 0;
+                                            if (item.QualityName != "A" && !item.QualityName.Contains("KB") && !item.QualityName.Contains("SB"))
+                                            {
+                                                if (item.QualityName.Contains("HC"))
+                                                {
+                                                    flag = 3;
+                                                }
+                                                else if (item.QualityName.Contains("KC") || item.QualityName.Contains("SC"))
+                                                {
+                                                    flag = 2;
+                                                }
+                                                isA = false;
+                                            }
+                                            else
+                                            {
+                                                if (item.QualityName.ToUpper() == "SCA")
+                                                {
+                                                    flag = 2;
+                                                    isA = false;
+                                                }
+                                            }
+
+                                            byte bForce = IsForce();
+
+                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.QualityString, item.ColorNum, isA, flag, bForce);
+                                            Log.Instance.LogWrite(string.Format("通知面料二次标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Log.Instance.LogWrite(string.Format("通知二次打印完成异常:{0}", ex.StackTrace));
+                                        }
+
+
+                                    }
                                     break;
                             }
                         }
@@ -1077,6 +1140,14 @@ namespace Yu3zx.TaggingSevice
                                     //
                                     PrePlcReceive.Enqueue(cmd6);
                                     break;
+                                case 0x07:
+                                    //二次打印请求指令
+                                    PlcCmd cmd7 = new PlcCmd();
+                                    cmd7.CmdCode = 0x07;
+                                    cmd7.MachineId = cmdInput[1];
+                                    //
+                                    PrePlcReceive.Enqueue(cmd7);
+                                    break;
                                 default:
 
                                     break;
@@ -1228,6 +1299,138 @@ namespace Yu3zx.TaggingSevice
             catch
             { }
         }
+
+        /// <summary>
+        /// 面料标签二次打印
+        /// </summary>
+        private void PrintTwiceFabricLabel(FabricClothItem item)
+        {
+            try
+            {
+                Console.WriteLine("打印面料二次标签成功！");
+                string strQC = item.QualityName.ToUpper();
+                switch (strQC)
+                {
+                    case "SC":
+                    case "KC":
+                        //模板不同纸张不同，打印换纸麻烦
+                        var pbCfg = AppManager.CreateInstance().GetPrintCfg(item.LineNum+"f");
+                        if (pbCfg != null)
+                        {
+                            Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
+                            //string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.LabelBName;// FabricKCSC.btw
+                            string lblFile = Application.StartupPath + "\\Templates\\KcSc" + pbCfg.LabelBName;
+                            if (File.Exists(lblFile))
+                            {
+                                PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pbCfg.PrintCopies);
+                            }
+                        }
+                        //调用C类模板打印
+                        Console.WriteLine(strQC + "已经二次打印");
+                        Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经二次打印");
+                        break;
+                    case "A":
+                    case "KB":
+                    case "SB":
+                        //调用A类模板打印
+                        var pCfg = AppManager.CreateInstance().GetPrintCfg(item.LineNum + "f");
+                        if (pCfg != null)
+                        {
+                            Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
+                            string lblFile = Application.StartupPath + "\\Templates\\" + pCfg.LabelName;
+                            if (File.Exists(lblFile))
+                            {
+                                PrintHelper.CreateInstance().BarPrintInit(lblFile, pCfg.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pCfg.PrintCopies);
+                            }
+                        }
+                        Console.WriteLine(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经二次打印");
+                        Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经二次打印");
+                        break;
+                    default:
+                        if (strQC.Contains("KC") || strQC.Contains("SC"))
+                        {
+                            if (strQC == "SCA")
+                            {
+                                //item.QualityName = "A";
+                                FabricClothItem itemp = new FabricClothItem();
+                                itemp.BatchNo = item.BatchNo;
+                                itemp.ColorNum = item.ColorNum;
+                                itemp.LineNum = item.LineNum;
+                                itemp.ProduceNum = item.ProduceNum;
+                                itemp.QualityName = "A";
+                                itemp.QualityString = item.QualityString;
+                                itemp.Specs = item.Specs;
+                                itemp.FabricWidth = item.FabricWidth;
+                                itemp.RollDiam = item.RollDiam;
+                                itemp.ReelNum = item.ReelNum;
+                                itemp.BLast = item.BLast;
+                                itemp.RndString = item.RndString;
+
+                                //调用A类模板打印
+                                var pCfgSca = AppManager.CreateInstance().GetPrintCfg(item.LineNum + "f");
+                                if (pCfgSca != null)
+                                {
+                                    Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(itemp);
+                                    string lblFile = Application.StartupPath + "\\Templates\\" + pCfgSca.LabelName;
+                                    if (File.Exists(lblFile))
+                                    {
+                                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pCfgSca.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pCfgSca.PrintCopies);
+                                    }
+                                }
+                                Console.WriteLine(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经二次打印");
+                                Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经二次打印");
+                            }
+                            else
+                            {
+                                //模板不同纸张不同，打印换纸麻烦
+                                var pbCfg1 = AppManager.CreateInstance().GetPrintCfg(item.LineNum + "f");
+                                if (pbCfg1 != null)
+                                {
+                                    Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(item);
+                                    string lblFile = Application.StartupPath + "\\Templates\\KcSc" + pbCfg1.LabelBName;
+                                    if (File.Exists(lblFile))
+                                    {
+                                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg1.PrinterName, dictData, PrintHelper.FabricTempleteFieldsList, pbCfg1.PrintCopies);
+                                    }
+                                }
+                                //调用C类模板打印
+                                Console.WriteLine(strQC + "已经二次打印");
+                                Log.Instance.LogWrite(strQC + " 类：" + DateTime.Now.ToString("yyyyMMddHHmmss") + "已经二次打印");
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite(ex);
+            }
+            //try
+            //{
+            //    //更新数据库
+            //    using (var db = new DapperContext("MySqlDbConnection"))
+            //    {
+            //        try
+            //        {
+            //            var rtnB = db.Update("update fabric_cloths set IsFinish=1 where RndString=@RndString OR (BatchNo=@BatchNo AND ReelNum=@ReelNum )", new { RndString = item.RndString, BatchNo = item.BatchNo, ReelNum = item.ReelNum });
+            //            if (rtnB)
+            //            {
+            //                Console.WriteLine("更新成功！");
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("更新失败！");
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //        }
+            //    }
+            //}
+            //catch
+            //{ }
+        }
+
         /// <summary>
         /// 打印总垛数据，并移除打印的,打印报表
         /// </summary>

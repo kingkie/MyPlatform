@@ -39,6 +39,10 @@
 		<PrinterItem linenum="2" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
 		<PrinterItem linenum="3" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
 		<PrinterItem linenum="4" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
+		<PrinterItem linenum="1f" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
+		<PrinterItem linenum="2f" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
+		<PrinterItem linenum="3f" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
+		<PrinterItem linenum="4f" pname="Fabric" lblname="FabricLbl.btw" lblowname="FabricLbl.btw" boxlbl="FabricCarton.btw" boxprt="Carton" copies="1"/>
 	</PrinterConfig>
 	<PortConfig CommName="COM2" CommRate="19200"/>
 	<AutoStartBoot value="1"/>
