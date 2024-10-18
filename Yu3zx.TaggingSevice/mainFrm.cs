@@ -723,61 +723,65 @@ namespace Yu3zx.TaggingSevice
                                     Log.Instance.LogWrite(string.Format("接收到复位指令！"));
                                     break;
                                 case 0x07:
-                                    //
-                                    //获取当前需要打印的
-                                    if (ProductStateManager.GetInstance().CurrentBox == null)
-                                    {
-                                        break;
-                                    }
-
-                                    if(CurrentItem != null)
-                                    {
-                                        this.Invoke((EventHandler)delegate {
-                                            PrintTwiceFabricLabel(CurrentItem);//打印当前
-                                            Log.Instance.LogWrite(string.Format("打印面料二次标签：{0}", CurrentItem.ReelNum));
-                                        });
-
-                                        try
-                                        {
-                                            var item = CurrentItem;
-                                            //NoticeRollDiam(item);//告知当前布卷卷径
-                                            byte lNum = byte.Parse(item.LineNum);
-                                            bool isA = true;
-                                            int flag = 0;
-                                            if (item.QualityName != "A" && !item.QualityName.Contains("KB") && !item.QualityName.Contains("SB"))
-                                            {
-                                                if (item.QualityName.Contains("HC"))
-                                                {
-                                                    flag = 3;
-                                                }
-                                                else if (item.QualityName.Contains("KC") || item.QualityName.Contains("SC"))
-                                                {
-                                                    flag = 2;
-                                                }
-                                                isA = false;
-                                            }
-                                            else
-                                            {
-                                                if (item.QualityName.ToUpper() == "SCA")
-                                                {
-                                                    flag = 2;
-                                                    isA = false;
-                                                }
-                                            }
-
-                                            byte bForce = IsForce();
-
-                                            NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.QualityString, item.ColorNum, isA, flag, bForce);
-                                            Log.Instance.LogWrite(string.Format("通知面料二次标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            Log.Instance.LogWrite(string.Format("通知二次打印完成异常:{0}", ex.StackTrace));
-                                        }
-
-
-                                    }
+                                    //------打印整箱的-------
+                                    this.Invoke((EventHandler)delegate {
+                                        PrintTwiceCartonBoxLabel(plcCmd.MachineId);//
+                                    });
+                                    Log.Instance.LogWrite(string.Format("二次打印整箱"));
                                     break;
+
+                                    ////获取当前需要打印的
+                                    //if (ProductStateManager.GetInstance().CurrentBox == null)
+                                    //{
+                                    //    break;
+                                    //}
+
+                                    //if(CurrentItem != null)
+                                    //{
+                                    //    this.Invoke((EventHandler)delegate {
+                                    //        PrintTwiceFabricLabel(CurrentItem);//打印当前
+                                    //        Log.Instance.LogWrite(string.Format("打印面料二次标签：{0}", CurrentItem.ReelNum));
+                                    //    });
+
+                                    //    try
+                                    //    {
+                                    //        var item = CurrentItem;
+                                    //        //NoticeRollDiam(item);//告知当前布卷卷径
+                                    //        byte lNum = byte.Parse(item.LineNum);
+                                    //        bool isA = true;
+                                    //        int flag = 0;
+                                    //        if (item.QualityName != "A" && !item.QualityName.Contains("KB") && !item.QualityName.Contains("SB"))
+                                    //        {
+                                    //            if (item.QualityName.Contains("HC"))
+                                    //            {
+                                    //                flag = 3;
+                                    //            }
+                                    //            else if (item.QualityName.Contains("KC") || item.QualityName.Contains("SC"))
+                                    //            {
+                                    //                flag = 2;
+                                    //            }
+                                    //            isA = false;
+                                    //        }
+                                    //        else
+                                    //        {
+                                    //            if (item.QualityName.ToUpper() == "SCA")
+                                    //            {
+                                    //                flag = 2;
+                                    //                isA = false;
+                                    //            }
+                                    //        }
+
+                                    //        byte bForce = IsForce();
+
+                                    //        NoticePrintedFabric(lNum, (int)(item.ProduceNum * 10), item.ReelNum, item.QualityString, item.ColorNum, isA, flag, bForce);
+                                    //        Log.Instance.LogWrite(string.Format("通知面料二次标签打印完成,线号：{0},品质：{1},{2}", item.LineNum, item.QualityName, isA));
+                                    //    }
+                                    //    catch (Exception ex)
+                                    //    {
+                                    //        Log.Instance.LogWrite(string.Format("通知二次打印完成异常:{0}", ex.StackTrace));
+                                    //    }
+                                    //}
+                                    //break;
                             }
                         }
                     }
@@ -1146,7 +1150,7 @@ namespace Yu3zx.TaggingSevice
                                     cmd7.CmdCode = 0x07;
                                     cmd7.MachineId = cmdInput[1];
                                     //
-                                    PrePlcReceive.Enqueue(cmd7);
+                                    PlcReceive.Enqueue(cmd7);
                                     break;
                                 default:
 
@@ -1895,6 +1899,9 @@ namespace Yu3zx.TaggingSevice
             return ds;
         }
 
+        private ConcurrentQueue<CartonBoxLabel> CartonBoxList = new ConcurrentQueue<CartonBoxLabel>();
+
+
         /// <summary>
         /// 打印整箱的标签
         /// </summary>
@@ -1979,6 +1986,8 @@ namespace Yu3zx.TaggingSevice
                     Log.Instance.LogWrite("L1586:模板没找到！");
                 }
 
+                CartonBoxList.Enqueue(cartonBox);
+
                 //保存
                 CartonBoxInfo boxInfo = new CartonBoxInfo();
                 boxInfo.BatchNo = cartonBox.BatchNo;
@@ -2001,6 +2010,94 @@ namespace Yu3zx.TaggingSevice
             catch (Exception ex)
             {
                 Log.Instance.LogWrite("L1605:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a1">原来的</param>
+        /// <param name="a2">新的</param>
+        private void CartonBoxLabelUpdate(CartonBoxLabel a1, CartonBoxLabel a2)
+        {
+            Type type1 = a1.GetType();
+            Type type2 = a2.GetType();
+            foreach (var mi in type2.GetProperties())
+            {
+                var des = type1.GetProperty(mi.Name);
+                if (des != null) // 确保属性存在
+                {
+                    try
+                    {
+                        if ("IsInDesignMode" == mi.Name)
+                        {
+                            continue;
+                        }
+                        else if ("ProdType" == mi.Name)
+                        {
+                            des.SetValue(a1, mi.GetValue(a2, null), null);
+                        }
+                        else
+                        {
+                            des.SetValue(a1, mi.GetValue(a2, null), null);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(mi.Name + "=" + ex.Message);
+                        Console.WriteLine("L1662:" + ex.StackTrace);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 二次打印整箱的标签
+        /// </summary>
+        private void PrintTwiceCartonBoxLabel(int lNum)
+        {
+            try
+            {
+                string lStrNum = lNum.ToString();
+                CartonBoxLabel cartonBox = null;
+
+                if(CartonBoxList.TryDequeue(out cartonBox))
+                {
+                    //OK
+                }
+                else
+                {
+                    Log.Instance.LogWrite("L2038:没找到数据！");
+                    return;
+                }
+
+                //模板不同纸张不同，打印换纸麻烦
+                var pbCfg = AppManager.CreateInstance().GetPrintCfg(lStrNum + "f");
+                if (pbCfg != null)
+                {
+                    Dictionary<string, string> dictData = PrintHelper.GetEntityPropertyToDict(cartonBox);
+                    string lblFile = Application.StartupPath + "\\Templates\\" + pbCfg.CartonLabel;
+                    if (File.Exists(lblFile))
+                    {
+                        PrintHelper.CreateInstance().BarPrintInit(lblFile, pbCfg.CartonPrinter, dictData, PrintHelper.CartonTempleteFieldsList, pbCfg.PrintCopies);
+                    }
+                    else
+                    {
+                        Log.Instance.LogWrite("L1581:" + lblFile);
+                    }
+                }
+                else
+                {
+                    Log.Instance.LogWrite("L2093:模板没找到！");
+                }
+
+                //通知LC已经打印
+                NoticeTwicePrintedCarton((byte)lNum, ProductStateManager.GetInstance().CurrentBox.OnLaunchItems.Count);
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite("L2117:" + ex.Message);
                 Log.Instance.LogWrite(ex.StackTrace);
             }
         }
@@ -2391,6 +2488,38 @@ namespace Yu3zx.TaggingSevice
             catch (Exception ex)
             {
                 Log.Instance.LogWrite("L1068:" + ex.Message);
+                Log.Instance.LogWrite(ex.StackTrace);
+            }
+            //通知为新指令
+            try
+            {
+                //通知PLC有新指令
+                PlcConn.WriteFlag(20, 20, true);
+            }
+            catch
+            { }
+        }
+        /// <summary>
+        /// 装箱单
+        /// </summary>
+        /// <param name="iLNum"></param>
+        /// <param name="print"></param>
+        private void NoticeTwicePrintedCarton(byte iLNum, int print)
+        {
+            //通知上线
+            try
+            {
+                List<byte> lCmd = new List<byte>();
+                lCmd.Add(0x07); //
+                lCmd.Add(iLNum);//产线号
+
+                lCmd.AddRange(MathHelper.ShortToBytes(Convert.ToInt16(print)));
+
+                PlcConn.WriteDataBlock(20, 21, lCmd.ToArray());//
+            }
+            catch (Exception ex)
+            {
+                Log.Instance.LogWrite("L2539:" + ex.Message);
                 Log.Instance.LogWrite(ex.StackTrace);
             }
             //通知为新指令

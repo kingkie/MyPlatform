@@ -150,13 +150,13 @@ namespace Yu3zx.TaggingSevice
                     {
                         PrintCfg cfg = new PrintCfg();
                         cfg.LineNum = nSub.Attributes["linenum"].Value.Trim();
-                        cfg.PrinterName = nSub.Attributes["pname"].Value.Trim();
-                        cfg.LabelName = nSub.Attributes["lblname"].Value.Trim();
+                        cfg.PrinterName = nSub.Attributes["pname"].Value.Trim();//面料标签打印机
+                        cfg.LabelName = nSub.Attributes["lblname"].Value.Trim();//面料标签模板
 
-                        cfg.LabelBName = nSub.Attributes["lblowname"].Value.Trim();
+                        cfg.LabelBName = nSub.Attributes["lblowname"].Value.Trim();//次品打印标签
 
                         //---------------
-                        cfg.CartonLabel = nSub.Attributes["boxlbl"].Value.Trim();
+                        cfg.CartonLabel = nSub.Attributes["boxlbl"].Value.Trim();//箱外打印标签
                         cfg.CartonPrinter = nSub.Attributes["boxprt"].Value.Trim();
                         //---------------
                         cfg.PrintCopies = int.Parse(nSub.Attributes["copies"].Value.Trim());
