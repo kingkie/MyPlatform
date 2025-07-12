@@ -65,7 +65,7 @@ namespace Yu3zx.TaggingSevice
                 else
                 {
                     this.Text = this.Text + " (试用版)";
-                    if(DateTime.Now.Year != 2024)
+                    if(DateTime.Now.Year != 2025)
                     {
                         Environment.Exit(0);
                     }

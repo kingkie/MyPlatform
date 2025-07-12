@@ -3501,17 +3501,36 @@ string name, object value = null, DbType? dbType = null, ParameterDirection? dir
             var property = _properties.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.Ordinal))
                ?? _properties.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.OrdinalIgnoreCase));
 
+            //如果找不到，就尝试去掉列名下划线，再找一次。
+            if (property == null && MatchNamesWithUnderscores)
+            {
+                property = _properties.FirstOrDefault(p => string.Equals(p.Name, columnName.Replace("_", ""), StringComparison.Ordinal))
+                    ?? _properties.FirstOrDefault(p => string.Equals(p.Name, columnName.Replace("_", ""), StringComparison.OrdinalIgnoreCase));
+            }
+
             if (property != null)
                 return new SimpleMemberMap(columnName, property);
 
             var field = _fields.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.Ordinal))
                ?? _fields.FirstOrDefault(p => string.Equals(p.Name, columnName, StringComparison.OrdinalIgnoreCase));
 
+            if (field == null && MatchNamesWithUnderscores)
+            {
+                field = _fields.FirstOrDefault(p => string.Equals(p.Name, columnName.Replace("_", ""), StringComparison.Ordinal))
+                    ?? _fields.FirstOrDefault(p => string.Equals(p.Name, columnName.Replace("_", ""), StringComparison.OrdinalIgnoreCase));
+            }
+
             if (field != null)
                 return new SimpleMemberMap(columnName, field);
 
             return null;
         }
+
+        /// <summary>
+        /// 按列名匹配属性时，忽略下划线（有些时习惯在数据库中使用下划线）。
+        /// Should column names like User_Id be allowed to match properties/fields like UserId ?
+        /// </summary>
+        public static bool MatchNamesWithUnderscores { get; set; } = true;
     }
 
     /// <summary>

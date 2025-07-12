@@ -181,6 +181,27 @@ namespace Yu3zx.DapperExtend
                 }
             }
         }
+
+        public void CLose()
+        {
+            try
+            {
+                if (dbConn != null)
+                {
+                    try
+                    {
+                        dbConn.Dispose();
+                        dbConn = null;
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
+            catch
+            { }
+        }
     }
     /// <summary>
     /// 数据库类型
